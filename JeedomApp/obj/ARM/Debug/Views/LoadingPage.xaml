@@ -1,0 +1,30 @@
+﻿<Page x:Class="JeedomApp.Views.LoadingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:JeedomApp.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Background="{StaticResource BlueBase}"
+      mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:ConnectionId='1' x:Name="tbLoading"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       Text="Chargement ..." />
+            <TextBlock x:ConnectionId='2' x:Name="tbInformation"
+                       HorizontalAlignment="Center"
+                       Style="{StaticResource SubtitleTextBlockStyle}"
+                       Text="Information" />
+            <ProgressRing x:ConnectionId='3' x:Name="prProgress"
+                          Width="50"
+                          Height="50"
+                          Margin="0,30"
+                          Foreground="White"
+                          IsActive="True" />
+        </StackPanel>
+    </Grid>
+</Page>
+

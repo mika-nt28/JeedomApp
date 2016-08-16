@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
-  <Publisher>CN=F3F1F7F3-0E10-455C-B3C8-3B98F8AFBB91</Publisher>
-  <PublisherDisplayName>Phabrys</PublisherDisplayName>
+  <Publisher>CN=E25A6272-1CEC-41C5-8B4C-8FEBCE6CE49F</Publisher>
+  <PublisherDisplayName>Mika-Nt28</PublisherDisplayName>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
     <Language Code="af" InMinimumRequirementSet="true" />
@@ -358,11 +358,13 @@
     <Language Code="zu-za" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>35915Phabrys.JeedomApp</MainPackageIdentityName>
+    <MainPackageIdentityName>43593Mika-Nt28.JeedomApp</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>JeedomApp</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
-  <AccountPackageIdentityNames />
-  <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGH1Z2HB" />
+  <AccountPackageIdentityNames>
+    <MainPackageIdentityName>43593Mika-Nt28.KnxWebMobile</MainPackageIdentityName>
+  </AccountPackageIdentityNames>
+  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9NBLGGH4S7Z1" />
 </StoreAssociation>

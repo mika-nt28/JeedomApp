@@ -1,0 +1,7 @@
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\Jeedom.csproj;arm
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\Jeedom.csproj;arm
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\Jeedom.csproj;arm
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\JeedomApp.csproj;arm
+C:\Users\micha_000\Source\Repos\JeedomApp\Localisation\Localisation.csproj;arm
+C:\Users\micha_000\Source\Repos\JeedomApp\Notification\Notification.csproj;arm
+C:\Users\micha_000\Source\Repos\JeedomApp\VoiceCommandService\VoiceCommandService.csproj;arm

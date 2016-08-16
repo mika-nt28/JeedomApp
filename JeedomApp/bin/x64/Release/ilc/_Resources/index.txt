@@ -1,0 +1,6 @@
+System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+  System.Reactive.Strings_Linq.resources
+System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+  System.Reactive.Strings_Core.resources
+System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+  System.Reactive.Strings_PlatformServices.resources

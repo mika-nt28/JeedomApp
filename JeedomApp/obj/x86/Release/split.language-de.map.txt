@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-de"
+"ResourceDimensions"		"language-de-de"
+
+[Files]
+"C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x86\Release\split.language-de.pri"			"resources.pri"

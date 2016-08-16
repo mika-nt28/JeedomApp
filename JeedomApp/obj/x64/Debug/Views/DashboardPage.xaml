@@ -1,0 +1,54 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="JeedomApp.Views.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="using:Template10.Behaviors"
+    xmlns:c="using:JeedomApp.Converters"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:jdm="using:Jeedom"
+    xmlns:local="using:JeedomApp.Views"
+    xmlns:localctl="using:JeedomApp.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:selector="using:JeedomApp.Selectors"
+    xmlns:vm="using:JeedomApp.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <vm:DashboardPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/ObjectPageResources.xaml" />
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource MainBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  header  -->
+        <controls:PageHeader x:ConnectionId='3'
+            x:Name="pageHeader"
+            Text="Tableau de bord" />
+
+        <!--  content  -->
+        <Grid Grid.Row="1">
+            <ScrollViewer>
+                <Pivot x:ConnectionId='4'
+                    HeaderTemplate="{StaticResource ObjectHeaderTemplate}"
+                    ItemTemplate="{StaticResource ObjectPageTemplate}"
+                                                                        />
+            </ScrollViewer>
+        </Grid>
+
+        <!--  statusbar  -->
+        <Grid Grid.Row="2">
+            <localctl:StatusBar />
+        </Grid>
+    </Grid>
+</Page>
+

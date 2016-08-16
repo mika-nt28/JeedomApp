@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="43593Mika-Nt28.JeedomApp" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>UNPLATED</AlternateForm>
+			<Language>EN-US</Language>
+			<Scale>200</Scale>
+			<TargetSize>24</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="App.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/App.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ApplicationInsights.config" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/ApplicationInsights.config">
+				<Candidate type="Path">
+					<Value>ApplicationInsights.config</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="JeedomApp.xr.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/JeedomApp.xr.xml">
+				<Candidate type="Path">
+					<Value>JeedomApp.xr.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="JeedomAppVoiceCommandes.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/JeedomAppVoiceCommandes.xml">
+				<Candidate type="Path">
+					<Value>JeedomAppVoiceCommandes.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="Assets">
+				<NamedResource name="LockScreenLogo.png" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/LockScreenLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\LockScreenLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/StoreLogo.png">
+					<Candidate type="Path">
+						<Value>Assets\StoreLogo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Fonts">
+					<NamedResource name="FontAwesome.ttf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/Fonts/FontAwesome.ttf">
+						<Candidate type="Path">
+							<Value>Assets\Fonts\FontAwesome.ttf</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="WeatherIcons.ttf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Assets/Fonts/WeatherIcons.ttf">
+						<Candidate type="Path">
+							<Value>Assets\Fonts\WeatherIcons.ttf</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="ColorPicker">
+				<NamedResource name="ColorPicker.xr.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/ColorPicker/ColorPicker.xr.xml">
+					<Candidate type="Path">
+						<Value>ColorPicker\ColorPicker.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="colors.jpg" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/ColorPicker/colors.jpg">
+					<Candidate type="Path">
+						<Value>ColorPicker\colors.jpg</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/ColorPicker/Themes/Generic.xbf">
+						<Candidate type="Path">
+							<Value>ColorPicker\Themes\Generic.xbf</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Controls">
+				<NamedResource name="ConnectControl.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Controls/ConnectControl.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ConnectDialog.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Controls/ConnectDialog.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ServerState.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Controls/ServerState.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StatusBar.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Controls/StatusBar.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Images">
+				<NamedResource name="WP.jpg" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Images/WP.jpg">
+					<Candidate type="Path">
+						<Value>Images\WP.jpg</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Microsoft.Xaml.Interactions">
+				<ResourceMapSubtree name="Properties">
+					<NamedResource name="Microsoft.Xaml.Interactions.rd.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Microsoft.Xaml.Interactions/Properties/Microsoft.Xaml.Interactions.rd.xml">
+						<Candidate type="Path">
+							<Value>Microsoft.Xaml.Interactions\Properties\Microsoft.Xaml.Interactions.rd.xml</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Microsoft.Xaml.Interactivity">
+				<ResourceMapSubtree name="Properties">
+					<NamedResource name="Microsoft.Xaml.Interactivity.rd.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Microsoft.Xaml.Interactivity/Properties/Microsoft.Xaml.Interactivity.rd.xml">
+						<Candidate type="Path">
+							<Value>Microsoft.Xaml.Interactivity\Properties\Microsoft.Xaml.Interactivity.rd.xml</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Properties">
+				<NamedResource name="Default.rd.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Properties/Default.rd.xml">
+					<Candidate type="Path">
+						<Value>Properties\Default.rd.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DesignTimeResources.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Properties/DesignTimeResources.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Styles">
+				<NamedResource name="Custom.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Styles/Custom.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EqLogicRessources.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Styles/EqLogicRessources.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ObjectPageResources.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Styles/ObjectPageResources.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Widgets">
+					<NamedResource name="Default.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Styles/Widgets/Default.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Light.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Styles/Widgets/Light.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Template10Library">
+				<NamedResource name="Template10Library.xr.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Template10Library.xr.xml">
+					<Candidate type="Path">
+						<Value>Template10Library\Template10Library.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Controls">
+					<NamedResource name="HamburgerMenu.xaml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Controls/HamburgerMenu.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Controls\HamburgerMenu.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="HamburgerMenu.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Controls/HamburgerMenu.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Properties">
+					<NamedResource name="Template10Library.rd.xml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Properties/Template10Library.rd.xml">
+						<Candidate type="Path">
+							<Value>Template10Library\Properties\Template10Library.rd.xml</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xaml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/Generic.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\Generic.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Generic.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/Generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ModalDialog.xaml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/ModalDialog.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\ModalDialog.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ModalDialog.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/ModalDialog.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="PageHeader.xaml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/PageHeader.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\PageHeader.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="PageHeader.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/PageHeader.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Resizer.xaml" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/Resizer.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\Resizer.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Resizer.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Template10Library/Themes/Resizer.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Views">
+				<NamedResource name="AboutPage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/AboutPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Busy.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/Busy.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DashboardPage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/DashboardPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EqLogicPage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/EqLogicPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LoadingPage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/LoadingPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="MessagePage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/MessagePage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ObjectPage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/ObjectPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ScenePage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/ScenePage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ServerPage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/ServerPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SettingsPage.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/SettingsPage.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Shell.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/Shell.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Splash.xbf" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/Views/Splash.xbf">
+					<Candidate type="EmbeddedData">
+						<Base64Value>[Embedded Binary Data]</Base64Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinMetadata">
+				<NamedResource name="Windows.winmd" uri="ms-resource://43593Mika-Nt28.JeedomApp/Files/WinMetadata/Windows.winmd">
+					<Candidate type="Path">
+						<Value>WinMetadata\Windows.winmd</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Xaml.Interactions">
+			<ResourceMapSubtree name="Strings">
+				<NamedResource name="CallMethodActionValidMethodNotFoundExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/CallMethodActionValidMethodNotFoundExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find method named {0} on object of type {1} that matches the expected signature.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CannotAttachBehaviorMultipleTimesExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/CannotAttachBehaviorMultipleTimesExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>An instance of a behavior cannot be attached to more than one object at a time.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="CannotFindEventNameExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/CannotFindEventNameExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find an event named {0} on type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionCannotFindPropertyNameExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionCannotFindPropertyNameExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot find a property named {0} on type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionCannotSetValueExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionCannotSetValueExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot assign value of type {0} to property {1} of type {2}. The {1} property can be assigned only values of type {2}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="ChangePropertyActionPropertyIsReadOnlyExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/ChangePropertyActionPropertyIsReadOnlyExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Property {0} defined by type {1} does not expose a set method and therefore cannot be modified.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="EventNotSupportedExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/EventNotSupportedExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Event {0} is not supported. Consider implementing a custom IBehavior to respond to this event.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="GoToStateActionTargetHasNoStateGroups" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/GoToStateActionTargetHasNoStateGroups">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Target {0} does not define any VisualStateGroups.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidLeftOperand" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/InvalidLeftOperand">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Binding property of type {0} cannot be used with operator {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidOperands" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/InvalidOperands">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Binding property of type {0} and Value property of type {1} cannot be used with operator {2}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidRightOperand" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactions/Strings/InvalidRightOperand">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Value property of type {0} cannot be used with operator {1}.</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="Microsoft.Xaml.Interactivity">
+			<ResourceMapSubtree name="Strings">
+				<NamedResource name="CannotAttachBehaviorMultipleTimesExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactivity/Strings/CannotAttachBehaviorMultipleTimesExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>An instance of a behavior cannot be attached to more than one object at a time.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="DuplicateBehaviorInCollectionExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactivity/Strings/DuplicateBehaviorInCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Cannot add an instance of a behavior to a BehaviorCollection more than once.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="InvalidAssociatedObjectExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactivity/Strings/InvalidAssociatedObjectExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>AssociatedObject is of type {0} but should be of type {1}.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NonActionAddedToActionCollectionExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactivity/Strings/NonActionAddedToActionCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Only IAction types are supported in an ActionCollection.</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="NonBehaviorAddedToBehaviorCollectionExceptionMessage" uri="ms-resource://43593Mika-Nt28.JeedomApp/Microsoft.Xaml.Interactivity/Strings/NonBehaviorAddedToBehaviorCollectionExceptionMessage">
+					<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+						<Value>Only IBehavior types are supported in a BehaviorCollection.</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="System.Reactive.Strings_Core">
+			<NamedResource name="CANT_OBTAIN_SCHEDULER" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/CANT_OBTAIN_SCHEDULER">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Using the Scheduler.{0} property is no longer supported due to refactoring of the API surface and elimination of platform-specific dependencies. Please include System.Reactive.PlatformServices for your target platform and use the {0}Scheduler type instead. If you're building a Windows Store app, notice some schedulers are no longer supported. Consider using Scheduler.Default instead.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="COMPLETED_NO_VALUE" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/COMPLETED_NO_VALUE">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>OnCompleted notification doesn't have a value.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="DISPOSABLE_ALREADY_ASSIGNED" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/DISPOSABLE_ALREADY_ASSIGNED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Disposable has already been assigned.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="FAILED_CLOCK_MONITORING" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/FAILED_CLOCK_MONITORING">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Failed to start monitoring system clock changes.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="HEAP_EMPTY" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/HEAP_EMPTY">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Heap is empty.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="OBSERVER_TERMINATED" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/OBSERVER_TERMINATED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Observer has already terminated.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="REENTRANCY_DETECTED" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/REENTRANCY_DETECTED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Reentrancy has been detected.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SCHEDULER_OPERATION_ALREADY_AWAITED" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Core/SCHEDULER_OPERATION_ALREADY_AWAITED">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>This scheduler operation has already been awaited.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="System.Reactive.Strings_Linq">
+			<NamedResource name="CANT_ADVANCE_WHILE_RUNNING" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/CANT_ADVANCE_WHILE_RUNNING">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>{0} cannot be called when the scheduler is already running. Try using Sleep instead.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="COULD_NOT_FIND_INSTANCE_EVENT" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/COULD_NOT_FIND_INSTANCE_EVENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Could not find event '{0}' on object of type '{1}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="COULD_NOT_FIND_STATIC_EVENT" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/COULD_NOT_FIND_STATIC_EVENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Could not find event '{0}' on type '{1}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_ADD_METHOD_SHOULD_TAKE_ONE_PARAMETER" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_ADD_METHOD_SHOULD_TAKE_ONE_PARAMETER">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Add method should take 1 parameter.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_ARGS_NOT_ASSIGNABLE" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_ARGS_NOT_ASSIGNABLE">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The second parameter of the event delegate must be assignable to '{0}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_MISSING_ADD_METHOD" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_MISSING_ADD_METHOD">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Event is missing the add method.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_MISSING_REMOVE_METHOD" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_MISSING_REMOVE_METHOD">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Event is missing the remove method.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_MUST_RETURN_VOID" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_MUST_RETURN_VOID">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The event delegate must have a void return type.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_PATTERN_REQUIRES_TWO_PARAMETERS" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_PATTERN_REQUIRES_TWO_PARAMETERS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The event delegate must have exactly two parameters.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_REMOVE_METHOD_SHOULD_TAKE_ONE_PARAMETER" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_REMOVE_METHOD_SHOULD_TAKE_ONE_PARAMETER">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Remove method should take 1 parameter.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_SENDER_NOT_ASSIGNABLE" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_SENDER_NOT_ASSIGNABLE">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The first parameter of the event delegate must be assignable to '{0}'.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="EVENT_WINRT_REMOVE_METHOD_SHOULD_TAKE_ERT" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/EVENT_WINRT_REMOVE_METHOD_SHOULD_TAKE_ERT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Remove method of a WinRT event should take an EventRegistrationToken.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MORE_THAN_ONE_ELEMENT" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/MORE_THAN_ONE_ELEMENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains more than one element.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MORE_THAN_ONE_MATCHING_ELEMENT" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/MORE_THAN_ONE_MATCHING_ELEMENT">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains more than one matching element.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NO_ELEMENTS" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/NO_ELEMENTS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains no elements.</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="NO_MATCHING_ELEMENTS" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_Linq/NO_MATCHING_ELEMENTS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>Sequence contains no matching element.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+		<ResourceMapSubtree name="System.Reactive.Strings_PlatformServices">
+			<NamedResource name="WINRT_NO_SUB1MS_TIMERS" uri="ms-resource://43593Mika-Nt28.JeedomApp/System.Reactive.Strings_PlatformServices/WINRT_NO_SUB1MS_TIMERS">
+				<Candidate qualifiers="Language-EN-US" isDefault="true" type="String">
+					<Value>The WinRT thread pool doesn't support creating periodic timers with a period below 1 millisecond.</Value>
+				</Candidate>
+			</NamedResource>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

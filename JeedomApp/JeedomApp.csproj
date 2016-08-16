@@ -17,7 +17,10 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>JeedomApp_StoreKey.pfx</PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>0F45B215E0F639039A676462A8807B4A2A4776E6</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>CB3B8FF94D431EA7B812778E2C53932709D76A86</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Auto</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -100,6 +103,7 @@
     <Content Include="Assets\Fonts\WeatherIcons.ttf" />
     <Content Include="Assets\Fonts\FontAwesome.ttf" />
     <None Include="JeedomApp_StoreKey.pfx" />
+    <None Include="JeedomApp_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -182,7 +186,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="JeedomApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Package.StoreAssociation.xml" />
@@ -297,11 +300,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
-      <Name>Windows Mobile Extensions for the UWP</Name>
-    </SDKReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Jeedom\Jeedom.csproj">
       <Project>{e1987124-2d93-4cb4-9767-39ee26575802}</Project>
       <Name>Jeedom</Name>
@@ -321,6 +319,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\Widget\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
