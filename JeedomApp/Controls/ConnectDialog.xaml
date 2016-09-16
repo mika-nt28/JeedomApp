@@ -9,7 +9,24 @@
              xmlns:views="using:JeedomApp.Views"
              xmlns:vm="using:JeedomApp.ViewModels"
              mc:Ignorable="d">
-
+    <CommandBar>
+        <AppBarToggleButton Icon="Shuffle" Label="Connexion" Click="bConnect_Click" />
+        <AppBarToggleButton Icon="RepeatAll" Label="Demo" Click="bDemo_Click" />
+        <AppBarSeparator/>
+        <AppBarButton Icon="Back" Label="Back"/>
+        <AppBarButton Icon="Stop" Label="Stop" />
+        <AppBarButton Icon="Play" Label="Play" >
+        <AppBarButton Icon="Forward" Label="Forward"/>
+    
+        <CommandBar.SecondaryCommands>
+            <AppBarButton Icon="Like" Label="Like" />
+            <AppBarButton Icon="Dislike" Label="Dislike"/>
+        </CommandBar.SecondaryCommands>
+    
+        <CommandBar.Content>
+            <TextBlock Text="Now playing..." Margin="12,14"/>
+        </CommandBar.Content>
+    </CommandBar>
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <ScrollViewer>
             <Grid>
