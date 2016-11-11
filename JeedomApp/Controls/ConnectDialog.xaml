@@ -10,7 +10,7 @@
              xmlns:vm="using:JeedomApp.ViewModels"
              mc:Ignorable="d">
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
         <ScrollViewer>
             <Grid>
                 <Grid.RowDefinitions>
@@ -47,13 +47,21 @@
                            Margin="5"
                            Foreground="Red"
                            Text="" />
-
-                <Button x:Name="bConnect"
-                        Margin="5"
-                        Click="bConnect_Click"
-                        Content="Connexion" />
                 <localcontrols:ConnectControl Grid.Row="1" />
             </Grid>
         </ScrollViewer>
+        <CommandBar VerticalAlignment="Bottom">
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Sync"
+                        Click="bConnect_Click"
+                        Label="Connexion"/>
+            <AppBarButton Icon="Camera" 
+                    Click="QrCodeInfo_Click"
+                    Label="Scan QR"/>
+            <AppBarButton Icon="View" 
+                    Label="Demo"/>
+        </CommandBar>
     </Grid>
 </UserControl>

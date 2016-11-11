@@ -391,6 +391,16 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.CompositeTransform" />
     <RootType FullName="JeedomApp.Views.AboutPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="PrimaryCommands" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Icon" />
+      <RootProperty Name="Label" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="JeedomApp.Controls.ConnectDialog" />
     <RootType FullName="JeedomApp.ViewModels.DashboardPageViewModel" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">

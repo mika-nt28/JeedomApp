@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="43593Mika-Nt28.JeedomApp" Publisher="CN=E25A6272-1CEC-41C5-8B4C-8FEBCE6CE49F" Version="1.1.6.0" ProcessorArchitecture="x64" />
+  <Identity Name="JeedomApp" Publisher="CN=E25A6272-1CEC-41C5-8B4C-8FEBCE6CE49F" Version="1.1.6.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="a889ec51-eaf7-49b7-9a57-118ba2f44e74" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>JeedomApp</DisplayName>
@@ -15,7 +15,7 @@
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10240.0" MaxVersionTested="10.0.10586.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10240.0" MaxVersionTested="10.0.10240.0" />
   </Dependencies>
   <Resources>
     <Resource Language="FR-FR" />
@@ -31,17 +31,15 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
+        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
+          <uap:AppService Name="JeedomAppVoiceCommandService" />
+        </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
           <BackgroundTasks>
-            <Task Type="location" />
+            <Task Type="timer" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.BadgeNotificationHistoryChangedTriggerTask">
-          <BackgroundTasks>
-            <Task Type="systemEvent" />
-          </BackgroundTasks>
-        </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastActivationTypeBackgroundClosedTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationHistoryChangedTriggerTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
           </BackgroundTasks>
@@ -51,19 +49,21 @@
             <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationHistoryChangedTriggerTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastActivationTypeBackgroundClosedTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.BadgeNotificationHistoryChangedTriggerTask">
           <BackgroundTasks>
-            <Task Type="timer" />
+            <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
-        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
-          <uap:AppService Name="JeedomAppVoiceCommandService" />
-        </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="location" />
+          </BackgroundTasks>
+        </Extension>
       </Extensions>
     </Application>
   </Applications>
@@ -78,16 +78,16 @@
     <Extension Category="windows.activatableClass.inProcessServer">
       <InProcessServer>
         <Path>CLRHost.dll</Path>
-        <ActivatableClass ActivatableClassId="Localisation.LocationBackgroundTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Localisation.GeofenceBackgroundTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Localisation.LocationBackgroundTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.BadgeNumericNotificationContent" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.ToastActivationTypeBackgroundClosedTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.BadgeNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.ToastNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.ToastNotificationQuickReplyTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.Helpers.ToastHelper" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.Helpers.BackgroundTaskStorage" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.Helpers.Settings" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.ToastNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.ToastNotificationQuickReplyTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="VoiceCommandService.JeedomAppVoiceCommandService" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
@@ -96,13 +96,13 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="14.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2015" />
-    <build:Item Name="OperatingSystem" Version="10.0.14901.1000 (rs_prerelease.160805-1700)" />
+    <build:Item Name="OperatingSystem" Version="10.0.14959.1000 (rs_prerelease.161026-1700)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.25425.1" />
     <build:Item Name="ProjectGUID" Value="{A53E8C96-A374-4E03-AC17-F6630B20664B}" />
     <build:Item Name="OptimizingToolset" Value="None" />
     <build:Item Name="TargetRuntime" Value="Managed" />
     <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="14.0.25527.1" />
-    <build:Item Name="WindowsMobile" Version="10.0.10586.0" />
+    <build:Item Name="WindowsMobile" Version="10.0.10240.0" />
     <build:Item Name="MakePri.exe" Version="10.0.14393.33 (rs1_release_sec.160727-1952)" />
   </build:Metadata>
 </Package>

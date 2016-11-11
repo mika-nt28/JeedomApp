@@ -5,10 +5,7 @@ Controls\ServerState.xbf
 Controls\StatusBar.xbf
 Properties\DesignTimeResources.xbf
 Styles\Custom.xbf
-Styles\EqLogicRessources.xbf
 Styles\ObjectPageResources.xbf
-Styles\Widgets\Default.xbf
-Styles\Widgets\Light.xbf
 Views\AboutPage.xbf
 Views\Busy.xbf
 Views\DashboardPage.xbf

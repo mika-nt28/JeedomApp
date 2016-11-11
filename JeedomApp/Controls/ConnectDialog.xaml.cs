@@ -7,11 +7,16 @@ using Windows.Foundation.Metadata;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+using System.Diagnostics;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using Windows.Devices.Enumeration;
+using Windows.Devices.PointOfService;
+using Windows.Storage.Streams;
+using Windows.Media.Capture;
+using Windows.System.Display;
+using ZXing.Mobile;
 //TODO: Gérer l'adresse sur le dns jeedom
 
 namespace JeedomApp.Controls
@@ -21,6 +26,8 @@ namespace JeedomApp.Controls
     /// </summary>
     public sealed partial class ConnectDialog : UserControl
     {
+        private MobileBarcodeScanner _scanner;
+
         public ConnectDialog()
         {
             this.InitializeComponent();
@@ -74,6 +81,29 @@ namespace JeedomApp.Controls
                 if (modal != null)
                     modal.IsModal = false;
             });
+        }
+
+        private async void QrCodeInfo_Click(object sender, RoutedEventArgs e)
+        {
+
+            _scanner = new MobileBarcodeScanner(this.Dispatcher);
+            _scanner.UseCustomOverlay = false;
+            _scanner.TopText = "Lecture du QR code";
+            _scanner.BottomText = "Le scan du QR code est automatique\r\n\rAppuiller sur retour pour quitter";
+
+            var result = await _scanner.Scan();
+            ProcessScanResult(result);
+        }
+        private void ProcessScanResult(ZXing.Result result)
+        {
+            string message = string.Empty;
+
+            message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "QR code trouvé: " + result.Text : "Scanning cancelled";
+
+          /*  this.Dispatcher.InvokeAsync(() =>
+            {
+                MessageBox.Show(message);
+            });*/
         }
     }
 }

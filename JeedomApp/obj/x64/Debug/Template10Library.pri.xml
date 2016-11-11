@@ -39,6 +39,16 @@
 							<Base64Value>[Embedded Binary Data]</Base64Value>
 						</Candidate>
 					</NamedResource>
+					<NamedResource name="HamburgerMenu.xaml" uri="ms-resource://Template10Library/Files/Template10Library/Themes/HamburgerMenu.xaml">
+						<Candidate type="Path">
+							<Value>Template10Library\Themes\HamburgerMenu.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="HamburgerMenu.xbf" uri="ms-resource://Template10Library/Files/Template10Library/Themes/HamburgerMenu.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
 					<NamedResource name="ModalDialog.xaml" uri="ms-resource://Template10Library/Files/Template10Library/Themes/ModalDialog.xaml">
 						<Candidate type="Path">
 							<Value>Template10Library\Themes\ModalDialog.xaml</Value>

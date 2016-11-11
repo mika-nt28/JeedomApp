@@ -1,6 +1,7 @@
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\bin\ARM\Debug\Notification.winmd
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\bin\ARM\Debug\Notification.pdb
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\bin\ARM\Debug\Notification.pri
+C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\ARM\Debug\Notification.csprojResolveAssemblyReference.cache
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\ARM\Debug\Notification.winmd
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\ARM\Debug\Notification.pdb
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\ARM\Debug\Notification.winmdobj

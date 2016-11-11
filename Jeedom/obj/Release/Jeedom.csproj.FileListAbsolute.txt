@@ -1,0 +1,17 @@
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\Release\Jeedom.dll
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\Release\Jeedom.pdb
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\Release\Jeedom.pri
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\Jeedom.csprojResolveAssemblyReference.cache
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\Jeedom.dll
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\Jeedom.pdb
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\priconfig.xml
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\priconfig.xml.intermediate
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\layout.resfiles
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\layout.resfiles.intermediate
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\resources.resfiles
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\resources.resfiles.intermediate
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\pri.resfiles
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\pri.resfiles.intermediate
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\qualifiers.txt
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\qualifiers.txt.intermediate
+C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\Release\MultipleQualifiersPerDimensionFound.txt
