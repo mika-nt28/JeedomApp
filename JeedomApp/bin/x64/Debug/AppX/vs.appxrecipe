@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>C29F6104E610CB3A7D37A922906991A091C5199FA2ADA1CFEF1FFC76A9A12D98</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>B4EEFBB605997427062F569E54E7D3475DEC7C389B50DD0E514504421E101ECA</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>JeedomApp_1.1.6.0_x64__9c7gsy4hh4122</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>JeedomApp_9c7gsy4hh4122!App</RegisteredUserModeAppID>
     <RegisteredPackageID>JeedomApp</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-11T10:58:04.289</Modified>
+      <Modified>2016-12-01T07:14:59.881</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\JeedomApp.exe">
       <PackagePath>entrypoint\JeedomApp.exe</PackagePath>
-      <Modified>2016-11-11T10:57:46.497</Modified>
+      <Modified>2016-12-01T07:13:46.323</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\.nuget\packages\ColorPicker\1.0.2\lib\portable-win81+wpa81\ColorPicker.dll">
       <PackagePath>ColorPicker.dll</PackagePath>
@@ -542,19 +542,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\x64\Debug\Jeedom.dll">
       <PackagePath>Jeedom.dll</PackagePath>
-      <Modified>2016-11-11T10:44:19.768</Modified>
+      <Modified>2016-12-01T07:01:33.604</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\Localisation\bin\x64\Debug\Localisation.winmd">
       <PackagePath>Localisation.winmd</PackagePath>
-      <Modified>2016-11-11T10:44:44.329</Modified>
+      <Modified>2016-12-01T07:01:52.154</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\Notification\bin\x64\Debug\Notification.winmd">
       <PackagePath>Notification.winmd</PackagePath>
-      <Modified>2016-11-11T10:44:26.586</Modified>
+      <Modified>2016-12-01T07:01:43.629</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\VoiceCommandService\bin\x64\Debug\VoiceCommandService.winmd">
       <PackagePath>VoiceCommandService.winmd</PackagePath>
-      <Modified>2016-11-11T10:44:34.183</Modified>
+      <Modified>2016-12-01T07:01:45.877</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
@@ -616,7 +616,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\JeedomApp.xr.xml">
       <PackagePath>JeedomApp.xr.xml</PackagePath>
-      <Modified>2016-11-11T10:53:44.440</Modified>
+      <Modified>2016-12-01T07:13:37.234</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -672,11 +672,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-11-11T10:54:11.910</Modified>
+      <Modified>2016-12-01T07:14:37.143</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\Core\JeedomApp.exe">
       <PackagePath>JeedomApp.exe</PackagePath>
-      <Modified>2016-11-11T10:58:03.880</Modified>
+      <Modified>2016-12-01T07:14:59.854</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

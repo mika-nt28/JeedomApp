@@ -9,7 +9,6 @@
              xmlns:views="using:JeedomApp.Views"
              xmlns:vm="using:JeedomApp.ViewModels"
              mc:Ignorable="d">
-
     <Grid>
         <ScrollViewer>
             <Grid>
@@ -18,12 +17,12 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock x:ConnectionId='4' x:Name="tbTitle"
+                    <TextBlock x:ConnectionId='5' x:Name="tbTitle"
                                HorizontalAlignment="Center"
                                Foreground="White"
                                Text="JeedomApp"
                                TextWrapping="Wrap" />
-                    <TextBlock x:ConnectionId='5' x:Uid="connection"
+                    <TextBlock x:ConnectionId='6' x:Uid="connection"
                                x:Name="tbSubtitle"
                                Margin="0,5,0,0"
                                HorizontalAlignment="Center"
@@ -31,7 +30,7 @@
                                RenderTransformOrigin="0.5,0.5"
                                Text="Connectez-vous à votre box domotique"
                                TextWrapping="Wrap" />
-                    <Image x:ConnectionId='6' x:Name="image"
+                    <Image x:ConnectionId='7' x:Name="image"
                            Width="44"
                            Height="44"
                            Margin="0,5,0,0"
@@ -43,7 +42,7 @@
                         </Image.RenderTransform>
                     </Image>
                 </StackPanel>
-                <TextBlock x:ConnectionId='3' x:Name="ErrorMsg"
+                <TextBlock x:ConnectionId='4' x:Name="ErrorMsg"
                            Margin="5"
                            Foreground="Red"
                            Text="" />
@@ -60,7 +59,8 @@
             <AppBarButton x:ConnectionId='2' Icon="Camera" 
                                             
                     Label="Scan QR"/>
-            <AppBarButton Icon="View" 
+            <AppBarButton x:ConnectionId='3' Icon="View" 
+                                      
                     Label="Demo"/>
         </CommandBar>
     </Grid>

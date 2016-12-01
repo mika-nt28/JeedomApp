@@ -80,14 +80,14 @@
         <Path>CLRHost.dll</Path>
         <ActivatableClass ActivatableClassId="Localisation.GeofenceBackgroundTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Localisation.LocationBackgroundTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.BadgeNumericNotificationContent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.ToastNotificationQuickReplyTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.Helpers.Settings" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.Helpers.ToastHelper" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.Helpers.BackgroundTaskStorage" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.ToastActivationTypeBackgroundClosedTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.BadgeNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.ToastNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.ToastNotificationQuickReplyTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.Helpers.ToastHelper" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.Helpers.BackgroundTaskStorage" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.Helpers.Settings" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.BadgeNumericNotificationContent" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="VoiceCommandService.JeedomAppVoiceCommandService" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
@@ -96,7 +96,7 @@
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v5.0" />
     <build:Item Name="VisualStudio" Version="14.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2015" />
-    <build:Item Name="OperatingSystem" Version="10.0.14959.1000 (rs_prerelease.161026-1700)" />
+    <build:Item Name="OperatingSystem" Version="10.0.14971.1000 (rs_prerelease.161111-1700)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.25425.1" />
     <build:Item Name="ProjectGUID" Value="{A53E8C96-A374-4E03-AC17-F6630B20664B}" />
     <build:Item Name="OptimizingToolset" Value="None" />

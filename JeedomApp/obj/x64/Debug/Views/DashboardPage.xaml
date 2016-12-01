@@ -1,5 +1,4 @@
 ﻿<Page x:ConnectionId='1'
-    x:Class="JeedomApp.Views.DashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:behaviors="using:Template10.Behaviors"
@@ -13,16 +12,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:selector="using:JeedomApp.Selectors"
     xmlns:vm="using:JeedomApp.ViewModels"
+    xmlns:Model="using:Jeedom.Model"
+    x:Class="JeedomApp.Views.DashboardPage"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <vm:DashboardPageViewModel x:ConnectionId='2' x:Name="ViewModel" />
-    </Page.DataContext>
-
     <Page.Resources>
-        <ResourceDictionary Source="../Styles/ObjectPageResources.xaml" />
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Styles/DashboardRessources.xaml"/>
+                <ResourceDictionary Source="ms-appx:///Styles/eqLogicRessources.xaml"/>
+                <ResourceDictionary Source="ms-appx:///Styles/Widgets/DefaultRessources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Page.Resources>
-
+    <Page.DataContext>
+        <vm:DashboardPageViewModel x:ConnectionId='2' x:Name="ViewModel" >
+            <vm:DashboardPageViewModel.EqLogicList>
+                <Model:EqLogic name="Lumiere"/>
+            </vm:DashboardPageViewModel.EqLogicList>
+            <vm:DashboardPageViewModel.ObjectList>
+                <Model:JdObject id="01" name="Salon"/>
+                <Model:JdObject id="02" name="Salle a  manger"/>
+            </vm:DashboardPageViewModel.ObjectList>
+        </vm:DashboardPageViewModel>
+    </Page.DataContext>
     <Grid Background="{ThemeResource MainBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

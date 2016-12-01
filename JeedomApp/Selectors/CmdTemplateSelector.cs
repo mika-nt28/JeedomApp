@@ -16,9 +16,6 @@ namespace JeedomApp.Selectors
         public DataTemplate SliderCmdTemplate { get; set; }
         public DataTemplate MessageCmdTemplate { get; set; }
         public DataTemplate ColorCmdTemplate { get; set; }
-        public DataTemplate LIGHT_STATE_Template { get; set; }
-        public DataTemplate LIGHT_ON_Template { get; set; }
-        public DataTemplate LIGHT_OFF_Template { get; set; }
 
         #endregion Public Properties
 

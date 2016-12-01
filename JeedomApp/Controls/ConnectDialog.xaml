@@ -9,7 +9,6 @@
              xmlns:views="using:JeedomApp.Views"
              xmlns:vm="using:JeedomApp.ViewModels"
              mc:Ignorable="d">
-
     <Grid>
         <ScrollViewer>
             <Grid>
@@ -61,6 +60,7 @@
                     Click="QrCodeInfo_Click"
                     Label="Scan QR"/>
             <AppBarButton Icon="View" 
+                    Click="Demo_Click"
                     Label="Demo"/>
         </CommandBar>
     </Grid>

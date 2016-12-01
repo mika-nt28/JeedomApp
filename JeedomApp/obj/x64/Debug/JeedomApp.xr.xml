@@ -9,14 +9,8 @@
     <RootPropertyPathName Name="MessageList" />
     <RootPropertyPathName Name="LastLaunch" />
     <RootPropertyPathName Name="Name" />
-    <RootPropertyPathName Name="isVisible" />
-    <RootPropertyPathName Name="ExecCommand" />
+    <RootPropertyPathName Name="eqLogics" />
     <RootPropertyPathName Name="name" />
-    <RootPropertyPathName Name="WidgetValue" />
-    <RootPropertyPathName Name="message" />
-    <RootPropertyPathName Name="title" />
-    <RootPropertyPathName Name="slider" />
-    <RootPropertyPathName Name="Value" />
     <RootPropertyPathName Name="cmds" />
     <RootPropertyPathName Name="eqType_name" />
     <RootPropertyPathName Name="ExecCommandByType" />
@@ -26,8 +20,14 @@
     <RootPropertyPathName Name="id" />
     <RootPropertyPathName Name="OnVisibility" />
     <RootPropertyPathName Name="State" />
+    <RootPropertyPathName Name="isVisible" />
+    <RootPropertyPathName Name="ExecCommand" />
+    <RootPropertyPathName Name="WidgetValue" />
+    <RootPropertyPathName Name="message" />
+    <RootPropertyPathName Name="title" />
+    <RootPropertyPathName Name="slider" />
+    <RootPropertyPathName Name="Value" />
     <RootPropertyPathName Name="VisibleCmds" />
-    <RootPropertyPathName Name="eqLogics" />
     <RootPropertyPathName Name="unite" />
     <RootPropertyPathName Name="Text" />
     <RootPropertyPathName Name="Count" />
@@ -57,9 +57,9 @@
       <RootProperty Name="Children" />
       <RootProperty Name="Height" />
       <RootProperty Name="Background" />
-      <RootProperty Name="Visibility" />
       <RootProperty Name="Padding" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Visibility" />
       <RootMethod Name="GetAlignHorizontalCenterWithPanel" />
       <RootMethod Name="SetAlignHorizontalCenterWithPanel" />
       <RootMethod Name="GetBelow" />
@@ -138,11 +138,11 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="Width" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="TextAlignment" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Style" />
       <RootProperty Name="Inlines" />
       <RootProperty Name="RenderTransformOrigin" />
@@ -172,10 +172,10 @@
       <RootProperty Name="FallbackValue" />
       <RootProperty Name="ElementName" />
       <RootProperty Name="Converter" />
+      <RootProperty Name="ConverterParameter" />
       <RootProperty Name="Mode" />
       <RootProperty Name="Path" />
       <RootProperty Name="UpdateSourceTrigger" />
-      <RootProperty Name="ConverterParameter" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="JeedomApp.Controls.StatusBar" />
@@ -241,6 +241,72 @@
       <RootProperty Name="Property" />
       <RootProperty Name="Value" />
     </RootType>
+    <RootType FullName="JeedomApp.Controls.VariableSizedGridView">
+      <RootProperty Name="ItemTemplateSelector" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="ItemsPanel" />
+      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="Padding" />
+      <RootEvent Name="ItemClick" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.GridViewItem">
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.VariableSizedWrapGrid">
+      <RootProperty Name="ItemHeight" />
+      <RootProperty Name="ItemWidth" />
+      <RootProperty Name="MaximumRowsOrColumns" />
+      <RootProperty Name="Orientation" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Padding" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Child" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Command" />
+      <RootProperty Name="CommandParameter" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="Tag" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="ClickMode" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Width" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Source" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="RenderTransform" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
     <RootType FullName="JeedomApp.Converters.StateToFontAwesomeConverter" />
     <RootType FullName="JeedomApp.Converters.EqLogicCmdInfoByIdConverter" />
     <RootType FullName="Template10.Converters.ChangeTypeConverter" />
@@ -260,48 +326,14 @@
     <RootType FullName="JeedomApp.Selectors.CmdTemplateSelector">
       <RootProperty Name="BinaryCmdTemplate" />
       <RootProperty Name="ColorCmdTemplate" />
-      <RootProperty Name="LIGHT_OFF_Template" />
-      <RootProperty Name="LIGHT_ON_Template" />
-      <RootProperty Name="LIGHT_STATE_Template" />
       <RootProperty Name="MessageCmdTemplate" />
       <RootProperty Name="NumericCmdTemplate" />
       <RootProperty Name="OtherCmdTemplate" />
       <RootProperty Name="SliderCmdTemplate" />
       <RootProperty Name="StringCmdTemplate" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Child" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
       <RootProperty Name="Content" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Children" />
-      <RootProperty Name="Orientation" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Padding" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="ClickMode" />
-      <RootProperty Name="Command" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="CommandParameter" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="FontFamily" />
-      <RootProperty Name="Tag" />
-      <RootProperty Name="Visibility" />
-      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="Width" />
@@ -312,41 +344,6 @@
       <RootProperty Name="Value" />
       <RootProperty Name="IsEnabled" />
       <RootEvent Name="ValueChanged" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Source" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="RenderTransform" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-    </RootType>
-    <RootType FullName="JeedomApp.Controls.VariableSizedGridView">
-      <RootProperty Name="IsItemClickEnabled" />
-      <RootProperty Name="ItemTemplateSelector" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="Padding" />
-      <RootProperty Name="SelectionMode" />
-      <RootProperty Name="ItemContainerStyle" />
-      <RootProperty Name="ItemsPanel" />
-      <RootEvent Name="ItemClick" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.GridViewItem">
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Content" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.VariableSizedWrapGrid">
-      <RootProperty Name="ItemHeight" />
-      <RootProperty Name="ItemWidth" />
-      <RootProperty Name="MaximumRowsOrColumns" />
-      <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="JeedomApp.Views.Busy" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
@@ -402,7 +399,17 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="JeedomApp.Controls.ConnectDialog" />
-    <RootType FullName="JeedomApp.ViewModels.DashboardPageViewModel" />
+    <RootType FullName="JeedomApp.ViewModels.DashboardPageViewModel">
+      <RootProperty Name="EqLogicList" />
+      <RootProperty Name="ObjectList" />
+    </RootType>
+    <RootType FullName="Jeedom.Model.EqLogic">
+      <RootProperty Name="name" />
+    </RootType>
+    <RootType FullName="Jeedom.Model.JdObject">
+      <RootProperty Name="id" />
+      <RootProperty Name="name" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="HeaderTemplate" />
       <RootProperty Name="ItemTemplate" />

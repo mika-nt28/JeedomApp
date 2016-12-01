@@ -328,3 +328,12 @@ C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\FxResources.Sy
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\FxResources.System.Security.Cryptography.Primitives.SR.resw
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\FxResources.System.Security.Cryptography.X509Certificates.SR.resw
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\ZXingNetMobile.pri.xml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\Styles\DashboardRessources.xaml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\Styles\eqLogicRessources.xaml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\Styles\Widgets\DefaultRessources.xaml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\Styles\DashboardRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\Styles\eqLogicRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Debug\Styles\Widgets\DefaultRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\Styles\DashboardRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\Styles\eqLogicRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\Styles\Widgets\DefaultRessources.xbf

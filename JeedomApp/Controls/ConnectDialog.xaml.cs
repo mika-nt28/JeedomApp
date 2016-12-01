@@ -32,7 +32,13 @@ namespace JeedomApp.Controls
         {
             this.InitializeComponent();
         }
+        private async void Demo_Click(object sender, RoutedEventArgs e)
+        {
+            // Charger des données de demo pour l'application
 
+            // Masque le dialogue de connection
+            ConnectDialog.HideConnectDialog();
+        }
         private async void bConnect_Click(object sender, RoutedEventArgs e)
         {
             // Tentative de connexion à Jeedom
@@ -82,7 +88,6 @@ namespace JeedomApp.Controls
                     modal.IsModal = false;
             });
         }
-
         private async void QrCodeInfo_Click(object sender, RoutedEventArgs e)
         {
 
