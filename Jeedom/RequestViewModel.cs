@@ -1,4 +1,4 @@
-﻿using Jeedom.Api.Http;
+using Jeedom.Api.Http;
 using Jeedom.Api.Json;
 using Jeedom.Api.Json.Event;
 using Jeedom.Api.Json.Response;
@@ -261,7 +261,61 @@ namespace Jeedom
             LoadingMessage = "Prêt";
             Updating = false;
         }
+ public async Task<Error> CreateEqLogicMobile()
+        {
+            var jsonrpc = new JsonRpcClient();
+			Parameters parameters = new Parameters();
+			parameters.plugin="mobile";
+			parameters.platform="Windows UWP";
+			jsonrpc.SetParameters(parameters);
+			wait jsonrpc.SendRequest("Iq");
+            return jsonrpc.Error;
+        }  
+        public async Task<Error> SynchMobilePlugin()
+        {
+            var jsonrpc = new JsonRpcClient();
+			Parameters parameters = new Parameters();
+			parameters.plugin="mobile";
+			jsonrpc.SetParameters(parameters);
+            EqLogicList.Clear();
+            CommandList.Clear();
+            ObjectList.Clear();
+    
+            if (await jsonrpc.SendRequest("sync"))
+            {
+                //List<string> idList = new List<string>();
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
+                if (response != null)
+                {
+                    foreach (JdObject o in response.result)
+                    {
+                        ObjectList.Add(o);
+                        //idList.Add("dmj" + o.id);
+                        //UpdateObjectImage(o);
+                        if (o.eqLogics != null)
+                        {
+                            foreach (EqLogic eq in o.eqLogics)
+                            {
+                                EqLogicList.Add(eq);
+                                if (eq.cmds != null)
+                                {
+                                    foreach (Command cmd in eq.cmds)
+                                    {
+                                        cmd.Parent = eq;
+                                        CommandList.Add(cmd);
+                                    }
+                                }
+                                else
+                                    eq.cmds = new ObservableCollection<Command>();
+                            }
+                        }
+                    }
+                }
+            }
 
+            return jsonrpc.Error;
+        }
+    
         /// <summary>
         /// Télécharge les informations sur les JdObject, les EqLogic et les Command (sans les value)
         /// </summary>
@@ -273,7 +327,7 @@ namespace Jeedom
             CommandList.Clear();
             ObjectList.Clear();
 
-            if (await jsonrpc.SendRequest("object::full"))
+           /* if (await jsonrpc.SendRequest("object::full"))
             {
                 //List<string> idList = new List<string>();
                 var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
@@ -346,9 +400,9 @@ namespace Jeedom
                         {
                             await f.DeleteAsync();
                         }
-                    }*/
+                    }*//*
                 }
-            }
+            }*/
 
             return jsonrpc.Error;
         }
