@@ -260,6 +260,24 @@ namespace Jeedom
 
             LoadingMessage = "Prêt";
             Updating = false;
+        } 
+	public async Task<Error> ConnectJeedomByLogin()
+        {
+	Parameters parameters = new Parameters();
+	parameters.login
+	parameters.password
+	parameters.twoFactorCode      
+	var jsonrpc = new JsonRpcClient(parameters);
+   
+            if (await jsonrpc.SendRequest("user::getHash"))
+            {
+              /*  var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
+                if (response != null)
+                {
+                }*/
+            }
+
+            return jsonrpc.Error;
         }
  public async Task<Error> CreateEqLogicMobile()
         {
