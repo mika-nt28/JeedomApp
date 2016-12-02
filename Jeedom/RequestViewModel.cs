@@ -263,10 +263,12 @@ namespace Jeedom
         } 
 	public async Task<Error> ConnectJeedomByLogin()
         {
+	
+        var config = new ConfigurationViewModel();
 	Parameters parameters = new Parameters();
-	parameters.login
-	parameters.password
-	parameters.twoFactorCode      
+	parameters.login=config.login;
+	parameters.password=config.password;
+	parameters.twoFactorCode=config.twoFactorCode;
 	var jsonrpc = new JsonRpcClient(parameters);
    
             if (await jsonrpc.SendRequest("user::getHash"))
