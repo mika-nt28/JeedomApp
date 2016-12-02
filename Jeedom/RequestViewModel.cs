@@ -252,6 +252,7 @@ namespace Jeedom
             {
                 await UpdateEqLogic(eq);
             }
+            Progress += pg;
 
             LoadingMessage = "Chargement des Interactions";
             await DownloadInteraction();

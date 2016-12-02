@@ -80,15 +80,15 @@
         <Path>CLRHost.dll</Path>
         <ActivatableClass ActivatableClassId="Localisation.GeofenceBackgroundTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Localisation.LocationBackgroundTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="VoiceCommandService.JeedomAppVoiceCommandService" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.ToastNotificationQuickReplyTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.BadgeNumericNotificationContent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.Helpers.BackgroundTaskStorage" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.Helpers.Settings" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.Helpers.ToastHelper" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.Helpers.BackgroundTaskStorage" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.ToastActivationTypeBackgroundClosedTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.BadgeNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Notification.ToastNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.BadgeNumericNotificationContent" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="VoiceCommandService.JeedomAppVoiceCommandService" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.ToastActivationTypeBackgroundClosedTask" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>

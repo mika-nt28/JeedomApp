@@ -81,7 +81,6 @@ namespace Jeedom.Api.Json
             requete.parameters = parameters;
             requete.method = command;
             requete.id = Interlocked.Increment(ref Id);
-
             var requeteJson = "request=" + JsonConvert.SerializeObject(requete);
             var content = new HttpStringContent(requeteJson, Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/x-www-form-urlencoded");
             var response = await httpClient.PostAsync(uri, content);

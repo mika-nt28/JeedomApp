@@ -10,29 +10,24 @@
     xmlns:local="using:JeedomApp.Views"
     xmlns:localctl="using:JeedomApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:selector="using:JeedomApp.Selectors"
     xmlns:vm="using:JeedomApp.ViewModels"
     xmlns:Model="using:Jeedom.Model"
     x:Class="JeedomApp.Views.DashboardPage"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <ResourceDictionary >
+        <ResourceDictionary Source="ms-appx:///Styles/ObjectPageResources.xaml"/>
+        <!--ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ms-appx:///Styles/DashboardRessources.xaml"/>
                 <ResourceDictionary Source="ms-appx:///Styles/eqLogicRessources.xaml"/>
                 <ResourceDictionary Source="ms-appx:///Styles/Widgets/DefaultRessources.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        </-->
     </Page.Resources>
     <Page.DataContext>
         <vm:DashboardPageViewModel x:ConnectionId='2' x:Name="ViewModel" >
-            <vm:DashboardPageViewModel.EqLogicList>
-                <Model:EqLogic name="Lumiere"/>
-            </vm:DashboardPageViewModel.EqLogicList>
             <vm:DashboardPageViewModel.ObjectList>
-                <Model:JdObject id="01" name="Salon"/>
-                <Model:JdObject id="02" name="Salle a  manger"/>
             </vm:DashboardPageViewModel.ObjectList>
         </vm:DashboardPageViewModel>
     </Page.DataContext>

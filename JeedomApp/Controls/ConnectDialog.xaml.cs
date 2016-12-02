@@ -32,8 +32,9 @@ namespace JeedomApp.Controls
         {
             this.InitializeComponent();
         }
-        private async void Demo_Click(object sender, RoutedEventArgs e)
+        private void Demo_Click(object sender, RoutedEventArgs e)
         {
+
             // Charger des données de demo pour l'application
 
             // Masque le dialogue de connection
@@ -110,5 +111,6 @@ namespace JeedomApp.Controls
                 MessageBox.Show(message);
             });*/
         }
+
     }
 }

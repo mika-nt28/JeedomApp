@@ -1,10 +1,38 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:JeedomApp.Styles"
     xmlns:Converters="using:Template10.Converters"
     xmlns:converter="using:JeedomApp.Converters"
-    xmlns:ctl="using:JeedomApp.Controls">
+    xmlns:ctl="using:JeedomApp.Controls"
+    xmlns:selector="using:JeedomApp.Selectors">
+    <converter:StateToFontAwesomeConverter x:Key="StateToFontAwesomeConverter" />
+    <FontFamily x:Key="FontAwesome">/Assets/Fonts/FontAwesome.ttf#FontAwesome</FontFamily>
+    <converter:EqLogicCmdInfoByIdConverter x:Key="EqLogicCmdInfoByIdConverter" />
+    <Converters:ChangeTypeConverter x:Key="ChangeTypeConverter" />
+    <converter:EqLogicStateConverter x:Key="EqLogicStateConverter" />
+    <converter:UpdatingConverter x:Key="UpdatingConverter" />
+    <converter:EqLogicNotUpdatingConverter x:Key="EqLogicNotUpdatingConverter" />
+    <converter:EqLogicState2BrushConverter x:Key="EqLogicState2BrushConverter" />
+    <converter:EqLogicCmdInfoByNameConverter x:Key="EqLogicCmdInfoByNameConverter" />
+    <converter:EqLogicCmdInfoByTypeConverter x:Key="EqLogicCmdInfoByTypeConverter" />
+    <converter:ValueConverterGroup x:Key="GroupState2BrushConverter">
+        <converter:EqLogicCmdInfoByTypeConverter />
+        <converter:EqLogicState2BrushConverter />
+    </converter:ValueConverterGroup>
+    <converter:UpdatingConverter x:Key="UpdatingVisibilityConverter" />
+    <selector:EqLogicTemplateSelector x:Key="EqLogicTemplateSelector"
+                                      EqLogicTemplate="{StaticResource EqLogicTemplate}"
+                                      OnOffEqLogicTemplate="{StaticResource OnOffEqLogicTemplate}"
+                                      SonosEqLogicTemplate="{StaticResource SonosEqLogicTemplate}"
+                                      ZWaveEqLogicTemplate="{StaticResource ZWaveEqLogicTemplate}" />
+    <selector:CmdTemplateSelector x:Key="CmdTemplateSelector"
+                                  BinaryCmdTemplate="{StaticResource BinaryCmdTemplate}"
+                                  ColorCmdTemplate="{StaticResource ColorCmdTemplate}"
+                                  MessageCmdTemplate="{StaticResource MessageCmdTemplate}"
+                                  NumericCmdTemplate="{StaticResource NumericCmdTemplate}"
+                                  OtherCmdTemplate="{StaticResource OtherCmdTemplate}"
+                                  SliderCmdTemplate="{StaticResource SliderCmdTemplate}"
+                                  StringCmdTemplate="{StaticResource StringCmdTemplate}" />
     <DataTemplate x:Key="EqLogicTemplate">
         <RelativePanel HorizontalAlignment="Stretch"
                        Background="{StaticResource CustomColorBrush}"
@@ -17,7 +45,7 @@
                        RelativePanel.AlignVerticalCenterWithPanel="True"
                        Text="{Binding name, FallbackValue=name}"
                        TextAlignment="Center" />
-            <!--ctl:VariableSizedGridView x:Name="cmdview"
+            <ctl:VariableSizedGridView x:Name="cmdview"
                                        IsItemClickEnabled="False"
                                        ItemTemplateSelector="{StaticResource CmdTemplateSelector}"
                                        ItemsSource="{Binding VisibleCmds}"
@@ -39,14 +67,14 @@
                                                Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </ctl:VariableSizedGridView.ItemsPanel>
-                <
+                <!--
                     ProgressRing x:Name="PART_Updating"
                     IsActive="false"
                     RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignTopWithPanel="True"
                     Visibility="{Binding Updating, Converter={StaticResource UpdatingConverter}}"  /
-               >
-            </-->
+                -->
+            </ctl:VariableSizedGridView>
         </RelativePanel>
     </DataTemplate>
     <!--  Template pour ZWave  -->

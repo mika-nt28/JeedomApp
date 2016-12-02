@@ -63,5 +63,6 @@
                     Click="Demo_Click"
                     Label="Demo"/>
         </CommandBar>
+
     </Grid>
 </UserControl>

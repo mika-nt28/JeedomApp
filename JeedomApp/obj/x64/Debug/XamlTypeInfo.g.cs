@@ -241,19 +241,19 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             _typeNameTable[81] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[82] = "JeedomApp.Controls.ConnectDialog";
             _typeNameTable[83] = "JeedomApp.ViewModels.DashboardPageViewModel";
-            _typeNameTable[84] = "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.EqLogic>";
-            _typeNameTable[85] = "System.Collections.ObjectModel.Collection`1<Jeedom.Model.EqLogic>";
-            _typeNameTable[86] = "Jeedom.Model.EqLogic";
-            _typeNameTable[87] = "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>";
-            _typeNameTable[88] = "System.Collections.ObjectModel.Collection`1<Jeedom.Model.Command>";
-            _typeNameTable[89] = "Jeedom.Model.Command";
-            _typeNameTable[90] = "Jeedom.Model.CommandDisplay";
-            _typeNameTable[91] = "Jeedom.Model.ParametersOption";
-            _typeNameTable[92] = "Jeedom.Mvvm.RelayCommand`1<Object>";
-            _typeNameTable[93] = "Jeedom.Model.EqLogicDisplay";
-            _typeNameTable[94] = "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.JdObject>";
-            _typeNameTable[95] = "System.Collections.ObjectModel.Collection`1<Jeedom.Model.JdObject>";
-            _typeNameTable[96] = "Jeedom.Model.JdObject";
+            _typeNameTable[84] = "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.JdObject>";
+            _typeNameTable[85] = "System.Collections.ObjectModel.Collection`1<Jeedom.Model.JdObject>";
+            _typeNameTable[86] = "Jeedom.Model.JdObject";
+            _typeNameTable[87] = "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.EqLogic>";
+            _typeNameTable[88] = "System.Collections.ObjectModel.Collection`1<Jeedom.Model.EqLogic>";
+            _typeNameTable[89] = "Jeedom.Model.EqLogic";
+            _typeNameTable[90] = "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>";
+            _typeNameTable[91] = "System.Collections.ObjectModel.Collection`1<Jeedom.Model.Command>";
+            _typeNameTable[92] = "Jeedom.Model.Command";
+            _typeNameTable[93] = "Jeedom.Model.CommandDisplay";
+            _typeNameTable[94] = "Jeedom.Model.ParametersOption";
+            _typeNameTable[95] = "Jeedom.Mvvm.RelayCommand`1<Object>";
+            _typeNameTable[96] = "Jeedom.Model.EqLogicDisplay";
             _typeNameTable[97] = "Jeedom.Model.DisplayInfo";
             _typeNameTable[98] = "Jeedom.RequestViewModel";
             _typeNameTable[99] = "JeedomApp.Views.DashboardPage";
@@ -367,19 +367,19 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             _typeTable[81] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[82] = typeof(global::JeedomApp.Controls.ConnectDialog);
             _typeTable[83] = typeof(global::JeedomApp.ViewModels.DashboardPageViewModel);
-            _typeTable[84] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.EqLogic>);
-            _typeTable[85] = typeof(global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.EqLogic>);
-            _typeTable[86] = typeof(global::Jeedom.Model.EqLogic);
-            _typeTable[87] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.Command>);
-            _typeTable[88] = typeof(global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.Command>);
-            _typeTable[89] = typeof(global::Jeedom.Model.Command);
-            _typeTable[90] = typeof(global::Jeedom.Model.CommandDisplay);
-            _typeTable[91] = typeof(global::Jeedom.Model.ParametersOption);
-            _typeTable[92] = typeof(global::Jeedom.Mvvm.RelayCommand<global::System.Object>);
-            _typeTable[93] = typeof(global::Jeedom.Model.EqLogicDisplay);
-            _typeTable[94] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.JdObject>);
-            _typeTable[95] = typeof(global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.JdObject>);
-            _typeTable[96] = typeof(global::Jeedom.Model.JdObject);
+            _typeTable[84] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.JdObject>);
+            _typeTable[85] = typeof(global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.JdObject>);
+            _typeTable[86] = typeof(global::Jeedom.Model.JdObject);
+            _typeTable[87] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.EqLogic>);
+            _typeTable[88] = typeof(global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.EqLogic>);
+            _typeTable[89] = typeof(global::Jeedom.Model.EqLogic);
+            _typeTable[90] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.Command>);
+            _typeTable[91] = typeof(global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.Command>);
+            _typeTable[92] = typeof(global::Jeedom.Model.Command);
+            _typeTable[93] = typeof(global::Jeedom.Model.CommandDisplay);
+            _typeTable[94] = typeof(global::Jeedom.Model.ParametersOption);
+            _typeTable[95] = typeof(global::Jeedom.Mvvm.RelayCommand<global::System.Object>);
+            _typeTable[96] = typeof(global::Jeedom.Model.EqLogicDisplay);
             _typeTable[97] = typeof(global::Jeedom.Model.DisplayInfo);
             _typeTable[98] = typeof(global::Jeedom.RequestViewModel);
             _typeTable[99] = typeof(global::JeedomApp.Views.DashboardPage);
@@ -474,18 +474,18 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
         private object Activate_80_AboutPage() { return new global::JeedomApp.Views.AboutPage(); }
         private object Activate_82_ConnectDialog() { return new global::JeedomApp.Controls.ConnectDialog(); }
         private object Activate_83_DashboardPageViewModel() { return new global::JeedomApp.ViewModels.DashboardPageViewModel(); }
-        private object Activate_84_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.EqLogic>(); }
-        private object Activate_85_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.EqLogic>(); }
-        private object Activate_86_EqLogic() { return new global::Jeedom.Model.EqLogic(); }
-        private object Activate_87_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.Command>(); }
-        private object Activate_88_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.Command>(); }
-        private object Activate_89_Command() { return new global::Jeedom.Model.Command(); }
-        private object Activate_90_CommandDisplay() { return new global::Jeedom.Model.CommandDisplay(); }
-        private object Activate_91_ParametersOption() { return new global::Jeedom.Model.ParametersOption(); }
-        private object Activate_93_EqLogicDisplay() { return new global::Jeedom.Model.EqLogicDisplay(); }
-        private object Activate_94_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.JdObject>(); }
-        private object Activate_95_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.JdObject>(); }
-        private object Activate_96_JdObject() { return new global::Jeedom.Model.JdObject(); }
+        private object Activate_84_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.JdObject>(); }
+        private object Activate_85_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.JdObject>(); }
+        private object Activate_86_JdObject() { return new global::Jeedom.Model.JdObject(); }
+        private object Activate_87_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.EqLogic>(); }
+        private object Activate_88_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.EqLogic>(); }
+        private object Activate_89_EqLogic() { return new global::Jeedom.Model.EqLogic(); }
+        private object Activate_90_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.Command>(); }
+        private object Activate_91_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Jeedom.Model.Command>(); }
+        private object Activate_92_Command() { return new global::Jeedom.Model.Command(); }
+        private object Activate_93_CommandDisplay() { return new global::Jeedom.Model.CommandDisplay(); }
+        private object Activate_94_ParametersOption() { return new global::Jeedom.Model.ParametersOption(); }
+        private object Activate_96_EqLogicDisplay() { return new global::Jeedom.Model.EqLogicDisplay(); }
         private object Activate_97_DisplayInfo() { return new global::Jeedom.Model.DisplayInfo(); }
         private object Activate_99_DashboardPage() { return new global::JeedomApp.Views.DashboardPage(); }
         private object Activate_100_EqLogicPage() { return new global::JeedomApp.Views.EqLogicPage(); }
@@ -549,38 +549,38 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
         }
         private void VectorAdd_84_ObservableCollection(object instance, object item)
         {
-            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.EqLogic>)instance;
-            var newItem = (global::Jeedom.Model.EqLogic)item;
+            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.JdObject>)instance;
+            var newItem = (global::Jeedom.Model.JdObject)item;
             collection.Add(newItem);
         }
         private void VectorAdd_85_Collection(object instance, object item)
         {
-            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.EqLogic>)instance;
-            var newItem = (global::Jeedom.Model.EqLogic)item;
+            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.JdObject>)instance;
+            var newItem = (global::Jeedom.Model.JdObject)item;
             collection.Add(newItem);
         }
         private void VectorAdd_87_ObservableCollection(object instance, object item)
         {
-            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.Command>)instance;
-            var newItem = (global::Jeedom.Model.Command)item;
+            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.EqLogic>)instance;
+            var newItem = (global::Jeedom.Model.EqLogic)item;
             collection.Add(newItem);
         }
         private void VectorAdd_88_Collection(object instance, object item)
         {
+            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.EqLogic>)instance;
+            var newItem = (global::Jeedom.Model.EqLogic)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_90_ObservableCollection(object instance, object item)
+        {
             var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.Command>)instance;
             var newItem = (global::Jeedom.Model.Command)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_94_ObservableCollection(object instance, object item)
+        private void VectorAdd_91_Collection(object instance, object item)
         {
-            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.JdObject>)instance;
-            var newItem = (global::Jeedom.Model.JdObject)item;
-            collection.Add(newItem);
-        }
-        private void VectorAdd_95_Collection(object instance, object item)
-        {
-            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.JdObject>)instance;
-            var newItem = (global::Jeedom.Model.JdObject)item;
+            var collection = (global::System.Collections.Generic.ICollection<global::Jeedom.Model.Command>)instance;
+            var newItem = (global::Jeedom.Model.Command)item;
             collection.Add(newItem);
         }
         private void VectorAdd_103_ObservableCollection(object instance, object item)
@@ -1209,33 +1209,60 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             case 83:   //  JeedomApp.ViewModels.DashboardPageViewModel
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.Activator = Activate_83_DashboardPageViewModel;
-                userType.AddMemberName("EqLogicList");
                 userType.AddMemberName("ObjectList");
                 userType.AddMemberName("Request");
+                userType.AddMemberName("EqLogicList");
                 userType.AddMemberName("CommandList");
                 userType.AddMemberName("Updating");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 84:   //  System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.EqLogic>
-                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Jeedom.Model.EqLogic>"));
+            case 84:   //  System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.JdObject>
+                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Jeedom.Model.JdObject>"));
                 userType.CollectionAdd = VectorAdd_84_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 85:   //  System.Collections.ObjectModel.Collection`1<Jeedom.Model.EqLogic>
+            case 85:   //  System.Collections.ObjectModel.Collection`1<Jeedom.Model.JdObject>
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_85_Collection;
                 userType.CollectionAdd = VectorAdd_85_Collection;
                 xamlType = userType;
                 break;
 
-            case 86:   //  Jeedom.Model.EqLogic
+            case 86:   //  Jeedom.Model.JdObject
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_86_EqLogic;
+                userType.Activator = Activate_86_JdObject;
+                userType.AddMemberName("id");
                 userType.AddMemberName("name");
+                userType.AddMemberName("isVisible");
+                userType.AddMemberName("father_id");
+                userType.AddMemberName("eqLogics");
+                userType.AddMemberName("display");
+                userType.AddMemberName("Image");
+                userType.AddMemberName("Count");
+                xamlType = userType;
+                break;
+
+            case 87:   //  System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.EqLogic>
+                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Jeedom.Model.EqLogic>"));
+                userType.CollectionAdd = VectorAdd_87_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 88:   //  System.Collections.ObjectModel.Collection`1<Jeedom.Model.EqLogic>
+                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_88_Collection;
+                userType.CollectionAdd = VectorAdd_88_Collection;
+                xamlType = userType;
+                break;
+
+            case 89:   //  Jeedom.Model.EqLogic
+                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_89_EqLogic;
                 userType.AddMemberName("ColSpan");
                 userType.AddMemberName("isVisible");
                 userType.AddMemberName("RowSpan");
@@ -1248,6 +1275,7 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 userType.AddMemberName("ExecCommandByName");
                 userType.AddMemberName("ExecCommandByType");
                 userType.AddMemberName("id");
+                userType.AddMemberName("name");
                 userType.AddMemberName("OnVisibility");
                 userType.AddMemberName("Puissance");
                 userType.AddMemberName("State");
@@ -1255,23 +1283,23 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 87:   //  System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>
+            case 90:   //  System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Jeedom.Model.Command>"));
-                userType.CollectionAdd = VectorAdd_87_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_90_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 88:   //  System.Collections.ObjectModel.Collection`1<Jeedom.Model.Command>
+            case 91:   //  System.Collections.ObjectModel.Collection`1<Jeedom.Model.Command>
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_88_Collection;
-                userType.CollectionAdd = VectorAdd_88_Collection;
+                userType.Activator = Activate_91_Collection;
+                userType.CollectionAdd = VectorAdd_91_Collection;
                 xamlType = userType;
                 break;
 
-            case 89:   //  Jeedom.Model.Command
+            case 92:   //  Jeedom.Model.Command
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_89_Command;
+                userType.Activator = Activate_92_Command;
                 userType.AddMemberName("display");
                 userType.AddMemberName("isVisible");
                 userType.AddMemberName("Value");
@@ -1283,55 +1311,27 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 90:   //  Jeedom.Model.CommandDisplay
+            case 93:   //  Jeedom.Model.CommandDisplay
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 91:   //  Jeedom.Model.ParametersOption
+            case 94:   //  Jeedom.Model.ParametersOption
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 92:   //  Jeedom.Mvvm.RelayCommand`1<Object>
+            case 95:   //  Jeedom.Mvvm.RelayCommand`1<Object>
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 93:   //  Jeedom.Model.EqLogicDisplay
+            case 96:   //  Jeedom.Model.EqLogicDisplay
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 94:   //  System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.JdObject>
-                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Jeedom.Model.JdObject>"));
-                userType.CollectionAdd = VectorAdd_94_ObservableCollection;
-                userType.SetIsReturnTypeStub();
-                xamlType = userType;
-                break;
-
-            case 95:   //  System.Collections.ObjectModel.Collection`1<Jeedom.Model.JdObject>
-                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_95_Collection;
-                userType.CollectionAdd = VectorAdd_95_Collection;
-                xamlType = userType;
-                break;
-
-            case 96:   //  Jeedom.Model.JdObject
-                userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_96_JdObject;
-                userType.AddMemberName("id");
-                userType.AddMemberName("name");
-                userType.AddMemberName("isVisible");
-                userType.AddMemberName("father_id");
-                userType.AddMemberName("eqLogics");
-                userType.AddMemberName("display");
-                userType.AddMemberName("Image");
-                userType.AddMemberName("Count");
                 xamlType = userType;
                 break;
 
@@ -2639,310 +2639,310 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             var that = (global::JeedomApp.Views.Busy)instance;
             that.IsBusy = (global::System.Boolean)Value;
         }
-        private object get_107_DashboardPageViewModel_EqLogicList(object instance)
-        {
-            var that = (global::JeedomApp.ViewModels.DashboardPageViewModel)instance;
-            return that.EqLogicList;
-        }
-        private object get_108_EqLogic_name(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.name;
-        }
-        private void set_108_EqLogic_name(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.name = (global::System.String)Value;
-        }
-        private object get_109_EqLogic_ColSpan(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.ColSpan;
-        }
-        private object get_110_EqLogic_isVisible(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.isVisible;
-        }
-        private void set_110_EqLogic_isVisible(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.isVisible = (global::System.Boolean)Value;
-        }
-        private object get_111_EqLogic_RowSpan(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.RowSpan;
-        }
-        private object get_112_EqLogic_cmds(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.cmds;
-        }
-        private void set_112_EqLogic_cmds(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.cmds = (global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.Command>)Value;
-        }
-        private object get_113_Command_display(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.display;
-        }
-        private void set_113_Command_display(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            that.display = (global::Jeedom.Model.CommandDisplay)Value;
-        }
-        private object get_114_Command_isVisible(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.isVisible;
-        }
-        private void set_114_Command_isVisible(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            that.isVisible = (global::System.Boolean)Value;
-        }
-        private object get_115_Command_Value(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.Value;
-        }
-        private void set_115_Command_Value(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            that.Value = (global::System.String)Value;
-        }
-        private object get_116_Command_name(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.name;
-        }
-        private void set_116_Command_name(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            that.name = (global::System.String)Value;
-        }
-        private object get_117_Command_Updating(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.Updating;
-        }
-        private void set_117_Command_Updating(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            that.Updating = (global::System.Boolean)Value;
-        }
-        private object get_118_Command_WidgetValue(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.WidgetValue;
-        }
-        private void set_118_Command_WidgetValue(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            that.WidgetValue = (global::Jeedom.Model.ParametersOption)Value;
-        }
-        private object get_119_Command_unite(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.unite;
-        }
-        private void set_119_Command_unite(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            that.unite = (global::System.String)Value;
-        }
-        private object get_120_Command_ExecCommand(object instance)
-        {
-            var that = (global::Jeedom.Model.Command)instance;
-            return that.ExecCommand;
-        }
-        private object get_121_EqLogic_VisibleCmds(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.VisibleCmds;
-        }
-        private object get_122_EqLogic_Consommation(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.Consommation;
-        }
-        private void set_122_EqLogic_Consommation(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.Consommation = (global::System.String)Value;
-        }
-        private object get_123_EqLogic_display(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.display;
-        }
-        private void set_123_EqLogic_display(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.display = (global::Jeedom.Model.EqLogicDisplay)Value;
-        }
-        private object get_124_EqLogic_eqType_name(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.eqType_name;
-        }
-        private void set_124_EqLogic_eqType_name(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.eqType_name = (global::System.String)Value;
-        }
-        private object get_125_EqLogic_ExecCommandByLogicalID(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.ExecCommandByLogicalID;
-        }
-        private object get_126_EqLogic_ExecCommandByName(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.ExecCommandByName;
-        }
-        private object get_127_EqLogic_ExecCommandByType(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.ExecCommandByType;
-        }
-        private object get_128_EqLogic_id(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.id;
-        }
-        private void set_128_EqLogic_id(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.id = (global::System.String)Value;
-        }
-        private object get_129_EqLogic_OnVisibility(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.OnVisibility;
-        }
-        private void set_129_EqLogic_OnVisibility(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.OnVisibility = (global::System.Boolean)Value;
-        }
-        private object get_130_EqLogic_Puissance(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.Puissance;
-        }
-        private void set_130_EqLogic_Puissance(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.Puissance = (global::System.String)Value;
-        }
-        private object get_131_EqLogic_State(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.State;
-        }
-        private void set_131_EqLogic_State(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.State = (global::System.String)Value;
-        }
-        private object get_132_EqLogic_Updating(object instance)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            return that.Updating;
-        }
-        private void set_132_EqLogic_Updating(object instance, object Value)
-        {
-            var that = (global::Jeedom.Model.EqLogic)instance;
-            that.Updating = (global::System.Boolean)Value;
-        }
-        private object get_133_DashboardPageViewModel_ObjectList(object instance)
+        private object get_107_DashboardPageViewModel_ObjectList(object instance)
         {
             var that = (global::JeedomApp.ViewModels.DashboardPageViewModel)instance;
             return that.ObjectList;
         }
-        private object get_134_JdObject_id(object instance)
+        private object get_108_JdObject_id(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.id;
         }
-        private void set_134_JdObject_id(object instance, object Value)
+        private void set_108_JdObject_id(object instance, object Value)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             that.id = (global::System.String)Value;
         }
-        private object get_135_JdObject_name(object instance)
+        private object get_109_JdObject_name(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.name;
         }
-        private void set_135_JdObject_name(object instance, object Value)
+        private void set_109_JdObject_name(object instance, object Value)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             that.name = (global::System.String)Value;
         }
-        private object get_136_JdObject_isVisible(object instance)
+        private object get_110_JdObject_isVisible(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.isVisible;
         }
-        private void set_136_JdObject_isVisible(object instance, object Value)
+        private void set_110_JdObject_isVisible(object instance, object Value)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             that.isVisible = (global::System.String)Value;
         }
-        private object get_137_JdObject_father_id(object instance)
+        private object get_111_JdObject_father_id(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.father_id;
         }
-        private void set_137_JdObject_father_id(object instance, object Value)
+        private void set_111_JdObject_father_id(object instance, object Value)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             that.father_id = (global::System.String)Value;
         }
-        private object get_138_JdObject_eqLogics(object instance)
+        private object get_112_JdObject_eqLogics(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.eqLogics;
         }
-        private void set_138_JdObject_eqLogics(object instance, object Value)
+        private void set_112_JdObject_eqLogics(object instance, object Value)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             that.eqLogics = (global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.EqLogic>)Value;
         }
-        private object get_139_JdObject_display(object instance)
+        private object get_113_EqLogic_ColSpan(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.ColSpan;
+        }
+        private object get_114_EqLogic_isVisible(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.isVisible;
+        }
+        private void set_114_EqLogic_isVisible(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.isVisible = (global::System.Boolean)Value;
+        }
+        private object get_115_EqLogic_RowSpan(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.RowSpan;
+        }
+        private object get_116_EqLogic_cmds(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.cmds;
+        }
+        private void set_116_EqLogic_cmds(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.cmds = (global::System.Collections.ObjectModel.ObservableCollection<global::Jeedom.Model.Command>)Value;
+        }
+        private object get_117_Command_display(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.display;
+        }
+        private void set_117_Command_display(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            that.display = (global::Jeedom.Model.CommandDisplay)Value;
+        }
+        private object get_118_Command_isVisible(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.isVisible;
+        }
+        private void set_118_Command_isVisible(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            that.isVisible = (global::System.Boolean)Value;
+        }
+        private object get_119_Command_Value(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.Value;
+        }
+        private void set_119_Command_Value(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            that.Value = (global::System.String)Value;
+        }
+        private object get_120_Command_name(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.name;
+        }
+        private void set_120_Command_name(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            that.name = (global::System.String)Value;
+        }
+        private object get_121_Command_Updating(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.Updating;
+        }
+        private void set_121_Command_Updating(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            that.Updating = (global::System.Boolean)Value;
+        }
+        private object get_122_Command_WidgetValue(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.WidgetValue;
+        }
+        private void set_122_Command_WidgetValue(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            that.WidgetValue = (global::Jeedom.Model.ParametersOption)Value;
+        }
+        private object get_123_Command_unite(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.unite;
+        }
+        private void set_123_Command_unite(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            that.unite = (global::System.String)Value;
+        }
+        private object get_124_Command_ExecCommand(object instance)
+        {
+            var that = (global::Jeedom.Model.Command)instance;
+            return that.ExecCommand;
+        }
+        private object get_125_EqLogic_VisibleCmds(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.VisibleCmds;
+        }
+        private object get_126_EqLogic_Consommation(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.Consommation;
+        }
+        private void set_126_EqLogic_Consommation(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.Consommation = (global::System.String)Value;
+        }
+        private object get_127_EqLogic_display(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.display;
+        }
+        private void set_127_EqLogic_display(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.display = (global::Jeedom.Model.EqLogicDisplay)Value;
+        }
+        private object get_128_EqLogic_eqType_name(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.eqType_name;
+        }
+        private void set_128_EqLogic_eqType_name(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.eqType_name = (global::System.String)Value;
+        }
+        private object get_129_EqLogic_ExecCommandByLogicalID(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.ExecCommandByLogicalID;
+        }
+        private object get_130_EqLogic_ExecCommandByName(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.ExecCommandByName;
+        }
+        private object get_131_EqLogic_ExecCommandByType(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.ExecCommandByType;
+        }
+        private object get_132_EqLogic_id(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.id;
+        }
+        private void set_132_EqLogic_id(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.id = (global::System.String)Value;
+        }
+        private object get_133_EqLogic_name(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.name;
+        }
+        private void set_133_EqLogic_name(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.name = (global::System.String)Value;
+        }
+        private object get_134_EqLogic_OnVisibility(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.OnVisibility;
+        }
+        private void set_134_EqLogic_OnVisibility(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.OnVisibility = (global::System.Boolean)Value;
+        }
+        private object get_135_EqLogic_Puissance(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.Puissance;
+        }
+        private void set_135_EqLogic_Puissance(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.Puissance = (global::System.String)Value;
+        }
+        private object get_136_EqLogic_State(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.State;
+        }
+        private void set_136_EqLogic_State(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.State = (global::System.String)Value;
+        }
+        private object get_137_EqLogic_Updating(object instance)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            return that.Updating;
+        }
+        private void set_137_EqLogic_Updating(object instance, object Value)
+        {
+            var that = (global::Jeedom.Model.EqLogic)instance;
+            that.Updating = (global::System.Boolean)Value;
+        }
+        private object get_138_JdObject_display(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.display;
         }
-        private void set_139_JdObject_display(object instance, object Value)
+        private void set_138_JdObject_display(object instance, object Value)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             that.display = (global::Jeedom.Model.DisplayInfo)Value;
         }
-        private object get_140_JdObject_Image(object instance)
+        private object get_139_JdObject_Image(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.Image;
         }
-        private void set_140_JdObject_Image(object instance, object Value)
+        private void set_139_JdObject_Image(object instance, object Value)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             that.Image = (global::System.String)Value;
         }
-        private object get_141_JdObject_Count(object instance)
+        private object get_140_JdObject_Count(object instance)
         {
             var that = (global::Jeedom.Model.JdObject)instance;
             return that.Count;
         }
-        private object get_142_DashboardPageViewModel_Request(object instance)
+        private object get_141_DashboardPageViewModel_Request(object instance)
         {
             var that = (global::JeedomApp.ViewModels.DashboardPageViewModel)instance;
             return that.Request;
+        }
+        private object get_142_DashboardPageViewModel_EqLogicList(object instance)
+        {
+            var that = (global::JeedomApp.ViewModels.DashboardPageViewModel)instance;
+            return that.EqLogicList;
         }
         private object get_143_DashboardPageViewModel_CommandList(object instance)
         {
@@ -3894,220 +3894,220 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlMember.Getter = get_106_Busy_IsBusy;
                 xamlMember.Setter = set_106_Busy_IsBusy;
                 break;
-            case "JeedomApp.ViewModels.DashboardPageViewModel.EqLogicList":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.DashboardPageViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "EqLogicList", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.EqLogic>");
-                xamlMember.Getter = get_107_DashboardPageViewModel_EqLogicList;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.name":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "name", "String");
-                xamlMember.Getter = get_108_EqLogic_name;
-                xamlMember.Setter = set_108_EqLogic_name;
-                break;
-            case "Jeedom.Model.EqLogic.ColSpan":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ColSpan", "Int32");
-                xamlMember.Getter = get_109_EqLogic_ColSpan;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.isVisible":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "isVisible", "Boolean");
-                xamlMember.Getter = get_110_EqLogic_isVisible;
-                xamlMember.Setter = set_110_EqLogic_isVisible;
-                break;
-            case "Jeedom.Model.EqLogic.RowSpan":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "RowSpan", "Int32");
-                xamlMember.Getter = get_111_EqLogic_RowSpan;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.cmds":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "cmds", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>");
-                xamlMember.Getter = get_112_EqLogic_cmds;
-                xamlMember.Setter = set_112_EqLogic_cmds;
-                break;
-            case "Jeedom.Model.Command.display":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "display", "Jeedom.Model.CommandDisplay");
-                xamlMember.Getter = get_113_Command_display;
-                xamlMember.Setter = set_113_Command_display;
-                break;
-            case "Jeedom.Model.Command.isVisible":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "isVisible", "Boolean");
-                xamlMember.Getter = get_114_Command_isVisible;
-                xamlMember.Setter = set_114_Command_isVisible;
-                break;
-            case "Jeedom.Model.Command.Value":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Value", "String");
-                xamlMember.Getter = get_115_Command_Value;
-                xamlMember.Setter = set_115_Command_Value;
-                break;
-            case "Jeedom.Model.Command.name":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "name", "String");
-                xamlMember.Getter = get_116_Command_name;
-                xamlMember.Setter = set_116_Command_name;
-                break;
-            case "Jeedom.Model.Command.Updating":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Updating", "Boolean");
-                xamlMember.Getter = get_117_Command_Updating;
-                xamlMember.Setter = set_117_Command_Updating;
-                break;
-            case "Jeedom.Model.Command.WidgetValue":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "WidgetValue", "Jeedom.Model.ParametersOption");
-                xamlMember.Getter = get_118_Command_WidgetValue;
-                xamlMember.Setter = set_118_Command_WidgetValue;
-                break;
-            case "Jeedom.Model.Command.unite":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "unite", "String");
-                xamlMember.Getter = get_119_Command_unite;
-                xamlMember.Setter = set_119_Command_unite;
-                break;
-            case "Jeedom.Model.Command.ExecCommand":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommand", "Jeedom.Mvvm.RelayCommand`1<Object>");
-                xamlMember.Getter = get_120_Command_ExecCommand;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.VisibleCmds":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "VisibleCmds", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>");
-                xamlMember.Getter = get_121_EqLogic_VisibleCmds;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.Consommation":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Consommation", "String");
-                xamlMember.Getter = get_122_EqLogic_Consommation;
-                xamlMember.Setter = set_122_EqLogic_Consommation;
-                break;
-            case "Jeedom.Model.EqLogic.display":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "display", "Jeedom.Model.EqLogicDisplay");
-                xamlMember.Getter = get_123_EqLogic_display;
-                xamlMember.Setter = set_123_EqLogic_display;
-                break;
-            case "Jeedom.Model.EqLogic.eqType_name":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "eqType_name", "String");
-                xamlMember.Getter = get_124_EqLogic_eqType_name;
-                xamlMember.Setter = set_124_EqLogic_eqType_name;
-                break;
-            case "Jeedom.Model.EqLogic.ExecCommandByLogicalID":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommandByLogicalID", "Jeedom.Mvvm.RelayCommand`1<Object>");
-                xamlMember.Getter = get_125_EqLogic_ExecCommandByLogicalID;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.ExecCommandByName":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommandByName", "Jeedom.Mvvm.RelayCommand`1<Object>");
-                xamlMember.Getter = get_126_EqLogic_ExecCommandByName;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.ExecCommandByType":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommandByType", "Jeedom.Mvvm.RelayCommand`1<Object>");
-                xamlMember.Getter = get_127_EqLogic_ExecCommandByType;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "Jeedom.Model.EqLogic.id":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "id", "String");
-                xamlMember.Getter = get_128_EqLogic_id;
-                xamlMember.Setter = set_128_EqLogic_id;
-                break;
-            case "Jeedom.Model.EqLogic.OnVisibility":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "OnVisibility", "Boolean");
-                xamlMember.Getter = get_129_EqLogic_OnVisibility;
-                xamlMember.Setter = set_129_EqLogic_OnVisibility;
-                break;
-            case "Jeedom.Model.EqLogic.Puissance":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Puissance", "String");
-                xamlMember.Getter = get_130_EqLogic_Puissance;
-                xamlMember.Setter = set_130_EqLogic_Puissance;
-                break;
-            case "Jeedom.Model.EqLogic.State":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "State", "String");
-                xamlMember.Getter = get_131_EqLogic_State;
-                xamlMember.Setter = set_131_EqLogic_State;
-                break;
-            case "Jeedom.Model.EqLogic.Updating":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Updating", "Boolean");
-                xamlMember.Getter = get_132_EqLogic_Updating;
-                xamlMember.Setter = set_132_EqLogic_Updating;
-                break;
             case "JeedomApp.ViewModels.DashboardPageViewModel.ObjectList":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.DashboardPageViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ObjectList", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.JdObject>");
-                xamlMember.Getter = get_133_DashboardPageViewModel_ObjectList;
+                xamlMember.Getter = get_107_DashboardPageViewModel_ObjectList;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Jeedom.Model.JdObject.id":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "id", "String");
-                xamlMember.Getter = get_134_JdObject_id;
-                xamlMember.Setter = set_134_JdObject_id;
+                xamlMember.Getter = get_108_JdObject_id;
+                xamlMember.Setter = set_108_JdObject_id;
                 break;
             case "Jeedom.Model.JdObject.name":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "name", "String");
-                xamlMember.Getter = get_135_JdObject_name;
-                xamlMember.Setter = set_135_JdObject_name;
+                xamlMember.Getter = get_109_JdObject_name;
+                xamlMember.Setter = set_109_JdObject_name;
                 break;
             case "Jeedom.Model.JdObject.isVisible":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "isVisible", "String");
-                xamlMember.Getter = get_136_JdObject_isVisible;
-                xamlMember.Setter = set_136_JdObject_isVisible;
+                xamlMember.Getter = get_110_JdObject_isVisible;
+                xamlMember.Setter = set_110_JdObject_isVisible;
                 break;
             case "Jeedom.Model.JdObject.father_id":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "father_id", "String");
-                xamlMember.Getter = get_137_JdObject_father_id;
-                xamlMember.Setter = set_137_JdObject_father_id;
+                xamlMember.Getter = get_111_JdObject_father_id;
+                xamlMember.Setter = set_111_JdObject_father_id;
                 break;
             case "Jeedom.Model.JdObject.eqLogics":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "eqLogics", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.EqLogic>");
-                xamlMember.Getter = get_138_JdObject_eqLogics;
-                xamlMember.Setter = set_138_JdObject_eqLogics;
+                xamlMember.Getter = get_112_JdObject_eqLogics;
+                xamlMember.Setter = set_112_JdObject_eqLogics;
+                break;
+            case "Jeedom.Model.EqLogic.ColSpan":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ColSpan", "Int32");
+                xamlMember.Getter = get_113_EqLogic_ColSpan;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Jeedom.Model.EqLogic.isVisible":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "isVisible", "Boolean");
+                xamlMember.Getter = get_114_EqLogic_isVisible;
+                xamlMember.Setter = set_114_EqLogic_isVisible;
+                break;
+            case "Jeedom.Model.EqLogic.RowSpan":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "RowSpan", "Int32");
+                xamlMember.Getter = get_115_EqLogic_RowSpan;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Jeedom.Model.EqLogic.cmds":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "cmds", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>");
+                xamlMember.Getter = get_116_EqLogic_cmds;
+                xamlMember.Setter = set_116_EqLogic_cmds;
+                break;
+            case "Jeedom.Model.Command.display":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "display", "Jeedom.Model.CommandDisplay");
+                xamlMember.Getter = get_117_Command_display;
+                xamlMember.Setter = set_117_Command_display;
+                break;
+            case "Jeedom.Model.Command.isVisible":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "isVisible", "Boolean");
+                xamlMember.Getter = get_118_Command_isVisible;
+                xamlMember.Setter = set_118_Command_isVisible;
+                break;
+            case "Jeedom.Model.Command.Value":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Value", "String");
+                xamlMember.Getter = get_119_Command_Value;
+                xamlMember.Setter = set_119_Command_Value;
+                break;
+            case "Jeedom.Model.Command.name":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "name", "String");
+                xamlMember.Getter = get_120_Command_name;
+                xamlMember.Setter = set_120_Command_name;
+                break;
+            case "Jeedom.Model.Command.Updating":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Updating", "Boolean");
+                xamlMember.Getter = get_121_Command_Updating;
+                xamlMember.Setter = set_121_Command_Updating;
+                break;
+            case "Jeedom.Model.Command.WidgetValue":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "WidgetValue", "Jeedom.Model.ParametersOption");
+                xamlMember.Getter = get_122_Command_WidgetValue;
+                xamlMember.Setter = set_122_Command_WidgetValue;
+                break;
+            case "Jeedom.Model.Command.unite":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "unite", "String");
+                xamlMember.Getter = get_123_Command_unite;
+                xamlMember.Setter = set_123_Command_unite;
+                break;
+            case "Jeedom.Model.Command.ExecCommand":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.Command");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommand", "Jeedom.Mvvm.RelayCommand`1<Object>");
+                xamlMember.Getter = get_124_Command_ExecCommand;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Jeedom.Model.EqLogic.VisibleCmds":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "VisibleCmds", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.Command>");
+                xamlMember.Getter = get_125_EqLogic_VisibleCmds;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Jeedom.Model.EqLogic.Consommation":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Consommation", "String");
+                xamlMember.Getter = get_126_EqLogic_Consommation;
+                xamlMember.Setter = set_126_EqLogic_Consommation;
+                break;
+            case "Jeedom.Model.EqLogic.display":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "display", "Jeedom.Model.EqLogicDisplay");
+                xamlMember.Getter = get_127_EqLogic_display;
+                xamlMember.Setter = set_127_EqLogic_display;
+                break;
+            case "Jeedom.Model.EqLogic.eqType_name":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "eqType_name", "String");
+                xamlMember.Getter = get_128_EqLogic_eqType_name;
+                xamlMember.Setter = set_128_EqLogic_eqType_name;
+                break;
+            case "Jeedom.Model.EqLogic.ExecCommandByLogicalID":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommandByLogicalID", "Jeedom.Mvvm.RelayCommand`1<Object>");
+                xamlMember.Getter = get_129_EqLogic_ExecCommandByLogicalID;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Jeedom.Model.EqLogic.ExecCommandByName":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommandByName", "Jeedom.Mvvm.RelayCommand`1<Object>");
+                xamlMember.Getter = get_130_EqLogic_ExecCommandByName;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Jeedom.Model.EqLogic.ExecCommandByType":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ExecCommandByType", "Jeedom.Mvvm.RelayCommand`1<Object>");
+                xamlMember.Getter = get_131_EqLogic_ExecCommandByType;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Jeedom.Model.EqLogic.id":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "id", "String");
+                xamlMember.Getter = get_132_EqLogic_id;
+                xamlMember.Setter = set_132_EqLogic_id;
+                break;
+            case "Jeedom.Model.EqLogic.name":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "name", "String");
+                xamlMember.Getter = get_133_EqLogic_name;
+                xamlMember.Setter = set_133_EqLogic_name;
+                break;
+            case "Jeedom.Model.EqLogic.OnVisibility":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "OnVisibility", "Boolean");
+                xamlMember.Getter = get_134_EqLogic_OnVisibility;
+                xamlMember.Setter = set_134_EqLogic_OnVisibility;
+                break;
+            case "Jeedom.Model.EqLogic.Puissance":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Puissance", "String");
+                xamlMember.Getter = get_135_EqLogic_Puissance;
+                xamlMember.Setter = set_135_EqLogic_Puissance;
+                break;
+            case "Jeedom.Model.EqLogic.State":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "State", "String");
+                xamlMember.Getter = get_136_EqLogic_State;
+                xamlMember.Setter = set_136_EqLogic_State;
+                break;
+            case "Jeedom.Model.EqLogic.Updating":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.EqLogic");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Updating", "Boolean");
+                xamlMember.Getter = get_137_EqLogic_Updating;
+                xamlMember.Setter = set_137_EqLogic_Updating;
                 break;
             case "Jeedom.Model.JdObject.display":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "display", "Jeedom.Model.DisplayInfo");
-                xamlMember.Getter = get_139_JdObject_display;
-                xamlMember.Setter = set_139_JdObject_display;
+                xamlMember.Getter = get_138_JdObject_display;
+                xamlMember.Setter = set_138_JdObject_display;
                 break;
             case "Jeedom.Model.JdObject.Image":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Image", "String");
-                xamlMember.Getter = get_140_JdObject_Image;
-                xamlMember.Setter = set_140_JdObject_Image;
+                xamlMember.Getter = get_139_JdObject_Image;
+                xamlMember.Setter = set_139_JdObject_Image;
                 break;
             case "Jeedom.Model.JdObject.Count":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.Model.JdObject");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Count", "String");
-                xamlMember.Getter = get_141_JdObject_Count;
+                xamlMember.Getter = get_140_JdObject_Count;
                 xamlMember.SetIsReadOnly();
                 break;
             case "JeedomApp.ViewModels.DashboardPageViewModel.Request":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.DashboardPageViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Request", "Jeedom.RequestViewModel");
-                xamlMember.Getter = get_142_DashboardPageViewModel_Request;
+                xamlMember.Getter = get_141_DashboardPageViewModel_Request;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "JeedomApp.ViewModels.DashboardPageViewModel.EqLogicList":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.DashboardPageViewModel");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "EqLogicList", "System.Collections.ObjectModel.ObservableCollection`1<Jeedom.Model.EqLogic>");
+                xamlMember.Getter = get_142_DashboardPageViewModel_EqLogicList;
                 xamlMember.SetIsReadOnly();
                 break;
             case "JeedomApp.ViewModels.DashboardPageViewModel.CommandList":

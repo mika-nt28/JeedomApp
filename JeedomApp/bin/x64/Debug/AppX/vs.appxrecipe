@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>B4EEFBB605997427062F569E54E7D3475DEC7C389B50DD0E514504421E101ECA</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>3FFDB305CC3A9BC780601273999AF5A82EF3EC3A9FEB92A95E1F602BB52594A1</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>JeedomApp_1.1.6.0_x64__9c7gsy4hh4122</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>JeedomApp_9c7gsy4hh4122!App</RegisteredUserModeAppID>
     <RegisteredPackageID>JeedomApp</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-01T07:14:59.881</Modified>
+      <Modified>2016-12-02T03:37:14.733</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\JeedomApp.exe">
       <PackagePath>entrypoint\JeedomApp.exe</PackagePath>
-      <Modified>2016-12-01T07:13:46.323</Modified>
+      <Modified>2016-12-02T03:36:45.242</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\.nuget\packages\ColorPicker\1.0.2\lib\portable-win81+wpa81\ColorPicker.dll">
       <PackagePath>ColorPicker.dll</PackagePath>
@@ -542,11 +542,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\x64\Debug\Jeedom.dll">
       <PackagePath>Jeedom.dll</PackagePath>
-      <Modified>2016-12-01T07:01:33.604</Modified>
+      <Modified>2016-12-02T03:36:31.569</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\Localisation\bin\x64\Debug\Localisation.winmd">
       <PackagePath>Localisation.winmd</PackagePath>
-      <Modified>2016-12-01T07:01:52.154</Modified>
+      <Modified>2016-12-02T03:36:39.804</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\Notification\bin\x64\Debug\Notification.winmd">
       <PackagePath>Notification.winmd</PackagePath>
@@ -554,7 +554,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\VoiceCommandService\bin\x64\Debug\VoiceCommandService.winmd">
       <PackagePath>VoiceCommandService.winmd</PackagePath>
-      <Modified>2016-12-01T07:01:45.877</Modified>
+      <Modified>2016-12-02T03:36:36.461</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
@@ -616,7 +616,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\JeedomApp.xr.xml">
       <PackagePath>JeedomApp.xr.xml</PackagePath>
-      <Modified>2016-12-01T07:13:37.234</Modified>
+      <Modified>2016-12-01T17:18:17.048</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -672,11 +672,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-12-01T07:14:37.143</Modified>
+      <Modified>2016-12-01T17:22:16.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x64\Debug\Core\JeedomApp.exe">
       <PackagePath>JeedomApp.exe</PackagePath>
-      <Modified>2016-12-01T07:14:59.854</Modified>
+      <Modified>2016-12-02T03:37:14.722</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
