@@ -8,49 +8,42 @@ namespace JeedomApp.ViewModels
     internal class ConnectViewModel : ViewModelBase
     {
         public static ConnectViewModel Instance { get; private set; }
-
-        private ConfigurationViewModel _config;
+        
 
         public ConnectViewModel()
         {
             Instance = this;
-            _config = new ConfigurationViewModel();
         }
 
         public string Host
         {
-            get { return _config.Host; }
-            set { _config.Host = value; }
+            get { return RequestViewModel.config.Host; }
+            set { RequestViewModel.config.Host = value; }
         }
-
-        public string Path
+        public string Login
         {
-            get { return _config.Path; }
-            set { _config.Path = value; }
+            get { return RequestViewModel.config.Login; }
+            set { RequestViewModel.config.Login = value; }
         }
-
-        public string DnsUri
+        public string Password
         {
-            get { return _config.DnsUri; }
-            set { _config.DnsUri = value; }
+            get { return RequestViewModel.config.Password; }
+            set { RequestViewModel.config.Password = value; }
         }
-
-        public string ApiKey
+        public bool? TwoFactor
         {
-            get { return _config.ApiKey; }
-            set { _config.ApiKey = value; }
+            get { return RequestViewModel.config.TwoFactor; }
+            set { RequestViewModel.config.TwoFactor = value; }
         }
-
-        public bool? IsSelfSigned
+        public bool? ConnexionAuto
         {
-            get { return _config.IsSelfSigned; }
-            set { _config.IsSelfSigned = value; }
+            get { return RequestViewModel.config.ConnexionAuto; }
+            set { RequestViewModel.config.ConnexionAuto = value; }
         }
-
-        public bool? UseSSL
+        public string TwoFactorCode
         {
-            get { return _config.UseSSL; }
-            set { _config.UseSSL = value; }
+            get { return RequestViewModel.config.TwoFactorCode; }
+            set { RequestViewModel.config.TwoFactorCode = value; }
         }
     }
 }

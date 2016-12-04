@@ -17,12 +17,12 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock x:ConnectionId='5' x:Name="tbTitle"
+                    <TextBlock x:ConnectionId='6' x:Name="tbTitle"
                                HorizontalAlignment="Center"
                                Foreground="White"
                                Text="JeedomApp"
                                TextWrapping="Wrap" />
-                    <TextBlock x:ConnectionId='6' x:Uid="connection"
+                    <TextBlock x:ConnectionId='7' x:Uid="connection"
                                x:Name="tbSubtitle"
                                Margin="0,5,0,0"
                                HorizontalAlignment="Center"
@@ -30,7 +30,7 @@
                                RenderTransformOrigin="0.5,0.5"
                                Text="Connectez-vous à votre box domotique"
                                TextWrapping="Wrap" />
-                    <Image x:ConnectionId='7' x:Name="image"
+                    <Image x:ConnectionId='8' x:Name="image"
                            Width="44"
                            Height="44"
                            Margin="0,5,0,0"
@@ -46,7 +46,7 @@
                            Margin="5"
                            Foreground="Red"
                            Text="" />
-                <localcontrols:ConnectControl Grid.Row="1" />
+                <localcontrols:ConnectControl x:ConnectionId='5' x:Name="pnConnectControl" Grid.Row="1" />
             </Grid>
         </ScrollViewer>
         <CommandBar VerticalAlignment="Bottom">

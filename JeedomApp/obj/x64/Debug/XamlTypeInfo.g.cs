@@ -744,11 +744,11 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Template10.Mvvm.ViewModelBase"));
                 userType.Activator = Activate_19_ConnectViewModel;
                 userType.AddMemberName("Host");
-                userType.AddMemberName("Path");
-                userType.AddMemberName("DnsUri");
-                userType.AddMemberName("ApiKey");
-                userType.AddMemberName("IsSelfSigned");
-                userType.AddMemberName("UseSSL");
+                userType.AddMemberName("Login");
+                userType.AddMemberName("Password");
+                userType.AddMemberName("TwoFactor");
+                userType.AddMemberName("ConnexionAuto");
+                userType.AddMemberName("TwoFactorCode");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -1501,12 +1501,13 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 userType = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_119_ConfigurationViewModel;
                 userType.AddMemberName("Uri");
-                userType.AddMemberName("Path");
-                userType.AddMemberName("IsSelfSigned");
-                userType.AddMemberName("UseSSL");
+                userType.AddMemberName("Login");
+                userType.AddMemberName("Password");
+                userType.AddMemberName("ConnexionAuto");
+                userType.AddMemberName("TwoFactor");
+                userType.AddMemberName("TwoFactorCode");
                 userType.AddMemberName("Host");
                 userType.AddMemberName("ApiKey");
-                userType.AddMemberName("DnsUri");
                 userType.AddMemberName("GeolocActivation");
                 userType.AddMemberName("GeoFenceActivation");
                 userType.AddMemberName("GeoFenceActivationDistance");
@@ -1734,55 +1735,55 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
             that.Host = (global::System.String)Value;
         }
-        private object get_15_ConnectViewModel_Path(object instance)
+        private object get_15_ConnectViewModel_Login(object instance)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            return that.Path;
+            return that.Login;
         }
-        private void set_15_ConnectViewModel_Path(object instance, object Value)
+        private void set_15_ConnectViewModel_Login(object instance, object Value)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            that.Path = (global::System.String)Value;
+            that.Login = (global::System.String)Value;
         }
-        private object get_16_ConnectViewModel_DnsUri(object instance)
+        private object get_16_ConnectViewModel_Password(object instance)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            return that.DnsUri;
+            return that.Password;
         }
-        private void set_16_ConnectViewModel_DnsUri(object instance, object Value)
+        private void set_16_ConnectViewModel_Password(object instance, object Value)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            that.DnsUri = (global::System.String)Value;
+            that.Password = (global::System.String)Value;
         }
-        private object get_17_ConnectViewModel_ApiKey(object instance)
+        private object get_17_ConnectViewModel_TwoFactor(object instance)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            return that.ApiKey;
+            return that.TwoFactor;
         }
-        private void set_17_ConnectViewModel_ApiKey(object instance, object Value)
+        private void set_17_ConnectViewModel_TwoFactor(object instance, object Value)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            that.ApiKey = (global::System.String)Value;
+            that.TwoFactor = (global::System.Nullable<global::System.Boolean>)Value;
         }
-        private object get_18_ConnectViewModel_IsSelfSigned(object instance)
+        private object get_18_ConnectViewModel_ConnexionAuto(object instance)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            return that.IsSelfSigned;
+            return that.ConnexionAuto;
         }
-        private void set_18_ConnectViewModel_IsSelfSigned(object instance, object Value)
+        private void set_18_ConnectViewModel_ConnexionAuto(object instance, object Value)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            that.IsSelfSigned = (global::System.Nullable<global::System.Boolean>)Value;
+            that.ConnexionAuto = (global::System.Nullable<global::System.Boolean>)Value;
         }
-        private object get_19_ConnectViewModel_UseSSL(object instance)
+        private object get_19_ConnectViewModel_TwoFactorCode(object instance)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            return that.UseSSL;
+            return that.TwoFactorCode;
         }
-        private void set_19_ConnectViewModel_UseSSL(object instance, object Value)
+        private void set_19_ConnectViewModel_TwoFactorCode(object instance, object Value)
         {
             var that = (global::JeedomApp.ViewModels.ConnectViewModel)instance;
-            that.UseSSL = (global::System.Nullable<global::System.Boolean>)Value;
+            that.TwoFactorCode = (global::System.String)Value;
         }
         private object get_20_ViewModelBase_NavigationService(object instance)
         {
@@ -3059,122 +3060,132 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.Uri;
         }
-        private object get_159_ConfigurationViewModel_Path(object instance)
+        private object get_159_ConfigurationViewModel_Login(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
-            return that.Path;
+            return that.Login;
         }
-        private void set_159_ConfigurationViewModel_Path(object instance, object Value)
+        private void set_159_ConfigurationViewModel_Login(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
-            that.Path = (global::System.String)Value;
+            that.Login = (global::System.String)Value;
         }
-        private object get_160_ConfigurationViewModel_IsSelfSigned(object instance)
+        private object get_160_ConfigurationViewModel_Password(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
-            return that.IsSelfSigned;
+            return that.Password;
         }
-        private void set_160_ConfigurationViewModel_IsSelfSigned(object instance, object Value)
+        private void set_160_ConfigurationViewModel_Password(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
-            that.IsSelfSigned = (global::System.Nullable<global::System.Boolean>)Value;
+            that.Password = (global::System.String)Value;
         }
-        private object get_161_ConfigurationViewModel_UseSSL(object instance)
+        private object get_161_ConfigurationViewModel_ConnexionAuto(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
-            return that.UseSSL;
+            return that.ConnexionAuto;
         }
-        private void set_161_ConfigurationViewModel_UseSSL(object instance, object Value)
+        private void set_161_ConfigurationViewModel_ConnexionAuto(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
-            that.UseSSL = (global::System.Nullable<global::System.Boolean>)Value;
+            that.ConnexionAuto = (global::System.Nullable<global::System.Boolean>)Value;
         }
-        private object get_162_ConfigurationViewModel_Host(object instance)
+        private object get_162_ConfigurationViewModel_TwoFactor(object instance)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            return that.TwoFactor;
+        }
+        private void set_162_ConfigurationViewModel_TwoFactor(object instance, object Value)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            that.TwoFactor = (global::System.Nullable<global::System.Boolean>)Value;
+        }
+        private object get_163_ConfigurationViewModel_TwoFactorCode(object instance)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            return that.TwoFactorCode;
+        }
+        private void set_163_ConfigurationViewModel_TwoFactorCode(object instance, object Value)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            that.TwoFactorCode = (global::System.String)Value;
+        }
+        private object get_164_ConfigurationViewModel_Host(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.Host;
         }
-        private void set_162_ConfigurationViewModel_Host(object instance, object Value)
+        private void set_164_ConfigurationViewModel_Host(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.Host = (global::System.String)Value;
         }
-        private object get_163_ConfigurationViewModel_ApiKey(object instance)
+        private object get_165_ConfigurationViewModel_ApiKey(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.ApiKey;
         }
-        private void set_163_ConfigurationViewModel_ApiKey(object instance, object Value)
+        private void set_165_ConfigurationViewModel_ApiKey(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.ApiKey = (global::System.String)Value;
         }
-        private object get_164_ConfigurationViewModel_DnsUri(object instance)
-        {
-            var that = (global::Jeedom.ConfigurationViewModel)instance;
-            return that.DnsUri;
-        }
-        private void set_164_ConfigurationViewModel_DnsUri(object instance, object Value)
-        {
-            var that = (global::Jeedom.ConfigurationViewModel)instance;
-            that.DnsUri = (global::System.String)Value;
-        }
-        private object get_165_ConfigurationViewModel_GeolocActivation(object instance)
+        private object get_166_ConfigurationViewModel_GeolocActivation(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeolocActivation;
         }
-        private void set_165_ConfigurationViewModel_GeolocActivation(object instance, object Value)
+        private void set_166_ConfigurationViewModel_GeolocActivation(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeolocActivation = (global::System.Boolean)Value;
         }
-        private object get_166_ConfigurationViewModel_GeoFenceActivation(object instance)
+        private object get_167_ConfigurationViewModel_GeoFenceActivation(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeoFenceActivation;
         }
-        private void set_166_ConfigurationViewModel_GeoFenceActivation(object instance, object Value)
+        private void set_167_ConfigurationViewModel_GeoFenceActivation(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeoFenceActivation = (global::System.Boolean)Value;
         }
-        private object get_167_ConfigurationViewModel_GeoFenceActivationDistance(object instance)
+        private object get_168_ConfigurationViewModel_GeoFenceActivationDistance(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeoFenceActivationDistance;
         }
-        private void set_167_ConfigurationViewModel_GeoFenceActivationDistance(object instance, object Value)
+        private void set_168_ConfigurationViewModel_GeoFenceActivationDistance(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeoFenceActivationDistance = (global::System.String)Value;
         }
-        private object get_168_ConfigurationViewModel_NotificationActivation(object instance)
+        private object get_169_ConfigurationViewModel_NotificationActivation(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.NotificationActivation;
         }
-        private void set_168_ConfigurationViewModel_NotificationActivation(object instance, object Value)
+        private void set_169_ConfigurationViewModel_NotificationActivation(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.NotificationActivation = (global::System.Boolean)Value;
         }
-        private object get_169_ConfigurationViewModel_GeolocObjectId(object instance)
+        private object get_170_ConfigurationViewModel_GeolocObjectId(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeolocObjectId;
         }
-        private void set_169_ConfigurationViewModel_GeolocObjectId(object instance, object Value)
+        private void set_170_ConfigurationViewModel_GeolocObjectId(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeolocObjectId = (global::System.String)Value;
         }
-        private object get_170_ConfigurationViewModel_NotificationObjectId(object instance)
+        private object get_171_ConfigurationViewModel_NotificationObjectId(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.NotificationObjectId;
         }
-        private void set_170_ConfigurationViewModel_NotificationObjectId(object instance, object Value)
+        private void set_171_ConfigurationViewModel_NotificationObjectId(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.NotificationObjectId = (global::System.String)Value;
@@ -3277,35 +3288,35 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlMember.Getter = get_14_ConnectViewModel_Host;
                 xamlMember.Setter = set_14_ConnectViewModel_Host;
                 break;
-            case "JeedomApp.ViewModels.ConnectViewModel.Path":
+            case "JeedomApp.ViewModels.ConnectViewModel.Login":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.ConnectViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Path", "String");
-                xamlMember.Getter = get_15_ConnectViewModel_Path;
-                xamlMember.Setter = set_15_ConnectViewModel_Path;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Login", "String");
+                xamlMember.Getter = get_15_ConnectViewModel_Login;
+                xamlMember.Setter = set_15_ConnectViewModel_Login;
                 break;
-            case "JeedomApp.ViewModels.ConnectViewModel.DnsUri":
+            case "JeedomApp.ViewModels.ConnectViewModel.Password":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.ConnectViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "DnsUri", "String");
-                xamlMember.Getter = get_16_ConnectViewModel_DnsUri;
-                xamlMember.Setter = set_16_ConnectViewModel_DnsUri;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Password", "String");
+                xamlMember.Getter = get_16_ConnectViewModel_Password;
+                xamlMember.Setter = set_16_ConnectViewModel_Password;
                 break;
-            case "JeedomApp.ViewModels.ConnectViewModel.ApiKey":
+            case "JeedomApp.ViewModels.ConnectViewModel.TwoFactor":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.ConnectViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ApiKey", "String");
-                xamlMember.Getter = get_17_ConnectViewModel_ApiKey;
-                xamlMember.Setter = set_17_ConnectViewModel_ApiKey;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "TwoFactor", "System.Nullable`1<Boolean>");
+                xamlMember.Getter = get_17_ConnectViewModel_TwoFactor;
+                xamlMember.Setter = set_17_ConnectViewModel_TwoFactor;
                 break;
-            case "JeedomApp.ViewModels.ConnectViewModel.IsSelfSigned":
+            case "JeedomApp.ViewModels.ConnectViewModel.ConnexionAuto":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.ConnectViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "IsSelfSigned", "System.Nullable`1<Boolean>");
-                xamlMember.Getter = get_18_ConnectViewModel_IsSelfSigned;
-                xamlMember.Setter = set_18_ConnectViewModel_IsSelfSigned;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ConnexionAuto", "System.Nullable`1<Boolean>");
+                xamlMember.Getter = get_18_ConnectViewModel_ConnexionAuto;
+                xamlMember.Setter = set_18_ConnectViewModel_ConnexionAuto;
                 break;
-            case "JeedomApp.ViewModels.ConnectViewModel.UseSSL":
+            case "JeedomApp.ViewModels.ConnectViewModel.TwoFactorCode":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JeedomApp.ViewModels.ConnectViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "UseSSL", "System.Nullable`1<Boolean>");
-                xamlMember.Getter = get_19_ConnectViewModel_UseSSL;
-                xamlMember.Setter = set_19_ConnectViewModel_UseSSL;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "TwoFactorCode", "String");
+                xamlMember.Getter = get_19_ConnectViewModel_TwoFactorCode;
+                xamlMember.Setter = set_19_ConnectViewModel_TwoFactorCode;
                 break;
             case "Template10.Mvvm.ViewModelBase.NavigationService":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Mvvm.ViewModelBase");
@@ -4206,77 +4217,83 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlMember.Getter = get_158_ConfigurationViewModel_Uri;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "Jeedom.ConfigurationViewModel.Path":
+            case "Jeedom.ConfigurationViewModel.Login":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Path", "String");
-                xamlMember.Getter = get_159_ConfigurationViewModel_Path;
-                xamlMember.Setter = set_159_ConfigurationViewModel_Path;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Login", "String");
+                xamlMember.Getter = get_159_ConfigurationViewModel_Login;
+                xamlMember.Setter = set_159_ConfigurationViewModel_Login;
                 break;
-            case "Jeedom.ConfigurationViewModel.IsSelfSigned":
+            case "Jeedom.ConfigurationViewModel.Password":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "IsSelfSigned", "System.Nullable`1<Boolean>");
-                xamlMember.Getter = get_160_ConfigurationViewModel_IsSelfSigned;
-                xamlMember.Setter = set_160_ConfigurationViewModel_IsSelfSigned;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Password", "String");
+                xamlMember.Getter = get_160_ConfigurationViewModel_Password;
+                xamlMember.Setter = set_160_ConfigurationViewModel_Password;
                 break;
-            case "Jeedom.ConfigurationViewModel.UseSSL":
+            case "Jeedom.ConfigurationViewModel.ConnexionAuto":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "UseSSL", "System.Nullable`1<Boolean>");
-                xamlMember.Getter = get_161_ConfigurationViewModel_UseSSL;
-                xamlMember.Setter = set_161_ConfigurationViewModel_UseSSL;
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ConnexionAuto", "System.Nullable`1<Boolean>");
+                xamlMember.Getter = get_161_ConfigurationViewModel_ConnexionAuto;
+                xamlMember.Setter = set_161_ConfigurationViewModel_ConnexionAuto;
+                break;
+            case "Jeedom.ConfigurationViewModel.TwoFactor":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "TwoFactor", "System.Nullable`1<Boolean>");
+                xamlMember.Getter = get_162_ConfigurationViewModel_TwoFactor;
+                xamlMember.Setter = set_162_ConfigurationViewModel_TwoFactor;
+                break;
+            case "Jeedom.ConfigurationViewModel.TwoFactorCode":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "TwoFactorCode", "String");
+                xamlMember.Getter = get_163_ConfigurationViewModel_TwoFactorCode;
+                xamlMember.Setter = set_163_ConfigurationViewModel_TwoFactorCode;
                 break;
             case "Jeedom.ConfigurationViewModel.Host":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Host", "String");
-                xamlMember.Getter = get_162_ConfigurationViewModel_Host;
-                xamlMember.Setter = set_162_ConfigurationViewModel_Host;
+                xamlMember.Getter = get_164_ConfigurationViewModel_Host;
+                xamlMember.Setter = set_164_ConfigurationViewModel_Host;
                 break;
             case "Jeedom.ConfigurationViewModel.ApiKey":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ApiKey", "String");
-                xamlMember.Getter = get_163_ConfigurationViewModel_ApiKey;
-                xamlMember.Setter = set_163_ConfigurationViewModel_ApiKey;
-                break;
-            case "Jeedom.ConfigurationViewModel.DnsUri":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "DnsUri", "String");
-                xamlMember.Getter = get_164_ConfigurationViewModel_DnsUri;
-                xamlMember.Setter = set_164_ConfigurationViewModel_DnsUri;
+                xamlMember.Getter = get_165_ConfigurationViewModel_ApiKey;
+                xamlMember.Setter = set_165_ConfigurationViewModel_ApiKey;
                 break;
             case "Jeedom.ConfigurationViewModel.GeolocActivation":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeolocActivation", "Boolean");
-                xamlMember.Getter = get_165_ConfigurationViewModel_GeolocActivation;
-                xamlMember.Setter = set_165_ConfigurationViewModel_GeolocActivation;
+                xamlMember.Getter = get_166_ConfigurationViewModel_GeolocActivation;
+                xamlMember.Setter = set_166_ConfigurationViewModel_GeolocActivation;
                 break;
             case "Jeedom.ConfigurationViewModel.GeoFenceActivation":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeoFenceActivation", "Boolean");
-                xamlMember.Getter = get_166_ConfigurationViewModel_GeoFenceActivation;
-                xamlMember.Setter = set_166_ConfigurationViewModel_GeoFenceActivation;
+                xamlMember.Getter = get_167_ConfigurationViewModel_GeoFenceActivation;
+                xamlMember.Setter = set_167_ConfigurationViewModel_GeoFenceActivation;
                 break;
             case "Jeedom.ConfigurationViewModel.GeoFenceActivationDistance":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeoFenceActivationDistance", "String");
-                xamlMember.Getter = get_167_ConfigurationViewModel_GeoFenceActivationDistance;
-                xamlMember.Setter = set_167_ConfigurationViewModel_GeoFenceActivationDistance;
+                xamlMember.Getter = get_168_ConfigurationViewModel_GeoFenceActivationDistance;
+                xamlMember.Setter = set_168_ConfigurationViewModel_GeoFenceActivationDistance;
                 break;
             case "Jeedom.ConfigurationViewModel.NotificationActivation":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NotificationActivation", "Boolean");
-                xamlMember.Getter = get_168_ConfigurationViewModel_NotificationActivation;
-                xamlMember.Setter = set_168_ConfigurationViewModel_NotificationActivation;
+                xamlMember.Getter = get_169_ConfigurationViewModel_NotificationActivation;
+                xamlMember.Setter = set_169_ConfigurationViewModel_NotificationActivation;
                 break;
             case "Jeedom.ConfigurationViewModel.GeolocObjectId":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeolocObjectId", "String");
-                xamlMember.Getter = get_169_ConfigurationViewModel_GeolocObjectId;
-                xamlMember.Setter = set_169_ConfigurationViewModel_GeolocObjectId;
+                xamlMember.Getter = get_170_ConfigurationViewModel_GeolocObjectId;
+                xamlMember.Setter = set_170_ConfigurationViewModel_GeolocObjectId;
                 break;
             case "Jeedom.ConfigurationViewModel.NotificationObjectId":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NotificationObjectId", "String");
-                xamlMember.Getter = get_170_ConfigurationViewModel_NotificationObjectId;
-                xamlMember.Setter = set_170_ConfigurationViewModel_NotificationObjectId;
+                xamlMember.Getter = get_171_ConfigurationViewModel_NotificationObjectId;
+                xamlMember.Setter = set_171_ConfigurationViewModel_NotificationObjectId;
                 break;
             }
             return xamlMember;

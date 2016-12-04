@@ -46,7 +46,7 @@
                            Margin="5"
                            Foreground="Red"
                            Text="" />
-                <localcontrols:ConnectControl Grid.Row="1" />
+                <localcontrols:ConnectControl x:Name="pnConnectControl" Grid.Row="1" />
             </Grid>
         </ScrollViewer>
         <CommandBar VerticalAlignment="Bottom">

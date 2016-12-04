@@ -14,4 +14,3 @@ C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\x86\Release\pri.resfiles.in
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\x86\Release\qualifiers.txt
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\x86\Release\qualifiers.txt.intermediate
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\x86\Release\MultipleQualifiersPerDimensionFound.txt
-C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\x86\Release\Jeedom.csprojResolveAssemblyReference.cache

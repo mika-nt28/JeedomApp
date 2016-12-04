@@ -8,8 +8,6 @@ C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Properties\Des
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Styles\Custom.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Styles\EqLogicRessources.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Styles\ObjectPageResources.xbf
-C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Styles\Widgets\Default.xbf
-C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Styles\Widgets\Light.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Views\Busy.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Views\AboutPage.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Controls\ConnectDialog.xbf
@@ -198,8 +196,6 @@ C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Properties\Des
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Custom.xaml
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\EqLogicRessources.xaml
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\ObjectPageResources.xaml
-C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Widgets\Default.xaml
-C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Widgets\Light.xaml
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Views\Busy.xaml
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Views\AboutPage.xaml
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Controls\ConnectDialog.xaml
@@ -221,8 +217,6 @@ C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Properties\Des
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Custom.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\EqLogicRessources.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\ObjectPageResources.xbf
-C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Widgets\Default.xbf
-C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Widgets\Light.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Views\Busy.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Views\AboutPage.xbf
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Controls\ConnectDialog.xbf
@@ -336,3 +330,9 @@ C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\FxResources.Sy
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\FxResources.System.Security.Cryptography.Primitives.SR.resw
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\FxResources.System.Security.Cryptography.X509Certificates.SR.resw
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\ZXingNetMobile.pri.xml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\DashboardRessources.xaml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Widgets\DefaultRessources.xaml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\DashboardRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\ARM\Debug\Styles\Widgets\DefaultRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Styles\DashboardRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Debug\Styles\Widgets\DefaultRessources.xbf

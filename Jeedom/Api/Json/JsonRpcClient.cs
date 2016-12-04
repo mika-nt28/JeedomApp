@@ -63,15 +63,14 @@ namespace Jeedom.Api.Json
 
         private async Task<String> Request(string command, Parameters parameters)
         {
-            var config = new ConfigurationViewModel();
-            var uri = new Uri(config.Uri + "/core/api/jeeApi.php");
+            var uri = new Uri(RequestViewModel.config.Uri + "/core/api/jeeApi.php");
 
             var filter = new HttpBaseProtocolFilter();
-            if (config.IsSelfSigned == true)
+           /* if (config.IsSelfSigned == true)
             {
                 filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
                 filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
-            }
+            }*/
 
             HttpClient httpClient = new HttpClient(filter);
             httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -92,8 +91,7 @@ namespace Jeedom.Api.Json
 
         public async Task<bool> SendRequest(string command)
         {
-            var config = new ConfigurationViewModel();
-            parameters.apikey = config.ApiKey;
+            parameters.apikey = RequestViewModel.config.ApiKey;
 
             try
             {

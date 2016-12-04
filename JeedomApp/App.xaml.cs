@@ -54,13 +54,12 @@ namespace JeedomApp
         // runs only when not restored from state
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
-            ConfigurationViewModel config = new ConfigurationViewModel();
             SettingsService.Instance.UseShellBackButton = true;
 
             // Ne rien mettre au dessus de ce code sinon Template10 fonctionne mal.
             NavigationService.Navigate(typeof(DashboardPage));
 
-            if (config.Populated)
+            if (RequestViewModel.config.Populated)
             {
                 //Lancer le dispatchertimer
                 var _dispatcher = new DispatcherTimer();
@@ -93,7 +92,7 @@ namespace JeedomApp
         private async void _dispatcher_Tick(object sender, object e)
         {
             //Shell.SetBusy(true, "Mise à jour");
-            await RequestViewModel.Instance.UpdateTask();
+            //await RequestViewModel.Instance.UpdateTask();
             //Shell.SetBusy(false);
         }
     }

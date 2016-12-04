@@ -20,15 +20,14 @@ namespace Jeedom.Api.Http
         {
             try
             {
-                var config = new ConfigurationViewModel();
-                var uri = new Uri(config.Uri + _path);
+                var uri = new Uri(RequestViewModel.config.Uri + _path);
 
                 var filter = new HttpBaseProtocolFilter();
-                if (config.IsSelfSigned == true)
+             /*   if (config.IsSelfSigned == true)
                 {
                     filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
                     filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
-                }
+                }*/
 
                 var httpClient = new HttpClient(filter);
                 httpClient.DefaultRequestHeaders.Accept.Clear();

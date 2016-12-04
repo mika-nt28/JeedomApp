@@ -12,7 +12,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("Notification")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("VoiceCommandService")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Runtime.WindowsRuntime")]
-[assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Net.Http")]
+[assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("ZXingNetMobile")]
 [assembly: global::System.Runtime.CompilerServices.IgnoresAccessChecksTo("System.Text.Encoding.CodePages")]
 
 

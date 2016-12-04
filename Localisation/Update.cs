@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
-
+using Jeedom;
 namespace Localisation
 {
     internal class Update
@@ -14,8 +14,7 @@ namespace Localisation
         private const long oneHundredNanosecondsPerSecond = 10000000;    // conversion from 100 nano-second resolution to seconds
 
         private IBackgroundTaskRegistration _geofenceTask = null;
-
-        public Jeedom.ConfigurationViewModel config = new Jeedom.ConfigurationViewModel();
+        
 
         async public Task WriteGeolocToAppData(Geoposition pos)
         {
@@ -35,7 +34,7 @@ namespace Localisation
                 }
             }
 
-            if (config.GeoFenceActivation && Convert.ToDouble(config.GeoFenceActivationDistance) >= HomeMobile)
+            if (RequestViewModel.config.GeoFenceActivation && Convert.ToDouble(RequestViewModel.config.GeoFenceActivationDistance) >= HomeMobile)
             {
                 RegisterGeoFence();
             }

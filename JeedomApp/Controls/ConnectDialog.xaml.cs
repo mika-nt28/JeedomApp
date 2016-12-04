@@ -42,16 +42,17 @@ namespace JeedomApp.Controls
         }
         private async void bConnect_Click(object sender, RoutedEventArgs e)
         {
-            // Tentative de connexion à Jeedom
-            var error = await RequestViewModel.Instance.PingJeedom();
-            if (error != null)
-            {
-                ErrorMsg.Text = error.message;
-                return; // Problème de connexion
-            }
-
             // Lance le rapatriement des données de Jeedom
             var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
+            
+            await taskFactory.StartNew(async () =>
+            {
+                var error=await RequestViewModel.Instance.ConnectJeedomByLogin();
+                if(error==null)
+                    error = await RequestViewModel.Instance.CreateEqLogicMobile();
+                if (error != null)
+                    return;
+            });
             await taskFactory.StartNew(async () =>
             {
                 await RequestViewModel.Instance.FirstLaunch();

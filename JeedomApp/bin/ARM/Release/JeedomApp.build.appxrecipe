@@ -58,8 +58,8 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\ClrCompression.dll">
-      <PackagePath>ClrCompression.dll</PackagePath>
+    <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\clrcompression.dll">
+      <PackagePath>clrcompression.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\ColorPicker\colors.jpg">
       <PackagePath>ColorPicker\colors.jpg</PackagePath>
@@ -97,6 +97,9 @@
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\Template10Library\Themes\Generic.xaml">
       <PackagePath>Template10Library\Themes\Generic.xaml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\Template10Library\Themes\HamburgerMenu.xaml">
+      <PackagePath>Template10Library\Themes\HamburgerMenu.xaml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\Template10Library\Themes\ModalDialog.xaml">
       <PackagePath>Template10Library\Themes\ModalDialog.xaml</PackagePath>
     </AppxPackagedFile>
@@ -108,18 +111,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\VoiceCommandService.winmd">
       <PackagePath>VoiceCommandService.winmd</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\_Resources\0.rsrc">
-      <PackagePath>_Resources\0.rsrc</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\_Resources\1.rsrc">
-      <PackagePath>_Resources\1.rsrc</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\_Resources\2.rsrc">
-      <PackagePath>_Resources\2.rsrc</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\ARM\Release\ilc\_Resources\index.txt">
-      <PackagePath>_Resources\index.txt</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

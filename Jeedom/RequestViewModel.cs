@@ -21,10 +21,12 @@ namespace Jeedom
     {
         static private RequestViewModel _instance;
 
+        static public ConfigurationViewModel config = new ConfigurationViewModel();
         private int pass = 0;
 
         private RequestViewModel()
-        { }
+        {
+        }
 
         static public RequestViewModel Instance
         {
@@ -46,9 +48,6 @@ namespace Jeedom
         private ObservableCollection<Interact> _interactList = new ObservableCollection<Interact>();
         private double _dateTime;
         public string InteractReply;
-
-        public StorageFolder ImageFolder = ApplicationData.Current.LocalFolder;
-
         public ObservableCollection<Message> MessageList
         {
             get { return _messageList; }
@@ -58,7 +57,6 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         public ObservableCollection<Interact> InteractList
         {
             get { return _interactList; }
@@ -68,7 +66,6 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         public ObservableCollection<EqLogic> EqLogicList
         {
             get { return _eqLogicList; }
@@ -78,7 +75,6 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         public ObservableCollection<Command> CommandList
         {
             get { return _commandList; }
@@ -88,7 +84,6 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         public ObservableCollection<JdObject> ObjectList
         {
             get { return _objectList; }
@@ -98,7 +93,6 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         public ObservableCollection<Scene> SceneList
         {
             get { return _sceneList; }
@@ -108,11 +102,8 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         public CancellationTokenSource tokenSource;
-
         private Boolean _updating;
-
         public Boolean Updating
         {
             get
@@ -125,9 +116,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         private string _version;
-
         public string Version
         {
             get { return _version; }
@@ -137,9 +126,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         private string _loadingMessage;
-
         public string LoadingMessage
         {
             get
@@ -153,9 +140,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         private int _progress = 0;
-
         public int Progress
         {
             get { return _progress; }
@@ -165,11 +150,8 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
-
         public bool Populated = false;
-
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
@@ -177,7 +159,6 @@ namespace Jeedom
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
         public async Task<Error> PingJeedom()
         {
             Updating = true;
@@ -195,7 +176,6 @@ namespace Jeedom
             Updating = false;
             return jsonrpc.Error;
         }
-
         public async Task<Error> DownloadVersion()
         {
             var jsonrpc = new JsonRpcClient();
@@ -207,7 +187,6 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
-
         private async Task<Error> DownloadDateTime()
         {
             var jsonrpc = new JsonRpcClient();
@@ -220,23 +199,22 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
-
         public async Task FirstLaunch()
         {
             Updating = true;
 
             int pg = 100 / 6;
 
-            LoadingMessage = "Contacte Jeedom";
-            var error = await DownloadDateTime();
-            Progress += pg;
-
             LoadingMessage = "Chargement de la Version";
-            error = await DownloadVersion();
+            var error = await DownloadVersion();
             Progress += pg;
 
             LoadingMessage = "Chargement des Objets";
             error = await DownloadObjects();
+            Progress += pg;
+
+            LoadingMessage = "Chargement des information";
+            error = await SynchMobilePlugin();
             Progress += pg;
 
             LoadingMessage = "Chargement des Scénarios";
@@ -247,12 +225,12 @@ namespace Jeedom
             error = await DownloadMessages();
             Progress += pg;
 
-            LoadingMessage = "Chargement des informations des Commandes";
-            foreach (EqLogic eq in EqLogicList)
-            {
-                await UpdateEqLogic(eq);
-            }
-            Progress += pg;
+            /*  LoadingMessage = "Chargement des informations des Commandes";
+              foreach (EqLogic eq in EqLogicList)
+              {
+                  await UpdateEqLogic(eq);
+              }
+              Progress += pg;*/
 
             LoadingMessage = "Chargement des Interactions";
             await DownloadInteraction();
@@ -260,199 +238,114 @@ namespace Jeedom
 
             LoadingMessage = "Prêt";
             Updating = false;
-        } 
-	public async Task<Error> ConnectJeedomByLogin()
+        }
+        public async Task<Error> ConnectJeedomByLogin()
         {
-	
-        var config = new ConfigurationViewModel();
-	Parameters parameters = new Parameters();
-	parameters.login=config.login;
-	parameters.password=config.password;
-	parameters.twoFactorCode=config.twoFactorCode;
-	var jsonrpc = new JsonRpcClient(parameters);
-   
+            Parameters parameters = new Parameters();
+            parameters.login = config.Login;
+            parameters.password = config.Password;
+            if (config.TwoFactor == true)
+                parameters.twoFactorCode = config.TwoFactorCode;
+            var jsonrpc = new JsonRpcClient(parameters);
+
             if (await jsonrpc.SendRequest("user::getHash"))
             {
-              /*  var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
-                if (response != null)
-                {
-                }*/
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                config.ApiKey = reponse.result;
+
             }
 
             return jsonrpc.Error;
         }
- public async Task<Error> CreateEqLogicMobile()
+        public async Task<Error> CheckTwoFactorConnexion()
         {
-            var jsonrpc = new JsonRpcClient();
-			Parameters parameters = new Parameters();
-			parameters.plugin="mobile";
-			parameters.platform="Windows UWP";
-			jsonrpc.SetParameters(parameters);
-			wait jsonrpc.SendRequest("Iq");
+            Parameters parameters = new Parameters();
+            parameters.login = config.Login;
+            var jsonrpc = new JsonRpcClient(parameters);
+
+            if (await jsonrpc.SendRequest("user::useTwoFactorAuthentification"))
+            {
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (reponse.result == "1")
+                    config.TwoFactor = true;
+                else
+                    config.TwoFactor = false;
+            }
+
             return jsonrpc.Error;
-        }  
+        }
+        public async Task<Error> CreateEqLogicMobile()
+        {
+            Parameters parameters = new Parameters();
+            parameters.plugin = "mobile";
+            parameters.platform = "Windows UWP";
+            var jsonrpc = new JsonRpcClient(parameters);
+            await jsonrpc.SendRequest("Iq");
+            return jsonrpc.Error;
+        }
         public async Task<Error> SynchMobilePlugin()
         {
             var jsonrpc = new JsonRpcClient();
-			Parameters parameters = new Parameters();
-			parameters.plugin="mobile";
-			jsonrpc.SetParameters(parameters);
+            Parameters parameters = new Parameters();
+            parameters.plugin = "mobile";
+            jsonrpc.SetParameters(parameters);
             EqLogicList.Clear();
             CommandList.Clear();
-            ObjectList.Clear();
-    
+
             if (await jsonrpc.SendRequest("sync"))
             {
-                //List<string> idList = new List<string>();
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
-                if (response != null)
+                var EqLogics = jsonrpc.GetRequestResponseDeserialized<Response<JdObject>>();
+                if (EqLogics != null)
                 {
-                    foreach (JdObject o in response.result)
+                    foreach (EqLogic eq in EqLogics.result.eqLogics)
                     {
-                        ObjectList.Add(o);
-                        //idList.Add("dmj" + o.id);
-                        //UpdateObjectImage(o);
-                        if (o.eqLogics != null)
-                        {
-                            foreach (EqLogic eq in o.eqLogics)
-                            {
-                                EqLogicList.Add(eq);
-                                if (eq.cmds != null)
-                                {
-                                    foreach (Command cmd in eq.cmds)
-                                    {
-                                        cmd.Parent = eq;
-                                        CommandList.Add(cmd);
-                                    }
-                                }
-                                else
-                                    eq.cmds = new ObservableCollection<Command>();
-                            }
-                        }
+                        EqLogicList.Add(eq);
                     }
+                }
+                var Cmds = jsonrpc.GetRequestResponseDeserialized<Response<EqLogic>>();
+                if (Cmds != null)
+                {
+                  
+                        foreach (Command cmd in Cmds.result.cmds)
+                        {
+                            if (EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds == null)
+                                EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds = new ObservableCollection<Command>();
+                            EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds.Add(cmd);
+                            CommandList.Add(cmd);
+                        }
+
+                }
+                foreach (EqLogic eq in EqLogicList)
+                {
+                    if (ObjectList.Where(o => o.id.Equals(eq.object_id)).First().eqLogics == null)
+                        ObjectList.Where(o => o.id.Equals(eq.object_id)).First().eqLogics = new ObservableCollection<EqLogic>();
+                    ObjectList.Where(o => o.id.Equals(eq.object_id)).First().eqLogics.Add(eq);
                 }
             }
 
             return jsonrpc.Error;
         }
-    
-        /// <summary>
-        /// Télécharge les informations sur les JdObject, les EqLogic et les Command (sans les value)
-        /// </summary>
-        /// <returns>Le code et le message d'erreur de Jeedom</returns>
         public async Task<Error> DownloadObjects()
         {
             var jsonrpc = new JsonRpcClient();
-            EqLogicList.Clear();
-            CommandList.Clear();
-            ObjectList.Clear();
 
-           /* if (await jsonrpc.SendRequest("object::full"))
+            if (await jsonrpc.SendRequest("object::all"))
             {
-                //List<string> idList = new List<string>();
                 var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
-                if (response != null)
+                foreach (JdObject obj in response.result)
                 {
-                    foreach (JdObject o in response.result)
+                    var lst = from o in ObjectList where o.id == obj.id select o;
+                    if (lst.Count() != 0)
                     {
-                        ObjectList.Add(o);
-                        //idList.Add("dmj" + o.id);
-                        //UpdateObjectImage(o);
-                        if (o.eqLogics != null)
-                        {
-                            foreach (EqLogic eq in o.eqLogics)
-                            {
-                                EqLogicList.Add(eq);
-                                if (eq.cmds != null)
-                                {
-                                    foreach (Command cmd in eq.cmds)
-                                    {
-                                        cmd.Parent = eq;
-                                        CommandList.Add(cmd);
-                                    }
-                                }
-                                else
-                                    eq.cmds = new ObservableCollection<Command>();
-                            }
-                        }
+                        var ob = lst.First();
+                        ob = obj;
                     }
-
-                    JdObject fakeobj = new JdObject();
-                    fakeobj.name = "Autres";
-                    //UpdateObjectImage(fakeobj);
-                    ObjectList.Add(fakeobj);
-                    fakeobj.eqLogics = new ObservableCollection<EqLogic>();
-
-                    // Récupère les EqLogic du fake (object_id==null)
-                    if (await jsonrpc.SendRequest("eqLogic::byObjectId"))
-                    {
-                        var responseEqLogic = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<EqLogic>>>();
-                        if (responseEqLogic != null)
-                        {
-                            foreach (EqLogic eq in responseEqLogic.result)
-                            {
-                                var param = new Parameters();
-                                param.id = eq.id;
-                                jsonrpc.SetParameters(param);
-                                if (await jsonrpc.SendRequest("eqLogic::fullById"))
-                                {
-                                    var responseEq = jsonrpc.GetRequestResponseDeserialized<Response<EqLogic>>();
-                                    if (responseEq.result?.cmds != null)
-                                        eq.cmds = responseEq.result.cmds;
-                                    else
-                                        eq.cmds = new ObservableCollection<Command>();
-                                    fakeobj.eqLogics.Add(eq);
-                                    EqLogicList.Add(eq);
-                                    foreach (Command cmd in eq.cmds)
-                                    {
-                                        CommandList.Add(cmd);
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    // Efface les images inutiles
-                    /*var files = await ImageFolder.GetFilesAsync();
-                    foreach (StorageFile f in files)
-                    {
-                        if (!idList.Contains(f.DisplayName))
-                        {
-                            await f.DeleteAsync();
-                        }
-                    }*//*
+                    else
+                        ObjectList.Add(obj);
                 }
-            }*/
-
+            }
             return jsonrpc.Error;
         }
-
-        /*private async void UpdateObjectImage(JdObject obj)
-        {
-            try
-            {
-                var file = await ImageFolder.GetFileAsync("dmj" + obj.id);
-                obj.Image = "ms-appdata:///local/" + file.DisplayName;
-            }
-            catch (Exception)
-            {
-                obj.Image = "ms-appx:///Images/WP.jpg";
-            }
-        }
-
-        /*public static void UpdateObjectImage(string id, string name)
-        {
-            var objs = from o in ObjectList where o.id == id select o;
-            if (objs.Count() != 0)
-            {
-                var obj = objs.First();
-                if (name == null)
-                    obj.Image = "ms-appx:///Images/WP.jpg";
-                else
-                    obj.Image = "ms-appdata:///local/" + name;
-            }
-        }*/
-
         public async Task<Error> DownloadScenes()
         {
             var jsonrpc = new JsonRpcClient();
@@ -467,7 +360,6 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
-
         public async Task<Error> DownloadMessages()
         {
             var jsonrpc = new JsonRpcClient();
@@ -482,35 +374,6 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
-
-        /*public async Task<Error> DownloadCommands()
-        {
-            var jsonrpc = new JsonRpcClient();
-            if (await jsonrpc.SendRequest("cmd::all"))
-            {
-                CommandList.Clear();
-                var response = jsonrpc.GetRequestResponseDeserialized<ResponseCommandList>();
-                if (response != null)
-                    CommandList = response.result;
-                foreach (Command cmd in CommandList)
-                {
-                    var eqlist = from eq in EqLogicList where eq.id == cmd.eqLogic_id select eq;
-                    var parenteq = eqlist.First();
-                    if (parenteq.cmds == null)
-                        parenteq.cmds = new ObservableCollection<Command>();
-                    parenteq.cmds.Add(cmd);
-                    cmd.Parent = parenteq;
-                    if (cmd.name == "On")
-                        parenteq.OnVisibility = true;
-
-                    if (cmd.type == "info")
-                        await ExecuteCommand(cmd);
-                }
-            }
-
-            return jsonrpc.Error;
-        }*/
-
         public async Task<Error> interactTryToReply(string query)
         {
             InteractReply = "";
@@ -527,7 +390,6 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
-
         public async Task<Error> DownloadInteraction()
         {
             var jsonrpc = new JsonRpcClient();
@@ -573,20 +435,16 @@ namespace Jeedom
 
         public async Task<bool> SendNotificationUri(string uri)
         {
-            var config = new ConfigurationViewModel();
             var httpRpcClient = new HttpRpcClient("/plugins/pushNotification/php/updatUri.php?api=" + config.ApiKey + "&id=" + config.NotificationObjectId + "&uri=" + uri);
 
             return await httpRpcClient.SendRequest();
         }
-
         public async Task<bool> SendPosition(string position)
         {
-            var config = new ConfigurationViewModel();
             var httpRpcClient = new HttpRpcClient("/core/api/jeeApi.php?api=" + config.ApiKey + "&type=geoloc&id=" + config.GeolocObjectId + "&value=" + position);
 
             return await httpRpcClient.SendRequest();
         }
-
         public async Task<bool> Shutdown()
         {
             var jsonrpc = new JsonRpcClient();
@@ -598,12 +456,22 @@ namespace Jeedom
             else
                 return false;
         }
-
         public async Task<bool> Upgrade()
         {
             var jsonrpc = new JsonRpcClient();
 
             await jsonrpc.SendRequest("update::update");
+
+            if (jsonrpc.Error == null)
+                return true;
+            else
+                return false;
+        }
+        public async Task<bool> Reboot()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            await jsonrpc.SendRequest("jeeNetwork::reboot");
 
             if (jsonrpc.Error == null)
                 return true;
@@ -641,7 +509,6 @@ namespace Jeedom
                 _dateTime = response.datetime;
             }
         }
-
         public async Task UpdateTask()
         {
             Updating = true;
@@ -669,18 +536,6 @@ namespace Jeedom
             Updating = false;
         }
 
-        public async Task<bool> Reboot()
-        {
-            var jsonrpc = new JsonRpcClient();
-
-            await jsonrpc.SendRequest("jeeNetwork::reboot");
-
-            if (jsonrpc.Error == null)
-                return true;
-            else
-                return false;
-        }
-
         public async Task UpdateEqLogic(EqLogic eq)
         {
             var infoCmds = from cmd in eq.cmds where cmd.type == "info" select cmd;
@@ -693,7 +548,6 @@ namespace Jeedom
                 }
             }
         }
-
         public async Task UpdateObject(JdObject obj)
         {
             var parameters = new Parameters();
@@ -724,7 +578,6 @@ namespace Jeedom
                 }
             }
         }
-
         public async Task UpdateObjectList()
         {
             var jsonrpc = new JsonRpcClient();
@@ -745,7 +598,6 @@ namespace Jeedom
                 }
             }
         }
-
         private async Task UpdateScene(Scene scene)
         {
             var parameters = new Parameters();
@@ -771,7 +623,6 @@ namespace Jeedom
                 await UpdateScene(scene);
             }
         }
-
         public async Task ExecuteCommand(Command cmd, Parameters parameters = null)
         {
             cmd.Updating = true;

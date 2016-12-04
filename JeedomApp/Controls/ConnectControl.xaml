@@ -16,50 +16,42 @@
                  Width="260"
                  Margin="5"
                  Header="Serveur"
-                 PlaceholderText="Adresse IP ou Nom d'hôte du serveur"
+                 PlaceholderText="Adresse IP local de votre jeesom"
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
                  Text="{x:Bind ViewModel.Host, Mode=TwoWay}"
                  TextWrapping="Wrap" />
-        <TextBox x:Name="pbAPIKey"
+        <TextBox x:Name="tbLogin"
                  Width="260"
                  Margin="5"
-                 Header="Clé API"
-                 PlaceholderText="Clé API à récupérer dans JEEDOM"
+                 Header="Login"
+                 PlaceholderText="Login de connexion a jeedom"
+                 Text="{x:Bind ViewModel.Login, Mode=TwoWay}"
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                 RelativePanel.Below="tbPath"
-                 Text="{x:Bind ViewModel.ApiKey, Mode=TwoWay}" />
-
-        <CheckBox x:Name="cbSsl"
-                  Width="260"
-                  Margin="5"
-                  VerticalAlignment="Stretch"
-                  Content="Utiliser SSL"
-                  IsChecked="{x:Bind ViewModel.UseSSL, Mode=TwoWay}"
-                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                  RelativePanel.Below="tbHost" />
-        <TextBox x:Name="tbPath"
+                 RelativePanel.Below="tbHost" TextChanged="tbLogin_TextChanged"/>
+        <PasswordBox x:Name="tbPass"
                  Width="260"
                  Margin="5"
-                 Header="Chemin"
-                 PlaceholderText="Chemin d'accès"
+                 Header="Password"
+                 PlaceholderText="Mot de passe de connexion jeedom"
+                 Password="{x:Bind ViewModel.Password, Mode=TwoWay}"
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                 RelativePanel.Below="cbSsl"
-                 Text="{x:Bind ViewModel.Path, Mode=TwoWay}" />
-        <CheckBox x:Name="cbSelfSigned"
+                 RelativePanel.Below="tbLogin"/>
+        <CheckBox x:Name="cbConnexionAuto"
                   Width="260"
                   Margin="5"
                   HorizontalAlignment="Left"
-                  Content="Certificat Autosigné"
-                  IsChecked="{x:Bind ViewModel.IsSelfSigned, Mode=TwoWay}"
+                  Content="Connexion automatique"
+                  IsChecked="{x:Bind ViewModel.ConnexionAuto, Mode=TwoWay}"
                   RelativePanel.AlignHorizontalCenterWithPanel="True"
-                  RelativePanel.Below="pbAPIKey" />
-        <TextBox x:Name="tbDNS"
+                  RelativePanel.Below="tbPass" />
+        <TextBox x:Name="tbtwoFactorCode"
                  Width="260"
                  Margin="5"
-                 Header="DNS"
-                 PlaceholderText="Adresse sur le DNS Jeedom"
+                 Header="Authentification a 2 étape"
+                 PlaceholderText="Code authentification a 2 étape"
+                 Text="{x:Bind ViewModel.TwoFactorCode, Mode=TwoWay}"
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                 RelativePanel.Below="cbSelfSigned"
-                 Text="{x:Bind ViewModel.DnsUri, Mode=TwoWay}" />
+                 RelativePanel.Below="cbConnexionAuto" />
+
     </RelativePanel>
 </UserControl>

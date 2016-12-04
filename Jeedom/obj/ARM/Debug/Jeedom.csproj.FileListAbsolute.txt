@@ -1,7 +1,6 @@
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\ARM\Debug\Jeedom.dll
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\ARM\Debug\Jeedom.pdb
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\bin\ARM\Debug\Jeedom.pri
-C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\ARM\Debug\Jeedom.csprojResolveAssemblyReference.cache
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\ARM\Debug\Jeedom.dll
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\ARM\Debug\Jeedom.pdb
 C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\obj\ARM\Debug\priconfig.xml

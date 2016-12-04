@@ -6,63 +6,89 @@ namespace Jeedom
     public class ConfigurationViewModel
     {
         private string _host;
-        private string _path;
+        private string _login;
+        private string _password;
+        private bool? _twoFactor;
+        private bool? _connexionAuto;
+        private string _twoFactorCode;
         private string _apikey;
-        private bool? _selfSigned = false;
-        private bool? _useSsl = false;
-        private string _dnsuri;
 
         public Uri Uri
         {
             get
             {
-                var uri = new UriBuilder(_useSsl == true ? "https" : "http", _host, _useSsl == true ? 443 : 80, _path);
+                var uri = new UriBuilder("http", _host, 80);
                 return uri.Uri;
             }
         }
 
-        public string Path
+        public string Login
         {
             get
             {
-                return _path;
+                return _login;
             }
 
             set
             {
-                _path = value;
-                RoamingSettings.Values[settingPath] = value;
+                _login = value;
+                RoamingSettings.Values[settingLogin] = value;
             }
         }
 
-        public bool? IsSelfSigned
+        public string Password
         {
             get
             {
-                return _selfSigned;
+                return _password;
             }
 
             set
             {
-                _selfSigned = value;
-                RoamingSettings.Values[settingSelfSigned] = value;
+                _password = value;
             }
         }
-
-        public bool? UseSSL
+        public bool? ConnexionAuto
         {
             get
             {
-                return _useSsl;
+                return _connexionAuto;
             }
+
             set
             {
-                _useSsl = value;
-                RoamingSettings.Values[settingUseSsl] = value;
+                _connexionAuto = value;
+                RoamingSettings.Values[settingConnexionAuto] = value;
+            }
+        }
+        public bool? TwoFactor
+        {
+            get
+            {
+                return _twoFactor;
+            }
+
+            set
+            {
+                _twoFactor = value;
+                RoamingSettings.Values[settingTwoFactor] = value;
             }
         }
 
-        public string Host
+        public string TwoFactorCode
+        {
+            get
+            {
+                return _twoFactorCode;
+            }
+
+            set
+            {
+                _twoFactorCode = value;
+            }
+        }
+
+       public string Host
         {
             set
             {
@@ -92,23 +118,7 @@ namespace Jeedom
             }
         }
 
-        public string DnsUri
-        {
-            set
-            {
-                if (value != null)
-                {
-                    _dnsuri = value;
-                    RoamingSettings.Values[settingDNS] = value;
-                }
-            }
-            get
-            {
-                return _dnsuri;
-            }
-        }
-
-        public bool Populated = false;
+                public bool Populated = false;
         private bool _GeolocActivation;
 
         public bool GeolocActivation
@@ -209,11 +219,10 @@ namespace Jeedom
         private ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
 
         private const string settingHost = "addressSetting";
-        private const string settingPath = "pathSetting";
+        private const string settingLogin = "LoginSetting";
+        private const string settingTwoFactor = "TwoFactorSetting";
+        private const string settingConnexionAuto = "ConnexionAutoSetting";
         private const string settingAPIKey = "apikeySetting";
-        private const string settingUseSsl = "useSslSetting";
-        private const string settingSelfSigned = "selfSignedSetting";
-        private const string settingDNS = "DnsSetting";
 
         public ConfigurationViewModel()
         {
@@ -222,20 +231,17 @@ namespace Jeedom
             _host = RoamingSettings.Values[settingHost] as string;
             if (_host == null)
                 Populated = false;
+            _login = RoamingSettings.Values[settingLogin] as string;
+            if (_login == null)
+                Populated = false;
+            if (RoamingSettings.Values[settingTwoFactor] != null)
+                _twoFactor = Convert.ToBoolean(RoamingSettings.Values[settingTwoFactor]);
+            if (RoamingSettings.Values[settingConnexionAuto] != null)
+                _twoFactor = Convert.ToBoolean(RoamingSettings.Values[settingConnexionAuto]);
 
             _apikey = RoamingSettings.Values[settingAPIKey] as string;
             if (_apikey == null)
                 Populated = false;
-
-            _path = RoamingSettings.Values[settingPath] as string;
-            if (_path == null)
-                Populated = false;
-
-            if (RoamingSettings.Values[settingUseSsl] != null)
-                _useSsl = Convert.ToBoolean(RoamingSettings.Values[settingUseSsl]);
-
-            if (RoamingSettings.Values[settingSelfSigned] != null)
-                _selfSigned = Convert.ToBoolean(RoamingSettings.Values[settingSelfSigned]);
 
             _GeolocActivation = (LocalSettings.Values["GeolocActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeolocActivation"]);
             _GeoFenceActivation = (LocalSettings.Values["GeoFenceActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeoFenceActivation"]);

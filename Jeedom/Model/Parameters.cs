@@ -6,6 +6,12 @@ namespace Jeedom.Model
     public class Parameters
     {
         [DataMember]
+        public string login;
+        [DataMember]
+        public string password;
+        [DataMember]
+        public string twoFactorCode;
+        [DataMember]
         public string apikey;
         [DataMember(IsRequired = false)]
         public string eqLogic_id;

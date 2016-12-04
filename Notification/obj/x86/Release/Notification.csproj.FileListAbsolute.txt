@@ -16,4 +16,3 @@ C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\x86\Release\pri.resfi
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\x86\Release\qualifiers.txt
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\x86\Release\qualifiers.txt.intermediate
 C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\x86\Release\MultipleQualifiersPerDimensionFound.txt
-C:\Users\micha_000\Source\Repos\JeedomApp\Notification\obj\x86\Release\Notification.csprojResolveAssemblyReference.cache
