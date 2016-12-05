@@ -70,6 +70,10 @@ namespace JeedomApp
                 var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
 
                 // Tentative de connexion à Jeedom
+                if (await RequestViewModel.Instance.PingJeedom() == null)
+                {
+                    RequestViewModel.config.UseExtHost=true;
+                }
                 if (await RequestViewModel.Instance.PingJeedom() != null)
                 {
                     ConnectDialog.ShowConnectDialog();
