@@ -6,6 +6,7 @@ namespace Jeedom
     public class ConfigurationViewModel
     {
         private string _host;
+        private string _hostExt;
         private string _login;
         private string _password;
         private bool? _twoFactor;
@@ -17,7 +18,18 @@ namespace Jeedom
         {
             get
             {
-                var uri = new UriBuilder("http", _host, 80);
+                if(_host.indexOf("http")>-1)
+                    var uri = new UriBuilder("http", _host, 80);
+                else
+                    uri = new UriBuilder(_host, 80);
+                return uri.Uri;
+            }
+        }        
+        public Uri UriExt
+        {
+            get
+            {
+                var uri = new UriBuilder(_hostExt);
                 return uri.Uri;
             }
         }
@@ -99,6 +111,19 @@ namespace Jeedom
             get
             {
                 return _host;
+            }
+        }
+       public string HostExt
+        {
+            set
+            {
+                _hostExt = value;
+                RoamingSettings.Values[settingHostExt] = value;
+            }
+
+            get
+            {
+                return _hostExt;
             }
         }
 
@@ -219,6 +244,7 @@ namespace Jeedom
         private ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
 
         private const string settingHost = "addressSetting";
+        private const string settingHostExt = "addressExtSetting";
         private const string settingLogin = "LoginSetting";
         private const string settingTwoFactor = "TwoFactorSetting";
         private const string settingConnexionAuto = "ConnexionAutoSetting";
@@ -230,6 +256,9 @@ namespace Jeedom
 
             _host = RoamingSettings.Values[settingHost] as string;
             if (_host == null)
+                Populated = false;
+            _hostExt = RoamingSettings.Values[settingHostExt] as string;
+            if (_hostExt == null)
                 Populated = false;
             _login = RoamingSettings.Values[settingLogin] as string;
             if (_login == null)
