@@ -22,6 +22,7 @@ namespace Jeedom
         static private RequestViewModel _instance;
 
         static public ConfigurationViewModel config = new ConfigurationViewModel();
+        static public string configByKey = "";
         private int pass = 0;
 
         private RequestViewModel()
@@ -266,7 +267,7 @@ namespace Jeedom
 
             if (await jsonrpc.SendRequest("config::byKey"))
             {
-                return jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                configByKey = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
             }
 
             return jsonrpc.Error;
