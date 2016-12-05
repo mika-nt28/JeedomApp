@@ -257,6 +257,20 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+        public async Task<Error> SearchConfigByKey(string key, string plugin)
+        {
+            Parameters parameters = new Parameters();
+            parameters.key = key;
+            parameters.plugin = plugin;
+            var jsonrpc = new JsonRpcClient(parameters);
+
+            if (await jsonrpc.SendRequest("config::byKey"))
+            {
+                return jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+            }
+
+            return jsonrpc.Error;
+        }
         public async Task<Error> CheckTwoFactorConnexion()
         {
             Parameters parameters = new Parameters();
