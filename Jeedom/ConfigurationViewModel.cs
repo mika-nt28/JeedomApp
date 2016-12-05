@@ -5,6 +5,7 @@ namespace Jeedom
 {
     public class ConfigurationViewModel
     {
+        private UriBuilder _uri;
         private string _host;
         private string _hostExt;
         private string _login;
@@ -19,23 +20,16 @@ namespace Jeedom
         {
             get
             {
-                if(_useExtHost== false){
-                    if(_host.indexOf("http")>-1)
-                        var uri = new UriBuilder("http", _host, 80);
-                    else
-                        uri = new UriBuilder(_host, 80);
-                }
-                else{
-                    if(_hostExt.indexOf("https")>-1)
-                        var uri = new UriBuilder("https", _hostExt, 443);
-                    else
-                        uri = new UriBuilder(_hostExt, 443);
-                }
-                return uri.Uri;
+
+                if (_useExtHost == false)
+                    _uri = new UriBuilder("http", _host, 80);
+                else
+                    _uri = new UriBuilder("https", _hostExt, 443);
+                return _uri.Uri;
             }
         }        
 
-        public bool Login
+        public string Login
         {
             get
             {
@@ -49,7 +43,7 @@ namespace Jeedom
             }
         } 
 
-        public string UseExtHost
+        public bool UseExtHost
         {
             get
             {
@@ -119,7 +113,9 @@ namespace Jeedom
             set
             {
                 _host = value;
-                RoamingSettings.Values[settingHost] = value;
+                _host = _host.Replace("http://","");
+                _host = _host.Replace("https://", "");
+                RoamingSettings.Values[settingHost] = _host;
             }
 
             get
@@ -132,7 +128,9 @@ namespace Jeedom
             set
             {
                 _hostExt = value;
-                RoamingSettings.Values[settingHostExt] = value;
+                _hostExt = _hostExt.Replace("http://", "");
+                _hostExt = _hostExt.Replace("https://", "");
+                RoamingSettings.Values[settingHostExt] = _hostExt;
             }
 
             get

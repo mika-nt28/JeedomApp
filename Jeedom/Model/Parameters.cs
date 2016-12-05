@@ -22,6 +22,8 @@ namespace Jeedom.Model
         [DataMember]
         public string query;
         [DataMember]
+        public string key;
+        [DataMember]
         public string plugin;
         [DataMember]
         public string platform;

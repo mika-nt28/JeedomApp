@@ -836,9 +836,9 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 userType.Activator = Activate_32_HamburgerMenu;
                 userType.SetContentPropertyName("Template10.Controls.HamburgerMenu.PrimaryButtons");
                 userType.AddMemberName("PrimaryButtons");
+                userType.AddMemberName("NavAreaBackground");
                 userType.AddMemberName("HamburgerBackground");
                 userType.AddMemberName("HamburgerForeground");
-                userType.AddMemberName("NavAreaBackground");
                 userType.AddMemberName("NavButtonBackground");
                 userType.AddMemberName("NavButtonCheckedBackground");
                 userType.AddMemberName("NavButtonForeground");
@@ -1502,11 +1502,13 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 userType.Activator = Activate_119_ConfigurationViewModel;
                 userType.AddMemberName("Uri");
                 userType.AddMemberName("Login");
+                userType.AddMemberName("UseExtHost");
                 userType.AddMemberName("Password");
                 userType.AddMemberName("ConnexionAuto");
                 userType.AddMemberName("TwoFactor");
                 userType.AddMemberName("TwoFactorCode");
                 userType.AddMemberName("Host");
+                userType.AddMemberName("HostExt");
                 userType.AddMemberName("ApiKey");
                 userType.AddMemberName("GeolocActivation");
                 userType.AddMemberName("GeoFenceActivation");
@@ -2015,35 +2017,35 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.MaxWidth = (global::System.Double)Value;
         }
-        private object get_43_HamburgerMenu_HamburgerBackground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.HamburgerBackground;
-        }
-        private void set_43_HamburgerMenu_HamburgerBackground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.HamburgerBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_44_HamburgerMenu_HamburgerForeground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.HamburgerForeground;
-        }
-        private void set_44_HamburgerMenu_HamburgerForeground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.HamburgerForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_45_HamburgerMenu_NavAreaBackground(object instance)
+        private object get_43_HamburgerMenu_NavAreaBackground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavAreaBackground;
         }
-        private void set_45_HamburgerMenu_NavAreaBackground(object instance, object Value)
+        private void set_43_HamburgerMenu_NavAreaBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavAreaBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_44_HamburgerMenu_HamburgerBackground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.HamburgerBackground;
+        }
+        private void set_44_HamburgerMenu_HamburgerBackground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.HamburgerBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_45_HamburgerMenu_HamburgerForeground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.HamburgerForeground;
+        }
+        private void set_45_HamburgerMenu_HamburgerForeground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.HamburgerForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
         private object get_46_HamburgerMenu_NavButtonBackground(object instance)
         {
@@ -3070,122 +3072,142 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.Login = (global::System.String)Value;
         }
-        private object get_160_ConfigurationViewModel_Password(object instance)
+        private object get_160_ConfigurationViewModel_UseExtHost(object instance)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            return that.UseExtHost;
+        }
+        private void set_160_ConfigurationViewModel_UseExtHost(object instance, object Value)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            that.UseExtHost = (global::System.Boolean)Value;
+        }
+        private object get_161_ConfigurationViewModel_Password(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.Password;
         }
-        private void set_160_ConfigurationViewModel_Password(object instance, object Value)
+        private void set_161_ConfigurationViewModel_Password(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.Password = (global::System.String)Value;
         }
-        private object get_161_ConfigurationViewModel_ConnexionAuto(object instance)
+        private object get_162_ConfigurationViewModel_ConnexionAuto(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.ConnexionAuto;
         }
-        private void set_161_ConfigurationViewModel_ConnexionAuto(object instance, object Value)
+        private void set_162_ConfigurationViewModel_ConnexionAuto(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.ConnexionAuto = (global::System.Nullable<global::System.Boolean>)Value;
         }
-        private object get_162_ConfigurationViewModel_TwoFactor(object instance)
+        private object get_163_ConfigurationViewModel_TwoFactor(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.TwoFactor;
         }
-        private void set_162_ConfigurationViewModel_TwoFactor(object instance, object Value)
+        private void set_163_ConfigurationViewModel_TwoFactor(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.TwoFactor = (global::System.Nullable<global::System.Boolean>)Value;
         }
-        private object get_163_ConfigurationViewModel_TwoFactorCode(object instance)
+        private object get_164_ConfigurationViewModel_TwoFactorCode(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.TwoFactorCode;
         }
-        private void set_163_ConfigurationViewModel_TwoFactorCode(object instance, object Value)
+        private void set_164_ConfigurationViewModel_TwoFactorCode(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.TwoFactorCode = (global::System.String)Value;
         }
-        private object get_164_ConfigurationViewModel_Host(object instance)
+        private object get_165_ConfigurationViewModel_Host(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.Host;
         }
-        private void set_164_ConfigurationViewModel_Host(object instance, object Value)
+        private void set_165_ConfigurationViewModel_Host(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.Host = (global::System.String)Value;
         }
-        private object get_165_ConfigurationViewModel_ApiKey(object instance)
+        private object get_166_ConfigurationViewModel_HostExt(object instance)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            return that.HostExt;
+        }
+        private void set_166_ConfigurationViewModel_HostExt(object instance, object Value)
+        {
+            var that = (global::Jeedom.ConfigurationViewModel)instance;
+            that.HostExt = (global::System.String)Value;
+        }
+        private object get_167_ConfigurationViewModel_ApiKey(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.ApiKey;
         }
-        private void set_165_ConfigurationViewModel_ApiKey(object instance, object Value)
+        private void set_167_ConfigurationViewModel_ApiKey(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.ApiKey = (global::System.String)Value;
         }
-        private object get_166_ConfigurationViewModel_GeolocActivation(object instance)
+        private object get_168_ConfigurationViewModel_GeolocActivation(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeolocActivation;
         }
-        private void set_166_ConfigurationViewModel_GeolocActivation(object instance, object Value)
+        private void set_168_ConfigurationViewModel_GeolocActivation(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeolocActivation = (global::System.Boolean)Value;
         }
-        private object get_167_ConfigurationViewModel_GeoFenceActivation(object instance)
+        private object get_169_ConfigurationViewModel_GeoFenceActivation(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeoFenceActivation;
         }
-        private void set_167_ConfigurationViewModel_GeoFenceActivation(object instance, object Value)
+        private void set_169_ConfigurationViewModel_GeoFenceActivation(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeoFenceActivation = (global::System.Boolean)Value;
         }
-        private object get_168_ConfigurationViewModel_GeoFenceActivationDistance(object instance)
+        private object get_170_ConfigurationViewModel_GeoFenceActivationDistance(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeoFenceActivationDistance;
         }
-        private void set_168_ConfigurationViewModel_GeoFenceActivationDistance(object instance, object Value)
+        private void set_170_ConfigurationViewModel_GeoFenceActivationDistance(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeoFenceActivationDistance = (global::System.String)Value;
         }
-        private object get_169_ConfigurationViewModel_NotificationActivation(object instance)
+        private object get_171_ConfigurationViewModel_NotificationActivation(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.NotificationActivation;
         }
-        private void set_169_ConfigurationViewModel_NotificationActivation(object instance, object Value)
+        private void set_171_ConfigurationViewModel_NotificationActivation(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.NotificationActivation = (global::System.Boolean)Value;
         }
-        private object get_170_ConfigurationViewModel_GeolocObjectId(object instance)
+        private object get_172_ConfigurationViewModel_GeolocObjectId(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.GeolocObjectId;
         }
-        private void set_170_ConfigurationViewModel_GeolocObjectId(object instance, object Value)
+        private void set_172_ConfigurationViewModel_GeolocObjectId(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.GeolocObjectId = (global::System.String)Value;
         }
-        private object get_171_ConfigurationViewModel_NotificationObjectId(object instance)
+        private object get_173_ConfigurationViewModel_NotificationObjectId(object instance)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             return that.NotificationObjectId;
         }
-        private void set_171_ConfigurationViewModel_NotificationObjectId(object instance, object Value)
+        private void set_173_ConfigurationViewModel_NotificationObjectId(object instance, object Value)
         {
             var that = (global::Jeedom.ConfigurationViewModel)instance;
             that.NotificationObjectId = (global::System.String)Value;
@@ -3472,26 +3494,26 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlMember.Getter = get_42_HamburgerButtonInfo_MaxWidth;
                 xamlMember.Setter = set_42_HamburgerButtonInfo_MaxWidth;
                 break;
+            case "Template10.Controls.HamburgerMenu.NavAreaBackground":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NavAreaBackground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_43_HamburgerMenu_NavAreaBackground;
+                xamlMember.Setter = set_43_HamburgerMenu_NavAreaBackground;
+                break;
             case "Template10.Controls.HamburgerMenu.HamburgerBackground":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "HamburgerBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_43_HamburgerMenu_HamburgerBackground;
-                xamlMember.Setter = set_43_HamburgerMenu_HamburgerBackground;
+                xamlMember.Getter = get_44_HamburgerMenu_HamburgerBackground;
+                xamlMember.Setter = set_44_HamburgerMenu_HamburgerBackground;
                 break;
             case "Template10.Controls.HamburgerMenu.HamburgerForeground":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "HamburgerForeground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_44_HamburgerMenu_HamburgerForeground;
-                xamlMember.Setter = set_44_HamburgerMenu_HamburgerForeground;
-                break;
-            case "Template10.Controls.HamburgerMenu.NavAreaBackground":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NavAreaBackground", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_45_HamburgerMenu_NavAreaBackground;
-                xamlMember.Setter = set_45_HamburgerMenu_NavAreaBackground;
+                xamlMember.Getter = get_45_HamburgerMenu_HamburgerForeground;
+                xamlMember.Setter = set_45_HamburgerMenu_HamburgerForeground;
                 break;
             case "Template10.Controls.HamburgerMenu.NavButtonBackground":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
@@ -4223,77 +4245,89 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlMember.Getter = get_159_ConfigurationViewModel_Login;
                 xamlMember.Setter = set_159_ConfigurationViewModel_Login;
                 break;
+            case "Jeedom.ConfigurationViewModel.UseExtHost":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "UseExtHost", "Boolean");
+                xamlMember.Getter = get_160_ConfigurationViewModel_UseExtHost;
+                xamlMember.Setter = set_160_ConfigurationViewModel_UseExtHost;
+                break;
             case "Jeedom.ConfigurationViewModel.Password":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Password", "String");
-                xamlMember.Getter = get_160_ConfigurationViewModel_Password;
-                xamlMember.Setter = set_160_ConfigurationViewModel_Password;
+                xamlMember.Getter = get_161_ConfigurationViewModel_Password;
+                xamlMember.Setter = set_161_ConfigurationViewModel_Password;
                 break;
             case "Jeedom.ConfigurationViewModel.ConnexionAuto":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ConnexionAuto", "System.Nullable`1<Boolean>");
-                xamlMember.Getter = get_161_ConfigurationViewModel_ConnexionAuto;
-                xamlMember.Setter = set_161_ConfigurationViewModel_ConnexionAuto;
+                xamlMember.Getter = get_162_ConfigurationViewModel_ConnexionAuto;
+                xamlMember.Setter = set_162_ConfigurationViewModel_ConnexionAuto;
                 break;
             case "Jeedom.ConfigurationViewModel.TwoFactor":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "TwoFactor", "System.Nullable`1<Boolean>");
-                xamlMember.Getter = get_162_ConfigurationViewModel_TwoFactor;
-                xamlMember.Setter = set_162_ConfigurationViewModel_TwoFactor;
+                xamlMember.Getter = get_163_ConfigurationViewModel_TwoFactor;
+                xamlMember.Setter = set_163_ConfigurationViewModel_TwoFactor;
                 break;
             case "Jeedom.ConfigurationViewModel.TwoFactorCode":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "TwoFactorCode", "String");
-                xamlMember.Getter = get_163_ConfigurationViewModel_TwoFactorCode;
-                xamlMember.Setter = set_163_ConfigurationViewModel_TwoFactorCode;
+                xamlMember.Getter = get_164_ConfigurationViewModel_TwoFactorCode;
+                xamlMember.Setter = set_164_ConfigurationViewModel_TwoFactorCode;
                 break;
             case "Jeedom.ConfigurationViewModel.Host":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "Host", "String");
-                xamlMember.Getter = get_164_ConfigurationViewModel_Host;
-                xamlMember.Setter = set_164_ConfigurationViewModel_Host;
+                xamlMember.Getter = get_165_ConfigurationViewModel_Host;
+                xamlMember.Setter = set_165_ConfigurationViewModel_Host;
+                break;
+            case "Jeedom.ConfigurationViewModel.HostExt":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "HostExt", "String");
+                xamlMember.Getter = get_166_ConfigurationViewModel_HostExt;
+                xamlMember.Setter = set_166_ConfigurationViewModel_HostExt;
                 break;
             case "Jeedom.ConfigurationViewModel.ApiKey":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "ApiKey", "String");
-                xamlMember.Getter = get_165_ConfigurationViewModel_ApiKey;
-                xamlMember.Setter = set_165_ConfigurationViewModel_ApiKey;
+                xamlMember.Getter = get_167_ConfigurationViewModel_ApiKey;
+                xamlMember.Setter = set_167_ConfigurationViewModel_ApiKey;
                 break;
             case "Jeedom.ConfigurationViewModel.GeolocActivation":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeolocActivation", "Boolean");
-                xamlMember.Getter = get_166_ConfigurationViewModel_GeolocActivation;
-                xamlMember.Setter = set_166_ConfigurationViewModel_GeolocActivation;
+                xamlMember.Getter = get_168_ConfigurationViewModel_GeolocActivation;
+                xamlMember.Setter = set_168_ConfigurationViewModel_GeolocActivation;
                 break;
             case "Jeedom.ConfigurationViewModel.GeoFenceActivation":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeoFenceActivation", "Boolean");
-                xamlMember.Getter = get_167_ConfigurationViewModel_GeoFenceActivation;
-                xamlMember.Setter = set_167_ConfigurationViewModel_GeoFenceActivation;
+                xamlMember.Getter = get_169_ConfigurationViewModel_GeoFenceActivation;
+                xamlMember.Setter = set_169_ConfigurationViewModel_GeoFenceActivation;
                 break;
             case "Jeedom.ConfigurationViewModel.GeoFenceActivationDistance":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeoFenceActivationDistance", "String");
-                xamlMember.Getter = get_168_ConfigurationViewModel_GeoFenceActivationDistance;
-                xamlMember.Setter = set_168_ConfigurationViewModel_GeoFenceActivationDistance;
+                xamlMember.Getter = get_170_ConfigurationViewModel_GeoFenceActivationDistance;
+                xamlMember.Setter = set_170_ConfigurationViewModel_GeoFenceActivationDistance;
                 break;
             case "Jeedom.ConfigurationViewModel.NotificationActivation":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NotificationActivation", "Boolean");
-                xamlMember.Getter = get_169_ConfigurationViewModel_NotificationActivation;
-                xamlMember.Setter = set_169_ConfigurationViewModel_NotificationActivation;
+                xamlMember.Getter = get_171_ConfigurationViewModel_NotificationActivation;
+                xamlMember.Setter = set_171_ConfigurationViewModel_NotificationActivation;
                 break;
             case "Jeedom.ConfigurationViewModel.GeolocObjectId":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "GeolocObjectId", "String");
-                xamlMember.Getter = get_170_ConfigurationViewModel_GeolocObjectId;
-                xamlMember.Setter = set_170_ConfigurationViewModel_GeolocObjectId;
+                xamlMember.Getter = get_172_ConfigurationViewModel_GeolocObjectId;
+                xamlMember.Setter = set_172_ConfigurationViewModel_GeolocObjectId;
                 break;
             case "Jeedom.ConfigurationViewModel.NotificationObjectId":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Jeedom.ConfigurationViewModel");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NotificationObjectId", "String");
-                xamlMember.Getter = get_171_ConfigurationViewModel_NotificationObjectId;
-                xamlMember.Setter = set_171_ConfigurationViewModel_NotificationObjectId;
+                xamlMember.Getter = get_173_ConfigurationViewModel_NotificationObjectId;
+                xamlMember.Setter = set_173_ConfigurationViewModel_NotificationObjectId;
                 break;
             }
             return xamlMember;
