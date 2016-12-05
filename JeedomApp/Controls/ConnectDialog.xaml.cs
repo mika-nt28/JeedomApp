@@ -53,7 +53,7 @@ namespace JeedomApp.Controls
                 if (error == null)
                     error = await RequestViewModel.Instance.SearchConfigByKey("jeedom::url","core");
                 if (error == null)	
-                    RequestViewModel.config.External=RequestViewModel.Instance.configByKey ;
+                    RequestViewModel.config.HostExt=RequestViewModel.Instance.configByKey ;
                 else
                     return;
             });
