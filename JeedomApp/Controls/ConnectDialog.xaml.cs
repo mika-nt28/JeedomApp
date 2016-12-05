@@ -50,7 +50,11 @@ namespace JeedomApp.Controls
                 var error=await RequestViewModel.Instance.ConnectJeedomByLogin();
                 if(error==null)
                     error = await RequestViewModel.Instance.CreateEqLogicMobile();
-                if (error != null)
+                if (error == null)
+                    error = await RequestViewModel.Instance.SearchConfigByKey("jeedom::url","core");
+                if (error == null)	
+                    RequestViewModel.config.External=RequestViewModel.Instance.configByKey ;
+                else
                     return;
             });
             await taskFactory.StartNew(async () =>
