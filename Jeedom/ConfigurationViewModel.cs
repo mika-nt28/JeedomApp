@@ -11,6 +11,7 @@ namespace Jeedom
         private string _password;
         private bool? _twoFactor;
         private bool? _connexionAuto;
+        private bool _useExtHost=false;
         private string _twoFactorCode;
         private string _apikey;
 
@@ -18,23 +19,23 @@ namespace Jeedom
         {
             get
             {
-                if(_host.indexOf("http")>-1)
-                    var uri = new UriBuilder("http", _host, 80);
-                else
-                    uri = new UriBuilder(_host, 80);
+                if(_useExtHost== false){
+                    if(_host.indexOf("http")>-1)
+                        var uri = new UriBuilder("http", _host, 80);
+                    else
+                        uri = new UriBuilder(_host, 80);
+                }
+                else{
+                    if(_hostExt.indexOf("https")>-1)
+                        var uri = new UriBuilder("https", _hostExt, 443);
+                    else
+                        uri = new UriBuilder(_hostExt, 443);
+                }
                 return uri.Uri;
             }
         }        
-        public Uri UriExt
-        {
-            get
-            {
-                var uri = new UriBuilder(_hostExt);
-                return uri.Uri;
-            }
-        }
 
-        public string Login
+        public bool Login
         {
             get
             {
@@ -45,6 +46,19 @@ namespace Jeedom
             {
                 _login = value;
                 RoamingSettings.Values[settingLogin] = value;
+            }
+        } 
+
+        public string UseExtHost
+        {
+            get
+            {
+                return _useExtHost;
+            }
+
+            set
+            {
+                _useExtHost = value;
             }
         }
 
