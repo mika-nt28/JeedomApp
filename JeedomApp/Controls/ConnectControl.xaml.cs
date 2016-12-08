@@ -1,5 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+﻿using System;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Jeedom;
 using System.Threading.Tasks;
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
@@ -18,6 +19,10 @@ namespace JeedomApp.Controls
             await taskFactory.StartNew(async () =>
             {
                 await RequestViewModel.Instance.CheckTwoFactorConnexion();
+                if (RequestViewModel.config.TwoFactor == true)
+                    tbtwoFactorCode.Visibility = Visibility.Visible;
+                else
+                    tbtwoFactorCode.Visibility = Visibility.Collapsed;
             });
 
         }

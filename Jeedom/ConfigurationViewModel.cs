@@ -6,7 +6,7 @@ namespace Jeedom
     public class ConfigurationViewModel
     {
         private UriBuilder _uri;
-        private string _host;
+        private string _host="http://";
         private string _hostExt;
         private string _login;
         private string _password;
@@ -22,9 +22,13 @@ namespace Jeedom
             {
 
                 if (_useExtHost == false)
-                    _uri = new UriBuilder("http", _host, 80);
+                    _uri = new UriBuilder(_host);
                 else
-                    _uri = new UriBuilder("https", _hostExt, 443);
+                    _uri = new UriBuilder(_hostExt);
+                if(_uri.Scheme == "https")
+                    _uri.Port = 443;
+                else
+                    _uri.Port = 80;
                 return _uri.Uri;
             }
         }        
@@ -113,8 +117,8 @@ namespace Jeedom
             set
             {
                 _host = value;
-                _host = _host.Replace("http://","");
-                _host = _host.Replace("https://", "");
+                //_host = _host.Replace("http://","");
+               // _host = _host.Replace("https://", "");
                 RoamingSettings.Values[settingHost] = _host;
             }
 
@@ -128,8 +132,8 @@ namespace Jeedom
             set
             {
                 _hostExt = value;
-                _hostExt = _hostExt.Replace("http://", "");
-                _hostExt = _hostExt.Replace("https://", "");
+                //_hostExt = _hostExt.Replace("http://", "");
+                //_hostExt = _hostExt.Replace("https://", "");
                 RoamingSettings.Values[settingHostExt] = _hostExt;
             }
 

@@ -42,8 +42,8 @@ namespace JeedomApp.Controls
         }
         private async void bConnect_Click(object sender, RoutedEventArgs e)
         {
-            // Lance le rapatriement des données de Jeedom
-            var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
+               // Lance le rapatriement des données de Jeedom
+               var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
             
             await taskFactory.StartNew(async () =>
             {

@@ -836,9 +836,9 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 userType.Activator = Activate_32_HamburgerMenu;
                 userType.SetContentPropertyName("Template10.Controls.HamburgerMenu.PrimaryButtons");
                 userType.AddMemberName("PrimaryButtons");
+                userType.AddMemberName("NavAreaBackground");
                 userType.AddMemberName("HamburgerBackground");
                 userType.AddMemberName("HamburgerForeground");
-                userType.AddMemberName("NavAreaBackground");
                 userType.AddMemberName("NavButtonBackground");
                 userType.AddMemberName("NavButtonCheckedBackground");
                 userType.AddMemberName("NavButtonForeground");
@@ -2017,35 +2017,35 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
             var that = (global::Template10.Controls.HamburgerButtonInfo)instance;
             that.MaxWidth = (global::System.Double)Value;
         }
-        private object get_43_HamburgerMenu_HamburgerBackground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.HamburgerBackground;
-        }
-        private void set_43_HamburgerMenu_HamburgerBackground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.HamburgerBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_44_HamburgerMenu_HamburgerForeground(object instance)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            return that.HamburgerForeground;
-        }
-        private void set_44_HamburgerMenu_HamburgerForeground(object instance, object Value)
-        {
-            var that = (global::Template10.Controls.HamburgerMenu)instance;
-            that.HamburgerForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
-        }
-        private object get_45_HamburgerMenu_NavAreaBackground(object instance)
+        private object get_43_HamburgerMenu_NavAreaBackground(object instance)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             return that.NavAreaBackground;
         }
-        private void set_45_HamburgerMenu_NavAreaBackground(object instance, object Value)
+        private void set_43_HamburgerMenu_NavAreaBackground(object instance, object Value)
         {
             var that = (global::Template10.Controls.HamburgerMenu)instance;
             that.NavAreaBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_44_HamburgerMenu_HamburgerBackground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.HamburgerBackground;
+        }
+        private void set_44_HamburgerMenu_HamburgerBackground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.HamburgerBackground = (global::Windows.UI.Xaml.Media.Brush)Value;
+        }
+        private object get_45_HamburgerMenu_HamburgerForeground(object instance)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            return that.HamburgerForeground;
+        }
+        private void set_45_HamburgerMenu_HamburgerForeground(object instance, object Value)
+        {
+            var that = (global::Template10.Controls.HamburgerMenu)instance;
+            that.HamburgerForeground = (global::Windows.UI.Xaml.Media.Brush)Value;
         }
         private object get_46_HamburgerMenu_NavButtonBackground(object instance)
         {
@@ -3494,26 +3494,26 @@ namespace JeedomApp.JeedomApp_XamlTypeInfo
                 xamlMember.Getter = get_42_HamburgerButtonInfo_MaxWidth;
                 xamlMember.Setter = set_42_HamburgerButtonInfo_MaxWidth;
                 break;
+            case "Template10.Controls.HamburgerMenu.NavAreaBackground":
+                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
+                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NavAreaBackground", "Windows.UI.Xaml.Media.Brush");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_43_HamburgerMenu_NavAreaBackground;
+                xamlMember.Setter = set_43_HamburgerMenu_NavAreaBackground;
+                break;
             case "Template10.Controls.HamburgerMenu.HamburgerBackground":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "HamburgerBackground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_43_HamburgerMenu_HamburgerBackground;
-                xamlMember.Setter = set_43_HamburgerMenu_HamburgerBackground;
+                xamlMember.Getter = get_44_HamburgerMenu_HamburgerBackground;
+                xamlMember.Setter = set_44_HamburgerMenu_HamburgerBackground;
                 break;
             case "Template10.Controls.HamburgerMenu.HamburgerForeground":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
                 xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "HamburgerForeground", "Windows.UI.Xaml.Media.Brush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_44_HamburgerMenu_HamburgerForeground;
-                xamlMember.Setter = set_44_HamburgerMenu_HamburgerForeground;
-                break;
-            case "Template10.Controls.HamburgerMenu.NavAreaBackground":
-                userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
-                xamlMember = new global::JeedomApp.JeedomApp_XamlTypeInfo.XamlMember(this, "NavAreaBackground", "Windows.UI.Xaml.Media.Brush");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_45_HamburgerMenu_NavAreaBackground;
-                xamlMember.Setter = set_45_HamburgerMenu_NavAreaBackground;
+                xamlMember.Getter = get_45_HamburgerMenu_HamburgerForeground;
+                xamlMember.Setter = set_45_HamburgerMenu_HamburgerForeground;
                 break;
             case "Template10.Controls.HamburgerMenu.NavButtonBackground":
                 userType = (global::JeedomApp.JeedomApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Template10.Controls.HamburgerMenu");
