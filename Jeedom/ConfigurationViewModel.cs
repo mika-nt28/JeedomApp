@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using Windows.Storage;
-
+using Windows.Networking.Connectivity;
 namespace Jeedom
 {
     public class ConfigurationViewModel
@@ -15,21 +15,29 @@ namespace Jeedom
         private bool _useExtHost=false;
         private string _twoFactorCode;
         private string _apikey;
-
+        public static bool HasInternetConnection()
+        {
+            bool hasInternet = false;
+            ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
+            if (profile != null) hasInternet = profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+            return hasInternet;
+        }
         public Uri Uri
         {
             get
             {
-
-                if (_useExtHost == false)
-                    _uri = new UriBuilder(_host);
-                else
-                    _uri = new UriBuilder(_hostExt);
-                if(_uri.Scheme == "https")
-                    _uri.Port = 443;
-                else
-                    _uri.Port = 80;
-                return _uri.Uri;
+                if(HasInternetConnection()){
+                    if (_useExtHost == false)
+                        _uri = new UriBuilder(_host);
+                    else
+                        _uri = new UriBuilder(_hostExt);
+                    if(_uri.Scheme == "https")
+                        _uri.Port = 443;
+                    else
+                        _uri.Port = 80;
+                    return _uri.Uri;
+                }
+                return false;
             }
         }        
 
