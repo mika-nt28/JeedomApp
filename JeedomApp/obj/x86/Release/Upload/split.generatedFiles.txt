@@ -16,6 +16,8 @@ obj\x86\Release\Upload\split.language-pt.pri
 obj\x86\Release\Upload\split.language-pt.map.txt
 obj\x86\Release\Upload\split.language-ru.pri
 obj\x86\Release\Upload\split.language-ru.map.txt
+obj\x86\Release\Upload\split.language-uk.pri
+obj\x86\Release\Upload\split.language-uk.map.txt
 obj\x86\Release\Upload\split.language-zh-hans.pri
 obj\x86\Release\Upload\split.language-zh-hans.map.txt
 obj\x86\Release\Upload\split.language-zh-hant.pri

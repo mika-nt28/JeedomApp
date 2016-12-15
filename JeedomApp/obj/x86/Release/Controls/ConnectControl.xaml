@@ -51,7 +51,8 @@
                  PlaceholderText="Code authentification a 2 étape"
                                                                      
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                 RelativePanel.Below="cbConnexionAuto" />
+                 RelativePanel.Below="cbConnexionAuto" 
+                 Visibility="Collapsed" />
 
     </RelativePanel>
 </UserControl>

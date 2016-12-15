@@ -1623,6 +1623,16 @@ namespace McgInterop
 		internal static int StdCall__int__(
 					global::System.IntPtr pfn, 
 					void* pthis, 
+					uint arg0, 
+					int arg1)
+		{
+			// This method is implemented elsewhere in the toolchain
+			return 0;
+		}
+
+		internal static int StdCall__int__(
+					global::System.IntPtr pfn, 
+					void* pthis, 
 					global::System.Runtime.InteropServices.HSTRING arg0, 
 					int arg1, 
 					global::System.Runtime.InteropServices.HSTRING arg2, 
@@ -1724,16 +1734,6 @@ namespace McgInterop
 					int arg2, 
 					int arg3, 
 					void* arg4)
-		{
-			// This method is implemented elsewhere in the toolchain
-			return 0;
-		}
-
-		internal static int StdCall__int__(
-					global::System.IntPtr pfn, 
-					void* pthis, 
-					uint arg0, 
-					int arg1)
 		{
 			// This method is implemented elsewhere in the toolchain
 			return 0;

@@ -566,3 +566,7 @@ C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\ilc\intermed
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\ilc\intermediate\sgargs.rsp
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.dll
 C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\ilc\intermediate\TransformedSRWR\System.Runtime.WindowsRuntime.dll.ILTransformTask.repro
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\Styles\DashboardRessources.xaml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\Styles\Widgets\DefaultRessources.xaml
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\Styles\DashboardRessources.xbf
+C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\obj\x64\Release\Styles\Widgets\DefaultRessources.xbf

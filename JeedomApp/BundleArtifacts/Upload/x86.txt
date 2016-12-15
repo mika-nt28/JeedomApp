@@ -1,0 +1,2 @@
+MainPackage=C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\bin\x86\Release\Upload\JeedomApp_1.1.7.0_x86.appx
+SymbolPackage=C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\AppPackages\JeedomApp_1.1.7.0\JeedomApp_1.1.7.0_x86.appxsym

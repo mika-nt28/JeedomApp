@@ -11023,6 +11023,27 @@ namespace Windows.Security.Cryptography.Certificates
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
 		global::Windows.Foundation.IAsyncOperation<global::System.Collections.Generic.IReadOnlyList<global::Windows.Security.Cryptography.Certificates.Certificate>> FindAllAsync(global::Windows.Security.Cryptography.Certificates.CertificateQuery query);
 	}
+
+	[global::System.Runtime.InteropServices.McgWindowsRuntimeVersion(0)]
+	[global::Internal.Reflection.MetadataTransformed(global::Internal.Reflection.MetadataTransformation.OriginallyForeignObject)]
+	[global::Internal.Reflection.ExplicitScope("Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime")]
+	public enum ChainValidationResult
+	{
+		Success = 0,
+		Untrusted = 1,
+		Revoked = 2,
+		Expired = 3,
+		IncompleteChain = 4,
+		InvalidSignature = 5,
+		WrongUsage = 6,
+		InvalidName = 7,
+		InvalidCertificateAuthorityPolicy = 8,
+		BasicConstraintsError = 9,
+		UnknownCriticalExtension = 10,
+		RevocationInformationMissing = 11,
+		RevocationFailure = 12,
+		OtherErrors = 13,
+	}
 }
 
 namespace Windows.Security.Cryptography.Core
@@ -46834,6 +46855,15 @@ namespace Windows.Web.Http.Filters
 		}
 
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "IgnorableServerCertificateErrors")]
+		public global::System.Collections.Generic.IList<global::Windows.Security.Cryptography.Certificates.ChainValidationResult> get_IgnorableServerCertificateErrors()
+		{
+			global::System.Collections.Generic.IList<global::Windows.Security.Cryptography.Certificates.ChainValidationResult> __retVal = global::Windows.Web.Http.Filters.IHttpBaseProtocolFilter__Impl.StubClass.get_IgnorableServerCertificateErrors(this);
+			global::System.Runtime.InteropServices.DebugAnnotations.PreviousCallContainsUserCode();
+			return __retVal;
+		}
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
 		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "ProxyCredential")]
 		public void put_ProxyCredential(global::Windows.Security.Credentials.PasswordCredential value)
 		{
@@ -46956,6 +46986,10 @@ namespace Windows.Web.Http.Filters
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
 		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "ClientCertificate")]
 		void put_ClientCertificate(global::Windows.Security.Cryptography.Certificates.Certificate value);
+
+		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
+		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertyGet, "IgnorableServerCertificateErrors")]
+		global::System.Collections.Generic.IList<global::Windows.Security.Cryptography.Certificates.ChainValidationResult> get_IgnorableServerCertificateErrors();
 
 		[global::System.Runtime.InteropServices.McgGeneratedMarshallingCode]
 		[global::System.Runtime.InteropServices.McgAccessor(global::System.Runtime.InteropServices.McgAccessorKind.PropertySet, "ProxyCredential")]

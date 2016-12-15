@@ -7,7 +7,7 @@
 
     Pour plus d'informations sur les fichiers manifeste, consultez http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="JeedomApp" Publisher="CN=E25A6272-1CEC-41C5-8B4C-8FEBCE6CE49F" Version="1.1.6.0" ProcessorArchitecture="x86" />
+  <Identity Name="JeedomApp" Publisher="CN=E25A6272-1CEC-41C5-8B4C-8FEBCE6CE49F" Version="1.1.9.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="a889ec51-eaf7-49b7-9a57-118ba2f44e74" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>JeedomApp</DisplayName>
@@ -31,20 +31,12 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
-          <uap:AppService Name="JeedomAppVoiceCommandService" />
-        </uap:Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
           <BackgroundTasks>
-            <Task Type="timer" />
+            <Task Type="location" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationHistoryChangedTriggerTask">
-          <BackgroundTasks>
-            <Task Type="systemEvent" />
-          </BackgroundTasks>
-        </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationQuickReplyTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.BadgeNotificationHistoryChangedTriggerTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
           </BackgroundTasks>
@@ -54,16 +46,24 @@
             <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.BadgeNotificationHistoryChangedTriggerTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationQuickReplyTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationHistoryChangedTriggerTask">
           <BackgroundTasks>
-            <Task Type="location" />
+            <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
+          <uap:AppService Name="JeedomAppVoiceCommandService" />
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
@@ -80,15 +80,15 @@
         <Path>CLRHost.dll</Path>
         <ActivatableClass ActivatableClassId="Localisation.GeofenceBackgroundTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="Localisation.LocationBackgroundTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.BadgeNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.ToastNotificationQuickReplyTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.ToastActivationTypeBackgroundClosedTask" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.Helpers.BackgroundTaskStorage" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.Helpers.ToastHelper" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.Helpers.Settings" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.BadgeNumericNotificationContent" ThreadingModel="both" />
-        <ActivatableClass ActivatableClassId="Notification.ToastNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
         <ActivatableClass ActivatableClassId="VoiceCommandService.JeedomAppVoiceCommandService" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.BadgeNumericNotificationContent" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.BadgeNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.ToastActivationTypeBackgroundClosedTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.ToastNotificationHistoryChangedTriggerTask" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.Helpers.Settings" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.Helpers.ToastHelper" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.Helpers.BackgroundTaskStorage" ThreadingModel="both" />
+        <ActivatableClass ActivatableClassId="Notification.ToastNotificationQuickReplyTask" ThreadingModel="both" />
       </InProcessServer>
     </Extension>
   </Extensions>

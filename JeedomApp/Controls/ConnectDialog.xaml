@@ -53,7 +53,7 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Sync"
+            <AppBarButton x:Name="bConnect" Icon="Sync"
                         Click="bConnect_Click"
                         Label="Connexion"/>
             <AppBarButton Icon="Camera" 

@@ -6,5 +6,6 @@ Language=JA-JP
 Language=KO-KR
 Language=PT-BR
 Language=RU-RU
+Language=UK-UA
 Language=ZH-CN
 Language=ZH-TW
