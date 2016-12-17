@@ -1,7 +1,0 @@
-C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\Jeedom.csproj;x86
-C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\Jeedom.csproj;x86
-C:\Users\micha_000\Source\Repos\JeedomApp\Jeedom\Jeedom.csproj;x86
-C:\Users\micha_000\Source\Repos\JeedomApp\JeedomApp\JeedomApp.csproj;x86
-C:\Users\micha_000\Source\Repos\JeedomApp\Localisation\Localisation.csproj;x86
-C:\Users\micha_000\Source\Repos\JeedomApp\Notification\Notification.csproj;x86
-C:\Users\micha_000\Source\Repos\JeedomApp\VoiceCommandService\VoiceCommandService.csproj;x86
