@@ -1,20 +1,22 @@
 using System;
-using Windows.Storage;
 using Windows.Networking.Connectivity;
+using Windows.Storage;
+
 namespace Jeedom
 {
     public class ConfigurationViewModel
     {
         private UriBuilder _uri;
-        private string _host="http://";
+        private string _host = "http://";
         private string _hostExt;
         private string _login;
         private string _password;
         private bool? _twoFactor;
         private bool? _connexionAuto;
-        private bool _useExtHost=false;
+        private bool _useExtHost = false;
         private string _twoFactorCode;
         private string _apikey;
+
         public static bool HasInternetConnection()
         {
             bool hasInternet = false;
@@ -22,24 +24,26 @@ namespace Jeedom
             if (profile != null) hasInternet = profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return hasInternet;
         }
+
         public Uri Uri
         {
             get
             {
-                if(HasInternetConnection()){
+                if (HasInternetConnection())
+                {
                     if (_useExtHost == false)
                         _uri = new UriBuilder(_host);
                     else
                         _uri = new UriBuilder(_hostExt);
-                    if(_uri.Scheme == "https")
+                    if (_uri.Scheme == "https")
                         _uri.Port = 443;
                     else
                         _uri.Port = 80;
                     return _uri.Uri;
                 }
-                return false;
+                return null;
             }
-        }        
+        }
 
         public string Login
         {
@@ -53,7 +57,7 @@ namespace Jeedom
                 _login = value;
                 RoamingSettings.Values[settingLogin] = value;
             }
-        } 
+        }
 
         public bool UseExtHost
         {
@@ -80,6 +84,7 @@ namespace Jeedom
                 _password = value;
             }
         }
+
         public bool? ConnexionAuto
         {
             get
@@ -93,6 +98,7 @@ namespace Jeedom
                 RoamingSettings.Values[settingConnexionAuto] = value;
             }
         }
+
         public bool? TwoFactor
         {
             get
@@ -120,13 +126,13 @@ namespace Jeedom
             }
         }
 
-       public string Host
+        public string Host
         {
             set
             {
                 _host = value;
                 //_host = _host.Replace("http://","");
-               // _host = _host.Replace("https://", "");
+                // _host = _host.Replace("https://", "");
                 RoamingSettings.Values[settingHost] = _host;
             }
 
@@ -135,7 +141,8 @@ namespace Jeedom
                 return _host;
             }
         }
-       public string HostExt
+
+        public string HostExt
         {
             set
             {
@@ -167,7 +174,7 @@ namespace Jeedom
             }
         }
 
-                public bool Populated = false;
+        public bool Populated = false;
         private bool _GeolocActivation;
 
         public bool GeolocActivation

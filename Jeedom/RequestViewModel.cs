@@ -49,6 +49,7 @@ namespace Jeedom
         private ObservableCollection<Interact> _interactList = new ObservableCollection<Interact>();
         private double _dateTime;
         public string InteractReply;
+
         public ObservableCollection<Message> MessageList
         {
             get { return _messageList; }
@@ -58,6 +59,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         public ObservableCollection<Interact> InteractList
         {
             get { return _interactList; }
@@ -67,6 +69,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         public ObservableCollection<EqLogic> EqLogicList
         {
             get { return _eqLogicList; }
@@ -76,6 +79,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         public ObservableCollection<Command> CommandList
         {
             get { return _commandList; }
@@ -85,6 +89,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         public ObservableCollection<JdObject> ObjectList
         {
             get { return _objectList; }
@@ -94,6 +99,7 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         public ObservableCollection<Scene> SceneList
         {
             get { return _sceneList; }
@@ -103,8 +109,10 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         public CancellationTokenSource tokenSource;
         private Boolean _updating;
+
         public Boolean Updating
         {
             get
@@ -117,7 +125,9 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         private string _version;
+
         public string Version
         {
             get { return _version; }
@@ -127,7 +137,9 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         private string _loadingMessage;
+
         public string LoadingMessage
         {
             get
@@ -141,7 +153,9 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         private int _progress = 0;
+
         public int Progress
         {
             get { return _progress; }
@@ -151,8 +165,11 @@ namespace Jeedom
                 NotifyPropertyChanged();
             }
         }
+
         public bool Populated = false;
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             if (PropertyChanged != null)
@@ -160,6 +177,7 @@ namespace Jeedom
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
         public async Task<Error> PingJeedom()
         {
             Updating = true;
@@ -177,6 +195,7 @@ namespace Jeedom
             Updating = false;
             return jsonrpc.Error;
         }
+
         public async Task<Error> DownloadVersion()
         {
             var jsonrpc = new JsonRpcClient();
@@ -188,6 +207,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         private async Task<Error> DownloadDateTime()
         {
             var jsonrpc = new JsonRpcClient();
@@ -200,6 +220,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         public async Task FirstLaunch()
         {
             Updating = true;
@@ -214,7 +235,7 @@ namespace Jeedom
             error = await DownloadObjects();
             Progress += pg;
 
-            LoadingMessage = "Chargement des information";
+            LoadingMessage = "Chargement des informations";
             error = await SynchMobilePlugin();
             Progress += pg;
 
@@ -240,6 +261,7 @@ namespace Jeedom
             LoadingMessage = "Prêt";
             Updating = false;
         }
+
         public async Task<Error> ConnectJeedomByLogin()
         {
             Parameters parameters = new Parameters();
@@ -253,11 +275,11 @@ namespace Jeedom
             {
                 var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
                 config.ApiKey = reponse.result;
-
             }
 
             return jsonrpc.Error;
         }
+
         public async Task<Error> SearchConfigByKey(string key, string plugin)
         {
             Parameters parameters = new Parameters();
@@ -272,6 +294,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         public async Task<Error> CheckTwoFactorConnexion()
         {
             Parameters parameters = new Parameters();
@@ -289,6 +312,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         public async Task<Error> CreateEqLogicMobile()
         {
             Parameters parameters = new Parameters();
@@ -298,6 +322,7 @@ namespace Jeedom
             await jsonrpc.SendRequest("Iq");
             return jsonrpc.Error;
         }
+
         public async Task<Error> SynchMobilePlugin()
         {
             var jsonrpc = new JsonRpcClient();
@@ -320,15 +345,13 @@ namespace Jeedom
                 var Cmds = jsonrpc.GetRequestResponseDeserialized<Response<EqLogic>>();
                 if (Cmds != null)
                 {
-                  
-                        foreach (Command cmd in Cmds.result.cmds)
-                        {
-                            if (EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds == null)
-                                EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds = new ObservableCollection<Command>();
-                            EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds.Add(cmd);
-                            CommandList.Add(cmd);
-                        }
-
+                    foreach (Command cmd in Cmds.result.cmds)
+                    {
+                        if (EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds == null)
+                            EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds = new ObservableCollection<Command>();
+                        EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds.Add(cmd);
+                        CommandList.Add(cmd);
+                    }
                 }
                 foreach (EqLogic eq in EqLogicList)
                 {
@@ -340,6 +363,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         public async Task<Error> DownloadObjects()
         {
             var jsonrpc = new JsonRpcClient();
@@ -361,6 +385,7 @@ namespace Jeedom
             }
             return jsonrpc.Error;
         }
+
         public async Task<Error> DownloadScenes()
         {
             var jsonrpc = new JsonRpcClient();
@@ -375,6 +400,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         public async Task<Error> DownloadMessages()
         {
             var jsonrpc = new JsonRpcClient();
@@ -389,6 +415,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         public async Task<Error> interactTryToReply(string query)
         {
             InteractReply = "";
@@ -405,6 +432,7 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+
         public async Task<Error> DownloadInteraction()
         {
             var jsonrpc = new JsonRpcClient();
@@ -454,12 +482,14 @@ namespace Jeedom
 
             return await httpRpcClient.SendRequest();
         }
+
         public async Task<bool> SendPosition(string position)
         {
             var httpRpcClient = new HttpRpcClient("/core/api/jeeApi.php?api=" + config.ApiKey + "&type=geoloc&id=" + config.GeolocObjectId + "&value=" + position);
 
             return await httpRpcClient.SendRequest();
         }
+
         public async Task<bool> Shutdown()
         {
             var jsonrpc = new JsonRpcClient();
@@ -471,6 +501,7 @@ namespace Jeedom
             else
                 return false;
         }
+
         public async Task<bool> Upgrade()
         {
             var jsonrpc = new JsonRpcClient();
@@ -482,6 +513,7 @@ namespace Jeedom
             else
                 return false;
         }
+
         public async Task<bool> Reboot()
         {
             var jsonrpc = new JsonRpcClient();
@@ -524,6 +556,7 @@ namespace Jeedom
                 _dateTime = response.datetime;
             }
         }
+
         public async Task UpdateTask()
         {
             Updating = true;
@@ -563,6 +596,7 @@ namespace Jeedom
                 }
             }
         }
+
         public async Task UpdateObject(JdObject obj)
         {
             var parameters = new Parameters();
@@ -593,6 +627,7 @@ namespace Jeedom
                 }
             }
         }
+
         public async Task UpdateObjectList()
         {
             var jsonrpc = new JsonRpcClient();
@@ -613,6 +648,7 @@ namespace Jeedom
                 }
             }
         }
+
         private async Task UpdateScene(Scene scene)
         {
             var parameters = new Parameters();
@@ -638,6 +674,7 @@ namespace Jeedom
                 await UpdateScene(scene);
             }
         }
+
         public async Task ExecuteCommand(Command cmd, Parameters parameters = null)
         {
             cmd.Updating = true;

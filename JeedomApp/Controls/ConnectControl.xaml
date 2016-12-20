@@ -27,7 +27,7 @@
                  PlaceholderText="Login de connexion a jeedom"
                  Text="{x:Bind ViewModel.Login, Mode=TwoWay}"
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                 RelativePanel.Below="tbHost" TextChanged="tbLogin_TextChanged"/>
+                 RelativePanel.Below="tbHost" TextChanged="tbLogin_TextChanged" />
         <PasswordBox x:Name="tbPass"
                  Width="260"
                  Margin="5"
@@ -35,7 +35,7 @@
                  PlaceholderText="Mot de passe de connexion jeedom"
                  Password="{x:Bind ViewModel.Password, Mode=TwoWay}"
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                 RelativePanel.Below="tbLogin"/>
+                 RelativePanel.Below="tbLogin" />
         <CheckBox x:Name="cbConnexionAuto"
                   Width="260"
                   Margin="5"
@@ -47,12 +47,11 @@
         <TextBox x:Name="tbtwoFactorCode"
                  Width="260"
                  Margin="5"
-                 Header="Authentification a 2 étape"
-                 PlaceholderText="Code authentification a 2 étape"
+                 Header="Authentification à 2 étapes"
+                 PlaceholderText="Code authentification à 2 étapes"
                  Text="{x:Bind ViewModel.TwoFactorCode, Mode=TwoWay}"
                  RelativePanel.AlignHorizontalCenterWithPanel="True"
-                 RelativePanel.Below="cbConnexionAuto" 
+                 RelativePanel.Below="cbConnexionAuto"
                  Visibility="Collapsed" />
-
     </RelativePanel>
 </UserControl>
