@@ -1,6 +1,6 @@
-﻿using JeedomApp.ViewModels;
-using Jeedom;
+﻿using Jeedom;
 using Jeedom.Model;
+using JeedomApp.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,6 +9,7 @@ using Windows.Devices.Geolocation;
 using Windows.Networking.PushNotifications;
 using Windows.Storage;
 using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -106,11 +107,11 @@ namespace JeedomApp.Views
                     {
                         case BackgroundAccessStatus.Unspecified:
                         case BackgroundAccessStatus.Denied:
-                            Status.Text = "Impossible de fonctionner en arrière-plan. La demande doit être ajouté à l'écran de verrouillage.";
+                            Status.Text = "Impossible de fonctionner en arrière-plan. La demande doit être ajoutée à l'écran de verrouillage.";
                             break;
 
                         default:
-                            Status.Text = "La tâche de fond est déjà enregistré. Attendez la prochaine mise à jour ...";
+                            Status.Text = "La tâche de fond est déjà enregistrée. Attendez la prochaine mise à jour ...";
                             break;
                     }
                 }
@@ -288,6 +289,17 @@ namespace JeedomApp.Views
 
         private void ShutdownButton_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private async void btnResetSettings_Click(object sender, RoutedEventArgs e)
+        {
+            var msgbox = new MessageDialog("Etes-vous sûr de vouloir réinitialiser vos paramètres de connexion ?");
+            msgbox.Commands.Clear();
+            msgbox.Commands.Add(new UICommand { Label = "Oui", Id = 0 });
+            msgbox.Commands.Add(new UICommand { Label = "Non", Id = 1 });
+            var res = await msgbox.ShowAsync();
+            if ((int)res.Id == 0)
+                RequestViewModel.config.Reset();
         }
     }
 }
