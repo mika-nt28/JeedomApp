@@ -34,6 +34,7 @@ namespace Jeedom.Model
 
         [DataMember]
         private bool _isVisible = true;
+
         public bool isVisible
         {
             get
@@ -44,7 +45,6 @@ namespace Jeedom.Model
             set
             {
                 _isVisible = Convert.ToBoolean(value);
-
             }
         }
 
@@ -307,14 +307,24 @@ namespace Jeedom.Model
 
         public ObservableCollection<Command> GetActionsCmds()
         {
-            IEnumerable<Command> results = cmds.Where(c => c.type == "action");
-            return new ObservableCollection<Command>(results);
+            if (cmds != null)
+            {
+                IEnumerable<Command> results = cmds.Where(c => c.type == "action");
+                return new ObservableCollection<Command>(results);
+            }
+            else
+                return new ObservableCollection<Command>();
         }
 
         public ObservableCollection<Command> GetVisibleCmds()
         {
-            IEnumerable<Command> results = cmds.Where(c => c.isVisible == true && c.logicalId != null);
-            return new ObservableCollection<Command>(results);
+            if (cmds != null)
+            {
+                IEnumerable<Command> results = cmds.Where(c => c.isVisible == true && c.logicalId != null);
+                return new ObservableCollection<Command>(results);
+            }
+            else
+                return new ObservableCollection<Command>();
         }
 
         public ObservableCollection<Command> GetInformationsCmds()
