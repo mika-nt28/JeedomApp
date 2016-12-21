@@ -1,7 +1,7 @@
-﻿using JeedomApp.Controls;
+﻿using Jeedom;
+using JeedomApp.Controls;
 using JeedomApp.Services.SettingsServices;
 using JeedomApp.Views;
-using Jeedom;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -69,10 +69,18 @@ namespace JeedomApp
 
                 var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
 
+                // Si pas d'APIKEY on lance le dialogue de connexion
+                if (RequestViewModel.config.ApiKey == "")
+                {
+                    ConnectDialog.ShowConnectDialog();
+                    return;
+                }
+
                 // Tentative de connexion à Jeedom
                 if (await RequestViewModel.Instance.PingJeedom() == null)
                 {
-                    RequestViewModel.config.UseExtHost=true;
+                    if (RequestViewModel.config.HostExt != "")
+                        RequestViewModel.config.UseExtHost = true;
                 }
                 if (await RequestViewModel.Instance.PingJeedom() != null)
                 {

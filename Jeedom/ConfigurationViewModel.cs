@@ -281,6 +281,28 @@ namespace Jeedom
         private const string settingConnexionAuto = "ConnexionAutoSetting";
         private const string settingAPIKey = "apikeySetting";
 
+        /// <summary>
+        /// Supprime tous les paramètres
+        /// </summary>
+        public void Reset()
+        {
+            this.ApiKey = "";
+            this.ConnexionAuto = true;
+            this.GeoFenceActivation = false;
+            this.GeoFenceActivationDistance = "";
+            this.GeolocActivation = false;
+            this.GeolocObjectId = "";
+            this.Host = "";
+            this.HostExt = "";
+            this.Login = "";
+            this.NotificationActivation = false;
+            this.NotificationObjectId = "";
+            this.Password = "";
+            this.TwoFactor = false;
+            this.TwoFactorCode = "";
+            this.UseExtHost = false;
+        }
+
         public ConfigurationViewModel()
         {
             Populated = true;
