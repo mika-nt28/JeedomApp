@@ -66,10 +66,10 @@ namespace Jeedom.Api.Json
             var uri = new Uri(RequestViewModel.config.Uri + "core/api/jeeApi.php");
 
             var filter = new HttpBaseProtocolFilter();
-           // if (config.IsSelfSigned == true)
+            // if (config.IsSelfSigned == true)
             //{
-                filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
-                filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
+            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
             //}
 
             HttpClient httpClient = new HttpClient(filter);
@@ -108,7 +108,7 @@ namespace Jeedom.Api.Json
             {
                 error = new Error();
                 error.code = "-1";
-                error.message = "Une erreur s'est produite lors de l'exécution de votre requête!";
+                error.message = "Une erreur s'est produite lors de l'exécution de votre requête !" + Environment.NewLine + e.Message;
                 return false;
             }
         }

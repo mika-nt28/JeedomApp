@@ -1,22 +1,24 @@
 ﻿using Jeedom;
 using System;
-using System.Threading.Tasks;
-using Template10.Common;
-using Template10.Controls;
-using Windows.Foundation.Metadata;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading.Tasks;
+using Template10.Common;
+using Template10.Controls;
 using Windows.Devices.Enumeration;
 using Windows.Devices.PointOfService;
-using Windows.Storage.Streams;
+using Windows.Foundation.Metadata;
 using Windows.Media.Capture;
+using Windows.Storage.Streams;
 using Windows.System.Display;
+using Windows.UI.Core;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using ZXing.Mobile;
+
 //TODO: Gérer l'adresse sur le dns jeedom
 
 namespace JeedomApp.Controls
@@ -32,38 +34,52 @@ namespace JeedomApp.Controls
         {
             this.InitializeComponent();
         }
+
         private void Demo_Click(object sender, RoutedEventArgs e)
         {
-
             // Charger des données de demo pour l'application
 
             // Masque le dialogue de connection
             ConnectDialog.HideConnectDialog();
         }
+
+        private async void ShowError(string message)
+        {
+            var dialog = new MessageDialog(message);
+            await dialog.ShowAsync();
+            return;
+        }
+
         private async void bConnect_Click(object sender, RoutedEventArgs e)
         {
-               // Lance le rapatriement des données de Jeedom
-               var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
-            
-            await taskFactory.StartNew(async () =>
-            {
-                var error=await RequestViewModel.Instance.ConnectJeedomByLogin();
-                if(error==null)
-                    error = await RequestViewModel.Instance.CreateEqLogicMobile();
-                if (error == null)
-                    error = await RequestViewModel.Instance.SearchConfigByKey("jeedom::url","core");
-                if (error == null)	
-                    RequestViewModel.config.HostExt=RequestViewModel.Instance.configByKey ;
-                else
-                    return;
-            });
-            await taskFactory.StartNew(async () =>
-            {
-                await RequestViewModel.Instance.FirstLaunch();
-            });
+            // Lance le rapatriement des données de Jeedom
+            var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
 
-            // Masque le dialogue de connection
-            ConnectDialog.HideConnectDialog();
+            await taskFactory.StartNew(async () =>
+            {
+                // Connection à Jeedom
+                var error = await RequestViewModel.Instance.ConnectJeedomByLogin();
+                if (error != null)
+                { ShowError(error.message); }
+
+                // Création du mobile dans le plugin
+                error = await RequestViewModel.Instance.CreateEqLogicMobile();
+                if (error != null)
+                { ShowError(error.message); }
+
+                error = await RequestViewModel.Instance.SearchConfigByKey("jeedom::url", "core");
+                if (error != null)
+                { ShowError(error.message); }
+
+                RequestViewModel.config.HostExt = RequestViewModel.Instance.configByKey;
+                await taskFactory.StartNew(async () =>
+                {
+                    await RequestViewModel.Instance.FirstLaunch();
+                });
+
+                // Masque le dialogue de connection
+                ConnectDialog.HideConnectDialog();
+            });
         }
 
         /// <summary>
@@ -94,9 +110,9 @@ namespace JeedomApp.Controls
                     modal.IsModal = false;
             });
         }
+
         private async void QrCodeInfo_Click(object sender, RoutedEventArgs e)
         {
-
             _scanner = new MobileBarcodeScanner(this.Dispatcher);
             _scanner.UseCustomOverlay = false;
             _scanner.TopText = "Lecture du QR code";
@@ -105,17 +121,17 @@ namespace JeedomApp.Controls
             var result = await _scanner.Scan();
             ProcessScanResult(result);
         }
+
         private void ProcessScanResult(ZXing.Result result)
         {
             string message = string.Empty;
 
             message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "QR code trouvé: " + result.Text : "Scanning cancelled";
 
-          /*  this.Dispatcher.InvokeAsync(() =>
-            {
-                MessageBox.Show(message);
-            });*/
+            /*  this.Dispatcher.InvokeAsync(() =>
+              {
+                  MessageBox.Show(message);
+              });*/
         }
-
     }
 }

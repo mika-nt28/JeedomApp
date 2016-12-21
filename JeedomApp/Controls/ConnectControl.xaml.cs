@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Jeedom;
+using System;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Jeedom;
-using System.Threading.Tasks;
+
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace JeedomApp.Controls
@@ -13,6 +14,7 @@ namespace JeedomApp.Controls
         {
             this.InitializeComponent();
         }
+
         private async void tbLogin_TextChanged(object sender, TextChangedEventArgs e)
         {
             var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
@@ -24,8 +26,6 @@ namespace JeedomApp.Controls
                 else
                     tbtwoFactorCode.Visibility = Visibility.Collapsed;
             });
-
         }
-       
     }
 }
