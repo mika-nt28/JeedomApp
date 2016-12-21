@@ -1,0 +1,98 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:localcontrols="using:JeedomApp.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:selectors="using:JeedomApp.Selectors"
+    mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../ConvertersRessources.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/BinaryCmdTemplate.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/ColorCmdTemplate.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/MessageCmdTemplate.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/NumericCmdTemplate.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/OtherCmdTemplate.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/SliderCmdTemplate.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/StringCmdTemplate.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Selectors  -->
+    <selectors:CmdTemplateSelector
+        x:Key="CmdTemplateSelector"
+        BinaryCmdTemplate="{StaticResource BinaryCmdTemplate}"
+        ColorCmdTemplate="{StaticResource ColorCmdTemplate}"
+        MessageCmdTemplate="{StaticResource MessageCmdTemplate}"
+        NumericCmdTemplate="{StaticResource NumericCmdTemplate}"
+        OtherCmdTemplate="{StaticResource OtherCmdTemplate}"
+        SliderCmdTemplate="{StaticResource SliderCmdTemplate}"
+        StringCmdTemplate="{StaticResource StringCmdTemplate}" />
+
+    <!--  Template pour un equipement par défaut  -->
+    <DataTemplate x:Key="DefaultEqLogicTemplate">
+
+        <RelativePanel
+            HorizontalAlignment="Stretch"
+            d:DesignHeight="150"
+            d:DesignWidth="150"
+            Background="{StaticResource CustomColorBrush}"
+            Visibility="{Binding isVisible, Converter={StaticResource UpdatingConverter}}">
+
+            <TextBlock
+                x:Name="TbEqName"
+                Margin="4,0,0,0"
+                FontFamily="Segoe UI Light"
+                FontSize="10.667"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignVerticalCenterWithPanel="True"
+                Text="{Binding name, FallbackValue=name}"
+                TextAlignment="Center" />
+
+            <localcontrols:VariableSizedGridView
+                x:Name="cmdview"
+                Padding="10"
+                IsItemClickEnabled="False"
+                ItemTemplateSelector="{StaticResource CmdTemplateSelector}"
+                ItemsSource="{Binding VisibleCmds}"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.AlignVerticalCenterWithPanel="True"
+                SelectionMode="None">
+
+                <localcontrols:VariableSizedGridView.ItemContainerStyle>
+
+                    <Style TargetType="GridViewItem">
+
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+
+                        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    </Style>
+                </localcontrols:VariableSizedGridView.ItemContainerStyle>
+
+                <localcontrols:VariableSizedGridView.ItemsPanel>
+
+                    <ItemsPanelTemplate>
+
+                        <VariableSizedWrapGrid
+                            ItemHeight="100"
+                            ItemWidth="100"
+                            MaximumRowsOrColumns="3"
+                            Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </localcontrols:VariableSizedGridView.ItemsPanel>
+
+                <!--
+                    ProgressRing x:Name="PART_Updating"
+
+                    IsActive="false"
+
+                    RelativePanel.AlignRightWithPanel="True"
+
+                    RelativePanel.AlignTopWithPanel="True"
+
+                    Visibility="{Binding Updating, Converter={StaticResource UpdatingConverter}}"  /
+                -->
+            </localcontrols:VariableSizedGridView>
+        </RelativePanel>
+    </DataTemplate>
+</ResourceDictionary>

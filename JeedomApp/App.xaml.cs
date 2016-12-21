@@ -61,12 +61,6 @@ namespace JeedomApp
 
             if (RequestViewModel.config.Populated)
             {
-                //Lancer le dispatchertimer
-                var _dispatcher = new DispatcherTimer();
-                _dispatcher.Interval = TimeSpan.FromMinutes(1);
-                _dispatcher.Tick += _dispatcher_Tick;
-                _dispatcher.Start();
-
                 var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
 
                 // Si pas d'APIKEY on lance le dialogue de connexion
@@ -82,7 +76,7 @@ namespace JeedomApp
                     if (RequestViewModel.config.HostExt != "")
                         RequestViewModel.config.UseExtHost = true;
                 }
-                if (await RequestViewModel.Instance.PingJeedom() != null)
+                else
                 {
                     ConnectDialog.ShowConnectDialog();
                     return;
@@ -92,6 +86,12 @@ namespace JeedomApp
                 {
                     await RequestViewModel.Instance.FirstLaunch();
                 });
+
+                //Lancer le dispatchertimer
+                var _dispatcher = new DispatcherTimer();
+                _dispatcher.Interval = TimeSpan.FromSeconds(1);
+                _dispatcher.Tick += _dispatcher_Tick;
+                _dispatcher.Start();
             }
             else
             {
@@ -104,7 +104,8 @@ namespace JeedomApp
         private async void _dispatcher_Tick(object sender, object e)
         {
             //Shell.SetBusy(true, "Mise à jour");
-            //await RequestViewModel.Instance.UpdateTask();
+            await RequestViewModel.Instance.UpdateTask();
+            //await RequestViewModel.Instance.SynchMobilePlugin();
             //Shell.SetBusy(false);
         }
     }

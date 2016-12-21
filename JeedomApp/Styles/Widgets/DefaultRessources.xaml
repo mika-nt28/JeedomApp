@@ -1,8 +1,0 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:Converters="using:Template10.Converters"
-    xmlns:converter="using:JeedomApp.Converters"
-    xmlns:ctl="using:JeedomApp.Controls"
-    xmlns:local="using:JeedomApp.Styles">
-</ResourceDictionary>

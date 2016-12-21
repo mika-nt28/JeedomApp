@@ -1,0 +1,25 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:selectors="using:JeedomApp.Selectors"
+    mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="OnOffEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="SonosEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="ForecastIoEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="CameraEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="DefaultEqLogicTemplate.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Selector pour les Equipements  -->
+    <selectors:EqLogicTemplateSelector
+        x:Key="EqLogicTemplateSelector"
+        CameraEqLogicTemplate="{StaticResource CameraEqLogicTemplate}"
+        DefaultEqLogicTemplate="{StaticResource DefaultEqLogicTemplate}"
+        ForecastIoEqLogicTemplate="{StaticResource ForecastIoEqLogicTemplate}"
+        OnOffEqLogicTemplate="{StaticResource OnOffEqLogicTemplate}"
+        SonosEqLogicTemplate="{StaticResource SonosEqLogicTemplate}" />
+</ResourceDictionary>

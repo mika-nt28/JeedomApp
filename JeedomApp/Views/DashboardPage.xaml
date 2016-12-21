@@ -1,6 +1,8 @@
 ﻿<Page
+    x:Class="JeedomApp.Views.DashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Model="using:Jeedom.Model"
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:c="using:JeedomApp.Converters"
     xmlns:controls="using:Template10.Controls"
@@ -11,24 +13,14 @@
     xmlns:localctl="using:JeedomApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:JeedomApp.ViewModels"
-    xmlns:Model="using:Jeedom.Model"
-    x:Class="JeedomApp.Views.DashboardPage"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <ResourceDictionary Source="ms-appx:///Styles/ObjectPageResources.xaml"/>
-        <!--ResourceDictionary >
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ms-appx:///Styles/DashboardRessources.xaml"/>
-                <ResourceDictionary Source="ms-appx:///Styles/eqLogicRessources.xaml"/>
-                <ResourceDictionary Source="ms-appx:///Styles/Widgets/DefaultRessources.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </-->
+        <ResourceDictionary Source="ms-appx:///Styles/DashboardPageRessources.xaml" />
     </Page.Resources>
     <Page.DataContext>
-        <vm:DashboardPageViewModel x:Name="ViewModel" >
-            <vm:DashboardPageViewModel.ObjectList>
-            </vm:DashboardPageViewModel.ObjectList>
+        <vm:DashboardPageViewModel x:Name="ViewModel">
+            <vm:DashboardPageViewModel.ObjectList />
         </vm:DashboardPageViewModel>
     </Page.DataContext>
     <Grid Background="{ThemeResource MainBackground}">
@@ -39,9 +31,7 @@
         </Grid.RowDefinitions>
 
         <!--  header  -->
-        <controls:PageHeader
-            x:Name="pageHeader"
-            Text="Tableau de bord" />
+        <controls:PageHeader x:Name="pageHeader" Text="Tableau de bord" />
 
         <!--  content  -->
         <Grid Grid.Row="1">

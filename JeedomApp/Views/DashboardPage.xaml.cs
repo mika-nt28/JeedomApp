@@ -1,6 +1,6 @@
-﻿using JeedomApp.ViewModels;
-using Jeedom;
+﻿using Jeedom;
 using Jeedom.Model;
+using JeedomApp.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -31,11 +31,6 @@ namespace JeedomApp.Views
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
-        }
-
-        private void objectview_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            App.Current.NavigationService.Navigate(typeof(ObjectPage), e.ClickedItem);
         }
 
         private void Grid_RightTapped(object sender, RightTappedRoutedEventArgs e)

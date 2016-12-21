@@ -9,7 +9,7 @@ namespace JeedomApp.Selectors
     {
         #region Public Properties
 
-        public DataTemplate EqLogicTemplate { get; set; }
+        public DataTemplate DefaultEqLogicTemplate { get; set; }
         public DataTemplate OnOffEqLogicTemplate { get; set; }
         public DataTemplate SonosEqLogicTemplate { get; set; }
         public DataTemplate ForecastIoEqLogicTemplate { get; set; }
@@ -69,7 +69,7 @@ namespace JeedomApp.Selectors
                     container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                     return CameraEqLogicTemplate;
             }
-            return EqLogicTemplate;
+            return DefaultEqLogicTemplate;
         }
 
         /// <summary>

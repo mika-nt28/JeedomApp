@@ -1,0 +1,43 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctl="using:JeedomApp.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ConvertersRessources.xaml" />
+        <ResourceDictionary Source="EqLogicTemplates/EqLogicSelectorRessources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate x:Key="ObjectHeaderTemplate">
+        <TextBlock Text="{Binding name}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ObjectPageTemplate">
+        <ctl:VariableSizedGridView
+            x:Name="eqlogicview"
+            ItemTemplateSelector="{StaticResource EqLogicTemplateSelector}"
+            ItemsSource="{Binding eqLogics}"
+            SelectionMode="None">
+
+            <ctl:VariableSizedGridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                </Style>
+            </ctl:VariableSizedGridView.ItemContainerStyle>
+
+            <ctl:VariableSizedGridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VariableSizedWrapGrid
+                        ItemHeight="120"
+                        ItemWidth="120"
+                        MaximumRowsOrColumns="20"
+                        Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ctl:VariableSizedGridView.ItemsPanel>
+        </ctl:VariableSizedGridView>
+    </DataTemplate>
+</ResourceDictionary>
