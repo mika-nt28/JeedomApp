@@ -16,14 +16,8 @@
     <!--  Template pour un equipement Sonos  -->
     <DataTemplate x:Key="SonosEqLogicTemplate">
 
-        <Grid
-            d:DataContext="{d:DesignInstance SampleData:DesignInstance,
-                                             IsDesignTimeCreatable=True}"
-            d:DesignHeight="300"
-            d:DesignWidth="300">
-            <RelativePanel
-                d:DataContext="{Binding SonosSample}"
-                Background="#2BC6FC">
+        <Grid d:DesignHeight="300" d:DesignWidth="300">
+            <RelativePanel d:DataContext="{Binding SonosSample}" Background="#2BC6FC">
 
                 <ProgressRing
                     x:Name="PART_Updating"
@@ -37,7 +31,7 @@
                     RelativePanel.AlignLeftWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignTopWithPanel="True"
-                    Source="https://consequenceofsound.files.wordpress.com/2014/08/url_0.jpg"
+                    Source="{Binding cmds, ConverterParameter=track_image, Converter={StaticResource EqLogicCmdInfoByLogicalIdConverter}}"
                     Stretch="Fill" />
 
                 <TextBlock

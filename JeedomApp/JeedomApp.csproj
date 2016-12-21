@@ -122,6 +122,7 @@
       <DependentUpon>StatusBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\VariableSizedGridView.cs" />
+    <Compile Include="Converters\EqLogicCameraFluxConverter.cs" />
     <Compile Include="Converters\EqLogicCmdInfoByIdConverter.cs" />
     <Compile Include="Converters\EqLogicCmdInfoByLogicalIdConverter.cs" />
     <Compile Include="Converters\EqLogicCmdInfoByNameConverter.cs" />

@@ -19,6 +19,12 @@
 
     <t10converters:ChangeTypeConverter x:Key="ChangeTypeConverter" />
 
+    <!--  Flux Caméra  -->
+    <localconverters:ValueConverterGroup x:Key="EqLogicCameraFluxConverter">
+        <localconverters:EqLogicCmdInfoByLogicalIdConverter />
+        <localconverters:EqLogicCameraFluxConverter />
+    </localconverters:ValueConverterGroup>
+
     <localconverters:ValueConverterGroup x:Key="GroupState2BrushConverter">
         <localconverters:EqLogicCmdInfoByTypeConverter />
         <localconverters:EqLogicState2BrushConverter />
