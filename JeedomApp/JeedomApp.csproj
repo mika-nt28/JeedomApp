@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="Controls\VariableSizedGridView.cs" />
     <Compile Include="Converters\EqLogicCmdInfoByIdConverter.cs" />
+    <Compile Include="Converters\EqLogicCmdInfoByLogicalIdConverter.cs" />
     <Compile Include="Converters\EqLogicCmdInfoByNameConverter.cs" />
     <Compile Include="Converters\EqLogicNotUpdatingConverter.cs" />
     <Compile Include="Converters\EqLogicState2BrushConverter.cs" />
@@ -223,20 +224,58 @@
       <SubType>Designer</SubType>
       <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
     </Page>
+    <Page Include="Styles\CmdTemplates\ColorCmdTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CmdTemplates\MessageCmdTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CmdTemplates\SliderCmdTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CmdTemplates\OtherCmdTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CmdTemplates\StringCmdTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CmdTemplates\BinaryCmdTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\CmdTemplates\NumericCmdTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ConvertersRessources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\Custom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
-    <Page Include="Styles\DashboardRessources.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Styles\EqLogicTemplates\CameraEqLogicTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\eqLogicRessources.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Styles\EqLogicTemplates\ForecastIoEqLogicTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\OnOffEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\SonosEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ObjectPageResources.xaml">
       <SubType>Designer</SubType>
@@ -319,9 +358,7 @@
       <Name>VoiceCommandService</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\Widget\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
       <Name>Windows Mobile Extensions for the UWP</Name>

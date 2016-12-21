@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../ConvertersRessources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Template pour un equipement Caméra  -->
+    <DataTemplate x:Key="CameraEqLogicTemplate">
+        <RelativePanel
+            d:DesignHeight="150"
+            d:DesignWidth="150">
+            <ProgressRing
+                x:Name="PART_Updating"
+                IsActive="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                Visibility="{Binding Updating, Converter={StaticResource UpdatingConverter}}" />
+
+            <Image
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                Source="{Binding cmds, ConverterParameter=urlFlux, Converter={StaticResource EqLogicCameraFluxConverter}}"
+                Stretch="Fill" />
+        </RelativePanel>
+    </DataTemplate>
+</ResourceDictionary>

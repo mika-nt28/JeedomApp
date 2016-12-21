@@ -1,0 +1,157 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Model="using:Jeedom.Model"
+    xmlns:SampleData="using:JeedomApp.SampleData"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:jeedom="using:Jeedom"
+    xmlns:jeedomapp="using:JeedomApp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../ConvertersRessources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Template pour un equipement Sonos  -->
+    <DataTemplate x:Key="SonosEqLogicTemplate">
+
+        <Grid
+            d:DataContext="{d:DesignInstance SampleData:DesignInstance,
+                                             IsDesignTimeCreatable=True}"
+            d:DesignHeight="300"
+            d:DesignWidth="300">
+            <RelativePanel
+                d:DataContext="{Binding SonosSample}"
+                Background="#2BC6FC">
+
+                <ProgressRing
+                    x:Name="PART_Updating"
+                    IsActive="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    Visibility="{Binding Updating, Converter={StaticResource UpdatingConverter}}" />
+
+                <Image
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    Source="https://consequenceofsound.files.wordpress.com/2014/08/url_0.jpg"
+                    Stretch="Fill" />
+
+                <TextBlock
+                    x:Name="PART_Pause"
+                    Margin="0,0,0,40"
+                    FontSize="60"
+                    FontWeight="ExtraBlack"
+                    Foreground="#CCFFFFFF"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Text="PAUSE" />
+                <!--  Visibility="{Binding cmds, ConverterParameter=state, Converter={StaticResource VisibleWhenPauseConverter}}"  -->
+                <Grid
+                    x:Name="grid"
+                    MaxHeight="40"
+                    Padding="0,4"
+                    Background="#CC000000"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True">
+                    <Grid.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="VerticalAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="1.5*" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Grid.Column="0"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="previous">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Previous" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button
+                        Grid.Column="1"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="shuffle">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Shuffle" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button
+                        Grid.Column="2"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="repeat">
+                        <Viewbox>
+                            <SymbolIcon Symbol="RepeatAll" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button
+                        Grid.Column="3"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="play"
+                        Visibility="{Binding cmds, ConverterParameter=state, Converter={StaticResource VisibleWhenPauseConverter}}">
+                        <Viewbox MaxHeight="40">
+                            <SymbolIcon Symbol="Play" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button
+                        Grid.Column="3"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="pause"
+                        Visibility="{Binding cmds, ConverterParameter=state, Converter={StaticResource VisibleWhenPlayConverter}}">
+                        <Viewbox MaxHeight="40">
+                            <SymbolIcon Symbol="Pause" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button
+                        Grid.Column="4"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="stop">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Stop" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button
+                        Grid.Column="5"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="mute">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Mute" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button
+                        Grid.Column="6"
+                        Command="{Binding ExecCommandByLogicalID}"
+                        CommandParameter="next">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Next" />
+                        </Viewbox>
+                    </Button>
+                </Grid>
+            </RelativePanel>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

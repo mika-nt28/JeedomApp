@@ -12,7 +12,9 @@ namespace JeedomApp.Selectors
         public DataTemplate EqLogicTemplate { get; set; }
         public DataTemplate OnOffEqLogicTemplate { get; set; }
         public DataTemplate SonosEqLogicTemplate { get; set; }
+        public DataTemplate ForecastIoEqLogicTemplate { get; set; }
         public DataTemplate ZWaveEqLogicTemplate { get; set; }
+        public DataTemplate CameraEqLogicTemplate { get; set; }
 
         #endregion Public Properties
 
@@ -21,6 +23,7 @@ namespace JeedomApp.Selectors
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
             var eq = item as EqLogic;
+            //Jeedom.RequestViewModel.Instance.UpdateEqLogic(eq);
             //var element = container as FrameworkElement;
 
             // Cherche si on a spécifié un Template dans les customParameters de l'équipement
@@ -46,15 +49,26 @@ namespace JeedomApp.Selectors
                 container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
                 return OnOffEqLogicTemplate;
             }
-            // Cherche par rapport au plugin
-            /* switch (eq.eqType_name)
-            {
-                case "openzwave":
-                    return ZWaveEqLogicTemplate;
 
-                case "sonos":
+            // Cherche par rapport au plugin
+            System.Diagnostics.Debug.WriteLine(eq.eqType_name);
+            switch (eq.eqType_name)
+            {
+                case "sonos3":
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 3);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 3);
                     return SonosEqLogicTemplate;
-            } */
+
+                case "forecastio":
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                    return ForecastIoEqLogicTemplate;
+
+                case "camera":
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                    return CameraEqLogicTemplate;
+            }
             return EqLogicTemplate;
         }
 
