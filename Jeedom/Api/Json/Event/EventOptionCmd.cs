@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace Jeedom.Api.Json.Event
 {
-    [DataContract]
-    public class Event<T> : JdEvent
+    [DataContract(Name = "option")]
+    public class EventOptionCmd
     {
-        [DataMember(Name = "option")]
-        public T option;
+        [DataMember]
+        public string cmd_id;
+
+        [DataMember]
+        public string value;
     }
 }

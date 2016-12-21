@@ -110,6 +110,7 @@
     <Compile Include="Api\Http\HttpRpcClient.cs" />
     <Compile Include="Api\Json\Event\Event.cs" />
     <Compile Include="Api\Json\Event\EventEqLogic.cs" />
+    <Compile Include="Api\Json\Event\EventOptionEqLogic.cs" />
     <Compile Include="Api\Json\Event\EventResult.cs" />
     <Compile Include="Converters\BooleanJsonConverter.cs" />
     <Compile Include="Model\Interact.cs" />
@@ -125,7 +126,7 @@
     <Compile Include="Model\JdObject.cs" />
     <Compile Include="Api\Json\JsonRpcClient.cs" />
     <Compile Include="Model\Message.cs" />
-    <Compile Include="Api\Json\Event\Option.cs" />
+    <Compile Include="Api\Json\Event\EventOptionCmd.cs" />
     <Compile Include="Model\ParametersOption.cs" />
     <Compile Include="Model\Parameters.cs" />
     <Compile Include="Model\Request.cs" />

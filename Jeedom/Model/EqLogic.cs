@@ -180,12 +180,9 @@ namespace Jeedom.Model
             {
                 this._execCommandByLogicalID = this._execCommandByLogicalID ?? new RelayCommand<object>(async parameters =>
                  {
-                     try
-                     {
-                         var cmd = cmds.Where(c => c.logicalId.ToLower() == parameters.ToString().ToLower()).First();
+                     var cmd = cmds.Where(c => c.logicalId.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
+                     if (cmd != null)
                          await ExecCommand(cmd);
-                     }
-                     catch (Exception) { }
                  });
                 return this._execCommandByLogicalID;
             }
@@ -202,8 +199,9 @@ namespace Jeedom.Model
                 {
                     try
                     {
-                        var cmd = cmds.Where(c => c.name.ToLower() == parameters.ToString().ToLower()).First();
-                        await ExecCommand(cmd);
+                        var cmd = cmds.Where(c => c.name.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
+                        if (cmd != null)
+                            await ExecCommand(cmd);
                     }
                     catch (Exception) { }
                 });
@@ -222,8 +220,9 @@ namespace Jeedom.Model
                 {
                     try
                     {
-                        var cmd = cmds.Where(c => c.display.generic_type == parameters.ToString()).First();
-                        await ExecCommand(cmd);
+                        var cmd = cmds.Where(c => c.display.generic_type == parameters.ToString()).FirstOrDefault();
+                        if (cmd != null)
+                            await ExecCommand(cmd);
                     }
                     catch (Exception) { }
                 });

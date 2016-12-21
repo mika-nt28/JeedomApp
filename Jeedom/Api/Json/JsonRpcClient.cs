@@ -73,17 +73,30 @@ namespace Jeedom.Api.Json
             //}
 
             HttpClient httpClient = new HttpClient(filter);
+
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new HttpMediaTypeWithQualityHeaderValue("application/json"));
 
             Request requete = new Request();
+
             requete.parameters = parameters;
             requete.method = command;
             requete.id = Interlocked.Increment(ref Id);
             var requeteJson = "request=" + JsonConvert.SerializeObject(requete);
             var content = new HttpStringContent(requeteJson, Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/x-www-form-urlencoded");
-            var response = await httpClient.PostAsync(uri, content);
-            var serialized = await response.Content.ReadAsStringAsync();
+            string serialized = string.Empty;
+
+            var cancellationTokenSource = new CancellationTokenSource(2000); //timeout
+            try
+            {
+                var response = await httpClient.PostAsync(uri, content);
+                serialized = await response.Content.ReadAsStringAsync();
+            }
+            catch (TaskCanceledException ex)
+            {
+                System.Diagnostics.Debug.WriteLine("JsonRPC Timeout");
+            }
+
             httpClient.Dispose();
 
             return serialized;
@@ -126,14 +139,14 @@ namespace Jeedom.Api.Json
                     switch (e["name"].Value<string>())
                     {
                         case "cmd::update":
-                            var evcmd = JsonConvert.DeserializeObject<Event<Option>>(e.ToString());
+                            var evcmd = JsonConvert.DeserializeObject<Event<EventOptionCmd>>(e.ToString());
                             event_result.result.Add(evcmd);
                             break;
 
-                        case "eqLogic::update":
-                            var eveq = JsonConvert.DeserializeObject<Event<string>>(e.ToString());
-                            event_result.result.Add(eveq);
-                            break;
+                        //case "eqLogic::update":
+                        //    var eveq = JsonConvert.DeserializeObject<Event<EventOptionEqLogic>>(e.ToString());
+                        //    event_result.result.Add(eveq);
+                        //    break;
 
                         default:
                             var evdef = JsonConvert.DeserializeObject<JdEvent>(e.ToString());

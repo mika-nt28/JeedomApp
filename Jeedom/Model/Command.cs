@@ -5,12 +5,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using Windows.UI.Xaml.Media;
 using Windows.UI;
+using Windows.UI.Xaml.Media;
+
 namespace Jeedom.Model
 {
     [DataContract]
-
     public class Command : INotifyPropertyChanged
     {
         #region Propriétés sans notification de changement
@@ -116,7 +116,7 @@ namespace Jeedom.Model
                             return _value.Replace('.', ',');
                     }
                 }
-                    return _value;
+                return _value;
             }
 
             set
@@ -124,21 +124,25 @@ namespace Jeedom.Model
                 _value = value;
                 if (_value != "" && _value != null)
                 {
+                    //TODO : @mika-nt28 j'ai pas tout compris sur cette notion de WidgetValue ???
                     switch (this.subType)
                     {
                         case "slider":
-                            this.WidgetValue.slider = Convert.ToDouble(RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).First().Value);
+                            //this.WidgetValue.slider = Convert.ToDouble(RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).FirstOrDefault().Value);
                             break;
+
                         case "message":
-                            this.WidgetValue.message = RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).First().Value;
+                            //this.WidgetValue.message = RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).FirstOrDefault().Value;
                             break;
+
                         case "color":
-                            var hexaColor = RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).First().Value;
-                            this.WidgetValue.color = new SolidColorBrush(Color.FromArgb(
-                                255,
-                                System.Convert.ToByte(hexaColor.Substring(1, 2), 16),
-                                System.Convert.ToByte(hexaColor.Substring(3, 2), 16),
-                                System.Convert.ToByte(hexaColor.Substring(5, 2), 16)));
+                            //var search = RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).FirstOrDefault();
+                            //if (search != null)
+                            //    this.WidgetValue.color = new SolidColorBrush(Color.FromArgb(
+                            //        255,
+                            //        System.Convert.ToByte(search.Value.Substring(1, 2), 16),
+                            //        System.Convert.ToByte(search.Value.Substring(3, 2), 16),
+                            //        System.Convert.ToByte(search.Value.Substring(5, 2), 16)));
                             break;
                     }
                 }
