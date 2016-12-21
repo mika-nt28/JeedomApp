@@ -247,15 +247,12 @@ namespace Jeedom
             error = await DownloadMessages();
             Progress += pg;
 
-            /*  LoadingMessage = "Chargement des informations des Commandes";
-              foreach (EqLogic eq in EqLogicList)
-              {
-                  await UpdateEqLogic(eq);
-              }
-              Progress += pg;*/
+            LoadingMessage = "Chargement des informations des Commandes";
+            error = await GetEventChanges();
+            Progress += pg;
 
             LoadingMessage = "Chargement des Interactions";
-            await DownloadInteraction();
+            //await DownloadInteraction();
             Progress += pg;
 
             LoadingMessage = "Prêt";
@@ -347,17 +344,17 @@ namespace Jeedom
                 {
                     foreach (Command cmd in Cmds.result.cmds)
                     {
-                        if (EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds == null)
-                            EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds = new ObservableCollection<Command>();
-                        EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).First().cmds.Add(cmd);
+                        if (EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).FirstOrDefault().cmds == null)
+                            EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).FirstOrDefault().cmds = new ObservableCollection<Command>();
+                        EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).FirstOrDefault().cmds.Add(cmd);
                         CommandList.Add(cmd);
                     }
                 }
                 foreach (EqLogic eq in EqLogicList)
                 {
-                    if (ObjectList.Where(o => o.id.Equals(eq.object_id)).First().eqLogics == null)
-                        ObjectList.Where(o => o.id.Equals(eq.object_id)).First().eqLogics = new ObservableCollection<EqLogic>();
-                    ObjectList.Where(o => o.id.Equals(eq.object_id)).First().eqLogics.Add(eq);
+                    if (ObjectList.Where(o => o.id.Equals(eq.object_id)).FirstOrDefault().eqLogics == null)
+                        ObjectList.Where(o => o.id.Equals(eq.object_id)).FirstOrDefault().eqLogics = new ObservableCollection<EqLogic>();
+                    ObjectList.Where(o => o.id.Equals(eq.object_id)).FirstOrDefault().eqLogics.Add(eq);
                 }
             }
 
@@ -376,7 +373,7 @@ namespace Jeedom
                     var lst = from o in ObjectList where o.id == obj.id select o;
                     if (lst.Count() != 0)
                     {
-                        var ob = lst.First();
+                        var ob = lst.FirstOrDefault();
                         ob = obj;
                     }
                     else
@@ -526,7 +523,7 @@ namespace Jeedom
                 return false;
         }
 
-        public async Task GetEventChanges()
+        public async Task<Error> GetEventChanges()
         {
             var parameters = new Parameters();
             parameters.datetime = _dateTime;
@@ -540,10 +537,11 @@ namespace Jeedom
                     switch (e.name)
                     {
                         case "cmd::update":
-                            var ev = e as Event<Option>;
-                            var cmds = from c in CommandList where c.id == ev.option.cmd_id select c;
-                            foreach (Command cmd in cmds)
+                            var ev = e as Event<EventOptionCmd>;
+                            var cmd = (from c in CommandList where c.id == ev.option.cmd_id select c).FirstOrDefault();
+                            if (cmd != null)
                             {
+                                System.Diagnostics.Debug.WriteLine(ev.option.value);
                                 if (cmd.datetime < ev.datetime)
                                 {
                                     cmd.Value = ev.option.value;
@@ -551,10 +549,24 @@ namespace Jeedom
                                 }
                             }
                             break;
+
+                        case "eqlogic::update":
+                            var eveq = e as Event<EventOptionEqLogic>;
+                            var eq = (from c in EqLogicList where c.id == eveq.option.eqLogic_id select c).FirstOrDefault();
+                            if (eq != null)
+                            {
+                                await UpdateEqLogic(eq);
+                            }
+                            break;
+
+                        default:
+                            break;
                     }
                 }
                 _dateTime = response.datetime;
             }
+
+            return jsonrpc.Error;
         }
 
         public async Task UpdateTask()
@@ -586,13 +598,16 @@ namespace Jeedom
 
         public async Task UpdateEqLogic(EqLogic eq)
         {
-            var infoCmds = from cmd in eq.cmds where cmd.type == "info" select cmd;
-            foreach (Command cmd in infoCmds)
+            var infoCmds = (from cmd in eq.cmds where cmd.type == "info" select cmd).DefaultIfEmpty();
+            if (infoCmds != null)
             {
-                if (!cmd.Updating)
+                foreach (Command cmd in infoCmds)
                 {
-                    await ExecuteCommand(cmd);
-                    cmd.datetime = _dateTime;
+                    if (!cmd.Updating)
+                    {
+                        await ExecuteCommand(cmd);
+                        cmd.datetime = _dateTime;
+                    }
                 }
             }
         }
@@ -613,7 +628,7 @@ namespace Jeedom
                         var lst = from e in EqLogicList where e.id == eqnew.id select e;
                         if (lst.Count() != 0)
                         {
-                            var eqold = lst.First();
+                            var eqold = lst.FirstOrDefault();
                             eqnew.cmds = eqold.cmds;
                             eqold = eqnew;
                         }
@@ -640,7 +655,7 @@ namespace Jeedom
                     var lst = from o in ObjectList where o.id == obj.id select o;
                     if (lst.Count() != 0)
                     {
-                        var ob = lst.First();
+                        var ob = lst.FirstOrDefault();
                         ob = obj;
                     }
                     else
