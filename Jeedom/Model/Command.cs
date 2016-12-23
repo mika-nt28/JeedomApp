@@ -5,127 +5,133 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
-using Windows.UI;
-using Windows.UI.Xaml.Media;
 
 namespace Jeedom.Model
 {
     [DataContract]
     public class Command : INotifyPropertyChanged
     {
-        #region Propriétés sans notification de changement
+        #region Private Fields
 
-        private string _name;
-
-        [DataMember]
-        public string logicalId;
-
-        [DataMember]
-        public string eqLogic_id;
-
-        [DataMember]
-        public string id;
-
-        [DataMember]
-        public string type;
-
-        /*  [DataMember(Name = "configuration")]
-          private CommandConfiguration _configuration;
-
-          public CommandConfiguration configuration
-
-          {
-              get
-              {
-                  if (_configuration == null)
-                      return new CommandConfiguration();
-                  else
-                      return _configuration;
-              }
-
-              set
-              {
-                  _configuration = value;
-              }
-          }*/
+        private double _DateTime;
 
         [DataMember(Name = "display")]
-        private CommandDisplay _display;
+        private CommandDisplay _Display;
 
-        public CommandDisplay display
+        [DataMember(Name = "eqLogic_id")]
+        private string _EqLogic_id;
 
-        {
-            get
-            {
-                if (_display == null)
-                    return new CommandDisplay();
-                else
-                    return _display;
-            }
+        private RelayCommand<object> _ExecCommand;
 
-            set
-            {
-                _display = value;
-            }
-        }
-
-        [DataMember]
-        public string subType;
-
-        private string _unite;
+        [DataMember(Name = "id")]
+        private string _Id;
 
         [DataMember(Name = "isVisible")]
         [JsonConverter(typeof(JsonConverters.BooleanJsonConverter))]
-        private bool _isVisible;
+        private bool _IsVisible;
 
-        public bool isVisible
+        [DataMember(Name = "logicalId")]
+        private string _LogicalId;
+
+        [DataMember(Name = "name")]
+        private string _Name;
+
+        private EqLogic _Parent;
+
+        [DataMember(Name = "subType")]
+        private string _SubType;
+
+        [DataMember(Name = "type")]
+        private string _Type;
+
+        [DataMember(Name = "unite")]
+        private string _Unite;
+
+        private bool _Updating = false;
+
+        [DataMember(Name = "currentValue")]
+        private string _Value = "";
+
+        private ParametersOption _WidgetValue = new ParametersOption();
+
+        #endregion Private Fields
+
+        #region Public Events
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion Public Events
+
+        #region Public Properties
+
+        public double DateTime { get { return _DateTime; } set { _DateTime = value; NotifyPropertyChanged(); } }
+
+        public CommandDisplay Display { get { if (_Display == null) return new CommandDisplay(); else return _Display; } set { _Display = value; NotifyPropertyChanged(); } }
+
+        public string EqLogic_id { get { return _EqLogic_id; } set { _EqLogic_id = value; NotifyPropertyChanged(); } }
+
+        public RelayCommand<object> ExecCommand
         {
             get
             {
-                return _isVisible;
-            }
+                this._ExecCommand = this._ExecCommand ?? new RelayCommand<object>(async parameters =>
+                {
+                    try
+                    {
+                        this.Updating = true;
+                        Parameters CmdParameters = new Parameters();
+                        CmdParameters.id = this.Id;
+                        CmdParameters.name = this.Name;
+                        CmdParameters.options = this.WidgetValue;
+                        await RequestViewModel.Instance.ExecuteCommand(this, CmdParameters);
+                        await RequestViewModel.Instance.UpdateTask();
 
-            set
-            {
-                _isVisible = Convert.ToBoolean(value);
+                        this.Updating = false;
+                    }
+                    catch (Exception) { }
+                });
+                return this._ExecCommand;
             }
         }
 
-        [DataMember(Name = "value")]
-        private string _value = "";
+        public string Id { get { return _Id; } set { _Id = value; NotifyPropertyChanged(); } }
 
-        private bool _updating = false;
+        public string LogicalId { get { return _LogicalId; } set { _LogicalId = value; NotifyPropertyChanged(); } }
 
-        public EqLogic Parent;
+        public bool IsVisible { get { return _IsVisible; } set { _IsVisible = Convert.ToBoolean(value); NotifyPropertyChanged(); } }
 
-        #endregion Propriétés sans notification de changement
+        public String Name { get { return _Name; } set { _Name = value; NotifyPropertyChanged(); } }
 
-        #region Propriétés avec notification de changement
+        public string Type { get { return _Type; } set { _Type = value; NotifyPropertyChanged(); } }
 
-        public double datetime;
+        public string SubType { get { return _SubType; } set { _SubType = value; NotifyPropertyChanged(); } }
+
+        public string Unite { get { return _Unite; } set { _Unite = value; NotifyPropertyChanged(); } }
+
+        public bool Updating { get { return _Updating; } set { _Updating = value; NotifyPropertyChanged(); } }
 
         public string Value
         {
             get
             {
-                if (_value != "" && _value != null)
+                if (_Value != "" && _Value != null)
                 {
-                    switch (this.subType)
+                    switch (_SubType)
                     {
                         case "numeric":
-                            return _value.Replace('.', ',');
+                            return _Value.Replace('.', ',');
                     }
                 }
-                return _value;
+                return _Value;
             }
 
             set
             {
-                _value = value;
-                if (_value != "" && _value != null)
+                _Value = value;
+                if (_Value != "" && _Value != null)
                 {
                     //TODO : @mika-nt28 j'ai pas tout compris sur cette notion de WidgetValue ???
-                    switch (this.subType)
+                    switch (_SubType)
                     {
                         case "slider":
                             //this.WidgetValue.slider = Convert.ToDouble(RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).FirstOrDefault().Value);
@@ -148,56 +154,26 @@ namespace Jeedom.Model
                 }
 
                 NotifyPropertyChanged();
-                if (Parent != null)
+
+                if (_Parent != null)
                 {
-                    switch (name)
+                    switch (_Name)
                     {
                         case "Consommation":
-                            Parent.Consommation = value + " ";// + unite;
+                            _Parent.Consommation = value + " ";// + unite;
                             break;
 
                         case "Puissance":
-                            Parent.Puissance = value + " ";// + unite;
+                            _Parent.Puissance = value + " ";// + unite;
                             break;
 
                         case "Etat":
-                            Parent.State = value;
+                            _Parent.State = value;
                             break;
                     }
                 }
             }
         }
-
-        [DataMember]
-        public String name
-        {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                _name = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public bool Updating
-        {
-            get
-            {
-                return _updating;
-            }
-
-            set
-            {
-                _updating = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private ParametersOption _WidgetValue = new ParametersOption();
 
         public ParametersOption WidgetValue
         {
@@ -213,52 +189,9 @@ namespace Jeedom.Model
             }
         }
 
-        [DataMember]
-        public string unite
-        {
-            get
-            {
-                return _unite;
-            }
-
-            set
-            {
-                _unite = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        #endregion Propriétés avec notification de changement
+        #endregion Public Properties
 
         #region Private Methods
-
-        private RelayCommand<object> _ExecCommand;
-
-        public RelayCommand<object> ExecCommand
-        {
-            get
-            {
-                this._ExecCommand = this._ExecCommand ?? new RelayCommand<object>(async parameters =>
-                {
-                    try
-                    {
-                        this.Updating = true;
-                        Parameters CmdParameters = new Parameters();
-                        CmdParameters.id = this.id;
-                        CmdParameters.name = this.name;
-                        CmdParameters.options = this.WidgetValue;
-                        await RequestViewModel.Instance.ExecuteCommand(this, CmdParameters);
-                        await RequestViewModel.Instance.UpdateEqLogic(this.Parent);
-
-                        this.Updating = false;
-                    }
-                    catch (Exception) { }
-                });
-                return this._ExecCommand;
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {

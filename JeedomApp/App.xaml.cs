@@ -89,7 +89,7 @@ namespace JeedomApp
 
                 //Lancer le dispatchertimer
                 var _dispatcher = new DispatcherTimer();
-                _dispatcher.Interval = TimeSpan.FromSeconds(1);
+                _dispatcher.Interval = TimeSpan.FromSeconds(5);
                 _dispatcher.Tick += _dispatcher_Tick;
                 _dispatcher.Start();
             }

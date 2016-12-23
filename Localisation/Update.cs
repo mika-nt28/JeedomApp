@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Jeedom;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
-using Jeedom;
+
 namespace Localisation
 {
     internal class Update
@@ -14,7 +15,6 @@ namespace Localisation
         private const long oneHundredNanosecondsPerSecond = 10000000;    // conversion from 100 nano-second resolution to seconds
 
         private IBackgroundTaskRegistration _geofenceTask = null;
-        
 
         async public Task WriteGeolocToAppData(Geoposition pos)
         {
@@ -27,7 +27,7 @@ namespace Localisation
             var HomeObjectId = settings.Values["HomeObjectId"];
             if (HomeObjectId != null)
             {
-                foreach (Jeedom.Model.Command Commande in Jeedom.RequestViewModel.Instance.CommandList.Where(w => w.id.Equals(HomeObjectId)))
+                foreach (Jeedom.Model.Command Commande in Jeedom.RequestViewModel.Instance.CommandList.Where(w => w.Id.Equals(HomeObjectId)))
                 {
                     var coordonee = Commande.Value.Split(',');
                     HomeMobile = Math.Round(Distance(Convert.ToDouble(coordonee[0].Replace('.', ',')), Convert.ToDouble(coordonee[1].Replace('.', ',')), pos.Coordinate.Point.Position.Latitude, pos.Coordinate.Point.Position.Longitude, 'K'), 2);
@@ -91,16 +91,15 @@ namespace Localisation
             try
             {
                 BackgroundAccessStatus backgroundAccessStatus = await BackgroundExecutionManager.RequestAccessAsync();
-                
+
                 BackgroundTaskBuilder geofenceTaskBuilder = new BackgroundTaskBuilder();
 
                 geofenceTaskBuilder.Name = SampleBackgroundTaskName;
                 geofenceTaskBuilder.TaskEntryPoint = SampleBackgroundTaskEntryPoint;
                 var trigger = new LocationTrigger(LocationTriggerType.Geofence);
-                
+
                 geofenceTaskBuilder.SetTrigger(trigger);
                 _geofenceTask = geofenceTaskBuilder.Register();
-                
             }
             catch
             {

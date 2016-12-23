@@ -32,9 +32,17 @@ namespace Jeedom
                // if (HasInternetConnection())
                // {
                     if (_useExtHost == false)
+                    {
+                        if (_host == "")
+                            return null;
                         _uri = new UriBuilder(_host);
+                    }
                     else
+                    {
+                        if (_hostExt == "")
+                            return null;
                         _uri = new UriBuilder(_hostExt);
+                    }
                     if (_uri.Scheme == "https")
                         _uri.Port = 443;
                     else

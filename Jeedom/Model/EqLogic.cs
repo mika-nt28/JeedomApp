@@ -104,6 +104,8 @@ namespace Jeedom.Model
 
         #region Public Properties
 
+        public double datetime;
+
         [DataMember]
         public ObservableCollection<Command> cmds
         {
@@ -180,7 +182,7 @@ namespace Jeedom.Model
             {
                 this._execCommandByLogicalID = this._execCommandByLogicalID ?? new RelayCommand<object>(async parameters =>
                  {
-                     var cmd = cmds.Where(c => c.logicalId.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
+                     var cmd = cmds.Where(c => c.LogicalId.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
                      if (cmd != null)
                          await ExecCommand(cmd);
                  });
@@ -199,7 +201,7 @@ namespace Jeedom.Model
                 {
                     try
                     {
-                        var cmd = cmds.Where(c => c.name.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
+                        var cmd = cmds.Where(c => c.Name.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
                         if (cmd != null)
                             await ExecCommand(cmd);
                     }
@@ -220,7 +222,7 @@ namespace Jeedom.Model
                 {
                     try
                     {
-                        var cmd = cmds.Where(c => c.display.generic_type == parameters.ToString()).FirstOrDefault();
+                        var cmd = cmds.Where(c => c.Display.generic_type == parameters.ToString()).FirstOrDefault();
                         if (cmd != null)
                             await ExecCommand(cmd);
                     }
@@ -308,7 +310,7 @@ namespace Jeedom.Model
         {
             if (cmds != null)
             {
-                IEnumerable<Command> results = cmds.Where(c => c.type == "action");
+                IEnumerable<Command> results = cmds.Where(c => c.Type == "action");
                 return new ObservableCollection<Command>(results);
             }
             else
@@ -319,7 +321,7 @@ namespace Jeedom.Model
         {
             if (cmds != null)
             {
-                IEnumerable<Command> results = cmds.Where(c => c.isVisible == true && c.logicalId != null);
+                IEnumerable<Command> results = cmds.Where(c => c.IsVisible == true && c.LogicalId != null);
                 return new ObservableCollection<Command>(results);
             }
             else
@@ -330,7 +332,7 @@ namespace Jeedom.Model
         {
             if (cmds != null)
             {
-                IEnumerable<Command> results = cmds.Where(c => c.type == "info");
+                IEnumerable<Command> results = cmds.Where(c => c.Type == "info");
                 return new ObservableCollection<Command>(results);
             }
             else
