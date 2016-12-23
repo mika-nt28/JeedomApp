@@ -20,6 +20,5 @@
         CameraEqLogicTemplate="{StaticResource CameraEqLogicTemplate}"
         DefaultEqLogicTemplate="{StaticResource DefaultEqLogicTemplate}"
         ForecastIoEqLogicTemplate="{StaticResource ForecastIoEqLogicTemplate}"
-        OnOffEqLogicTemplate="{StaticResource OnOffEqLogicTemplate}"
         SonosEqLogicTemplate="{StaticResource SonosEqLogicTemplate}" />
 </ResourceDictionary>

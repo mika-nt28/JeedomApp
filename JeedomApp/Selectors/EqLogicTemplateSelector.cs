@@ -23,32 +23,7 @@ namespace JeedomApp.Selectors
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
             var eq = item as EqLogic;
-            //Jeedom.RequestViewModel.Instance.UpdateEqLogic(eq);
-            //var element = container as FrameworkElement;
-
-            // Cherche si on a spécifié un Template dans les customParameters de l'équipement
-            /*if (eq.display != null)
-                if (eq.display.customParameters != null)
-                    if (eq.display.customParameters.JeedomAppTemplate != null)
-                        switch (eq.display.customParameters.JeedomAppTemplate.ToLower())
-                        {
-                            case "sonos":
-                                return SonosEqLogicTemplate;
-
-                            case "onoff":
-                                return OnOffEqLogicTemplate;
-                        }*/
-
-            // Cherche par rapport aux commandes de l'équipement
-            //TODO : Voir "generic_type" : https://www.jeedom.com/forum/viewtopic.php?f=112&t=15155#p278226
-
-            // Lumière OnOff
-            if (ContainCmd(eq, new[] { "LIGHT_STATE", "LIGHT_ON", "LIGHT_OFF" }))
-            {
-                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
-                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
-                return OnOffEqLogicTemplate;
-            }
+       
 
             // Cherche par rapport au plugin
             System.Diagnostics.Debug.WriteLine(eq.eqType_name);

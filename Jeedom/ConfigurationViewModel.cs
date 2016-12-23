@@ -17,20 +17,20 @@ namespace Jeedom
         private string _twoFactorCode;
         private string _apikey;
 
-        public static bool HasInternetConnection()
+       /* public static bool HasInternetConnection()
         {
             bool hasInternet = false;
             ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
             if (profile != null) hasInternet = profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return hasInternet;
-        }
+        }*/
 
         public Uri Uri
         {
             get
             {
-                if (HasInternetConnection())
-                {
+               // if (HasInternetConnection())
+               // {
                     if (_useExtHost == false)
                         _uri = new UriBuilder(_host);
                     else
@@ -40,7 +40,7 @@ namespace Jeedom
                     else
                         _uri.Port = 80;
                     return _uri.Uri;
-                }
+              //  }
                 return null;
             }
         }
