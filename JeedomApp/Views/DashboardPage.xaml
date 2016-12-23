@@ -29,7 +29,11 @@
         </Grid.RowDefinitions>
 
         <!--  header  -->
-        <controls:PageHeader x:Name="pageHeader" Text="Tableau de bord" />
+        <controls:PageHeader x:Name="pageHeader" Text="Tableau de bord">
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="Actualiser" Command="{Binding Request.RefreshCommand}" />
+            </controls:PageHeader.PrimaryCommands>
+        </controls:PageHeader>
 
         <!--  content  -->
         <Grid Grid.Row="1">

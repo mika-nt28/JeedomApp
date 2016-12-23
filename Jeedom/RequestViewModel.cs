@@ -332,7 +332,7 @@ namespace Jeedom
             if (await jsonrpc.SendRequest("sync"))
             {
                 var EqLogics = jsonrpc.GetRequestResponseDeserialized<Response<JdObject>>();
-                if (EqLogics != null)
+                if (EqLogics.result.eqLogics != null)
                 {
                     foreach (EqLogic eq in EqLogics.result.eqLogics)
                     {
@@ -340,7 +340,7 @@ namespace Jeedom
                     }
                 }
                 var Cmds = jsonrpc.GetRequestResponseDeserialized<Response<EqLogic>>();
-                if (Cmds != null)
+                if (Cmds.result.cmds != null)
                 {
                     foreach (Command cmd in Cmds.result.cmds)
                     {
@@ -708,6 +708,20 @@ namespace Jeedom
             if (await jsonrpc.SendRequest("scenario::changeState"))
             {
                 await UpdateScene(scene);
+            }
+        }
+
+        private RelayCommand<object> _RefreshCommand;
+
+        public RelayCommand<object> RefreshCommand
+        {
+            get
+            {
+                this._RefreshCommand = this._RefreshCommand ?? new RelayCommand<object>(async parameters =>
+                {
+                    await UpdateTask();
+                });
+                return this._RefreshCommand;
             }
         }
 

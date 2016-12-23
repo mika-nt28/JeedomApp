@@ -24,7 +24,7 @@ namespace JeedomApp.ViewModels
         public ObservableCollection<JdObject> ObjectList { get; } = RequestViewModel.Instance.ObjectList;
         public ObservableCollection<Command> CommandList { get; } = RequestViewModel.Instance.CommandList;
 
-        public RequestViewModel Request = RequestViewModel.Instance;
+        public RequestViewModel Request { get; } = RequestViewModel.Instance;
         //public ObservableCollection<JdObject> ObjectList = RequestViewModel.Instance.ObjectList;
 
         //public ObservableCollection<EqLogic> EqLogicList => RequestViewModel.Instance.EqLogicList;
