@@ -14,7 +14,7 @@ namespace JeedomApp.Converters
         {
             var cmds = (ObservableCollection<Command>)value;
             var searchType = parameter.ToString().ToLower();
-            var searchcmd = cmds.Where(c => c.logicalId.ToLower() == searchType).FirstOrDefault();
+            var searchcmd = cmds.Where(c => c.LogicalId.ToLower() == searchType).FirstOrDefault();
             if (searchcmd != null)
                 return searchcmd.Value;
             else

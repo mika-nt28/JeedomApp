@@ -43,7 +43,7 @@ namespace JeedomApp.Views
             var GeolocObjectId = settings.Values["GeolocObjectId"];
             if (GeolocObjectId != null)
             {
-                foreach (var ObjectsSelect in GeolocCmd.Where(w => w.id.Equals(GeolocObjectId)))
+                foreach (var ObjectsSelect in GeolocCmd.Where(w => w.Id.Equals(GeolocObjectId)))
                 {
                     MobilePosition_Cmd.SelectedItem = ObjectsSelect;
                 }
@@ -51,7 +51,7 @@ namespace JeedomApp.Views
             var HomeObjectId = settings.Values["HomeObjectId"];
             if (HomeObjectId != null)
             {
-                foreach (var ObjectsSelect in GeolocCmd.Where(w => w.id.Equals(HomeObjectId)))
+                foreach (var ObjectsSelect in GeolocCmd.Where(w => w.Id.Equals(HomeObjectId)))
                 {
                     HomePosition_Cmd.SelectedItem = ObjectsSelect;
                 }
@@ -255,7 +255,7 @@ namespace JeedomApp.Views
             {
                 var settings = ApplicationData.Current.LocalSettings;
                 Jeedom.Model.Command ObjectsSelect = MobilePosition_Cmd.SelectedItem as Jeedom.Model.Command;
-                settings.Values["GeolocObjectId"] = ObjectsSelect.id;
+                settings.Values["GeolocObjectId"] = ObjectsSelect.Id;
             }
         }
 
@@ -265,7 +265,7 @@ namespace JeedomApp.Views
             {
                 var settings = ApplicationData.Current.LocalSettings;
                 Jeedom.Model.Command ObjectsSelect = HomePosition_Cmd.SelectedItem as Jeedom.Model.Command;
-                settings.Values["HomeObjectId"] = ObjectsSelect.id;
+                settings.Values["HomeObjectId"] = ObjectsSelect.Id;
             }
         }
 

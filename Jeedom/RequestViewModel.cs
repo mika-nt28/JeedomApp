@@ -3,6 +3,7 @@ using Jeedom.Api.Json;
 using Jeedom.Api.Json.Event;
 using Jeedom.Api.Json.Response;
 using Jeedom.Model;
+using Jeedom.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,6 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.VoiceCommands;
-using Windows.Storage;
 
 namespace Jeedom
 {
@@ -235,7 +235,7 @@ namespace Jeedom
             error = await DownloadObjects();
             Progress += pg;
 
-            LoadingMessage = "Chargement des informations";
+            LoadingMessage = "Chargement des Equipements";
             error = await SynchMobilePlugin();
             Progress += pg;
 
@@ -247,9 +247,9 @@ namespace Jeedom
             error = await DownloadMessages();
             Progress += pg;
 
-            LoadingMessage = "Chargement des informations des Commandes";
-            error = await GetEventChanges();
-            Progress += pg;
+            //LoadingMessage = "Chargement des informations des Commandes";
+            //error = await GetEventChanges();
+            //Progress += pg;
 
             LoadingMessage = "Chargement des Interactions";
             //await DownloadInteraction();
@@ -264,8 +264,8 @@ namespace Jeedom
             Parameters parameters = new Parameters();
             parameters.login = config.Login;
             parameters.password = config.Password;
-            if (config.TwoFactor == true)
-                parameters.twoFactorCode = config.TwoFactorCode;
+            //if (config.TwoFactor == true)
+            //    parameters.twoFactorCode = config.TwoFactorCode;
             var jsonrpc = new JsonRpcClient(parameters);
 
             if (await jsonrpc.SendRequest("user::getHash"))
@@ -344,9 +344,9 @@ namespace Jeedom
                 {
                     foreach (Command cmd in Cmds.result.cmds)
                     {
-                        if (EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).FirstOrDefault().cmds == null)
-                            EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).FirstOrDefault().cmds = new ObservableCollection<Command>();
-                        EqLogicList.Where(o => o.id.Equals(cmd.eqLogic_id)).FirstOrDefault().cmds.Add(cmd);
+                        if (EqLogicList.Where(o => o.id.Equals(cmd.EqLogic_id)).FirstOrDefault().cmds == null)
+                            EqLogicList.Where(o => o.id.Equals(cmd.EqLogic_id)).FirstOrDefault().cmds = new ObservableCollection<Command>();
+                        EqLogicList.Where(o => o.id.Equals(cmd.EqLogic_id)).FirstOrDefault().cmds.Add(cmd);
                         CommandList.Add(cmd);
                     }
                 }
@@ -538,24 +538,37 @@ namespace Jeedom
                     {
                         case "cmd::update":
                             var ev = e as Event<EventOptionCmd>;
-                            var cmd = (from c in CommandList where c.id == ev.option.cmd_id select c).FirstOrDefault();
+                            var cmd = (from c in CommandList where c.Id == ev.option.cmd_id select c).FirstOrDefault();
                             if (cmd != null)
                             {
-                                System.Diagnostics.Debug.WriteLine(ev.option.value);
-                                if (cmd.datetime < ev.datetime)
+                                if (cmd.DateTime < ev.datetime)
                                 {
                                     cmd.Value = ev.option.value;
-                                    cmd.datetime = ev.datetime;
+                                    cmd.DateTime = ev.datetime;
                                 }
                             }
                             break;
 
-                        case "eqlogic::update":
+                        case "eqLogic::update":
                             var eveq = e as Event<EventOptionEqLogic>;
                             var eq = (from c in EqLogicList where c.id == eveq.option.eqLogic_id select c).FirstOrDefault();
+
                             if (eq != null)
                             {
-                                await UpdateEqLogic(eq);
+                                if (eq.datetime < eveq.datetime)
+                                {
+                                    if (eq.id == "150")
+                                    {
+                                        System.Diagnostics.Debug.WriteLine("Update Object 150");
+                                        System.Diagnostics.Debug.WriteLine("Value OLD = " + eq.cmds[2].Value);
+                                    }
+                                    await UpdateEqLogic(eq);
+                                    if (eq.id == "150")
+                                    {
+                                        System.Diagnostics.Debug.WriteLine("Value After = " + eq.cmds[2].Value);
+                                    }
+                                    eq.datetime = eveq.datetime;
+                                }
                             }
                             break;
 
@@ -571,6 +584,10 @@ namespace Jeedom
 
         public async Task UpdateTask()
         {
+            // SI on est déjà en mise à jour on sort
+            if (Updating)
+                return;
+
             Updating = true;
 
             if (ObjectList.Count == 0)
@@ -598,7 +615,10 @@ namespace Jeedom
 
         public async Task UpdateEqLogic(EqLogic eq)
         {
-            var infoCmds = (from cmd in eq.cmds where cmd.type == "info" select cmd).DefaultIfEmpty();
+            if (eq.cmds == null)
+                return;
+
+            var infoCmds = (from cmd in eq.cmds where cmd.Type == "info" select cmd).DefaultIfEmpty();
             if (infoCmds != null)
             {
                 foreach (Command cmd in infoCmds)
@@ -606,10 +626,11 @@ namespace Jeedom
                     if (!cmd.Updating)
                     {
                         await ExecuteCommand(cmd);
-                        cmd.datetime = _dateTime;
+                        cmd.DateTime = _dateTime;
                     }
                 }
             }
+            eq.datetime = _dateTime;
         }
 
         public async Task UpdateObject(JdObject obj)
@@ -696,8 +717,8 @@ namespace Jeedom
             if (parameters == null)
             {
                 parameters = new Parameters();
-                parameters.id = cmd.id;
-                parameters.name = cmd.name;
+                parameters.id = cmd.Id;
+                parameters.name = cmd.Name;
             }
             var jsonrpc = new JsonRpcClient(parameters);
 

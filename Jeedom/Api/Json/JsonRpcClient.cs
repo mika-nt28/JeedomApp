@@ -96,6 +96,11 @@ namespace Jeedom.Api.Json
             {
                 System.Diagnostics.Debug.WriteLine("JsonRPC Timeout");
             }
+            catch (System.Runtime.InteropServices.COMException e)
+            {
+                //web exceptions such as 404, 401, 500 etc
+                throw e;
+            }
 
             httpClient.Dispose();
 
@@ -143,10 +148,10 @@ namespace Jeedom.Api.Json
                             event_result.result.Add(evcmd);
                             break;
 
-                        //case "eqLogic::update":
-                        //    var eveq = JsonConvert.DeserializeObject<Event<EventOptionEqLogic>>(e.ToString());
-                        //    event_result.result.Add(eveq);
-                        //    break;
+                        case "eqLogic::update":
+                            var eveq = JsonConvert.DeserializeObject<Event<EventOptionEqLogic>>(e.ToString());
+                            event_result.result.Add(eveq);
+                            break;
 
                         default:
                             var evdef = JsonConvert.DeserializeObject<JdEvent>(e.ToString());

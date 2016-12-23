@@ -19,9 +19,7 @@
         <ResourceDictionary Source="ms-appx:///Styles/DashboardPageRessources.xaml" />
     </Page.Resources>
     <Page.DataContext>
-        <vm:DashboardPageViewModel x:Name="ViewModel">
-            <vm:DashboardPageViewModel.ObjectList />
-        </vm:DashboardPageViewModel>
+        <vm:DashboardPageViewModel x:Name="ViewModel" />
     </Page.DataContext>
     <Grid Background="{ThemeResource MainBackground}">
         <Grid.RowDefinitions>
@@ -36,10 +34,24 @@
         <!--  content  -->
         <Grid Grid.Row="1">
             <ScrollViewer>
+                <!--
+                <ListView ItemsSource="{Binding CommandList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="10" Text="{Binding Id}" />
+                                    <TextBlock Margin="10" Text="{Binding Name}" />
+                                    <TextBlock Margin="10" Text="{Binding Value}" />
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
                 <Pivot
                     HeaderTemplate="{StaticResource ObjectHeaderTemplate}"
                     ItemTemplate="{StaticResource ObjectPageTemplate}"
-                    ItemsSource="{x:Bind ViewModel.Request.ObjectList}" />
+                    ItemsSource="{Binding ObjectList}" />
             </ScrollViewer>
         </Grid>
 
