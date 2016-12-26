@@ -10,10 +10,10 @@ namespace Jeedom.Api.Json.Event
     [DataContract(Name = "option")]
     public class EventOptionCmd
     {
-        [DataMember]
-        public string cmd_id;
+        [DataMember(Name = "cmd_id")]
+        public string CmdId;
 
-        [DataMember]
-        public string value;
+        [DataMember(Name = "value")]
+        public string Value;
     }
 }

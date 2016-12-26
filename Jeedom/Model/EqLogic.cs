@@ -1,4 +1,5 @@
 ﻿using Jeedom.Mvvm;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +16,76 @@ namespace Jeedom.Model
     [DataContract]
     public class EqLogic : INotifyPropertyChanged
     {
-        #region Public Fields
+        #region Private Fields
+
+        [DataMember(Name = "cmds")]
+        private ObservableCollection<Command> _Cmds;
+
+        private double _DateTime;
+
+        [DataMember(Name = "display")]
+        private EqLogicDisplay _Display;
+
+        [DataMember(Name = "eqType_name")]
+        private string _EqTypeName;
+
+        private RelayCommand<object> _ExecCommandByLogicalID;
+
+        private RelayCommand<object> _ExecCommandByName;
+
+        private RelayCommand<object> _ExecCommandByType;
+
+        [DataMember(Name = "id")]
+        private string _Id;
+
+        [DataMember(Name = "isEnable")]
+        [JsonConverter(typeof(JsonConverters.BooleanJsonConverter))]
+        private bool _IsEnable;
+
+        [DataMember(Name = "isVisible")]
+        [JsonConverter(typeof(JsonConverters.BooleanJsonConverter))]
+        private bool _IsVisible = true;
+
+        [DataMember(Name = "logicalId")]
+        private string _LogicalId;
+
+        [DataMember(Name = "name")]
+        private string _Name;
+
+        [DataMember(Name = "object_id")]
+        private string _ObjectId;
+
+        private JdObject _Parent;
+
+        private bool _Updating;
+
+        #endregion Private Fields
+
+        #region Public Events
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion Public Events
+
+        #region Public Properties
+
+        /// <summary>
+        /// Liste des commandes de l'équipement
+        /// </summary>
+        public ObservableCollection<Command> Cmds
+        {
+            get
+            {
+                return _Cmds;
+            }
+
+            set
+            {
+                _Cmds = value;
+                NotifyPropertyChanged();
+                NotifyPropertyChanged("VisibleCmds");
+            }
+        }
 
         public int ColSpan
         {
@@ -29,32 +99,144 @@ namespace Jeedom.Model
             }
         }
 
-        [DataMember]
-        public string isEnable;
-
-        [DataMember]
-        private bool _isVisible = true;
-
-        public bool isVisible
+        public EqLogicDisplay Display
         {
             get
             {
-                return _isVisible;
+                return _Display;
+            }
+            set
+            {
+                _Display = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public String EqTypeName
+        {
+            get
+            {
+                return _EqTypeName;
+            }
+            set
+            {
+                _EqTypeName = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Exécute une commande à partir de son "logicalId"
+        /// </summary>
+        public RelayCommand<object> ExecCommandByLogicalID
+        {
+            get
+            {
+                this._ExecCommandByLogicalID = this._ExecCommandByLogicalID ?? new RelayCommand<object>(async parameters =>
+                 {
+                     var cmd = Cmds.Where(c => c.LogicalId.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
+                     if (cmd != null)
+                         await ExecCommand(cmd);
+                 });
+                return this._ExecCommandByLogicalID;
+            }
+        }
+
+        /// <summary>
+        /// Exécute une commande à partir de son "name"
+        /// </summary>
+        public RelayCommand<object> ExecCommandByName
+        {
+            get
+            {
+                this._ExecCommandByName = this._ExecCommandByName ?? new RelayCommand<object>(async parameters =>
+                {
+                    try
+                    {
+                        var cmd = Cmds.Where(c => c.Name.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
+                        if (cmd != null)
+                            await ExecCommand(cmd);
+                    }
+                    catch (Exception) { }
+                });
+                return this._ExecCommandByName;
+            }
+        }
+
+        /// <summary>
+        /// Exécute une commande à partir de son "generic_type"
+        /// </summary>
+        public RelayCommand<object> ExecCommandByType
+        {
+            get
+            {
+                this._ExecCommandByType = this._ExecCommandByType ?? new RelayCommand<object>(async parameters =>
+                {
+                    try
+                    {
+                        var cmd = Cmds.Where(c => c.Display.generic_type == parameters.ToString()).FirstOrDefault();
+                        if (cmd != null)
+                            await ExecCommand(cmd);
+                    }
+                    catch (Exception) { }
+                });
+                return this._ExecCommandByType;
+            }
+        }
+
+        public string Id
+        {
+            get
+            {
+                return _Id;
             }
 
             set
             {
-                _isVisible = Convert.ToBoolean(value);
+                _Id = value;
+                NotifyPropertyChanged();
             }
         }
 
-        [DataMember]
-        public string logicalId;
+        public bool IsVisible
+        {
+            get
+            {
+                return _IsVisible;
+            }
 
-        [DataMember]
-        public string object_id;
+            set
+            {
+                _IsVisible = Convert.ToBoolean(value);
+            }
+        }
 
-        public JdObject Parent;
+        public bool IsEnable
+        {
+            get
+            {
+                return _IsEnable;
+            }
+
+            set
+            {
+                _IsEnable = Convert.ToBoolean(value);
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _Name;
+            }
+
+            set
+            {
+                _Name = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public int RowSpan
         {
@@ -68,237 +250,53 @@ namespace Jeedom.Model
             }
         }
 
-        #endregion Public Fields
-
-        #region Private Fields
-
-        private ObservableCollection<Command> _cmds;
-
-        private string _consommation;
-
-        private EqLogicDisplay _display;
-
-        private string _eqtype_name;
-
-        private RelayCommand<object> _execCommandByLogicalID;
-        private RelayCommand<object> _execCommandByName;
-
-        private RelayCommand<object> _execCommandByType;
-        private string _name;
-
-        private bool _onVisibility = false;
-
-        private string _puissance;
-
-        private string _state;
-
-        private bool _updating;
-
-        #endregion Private Fields
-
-        #region Public Events
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion Public Events
-
-        #region Public Properties
-
-        public double datetime;
-
-        [DataMember]
-        public ObservableCollection<Command> cmds
+        public bool Updating
         {
             get
             {
-                return _cmds;
+                return _Updating;
             }
-
             set
             {
-                _cmds = value;
+                _Updating = value;
                 NotifyPropertyChanged();
-                NotifyPropertyChanged("VisibleCmds");
             }
         }
 
-        [DataMember]
+        /// <summary>
+        /// Dernière modification de l'équipement
+        /// </summary>
+        public double DateTime
+        {
+            get
+            {
+                return _DateTime;
+            }
+            set
+            {
+                _DateTime = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string ObjectId
+        {
+            get
+            {
+                return _ObjectId;
+            }
+            set
+            {
+                _ObjectId = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public ObservableCollection<Command> VisibleCmds
         {
             get
             {
                 return GetVisibleCmds();
-            }
-        }
-
-        public string Consommation
-        {
-            get
-            {
-                return _consommation;
-            }
-            set
-            {
-                _consommation = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        [DataMember]
-        public EqLogicDisplay display
-        {
-            get
-            {
-                return _display;
-            }
-            set
-            {
-                _display = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        [DataMember]
-        public String eqType_name
-        {
-            get
-            {
-                return _eqtype_name;
-            }
-            set
-            {
-                _eqtype_name = value;
-
-                NotifyPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Exécute une commande à partir de son "logicalId"
-        /// </summary>
-        public RelayCommand<object> ExecCommandByLogicalID
-        {
-            get
-            {
-                this._execCommandByLogicalID = this._execCommandByLogicalID ?? new RelayCommand<object>(async parameters =>
-                 {
-                     var cmd = cmds.Where(c => c.LogicalId.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
-                     if (cmd != null)
-                         await ExecCommand(cmd);
-                 });
-                return this._execCommandByLogicalID;
-            }
-        }
-
-        /// <summary>
-        /// Exécute une commande à partir de son "name"
-        /// </summary>
-        public RelayCommand<object> ExecCommandByName
-        {
-            get
-            {
-                this._execCommandByName = this._execCommandByName ?? new RelayCommand<object>(async parameters =>
-                {
-                    try
-                    {
-                        var cmd = cmds.Where(c => c.Name.ToLower() == parameters.ToString().ToLower()).FirstOrDefault();
-                        if (cmd != null)
-                            await ExecCommand(cmd);
-                    }
-                    catch (Exception) { }
-                });
-                return this._execCommandByName;
-            }
-        }
-
-        /// <summary>
-        /// Exécute une commande à partir de son "generic_type"
-        /// </summary>
-        public RelayCommand<object> ExecCommandByType
-        {
-            get
-            {
-                this._execCommandByType = this._execCommandByType ?? new RelayCommand<object>(async parameters =>
-                {
-                    try
-                    {
-                        var cmd = cmds.Where(c => c.Display.generic_type == parameters.ToString()).FirstOrDefault();
-                        if (cmd != null)
-                            await ExecCommand(cmd);
-                    }
-                    catch (Exception) { }
-                });
-                return this._execCommandByType;
-            }
-        }
-
-        [DataMember]
-        public string id { get; set; }
-
-        [DataMember]
-        public string name
-        {
-            get
-            {
-                return _name;
-            }
-
-            set
-            {
-                _name = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public bool OnVisibility
-        {
-            get
-            {
-                return _onVisibility;
-            }
-            set
-            {
-                _onVisibility = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public string Puissance
-        {
-            get
-            {
-                return _puissance;
-            }
-            set
-            {
-                _puissance = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public string State
-        {
-            get
-            {
-                return _state;
-            }
-            set
-            {
-                _state = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public bool Updating
-        {
-            get
-            {
-                return _updating;
-            }
-            set
-            {
-                _updating = value;
-                NotifyPropertyChanged();
             }
         }
 
@@ -308,20 +306,9 @@ namespace Jeedom.Model
 
         public ObservableCollection<Command> GetActionsCmds()
         {
-            if (cmds != null)
+            if (Cmds != null)
             {
-                IEnumerable<Command> results = cmds.Where(c => c.Type == "action");
-                return new ObservableCollection<Command>(results);
-            }
-            else
-                return new ObservableCollection<Command>();
-        }
-
-        public ObservableCollection<Command> GetVisibleCmds()
-        {
-            if (cmds != null)
-            {
-                IEnumerable<Command> results = cmds.Where(c => c.IsVisible == true && c.LogicalId != null);
+                IEnumerable<Command> results = Cmds.Where(c => c.Type == "action");
                 return new ObservableCollection<Command>(results);
             }
             else
@@ -330,9 +317,20 @@ namespace Jeedom.Model
 
         public ObservableCollection<Command> GetInformationsCmds()
         {
-            if (cmds != null)
+            if (Cmds != null)
             {
-                IEnumerable<Command> results = cmds.Where(c => c.Type == "info");
+                IEnumerable<Command> results = Cmds.Where(c => c.Type == "info");
+                return new ObservableCollection<Command>(results);
+            }
+            else
+                return new ObservableCollection<Command>();
+        }
+
+        public ObservableCollection<Command> GetVisibleCmds()
+        {
+            if (Cmds != null)
+            {
+                IEnumerable<Command> results = Cmds.Where(c => c.IsVisible == true && c.LogicalId != null);
                 return new ObservableCollection<Command>(results);
             }
             else
@@ -351,7 +349,7 @@ namespace Jeedom.Model
                 await RequestViewModel.Instance.ExecuteCommand(cmd);
                 //await Task.Delay(TimeSpan.FromSeconds(3));
                 await RequestViewModel.Instance.UpdateEqLogic(this);
-                NotifyPropertyChanged("cmds");
+                NotifyPropertyChanged("Cmds");
                 this.Updating = false;
             }
         }

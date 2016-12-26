@@ -154,24 +154,6 @@ namespace Jeedom.Model
                 }
 
                 NotifyPropertyChanged();
-
-                if (_Parent != null)
-                {
-                    switch (_Name)
-                    {
-                        case "Consommation":
-                            _Parent.Consommation = value + " ";// + unite;
-                            break;
-
-                        case "Puissance":
-                            _Parent.Puissance = value + " ";// + unite;
-                            break;
-
-                        case "Etat":
-                            _Parent.State = value;
-                            break;
-                    }
-                }
             }
         }
 

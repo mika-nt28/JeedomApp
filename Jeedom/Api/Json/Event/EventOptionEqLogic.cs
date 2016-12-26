@@ -10,7 +10,7 @@ namespace Jeedom.Api.Json.Event
     [DataContract(Name = "option")]
     public class EventOptionEqLogic
     {
-        [DataMember]
-        public string eqLogic_id;
+        [DataMember(Name = "eqLogic_id")]
+        public string EqLogicId;
     }
 }

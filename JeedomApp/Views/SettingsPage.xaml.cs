@@ -29,7 +29,7 @@ namespace JeedomApp.Views
             InitializeComponent();
             _SerializationService = Template10.Services.SerializationService.SerializationService.Json; var settings = ApplicationData.Current.LocalSettings;
             ObservableCollection<Jeedom.Model.Command> GeolocCmd = new ObservableCollection<Jeedom.Model.Command>();
-            foreach (var Equipement in RequestViewModel.Instance.EqLogicList.Where(w => w.eqType_name.Equals("geoloc")))
+            foreach (var Equipement in RequestViewModel.Instance.EqLogicList.Where(w => w.EqTypeName.Equals("geoloc")))
             {
                 foreach (var Cmd in Equipement.GetInformationsCmds())
                     GeolocCmd.Add(Cmd);
@@ -56,7 +56,7 @@ namespace JeedomApp.Views
                     HomePosition_Cmd.SelectedItem = ObjectsSelect;
                 }
             }
-            var ObjetctPush = RequestViewModel.Instance.EqLogicList.Where(w => w.eqType_name.Equals("pushNotification"));
+            var ObjetctPush = RequestViewModel.Instance.EqLogicList.Where(w => w.EqTypeName.Equals("pushNotification"));
             MobileNotification.ItemsSource = ObjetctPush;
             if (ObjetctPush.Count() == 0)
                 notify.IsEnabled = false;
@@ -65,7 +65,7 @@ namespace JeedomApp.Views
             var NotificationId = settings.Values["NotificationObjectId"];
             if (NotificationId != null)
             {
-                foreach (var ObjectsSelect in RequestViewModel.Instance.EqLogicList.Where(w => w.id.Equals(NotificationId)))
+                foreach (var ObjectsSelect in RequestViewModel.Instance.EqLogicList.Where(w => w.Id.Equals(NotificationId)))
                 {
                     MobileNotification.SelectedItem = ObjectsSelect;
                 }
@@ -275,7 +275,7 @@ namespace JeedomApp.Views
             {
                 var settings = ApplicationData.Current.LocalSettings;
                 Jeedom.Model.EqLogic EqLogicSelect = MobileNotification.SelectedItem as Jeedom.Model.EqLogic;
-                settings.Values["NotificationObjectId"] = EqLogicSelect.id;
+                settings.Values["NotificationObjectId"] = EqLogicSelect.Id;
             }
         }
 

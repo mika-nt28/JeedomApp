@@ -11,6 +11,6 @@ namespace Jeedom.Api.Json.Event
     public class Event<T> : JdEvent
     {
         [DataMember(Name = "option")]
-        public T option;
+        public T Option;
     }
 }

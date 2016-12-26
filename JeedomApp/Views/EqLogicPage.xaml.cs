@@ -46,7 +46,7 @@ namespace JeedomApp.Views
             eqLogic = e.Parameter as EqLogic;
             ActionList = eqLogic.GetActionsCmds();
             InformationList = eqLogic.GetInformationsCmds();
-            EqLogicName = eqLogic.name;
+            EqLogicName = eqLogic.Name;
             if (ActionList.Count == 0)
                 actionview.Visibility = Visibility.Collapsed;
 

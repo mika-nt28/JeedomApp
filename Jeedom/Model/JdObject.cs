@@ -9,140 +9,47 @@ namespace Jeedom.Model
     [DataContract]
     public class JdObject : INotifyPropertyChanged
     {
-        private string _id;
+        #region Private Fields
 
-        [DataMember]
-        public string id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
+        [DataMember(Name = "display")]
+        private DisplayInfo _Display;
 
-        private string _name;
+        [DataMember(Name = "eqLogics")]
+        private ObservableCollection<EqLogic> _EqLogics;
 
-        [DataMember]
-        public string name
-        {
-            get
-            {
-                return _name;
-            }
+        [DataMember(Name = "father_id")]
+        private string _FatherId;
 
-            set
-            {
-                _name = value;
-                NotifyPropertyChanged();
-            }
-        }
+        [DataMember(Name = "id")]
+        private string _Id;
 
-        private string _isVisible;
+        [DataMember(Name = "image")]
+        private string _Image;
 
-        [DataMember]
-        public string isVisible
-        {
-            get
-            {
-                return _isVisible;
-            }
+        [DataMember(Name = "isVisible")]
+        private string _IsVisible;
 
-            set
-            {
-                _isVisible = value;
-                NotifyPropertyChanged();
-            }
-        }
+        [DataMember(Name = "name")]
+        private string _Name;
 
-        private string _father_id;
+        #endregion Private Fields
 
-        [DataMember]
-        public string father_id
-        {
-            get
-            {
-                return _father_id;
-            }
-
-            set
-            {
-                _father_id = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private ObservableCollection<EqLogic> _eqLogics;
-
-        [DataMember]
-        public ObservableCollection<EqLogic> eqLogics
-        {
-            get
-            {
-                return _eqLogics;
-            }
-
-            set
-            {
-                _eqLogics = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private DisplayInfo _display;
-
-        [DataMember]
-        public DisplayInfo display
-        {
-            get
-            {
-                return _display;
-            }
-
-            set
-            {
-                _display = value;
-                NotifyPropertyChanged();
-            }
-        }
+        #region Public Events
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+        #endregion Public Events
 
-        private string _image;
-
-        public string Image
-        {
-            get
-            {
-                return _image;
-            }
-
-            set
-            {
-                _image = value;
-                NotifyPropertyChanged();
-            }
-        }
+        #region Public Properties
 
         public string Count
         {
             get
             {
-                if (eqLogics != null)
+                if (EqLogics != null)
                 {
                     string s;
-                    switch (eqLogics.Count)
+                    switch (EqLogics.Count)
                     {
                         case 0:
                             s = "aucun équipement";
@@ -153,7 +60,7 @@ namespace Jeedom.Model
                             break;
 
                         default:
-                            s = eqLogics.Count + " équipements";
+                            s = EqLogics.Count + " équipements";
                             break;
                     }
                     return s;
@@ -162,5 +69,116 @@ namespace Jeedom.Model
                     return "aucun équipement";
             }
         }
+
+        public DisplayInfo Display
+        {
+            get
+            {
+                return _Display;
+            }
+
+            set
+            {
+                _Display = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<EqLogic> EqLogics
+        {
+            get
+            {
+                return _EqLogics;
+            }
+
+            set
+            {
+                _EqLogics = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string FatherId
+        {
+            get
+            {
+                return _FatherId;
+            }
+
+            set
+            {
+                _FatherId = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                _Id = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string Image
+        {
+            get
+            {
+                return _Image;
+            }
+
+            set
+            {
+                _Image = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string IsVisible
+        {
+            get
+            {
+                return _IsVisible;
+            }
+
+            set
+            {
+                _IsVisible = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _Name;
+            }
+
+            set
+            {
+                _Name = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        #endregion Public Properties
+
+        #region Private Methods
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion Private Methods
     }
 }

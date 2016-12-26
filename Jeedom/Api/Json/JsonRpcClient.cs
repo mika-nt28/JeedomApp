@@ -138,24 +138,24 @@ namespace Jeedom.Api.Json
                 JObject json = JObject.Parse(rawResponse);
                 var event_result = new EventResult();
                 var result = json["result"].Children();
-                event_result.datetime = json["result"]["datetime"].Value<double>();
+                event_result.DateTime = json["result"]["datetime"].Value<double>();
                 foreach (var e in json["result"]["result"].Children())
                 {
                     switch (e["name"].Value<string>())
                     {
                         case "cmd::update":
                             var evcmd = JsonConvert.DeserializeObject<Event<EventOptionCmd>>(e.ToString());
-                            event_result.result.Add(evcmd);
+                            event_result.Result.Add(evcmd);
                             break;
 
                         case "eqLogic::update":
                             var eveq = JsonConvert.DeserializeObject<Event<EventOptionEqLogic>>(e.ToString());
-                            event_result.result.Add(eveq);
+                            event_result.Result.Add(eveq);
                             break;
 
                         default:
                             var evdef = JsonConvert.DeserializeObject<JdEvent>(e.ToString());
-                            event_result.result.Add(evdef);
+                            event_result.Result.Add(evdef);
                             break;
                     }
                 }

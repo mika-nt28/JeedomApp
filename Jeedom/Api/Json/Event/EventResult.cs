@@ -10,10 +10,10 @@ namespace Jeedom.Api.Json.Event
     [DataContract]
     public class EventResult
     {
-        [DataMember]
-        public double datetime;
+        [DataMember(Name = "datetime")]
+        public double DateTime;
 
-        [DataMember]
-        public List<JdEvent> result = new List<JdEvent>();
+        [DataMember(Name = "result")]
+        public List<JdEvent> Result = new List<JdEvent>();
     }
 }

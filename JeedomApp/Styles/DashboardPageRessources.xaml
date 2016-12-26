@@ -12,14 +12,14 @@
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate x:Key="ObjectHeaderTemplate">
-        <TextBlock Text="{Binding name}" />
+        <TextBlock Text="{Binding Name}" />
     </DataTemplate>
 
     <DataTemplate x:Key="ObjectPageTemplate">
         <ctl:VariableSizedGridView
             x:Name="eqlogicview"
             ItemTemplateSelector="{StaticResource EqLogicTemplateSelector}"
-            ItemsSource="{Binding eqLogics}"
+            ItemsSource="{Binding EqLogics}"
             SelectionMode="None">
 
             <ctl:VariableSizedGridView.ItemContainerStyle>

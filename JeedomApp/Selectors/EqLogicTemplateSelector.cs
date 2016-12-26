@@ -23,11 +23,10 @@ namespace JeedomApp.Selectors
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
             var eq = item as EqLogic;
-       
 
             // Cherche par rapport au plugin
-            System.Diagnostics.Debug.WriteLine(eq.eqType_name);
-            switch (eq.eqType_name)
+            System.Diagnostics.Debug.WriteLine(eq.EqTypeName);
+            switch (eq.EqTypeName)
             {
                 case "sonos3":
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 3);
@@ -58,9 +57,9 @@ namespace JeedomApp.Selectors
             int _find = 0;
             foreach (var type in types)
             {
-                if (eq.cmds != null)
+                if (eq.Cmds != null)
                 {
-                    var search = eq.cmds.Where(c => c.Display.generic_type == type);
+                    var search = eq.Cmds.Where(c => c.Display.generic_type == type);
                     if (search.Count() > 0)
                         _find += 1;
                 }
