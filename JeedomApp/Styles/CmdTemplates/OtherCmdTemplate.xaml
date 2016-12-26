@@ -14,7 +14,7 @@
                 HorizontalAlignment="Center"
                 ClickMode="Press"
                 Command="{Binding ExecCommand}"
-                Content="{Binding name}"
+                Content="{Binding Name}"
                 Foreground="White" />
         </RelativePanel>
     </DataTemplate>

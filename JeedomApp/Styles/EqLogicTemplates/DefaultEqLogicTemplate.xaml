@@ -16,6 +16,7 @@
         <ResourceDictionary Source="../CmdTemplates/OtherCmdTemplate.xaml" />
         <ResourceDictionary Source="../CmdTemplates/SliderCmdTemplate.xaml" />
         <ResourceDictionary Source="../CmdTemplates/StringCmdTemplate.xaml" />
+        <!--
         <ResourceDictionary Source="../CmdTemplates/GenericType/Light/LIGHT_STATE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Light/LIGHT_ON_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Light/LIGHT_OFF_Template.xaml" />
@@ -126,7 +127,7 @@
         <ResourceDictionary Source="../CmdTemplates/GenericType/RAIN_TOTAL_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/WIND_SPEED_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/WIND_DIRECTION_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/SHOCK_Template.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/GenericType/SHOCK_Template.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Selectors  -->
@@ -157,7 +158,7 @@
                 FontSize="10.667"
                 RelativePanel.AlignBottomWithPanel="True"
                 RelativePanel.AlignVerticalCenterWithPanel="True"
-                Text="{Binding name, FallbackValue=name}"
+                Text="{Binding Name, FallbackValue=name}"
                 TextAlignment="Center" />
 
             <localcontrols:VariableSizedGridView

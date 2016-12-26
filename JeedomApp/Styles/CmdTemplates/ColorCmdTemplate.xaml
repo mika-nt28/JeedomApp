@@ -11,7 +11,7 @@
         <RelativePanel Visibility="{Binding isVisible, Converter={StaticResource UpdatingConverter}}">
             <!--
                 xc:Clr_Pckr
-                Header="{Binding name, FallbackValue=Name}"
+                Header="{Binding Name, FallbackValue=Name}"
                 SelectedColor="{Binding WidgetValue.color, Mode=TwoWay}"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Stretch"

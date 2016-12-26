@@ -49,7 +49,7 @@
                 VerticalAlignment="Center"
                 RelativePanel.AlignHorizontalCenterWithPanel="True"
                 RelativePanel.AlignTopWithPanel="True"
-                Text="{Binding name, FallbackValue=Name}" />
+                Text="{Binding Name, FallbackValue=Name}" />
 
             <Viewbox
                 x:Name="PART_Icon"
