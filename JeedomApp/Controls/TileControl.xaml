@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="JeedomApp.Controls.TileControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:JeedomApp.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="TheControl"
+    d:DesignHeight="120"
+    d:DesignWidth="120"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Styles/ConvertersRessources.xaml" />
+    </UserControl.Resources>
+
+    <Grid x:Name="MainGrid">
+        <RelativePanel
+            d:DesignHeight="240"
+            d:DesignWidth="240"
+            Background="{x:Bind TileBrush, Mode=OneWay}">
+            <ContentPresenter
+                Content="{x:Bind InnerContent, Mode=OneWay}"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True" />
+            <TextBlock
+                x:Name="PART_Title"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="Segoe UI Light"
+                FontSize="14.667"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                Text="{x:Bind Title, Mode=OneWay}" />
+
+            <TextBlock
+                x:Name="PART_SubTitle"
+                Margin="2,0,0,2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontFamily="Segoe UI Light"
+                FontSize="9"
+                FontWeight="ExtraLight"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                Text="{x:Bind SubTitle, Mode=OneWay}" />
+            <ProgressRing
+                x:Name="PART_Updating"
+                IsActive="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                Visibility="{x:Bind Updating, Mode=OneWay, Converter={StaticResource UpdatingConverter}}" />
+        </RelativePanel>
+    </Grid>
+</UserControl>

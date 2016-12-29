@@ -19,7 +19,7 @@ namespace Jeedom.Model
         #region Private Fields
 
         [DataMember(Name = "cmds")]
-        private ObservableCollection<Command> _Cmds;
+        private ObservableCollectionEx<Command> _Cmds;
 
         private double _DateTime;
 
@@ -59,6 +59,10 @@ namespace Jeedom.Model
 
         private bool _Updating;
 
+        public EqLogic()
+        {
+        }
+
         #endregion Private Fields
 
         #region Public Events
@@ -72,7 +76,7 @@ namespace Jeedom.Model
         /// <summary>
         /// Liste des commandes de l'équipement
         /// </summary>
-        public ObservableCollection<Command> Cmds
+        public ObservableCollectionEx<Command> Cmds
         {
             get
             {
@@ -354,8 +358,9 @@ namespace Jeedom.Model
             }
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
+            System.Diagnostics.Debug.WriteLine("eqLogic update : " + Name + " " + propertyName);
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

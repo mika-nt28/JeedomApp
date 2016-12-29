@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jeedom.Mvvm;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -15,7 +16,7 @@ namespace Jeedom.Model
         private DisplayInfo _Display;
 
         [DataMember(Name = "eqLogics")]
-        private ObservableCollection<EqLogic> _EqLogics;
+        private ObservableCollectionEx<EqLogic> _EqLogics;
 
         [DataMember(Name = "father_id")]
         private string _FatherId;
@@ -84,7 +85,7 @@ namespace Jeedom.Model
             }
         }
 
-        public ObservableCollection<EqLogic> EqLogics
+        public ObservableCollectionEx<EqLogic> EqLogics
         {
             get
             {
@@ -173,6 +174,7 @@ namespace Jeedom.Model
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
+            System.Diagnostics.Debug.WriteLine("object update : " + Name + " " + propertyName);
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

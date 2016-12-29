@@ -56,19 +56,13 @@ namespace Jeedom.Model
 
         #endregion Private Fields
 
-        #region Public Events
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion Public Events
-
         #region Public Properties
 
-        public double DateTime { get { return _DateTime; } set { _DateTime = value; NotifyPropertyChanged(); } }
+        public double DateTime { get { return _DateTime; } set { Set(ref _DateTime, value); } }
 
-        public CommandDisplay Display { get { if (_Display == null) return new CommandDisplay(); else return _Display; } set { _Display = value; NotifyPropertyChanged(); } }
+        public CommandDisplay Display { get { if (_Display == null) return new CommandDisplay(); else return _Display; } set { Set(ref _Display, value); } }
 
-        public string EqLogic_id { get { return _EqLogic_id; } set { _EqLogic_id = value; NotifyPropertyChanged(); } }
+        public string EqLogic_id { get { return _EqLogic_id; } set { Set(ref _EqLogic_id, value); } }
 
         public RelayCommand<object> ExecCommand
         {
@@ -94,21 +88,21 @@ namespace Jeedom.Model
             }
         }
 
-        public string Id { get { return _Id; } set { _Id = value; NotifyPropertyChanged(); } }
+        public string Id { get { return _Id; } set { Set(ref _Id, value); } }
 
-        public string LogicalId { get { return _LogicalId; } set { _LogicalId = value; NotifyPropertyChanged(); } }
+        public string LogicalId { get { return _LogicalId; } set { Set(ref _LogicalId, value); } }
 
-        public bool IsVisible { get { return _IsVisible; } set { _IsVisible = Convert.ToBoolean(value); NotifyPropertyChanged(); } }
+        public bool IsVisible { get { return _IsVisible; } set { Set(ref _IsVisible, Convert.ToBoolean(value)); } }
 
-        public String Name { get { return _Name; } set { _Name = value; NotifyPropertyChanged(); } }
+        public String Name { get { return _Name; } set { Set(ref _Name, value); } }
 
-        public string Type { get { return _Type; } set { _Type = value; NotifyPropertyChanged(); } }
+        public string Type { get { return _Type; } set { Set(ref _Type, value); } }
 
-        public string SubType { get { return _SubType; } set { _SubType = value; NotifyPropertyChanged(); } }
+        public string SubType { get { return _SubType; } set { Set(ref _SubType, value); } }
 
-        public string Unite { get { return _Unite; } set { _Unite = value; NotifyPropertyChanged(); } }
+        public string Unite { get { return _Unite; } set { Set(ref _Unite, value); } }
 
-        public bool Updating { get { return _Updating; } set { _Updating = value; NotifyPropertyChanged(); } }
+        public bool Updating { get { return _Updating; } set { Set(ref _Updating, value); } }
 
         public string Value
         {
@@ -127,7 +121,8 @@ namespace Jeedom.Model
 
             set
             {
-                _Value = value;
+                Set(ref _Value, value);
+
                 if (_Value != "" && _Value != null)
                 {
                     //TODO : @mika-nt28 j'ai pas tout compris sur cette notion de WidgetValue ???
@@ -152,8 +147,6 @@ namespace Jeedom.Model
                             break;
                     }
                 }
-
-                NotifyPropertyChanged();
             }
         }
 
@@ -166,23 +159,29 @@ namespace Jeedom.Model
 
             set
             {
-                _WidgetValue = value;
-                NotifyPropertyChanged();
+                Set(ref _WidgetValue, value);
             }
         }
 
         #endregion Public Properties
 
-        #region Private Methods
+        #region INotifyPropertyChanged
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Set<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
-            if (PropertyChanged != null)
+            if (!Equals(storage, value))
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                storage = value;
+                System.Diagnostics.Debug.WriteLine("cmd update : " + Name + " " + propertyName);
+                RaisePropertyChanged(propertyName);
             }
         }
 
-        #endregion Private Methods
+        public void RaisePropertyChanged([CallerMemberName] string propertyName = null) =>
+           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        #endregion INotifyPropertyChanged
     }
 }

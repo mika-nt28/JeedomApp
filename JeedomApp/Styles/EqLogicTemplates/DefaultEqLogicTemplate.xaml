@@ -149,7 +149,7 @@
             d:DesignHeight="150"
             d:DesignWidth="150"
             Background="{StaticResource CustomColorBrush}"
-            Visibility="{Binding isVisible, Converter={StaticResource UpdatingConverter}}">
+            Visibility="{Binding IsVisible, Converter={StaticResource UpdatingConverter}}">
 
             <TextBlock
                 x:Name="TbEqName"

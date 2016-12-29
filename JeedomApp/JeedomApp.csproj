@@ -114,6 +114,9 @@
     <Compile Include="Controls\ConnectControl.xaml.cs">
       <DependentUpon>ConnectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Plugins\OnOffPluginControl.xaml.cs">
+      <DependentUpon>OnOffPluginControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PosDeviceWatcher.cs" />
     <Compile Include="Controls\ServerState.xaml.cs">
       <DependentUpon>ServerState.xaml</DependentUpon>
@@ -121,7 +124,13 @@
     <Compile Include="Controls\StatusBar.xaml.cs">
       <DependentUpon>StatusBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TileControl.xaml.cs">
+      <DependentUpon>TileControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\VariableSizedGridView.cs" />
+    <Compile Include="Controls\Plugins\WeatherPluginControl.xaml.cs">
+      <DependentUpon>WeatherPluginControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\EqLogicCameraFluxConverter.cs" />
     <Compile Include="Converters\EqLogicCmdInfoByIdConverter.cs" />
     <Compile Include="Converters\EqLogicCmdInfoByLogicalIdConverter.cs" />
@@ -132,6 +141,7 @@
     <Compile Include="Converters\EqLogicCmdInfoByTypeConverter.cs" />
     <Compile Include="Converters\MailMessageVisibilityConverter.cs" />
     <Compile Include="Converters\MailVisibilityConverter.cs" />
+    <Compile Include="Converters\WeatherIconConverter.cs" />
     <Compile Include="Converters\UpdatingConverter.cs" />
     <Compile Include="Converters\ValueConverterGroup.cs" />
     <Compile Include="Converters\VisibleWhenDesktop.cs" />
@@ -209,11 +219,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Plugins\OnOffPluginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\ServerState.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\StatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Plugins\WeatherPluginControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TileControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -700,6 +722,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="Styles\EqLogicTemplates\CameraEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\DarkSkyEqLogicTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

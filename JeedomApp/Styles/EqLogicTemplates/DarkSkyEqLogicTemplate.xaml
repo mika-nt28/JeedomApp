@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="using:JeedomApp.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../ConvertersRessources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  Template pour un equipement Météo DarkSky  -->
+    <DataTemplate x:Key="DarkSkyEqLogicTemplate">
+        <RelativePanel d:DesignHeight="240" d:DesignWidth="240">
+            <Controls:WeatherPluginControl
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                TheEqLogic="{Binding}" />
+            <TextBlock
+                x:Name="PART_Name"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                RelativePanel.AlignHorizontalCenterWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                Text="{Binding Name, FallbackValue=Name}" />
+            <ProgressRing
+                x:Name="PART_Updating"
+                IsActive="True"
+                RelativePanel.AlignRightWithPanel="True"
+                RelativePanel.AlignTopWithPanel="True"
+                Visibility="{Binding Updating, Converter={StaticResource UpdatingConverter}}" />
+        </RelativePanel>
+    </DataTemplate>
+</ResourceDictionary>

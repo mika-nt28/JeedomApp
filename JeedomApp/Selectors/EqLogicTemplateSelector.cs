@@ -13,6 +13,7 @@ namespace JeedomApp.Selectors
         public DataTemplate OnOffEqLogicTemplate { get; set; }
         public DataTemplate SonosEqLogicTemplate { get; set; }
         public DataTemplate ForecastIoEqLogicTemplate { get; set; }
+        public DataTemplate DarkSkyEqLogicTemplate { get; set; }
         public DataTemplate ZWaveEqLogicTemplate { get; set; }
         public DataTemplate CameraEqLogicTemplate { get; set; }
 
@@ -33,16 +34,26 @@ namespace JeedomApp.Selectors
                     container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 3);
                     return SonosEqLogicTemplate;
 
+                case "darksky":
                 case "forecastio":
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
                     container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
-                    return ForecastIoEqLogicTemplate;
+                    return DarkSkyEqLogicTemplate;
 
                 case "camera":
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
                     container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                     return CameraEqLogicTemplate;
             }
+
+            // Lumière OnOff
+            if (ContainCmd(eq, new[] { "LIGHT_STATE", "LIGHT_ON", "LIGHT_OFF" }))
+            {
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
+                return OnOffEqLogicTemplate;
+            }
+
             return DefaultEqLogicTemplate;
         }
 

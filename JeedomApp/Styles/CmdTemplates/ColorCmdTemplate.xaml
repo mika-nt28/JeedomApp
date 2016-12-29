@@ -8,7 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate x:Key="ColorCmdTemplate">
-        <RelativePanel Visibility="{Binding isVisible, Converter={StaticResource UpdatingConverter}}">
+        <RelativePanel Visibility="{Binding IsVisible, Converter={StaticResource UpdatingConverter}}">
             <!--
                 xc:Clr_Pckr
                 Header="{Binding Name, FallbackValue=Name}"

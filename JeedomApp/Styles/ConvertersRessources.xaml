@@ -16,8 +16,11 @@
     <localconverters:EqLogicCmdInfoByTypeConverter x:Key="EqLogicCmdInfoByTypeConverter" />
     <localconverters:EqLogicCmdInfoByIdConverter x:Key="EqLogicCmdInfoByIdConverter" />
     <localconverters:EqLogicCmdInfoByLogicalIdConverter x:Key="EqLogicCmdInfoByLogicalIdConverter" />
+    <localconverters:WeatherIconConverter x:Key="WeatherIconConverter" />
 
     <t10converters:ChangeTypeConverter x:Key="ChangeTypeConverter" />
+    <t10converters:StringFormatConverter x:Key="StringFormatConverter" />
+    <t10converters:StringFormatConverter x:Key="DoubleToIntConverter" Format="{}{0:N0}" />
 
     <!--  Flux Caméra  -->
     <localconverters:ValueConverterGroup x:Key="EqLogicCameraFluxConverter">

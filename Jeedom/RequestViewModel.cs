@@ -345,7 +345,7 @@ namespace Jeedom
                     foreach (Command cmd in Cmds.result.Cmds)
                     {
                         if (EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds == null)
-                            EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds = new ObservableCollection<Command>();
+                            EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds = new ObservableCollectionEx<Command>();
                         EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds.Add(cmd);
                         CommandList.Add(cmd);
                     }
@@ -353,7 +353,7 @@ namespace Jeedom
                 foreach (EqLogic eq in EqLogicList)
                 {
                     if (ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics == null)
-                        ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics = new ObservableCollection<EqLogic>();
+                        ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics = new ObservableCollectionEx<EqLogic>();
                     ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics.Add(eq);
                 }
             }
@@ -610,17 +610,21 @@ namespace Jeedom
                 return;
 
             var infoCmds = (from cmd in eq.Cmds where cmd.Type == "info" select cmd).DefaultIfEmpty();
-            if (infoCmds != null)
+            if (infoCmds.Count() > 0)
             {
                 foreach (Command cmd in infoCmds)
                 {
-                    if (!cmd.Updating)
+                    if (cmd != null)
                     {
-                        await ExecuteCommand(cmd);
-                        cmd.DateTime = _dateTime;
+                        if (!cmd.Updating)
+                        {
+                            await ExecuteCommand(cmd);
+                            cmd.DateTime = _dateTime;
+                        }
                     }
                 }
             }
+
             eq.DateTime = _dateTime;
         }
 

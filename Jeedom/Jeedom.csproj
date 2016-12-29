@@ -113,6 +113,7 @@
     <Compile Include="Api\Json\Event\EventOptionEqLogic.cs" />
     <Compile Include="Api\Json\Event\EventResult.cs" />
     <Compile Include="Converters\BooleanJsonConverter.cs" />
+    <Compile Include="Mvvm\ObservableCollectionEx.cs" />
     <Compile Include="Model\Interact.cs" />
     <Compile Include="Model\Command.cs" />
     <Compile Include="Model\CommandConfiguration.cs" />
