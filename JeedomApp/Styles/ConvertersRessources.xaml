@@ -22,6 +22,32 @@
     <t10converters:StringFormatConverter x:Key="StringFormatConverter" />
     <t10converters:StringFormatConverter x:Key="DoubleToIntConverter" Format="{}{0:N0}" />
 
+    <!--  Visible quand True  -->
+    <t10converters:ValueWhenConverter x:Key="VisibleWhenTrueConverter">
+        <t10converters:ValueWhenConverter.When>
+            <x:Boolean>True</x:Boolean>
+        </t10converters:ValueWhenConverter.When>
+        <t10converters:ValueWhenConverter.Value>
+            <Visibility>Visible</Visibility>
+        </t10converters:ValueWhenConverter.Value>
+        <t10converters:ValueWhenConverter.Otherwise>
+            <Visibility>Collapsed</Visibility>
+        </t10converters:ValueWhenConverter.Otherwise>
+    </t10converters:ValueWhenConverter>
+
+    <!--  Visible quand False  -->
+    <t10converters:ValueWhenConverter x:Key="VisibleWhenFalseConverter">
+        <t10converters:ValueWhenConverter.When>
+            <x:Boolean>False</x:Boolean>
+        </t10converters:ValueWhenConverter.When>
+        <t10converters:ValueWhenConverter.Value>
+            <Visibility>Visible</Visibility>
+        </t10converters:ValueWhenConverter.Value>
+        <t10converters:ValueWhenConverter.Otherwise>
+            <Visibility>Collapsed</Visibility>
+        </t10converters:ValueWhenConverter.Otherwise>
+    </t10converters:ValueWhenConverter>
+
     <!--  Flux Caméra  -->
     <localconverters:ValueConverterGroup x:Key="EqLogicCameraFluxConverter">
         <localconverters:EqLogicCmdInfoByLogicalIdConverter />
