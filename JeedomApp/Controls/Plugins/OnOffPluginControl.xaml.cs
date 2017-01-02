@@ -33,8 +33,11 @@ namespace JeedomApp.Controls
         public static readonly DependencyProperty OnProperty =
             DependencyProperty.Register("On", typeof(Command), typeof(OnOffPluginControl), new PropertyMetadata(null));
 
+        public static readonly DependencyProperty StateBoolProperty =
+            DependencyProperty.Register("StateBool", typeof(bool), typeof(OnOffPluginControl), new PropertyMetadata(false));
+
         public static readonly DependencyProperty StateBrushProperty =
-            DependencyProperty.Register("StateBrush", typeof(Brush), typeof(OnOffPluginControl), new PropertyMetadata(null));
+                    DependencyProperty.Register("StateBrush", typeof(Brush), typeof(OnOffPluginControl), new PropertyMetadata(null));
 
         public static readonly DependencyProperty StateIconProperty =
             DependencyProperty.Register("StateIcon", typeof(string), typeof(OnOffPluginControl), new PropertyMetadata("\uf00d"));
@@ -75,6 +78,7 @@ namespace JeedomApp.Controls
         public Brush OnBrush { get { return (Brush)GetValue(OnBrushProperty); } set { SetValue(OnBrushProperty, value); } }
         public string OnIcon { get { return (string)GetValue(OnIconProperty); } set { SetValue(OnIconProperty, value); } }
         public Command State { get { return (Command)GetValue(StateProperty); } set { SetValue(StateProperty, value); } }
+        public bool StateBool { get { return (bool)GetValue(StateBoolProperty); } set { SetValue(StateBoolProperty, value); } }
         public Brush StateBrush { get { return (Brush)GetValue(StateBrushProperty); } set { SetValue(StateBrushProperty, value); } }
         public string StateIcon { get { return (string)GetValue(StateIconProperty); } set { SetValue(StateIconProperty, value); } }
 
@@ -139,7 +143,9 @@ namespace JeedomApp.Controls
                         break;
                 }
             }
+
             _DataContextLoaded = true;
+            UpdateUI();
         }
 
         /// <summary>
@@ -147,13 +153,18 @@ namespace JeedomApp.Controls
         /// </summary>
         private void UpdateUI()
         {
+            if (State == null)
+                return;
+
             if (State.Value == "1" || State.Value.ToLower() == "on")
             {
+                StateBool = true;
                 StateBrush = OnBrush;
                 StateIcon = OnIcon;
             }
             else
             {
+                StateBool = false;
                 StateBrush = OffBrush;
                 StateIcon = OffIcon;
             }

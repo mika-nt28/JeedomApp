@@ -5,45 +5,60 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:JeedomApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="224"
-    d:DesignWidth="211"
+    xmlns:t10converters="using:Template10.Converters"
+    d:DesignHeight="120"
+    d:DesignWidth="120"
     mc:Ignorable="d">
 
     <UserControl.Resources>
         <ResourceDictionary Source="/Styles/ConvertersRessources.xaml" />
     </UserControl.Resources>
 
-    <RelativePanel
-        Padding="4"
-        d:DesignHeight="150"
-        d:DesignWidth="150"
-        Background="{x:Bind StateBrush,Mode=OneWay}">
+    <RelativePanel Padding="0" Background="{x:Bind StateBrush, Mode=OneWay}">
 
-        <StackPanel
-            x:Name="PART_Commands"
-            Orientation="Horizontal"
+        <!--  Off  -->
+        <Button
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Background="{x:Null}"
+            Command="{x:Bind Off.ExecCommand}"
             RelativePanel.AlignBottomWithPanel="True"
-            RelativePanel.AlignHorizontalCenterWithPanel="True">
-            <TextBlock Text="{x:Bind StateString,Mode=OneWay}"></TextBlock>
-            <Button Command="{x:Bind On.ExecCommand}" Content="On" />
-
-            <Button
-                Margin="4,0,0,0"
-                Command="{x:Bind Off.ExecCommand}"
-                Content="Off" />
-        </StackPanel>
-
-        <Viewbox
-            x:Name="PART_Icon"
-            Margin="4"
-            RelativePanel.Above="PART_Commands"
-            RelativePanel.AlignHorizontalCenterWithPanel="True">
-
-            <TextBlock
-                HorizontalAlignment="Center"
-                FontFamily="{StaticResource FontAwesome}"
-                Foreground="White"
-                Text="{x:Bind StateIcon,Mode=OneWay}" />
-        </Viewbox>
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenTrueConverter}, FallbackValue=Collapsed}">
+            <Viewbox MaxHeight="60">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Foreground="White"
+                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xf00d;}" />
+            </Viewbox>
+        </Button>
+        <!--  On  -->
+        <Button
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Background="{x:Null}"
+            Command="{x:Bind On.ExecCommand}"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenFalseConverter}}">
+            <Viewbox MaxHeight="60">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Foreground="White"
+                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xf00c;}" />
+            </Viewbox>
+        </Button>
     </RelativePanel>
 </UserControl>

@@ -11,13 +11,20 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Template pour un equipement On Off  -->
-    <DataTemplate x:Key="OnOffEqLogicTemplate" x:Name="dt">
+    <DataTemplate x:Key="OnOffEqLogicTemplate">
         <Controls:TileControl
             Title="{Binding Name, FallbackValue=Name}"
             d:DesignHeight="240"
             d:DesignWidth="240"
-            TileBrush="LightSkyBlue">
-            <Controls:OnOffPluginControl DataContext="{Binding }" />
+            SubTitle="{Binding State.Value, ElementName=OnOff}">
+            <Controls:OnOffPluginControl x:Name="OnOff" DataContext="{Binding}">
+                <Controls:OnOffPluginControl.OnBrush>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="#FF54AD0C" />
+                        <GradientStop Offset="1" Color="#FF81BC16" />
+                    </LinearGradientBrush>
+                </Controls:OnOffPluginControl.OnBrush>
+            </Controls:OnOffPluginControl>
         </Controls:TileControl>
     </DataTemplate>
 </ResourceDictionary>
