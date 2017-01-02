@@ -31,7 +31,7 @@
                     RelativePanel.AlignLeftWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignTopWithPanel="True"
-                    Source="{Binding cmds, ConverterParameter=track_image, Converter={StaticResource EqLogicCmdInfoByLogicalIdConverter}}"
+                    Source="{Binding Cmds, ConverterParameter=track_image, Converter={StaticResource EqLogicCmdInfoByLogicalIdConverter}}"
                     Stretch="Fill" />
 
                 <TextBlock
@@ -102,7 +102,7 @@
                         Grid.Column="3"
                         Command="{Binding ExecCommandByLogicalID}"
                         CommandParameter="play"
-                        Visibility="{Binding cmds, ConverterParameter=state, Converter={StaticResource VisibleWhenPauseConverter}}">
+                        Visibility="{Binding Cmds, ConverterParameter=state, Converter={StaticResource VisibleWhenPauseConverter}}">
                         <Viewbox MaxHeight="40">
                             <SymbolIcon Symbol="Play" />
                         </Viewbox>
@@ -112,7 +112,7 @@
                         Grid.Column="3"
                         Command="{Binding ExecCommandByLogicalID}"
                         CommandParameter="pause"
-                        Visibility="{Binding cmds, ConverterParameter=state, Converter={StaticResource VisibleWhenPlayConverter}}">
+                        Visibility="{Binding Cmds, ConverterParameter=state, Converter={StaticResource VisibleWhenPlayConverter}}">
                         <Viewbox MaxHeight="40">
                             <SymbolIcon Symbol="Pause" />
                         </Viewbox>

@@ -172,19 +172,14 @@
                 SelectionMode="None">
 
                 <localcontrols:VariableSizedGridView.ItemContainerStyle>
-
                     <Style TargetType="GridViewItem">
-
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-
                         <Setter Property="VerticalContentAlignment" Value="Stretch" />
                     </Style>
                 </localcontrols:VariableSizedGridView.ItemContainerStyle>
 
                 <localcontrols:VariableSizedGridView.ItemsPanel>
-
                     <ItemsPanelTemplate>
-
                         <VariableSizedWrapGrid
                             ItemHeight="100"
                             ItemWidth="100"

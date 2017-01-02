@@ -16,7 +16,7 @@
             Title="{Binding Name, FallbackValue=Name}"
             d:DesignHeight="240"
             d:DesignWidth="240"
-            SubTitle="{Binding State.Value, ElementName=OnOff}">
+            SubTitle="{Binding StateBool, ElementName=OnOff}">
             <Controls:OnOffPluginControl x:Name="OnOff" DataContext="{Binding}">
                 <Controls:OnOffPluginControl.OnBrush>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

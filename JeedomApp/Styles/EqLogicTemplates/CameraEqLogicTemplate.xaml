@@ -26,7 +26,7 @@
                 RelativePanel.AlignLeftWithPanel="True"
                 RelativePanel.AlignRightWithPanel="True"
                 RelativePanel.AlignTopWithPanel="True"
-                Source="{Binding cmds, ConverterParameter=urlFlux, Converter={StaticResource EqLogicCameraFluxConverter}}"
+                Source="{Binding Cmds, ConverterParameter=urlFlux, Converter={StaticResource EqLogicCameraFluxConverter}}"
                 Stretch="Fill" />
         </RelativePanel>
     </DataTemplate>
