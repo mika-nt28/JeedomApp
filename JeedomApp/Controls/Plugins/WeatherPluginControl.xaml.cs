@@ -140,6 +140,9 @@ namespace JeedomApp.Controls
 
         private void WeatherPluginControl_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
+            if (TheEqLogic == null)
+                return;
+
             foreach (var cmd in TheEqLogic.Cmds)
             {
                 switch (cmd.LogicalId)
