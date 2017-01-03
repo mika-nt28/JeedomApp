@@ -11,6 +11,7 @@ namespace JeedomApp.Selectors
 
         public DataTemplate DefaultEqLogicTemplate { get; set; }
         public DataTemplate OnOffEqLogicTemplate { get; set; }
+        public DataTemplate OnOffSliderEqLogicTemplate { get; set; }
         public DataTemplate SonosEqLogicTemplate { get; set; }
         public DataTemplate ForecastIoEqLogicTemplate { get; set; }
         public DataTemplate DarkSkyEqLogicTemplate { get; set; }
@@ -44,6 +45,14 @@ namespace JeedomApp.Selectors
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
                     container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                     return CameraEqLogicTemplate;
+            }
+
+            // Lumière On Off Slider
+            if (ContainCmd(eq, new[] { "LIGHT_STATE", "LIGHT_ON", "LIGHT_OFF", "LIGHT_SLIDER" }))
+            {
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
+                return OnOffSliderEqLogicTemplate;
             }
 
             // Lumière OnOff

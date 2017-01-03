@@ -114,6 +114,9 @@
     <Compile Include="Controls\ConnectControl.xaml.cs">
       <DependentUpon>ConnectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Plugins\OnOffSliderPluginControl.xaml.cs">
+      <DependentUpon>OnOffSliderPluginControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Plugins\OnOffPluginControl.xaml.cs">
       <DependentUpon>OnOffPluginControl.xaml</DependentUpon>
     </Compile>
@@ -218,6 +221,10 @@
     <Page Include="Controls\ConnectControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Plugins\OnOffSliderPluginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Plugins\OnOffPluginControl.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -734,6 +741,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\EqLogicTemplates\DefaultEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\OnOffSliderEqLogicTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

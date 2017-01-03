@@ -8,6 +8,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="OnOffEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="OnOffSliderEqLogicTemplate.xaml" />
         <ResourceDictionary Source="SonosEqLogicTemplate.xaml" />
         <ResourceDictionary Source="DarkSkyEqLogicTemplate.xaml" />
         <ResourceDictionary Source="ForecastIoEqLogicTemplate.xaml" />
@@ -23,5 +24,6 @@
         DefaultEqLogicTemplate="{StaticResource DefaultEqLogicTemplate}"
         ForecastIoEqLogicTemplate="{StaticResource ForecastIoEqLogicTemplate}"
         OnOffEqLogicTemplate="{StaticResource OnOffEqLogicTemplate}"
+        OnOffSliderEqLogicTemplate="{StaticResource OnOffSliderEqLogicTemplate}"
         SonosEqLogicTemplate="{StaticResource SonosEqLogicTemplate}" />
 </ResourceDictionary>
