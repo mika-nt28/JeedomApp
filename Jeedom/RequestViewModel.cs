@@ -331,6 +331,7 @@ namespace Jeedom
 
             if (await jsonrpc.SendRequest("sync"))
             {
+                // Récupère la liste de tous les eqLogics
                 var EqLogics = jsonrpc.GetRequestResponseDeserialized<Response<JdObject>>();
                 if (EqLogics != null)
                 {
@@ -339,22 +340,36 @@ namespace Jeedom
                         EqLogicList.Add(eq);
                     }
                 }
+
+                // Récupère la liste de toutes les cmds
                 var Cmds = jsonrpc.GetRequestResponseDeserialized<Response<EqLogic>>();
                 if (Cmds.result.Cmds != null)
                 {
                     foreach (Command cmd in Cmds.result.Cmds)
                     {
+                        // AJoute la cmd à son eqLogic
                         if (EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds == null)
                             EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds = new ObservableCollectionEx<Command>();
                         EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds.Add(cmd);
+
+                        // Ajoute la commande à la liste globale des cmds
                         CommandList.Add(cmd);
                     }
                 }
+
+                // Affecte les eqLogics à leurs objects correspondants
                 foreach (EqLogic eq in EqLogicList)
                 {
                     if (ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics == null)
                         ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics = new ObservableCollectionEx<EqLogic>();
                     ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics.Add(eq);
+                }
+
+                // Suppression des objects sans eqLogics
+                for (int i = ObjectList.Count - 1; i >= 0; i--)
+                {
+                    if (ObjectList[i].EqLogics == null)
+                        ObjectList.RemoveAt(i);
                 }
             }
 
