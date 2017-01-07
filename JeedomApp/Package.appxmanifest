@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="JeedomApp" Publisher="CN=E25A6272-1CEC-41C5-8B4C-8FEBCE6CE49F" Version="1.1.12.0" />
+  <Identity Name="43593Mika-Nt28.JeedomApp" Publisher="CN=E25A6272-1CEC-41C5-8B4C-8FEBCE6CE49F" Version="1.1.1.0" />
   <mp:PhoneIdentity PhoneProductId="a889ec51-eaf7-49b7-9a57-118ba2f44e74" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>JeedomApp</DisplayName>

@@ -112,7 +112,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel>
-                                        <TextBlock Text="{Binding name}" />
+                                        <TextBlock Text="{Binding Name}" />
                                     </StackPanel>
                                 </StackPanel>
                             </DataTemplate>
@@ -128,7 +128,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel>
-                                        <TextBlock Text="{Binding name}" />
+                                        <TextBlock Text="{Binding Name}" />
                                     </StackPanel>
                                 </StackPanel>
                             </DataTemplate>

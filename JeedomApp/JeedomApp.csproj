@@ -19,7 +19,7 @@
     <PackageCertificateKeyFile>JeedomApp_StoreKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>CB3B8FF94D431EA7B812778E2C53932709D76A86</PackageCertificateThumbprint>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxBundle>Always</AppxBundle>
+    <AppxBundle>Auto</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
   </PropertyGroup>

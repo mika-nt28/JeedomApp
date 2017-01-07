@@ -3,14 +3,6 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "ColorPicker/1.0.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        }
-      },
       "CrossPieCharts.UWP/1.0.2": {
         "compile": {
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
@@ -19,28 +11,7 @@
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.1.0": {
-        "dependencies": {
-          "System.Collections": "4.0.10",
-          "System.Diagnostics.Debug": "4.0.10",
-          "System.Diagnostics.Tools": "4.0.0",
-          "System.Diagnostics.Tracing": "4.0.20",
-          "System.Globalization": "4.0.10",
-          "System.IO": "4.0.10",
-          "System.IO.Compression": "4.0.0",
-          "System.Linq": "4.0.0",
-          "System.Net.Http": "4.0.0",
-          "System.Reflection": "4.0.10",
-          "System.Reflection.Extensions": "4.0.0",
-          "System.Runtime": "4.0.20",
-          "System.Runtime.Extensions": "4.0.10",
-          "System.Text.Encoding": "4.0.10",
-          "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
-          "System.Threading": "4.0.10",
-          "System.Threading.Tasks": "4.0.10",
-          "System.Xml.XDocument": "4.0.10"
-        },
+      "Microsoft.ApplicationInsights/2.2.0": {
         "compile": {
           "lib/uap10.0/Microsoft.ApplicationInsights.dll": {}
         },
@@ -2129,29 +2100,9 @@
         "runtime": {
           "lib/uap10.0/Template10Library.dll": {}
         }
-      },
-      "ZXing.Net.Mobile/2.1.47": {
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "ColorPicker/1.0.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        }
-      },
       "CrossPieCharts.UWP/1.0.2": {
         "compile": {
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
@@ -2160,28 +2111,7 @@
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.1.0": {
-        "dependencies": {
-          "System.Collections": "4.0.10",
-          "System.Diagnostics.Debug": "4.0.10",
-          "System.Diagnostics.Tools": "4.0.0",
-          "System.Diagnostics.Tracing": "4.0.20",
-          "System.Globalization": "4.0.10",
-          "System.IO": "4.0.10",
-          "System.IO.Compression": "4.0.0",
-          "System.Linq": "4.0.0",
-          "System.Net.Http": "4.0.0",
-          "System.Reflection": "4.0.10",
-          "System.Reflection.Extensions": "4.0.0",
-          "System.Runtime": "4.0.20",
-          "System.Runtime.Extensions": "4.0.10",
-          "System.Text.Encoding": "4.0.10",
-          "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
-          "System.Threading": "4.0.10",
-          "System.Threading.Tasks": "4.0.10",
-          "System.Xml.XDocument": "4.0.10"
-        },
+      "Microsoft.ApplicationInsights/2.2.0": {
         "compile": {
           "lib/uap10.0/Microsoft.ApplicationInsights.dll": {}
         },
@@ -4350,29 +4280,9 @@
         "runtime": {
           "lib/uap10.0/Template10Library.dll": {}
         }
-      },
-      "ZXing.Net.Mobile/2.1.47": {
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "ColorPicker/1.0.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        }
-      },
       "CrossPieCharts.UWP/1.0.2": {
         "compile": {
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
@@ -4381,28 +4291,7 @@
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.1.0": {
-        "dependencies": {
-          "System.Collections": "4.0.10",
-          "System.Diagnostics.Debug": "4.0.10",
-          "System.Diagnostics.Tools": "4.0.0",
-          "System.Diagnostics.Tracing": "4.0.20",
-          "System.Globalization": "4.0.10",
-          "System.IO": "4.0.10",
-          "System.IO.Compression": "4.0.0",
-          "System.Linq": "4.0.0",
-          "System.Net.Http": "4.0.0",
-          "System.Reflection": "4.0.10",
-          "System.Reflection.Extensions": "4.0.0",
-          "System.Runtime": "4.0.20",
-          "System.Runtime.Extensions": "4.0.10",
-          "System.Text.Encoding": "4.0.10",
-          "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
-          "System.Threading": "4.0.10",
-          "System.Threading.Tasks": "4.0.10",
-          "System.Xml.XDocument": "4.0.10"
-        },
+      "Microsoft.ApplicationInsights/2.2.0": {
         "compile": {
           "lib/uap10.0/Microsoft.ApplicationInsights.dll": {}
         },
@@ -6610,29 +6499,9 @@
         "runtime": {
           "lib/uap10.0/Template10Library.dll": {}
         }
-      },
-      "ZXing.Net.Mobile/2.1.47": {
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "ColorPicker/1.0.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        }
-      },
       "CrossPieCharts.UWP/1.0.2": {
         "compile": {
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
@@ -6641,28 +6510,7 @@
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.1.0": {
-        "dependencies": {
-          "System.Collections": "4.0.10",
-          "System.Diagnostics.Debug": "4.0.10",
-          "System.Diagnostics.Tools": "4.0.0",
-          "System.Diagnostics.Tracing": "4.0.20",
-          "System.Globalization": "4.0.10",
-          "System.IO": "4.0.10",
-          "System.IO.Compression": "4.0.0",
-          "System.Linq": "4.0.0",
-          "System.Net.Http": "4.0.0",
-          "System.Reflection": "4.0.10",
-          "System.Reflection.Extensions": "4.0.0",
-          "System.Runtime": "4.0.20",
-          "System.Runtime.Extensions": "4.0.10",
-          "System.Text.Encoding": "4.0.10",
-          "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
-          "System.Threading": "4.0.10",
-          "System.Threading.Tasks": "4.0.10",
-          "System.Xml.XDocument": "4.0.10"
-        },
+      "Microsoft.ApplicationInsights/2.2.0": {
         "compile": {
           "lib/uap10.0/Microsoft.ApplicationInsights.dll": {}
         },
@@ -8840,29 +8688,9 @@
         "runtime": {
           "lib/uap10.0/Template10Library.dll": {}
         }
-      },
-      "ZXing.Net.Mobile/2.1.47": {
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "ColorPicker/1.0.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        }
-      },
       "CrossPieCharts.UWP/1.0.2": {
         "compile": {
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
@@ -8871,28 +8699,7 @@
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.1.0": {
-        "dependencies": {
-          "System.Collections": "4.0.10",
-          "System.Diagnostics.Debug": "4.0.10",
-          "System.Diagnostics.Tools": "4.0.0",
-          "System.Diagnostics.Tracing": "4.0.20",
-          "System.Globalization": "4.0.10",
-          "System.IO": "4.0.10",
-          "System.IO.Compression": "4.0.0",
-          "System.Linq": "4.0.0",
-          "System.Net.Http": "4.0.0",
-          "System.Reflection": "4.0.10",
-          "System.Reflection.Extensions": "4.0.0",
-          "System.Runtime": "4.0.20",
-          "System.Runtime.Extensions": "4.0.10",
-          "System.Text.Encoding": "4.0.10",
-          "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
-          "System.Threading": "4.0.10",
-          "System.Threading.Tasks": "4.0.10",
-          "System.Xml.XDocument": "4.0.10"
-        },
+      "Microsoft.ApplicationInsights/2.2.0": {
         "compile": {
           "lib/uap10.0/Microsoft.ApplicationInsights.dll": {}
         },
@@ -11109,29 +10916,9 @@
         "runtime": {
           "lib/uap10.0/Template10Library.dll": {}
         }
-      },
-      "ZXing.Net.Mobile/2.1.47": {
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "ColorPicker/1.0.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        }
-      },
       "CrossPieCharts.UWP/1.0.2": {
         "compile": {
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
@@ -11140,28 +10927,7 @@
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.1.0": {
-        "dependencies": {
-          "System.Collections": "4.0.10",
-          "System.Diagnostics.Debug": "4.0.10",
-          "System.Diagnostics.Tools": "4.0.0",
-          "System.Diagnostics.Tracing": "4.0.20",
-          "System.Globalization": "4.0.10",
-          "System.IO": "4.0.10",
-          "System.IO.Compression": "4.0.0",
-          "System.Linq": "4.0.0",
-          "System.Net.Http": "4.0.0",
-          "System.Reflection": "4.0.10",
-          "System.Reflection.Extensions": "4.0.0",
-          "System.Runtime": "4.0.20",
-          "System.Runtime.Extensions": "4.0.10",
-          "System.Text.Encoding": "4.0.10",
-          "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
-          "System.Threading": "4.0.10",
-          "System.Threading.Tasks": "4.0.10",
-          "System.Xml.XDocument": "4.0.10"
-        },
+      "Microsoft.ApplicationInsights/2.2.0": {
         "compile": {
           "lib/uap10.0/Microsoft.ApplicationInsights.dll": {}
         },
@@ -13339,29 +13105,9 @@
         "runtime": {
           "lib/uap10.0/Template10Library.dll": {}
         }
-      },
-      "ZXing.Net.Mobile/2.1.47": {
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "ColorPicker/1.0.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/ColorPicker.dll": {}
-        }
-      },
       "CrossPieCharts.UWP/1.0.2": {
         "compile": {
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
@@ -13370,28 +13116,7 @@
           "lib/uap/CrossPieCharts.ClassLibrary.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.1.0": {
-        "dependencies": {
-          "System.Collections": "4.0.10",
-          "System.Diagnostics.Debug": "4.0.10",
-          "System.Diagnostics.Tools": "4.0.0",
-          "System.Diagnostics.Tracing": "4.0.20",
-          "System.Globalization": "4.0.10",
-          "System.IO": "4.0.10",
-          "System.IO.Compression": "4.0.0",
-          "System.Linq": "4.0.0",
-          "System.Net.Http": "4.0.0",
-          "System.Reflection": "4.0.10",
-          "System.Reflection.Extensions": "4.0.0",
-          "System.Runtime": "4.0.20",
-          "System.Runtime.Extensions": "4.0.10",
-          "System.Text.Encoding": "4.0.10",
-          "System.Text.Encoding.Extensions": "4.0.10",
-          "System.Text.RegularExpressions": "4.0.10",
-          "System.Threading": "4.0.10",
-          "System.Threading.Tasks": "4.0.10",
-          "System.Xml.XDocument": "4.0.10"
-        },
+      "Microsoft.ApplicationInsights/2.2.0": {
         "compile": {
           "lib/uap10.0/Microsoft.ApplicationInsights.dll": {}
         },
@@ -15608,37 +15333,10 @@
         "runtime": {
           "lib/uap10.0/Template10Library.dll": {}
         }
-      },
-      "ZXing.Net.Mobile/2.1.47": {
-        "compile": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        },
-        "runtime": {
-          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
-          "lib/UAP10/ZXingNetMobile.dll": {},
-          "lib/UAP10/zxing.portable.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "ColorPicker/1.0.2": {
-      "sha512": "dZOcHD8ZwPKoRTZ0niZIvx7VL0RT4LVHys5bEBzKunxTbEnZD8n3wCYcEU6Gx9io7rfIvToswAJgmMWSuo4hMA==",
-      "type": "Package",
-      "files": [
-        "ColorPicker.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/portable-win81+wpa81/ColorPicker.dll",
-        "lib/portable-win81+wpa81/ColorPicker.pri",
-        "lib/portable-win81+wpa81/ColorPicker/ColorPicker.xr.xml",
-        "lib/portable-win81+wpa81/ColorPicker/Themes/Generic.xbf",
-        "lib/portable-win81+wpa81/ColorPicker/colors.jpg",
-        "package/services/metadata/core-properties/8ccdb8fe7f264139aa1322f9f7188ec5.psmdcp"
-      ]
-    },
     "CrossPieCharts.UWP/1.0.2": {
       "sha512": "i1wk9HbklmCpmszwXL27UuZ5MYD5rwgXvl+IBPI2E/+g4LE7IHIEbTH2Tb/ZTzgaxc+BTPVv4M7pSybpSq1K+A==",
       "type": "Package",
@@ -15650,20 +15348,20 @@
         "package/services/metadata/core-properties/c539083e64234fec8295a232ceee247c.psmdcp"
       ]
     },
-    "Microsoft.ApplicationInsights/2.1.0": {
-      "sha512": "mviO8PLQd3r22Pmv8JfjYzTCQ9ByhkU9wdC4fwd6WmAARwAMgMw9HEbHeYS3r+8pB3w+fZMi7p4LKijzgNybRQ==",
+    "Microsoft.ApplicationInsights/2.2.0": {
+      "sha512": "+JJ6qygUKQY2YnRfr0GlgdbKAhUqZhwd9zija0aKdDVQK60lQtnsBKzFY8/kMg0SH2MRXtmLkHG53oiNDQsLJQ==",
       "type": "package",
       "files": [
-        "Microsoft.ApplicationInsights.2.1.0.nupkg.sha512",
+        "Microsoft.ApplicationInsights.2.2.0.nupkg.sha512",
         "Microsoft.ApplicationInsights.nuspec",
-        "lib/dotnet5.4/Microsoft.ApplicationInsights.XML",
-        "lib/dotnet5.4/Microsoft.ApplicationInsights.dll",
         "lib/net40/Microsoft.ApplicationInsights.XML",
         "lib/net40/Microsoft.ApplicationInsights.dll",
         "lib/net45/Microsoft.ApplicationInsights.XML",
         "lib/net45/Microsoft.ApplicationInsights.dll",
         "lib/net46/Microsoft.ApplicationInsights.XML",
         "lib/net46/Microsoft.ApplicationInsights.dll",
+        "lib/netstandard1.5/Microsoft.ApplicationInsights.XML",
+        "lib/netstandard1.5/Microsoft.ApplicationInsights.dll",
         "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll",
         "lib/uap10.0/Microsoft.ApplicationInsights.dll",
         "lib/wp8/Microsoft.ApplicationInsights.dll"
@@ -21764,45 +21462,18 @@
         "lib/uap10.0/Template10Library/Themes/PageHeader.xaml",
         "lib/uap10.0/Template10Library/Themes/Resizer.xaml"
       ]
-    },
-    "ZXing.Net.Mobile/2.1.47": {
-      "sha512": "K+7OebNXS7kv6J2edXOWf0B7cu8vE6j6d7DOcbQOHR//YJXFifVwN1m7BfycBkrwO9WClKM2ZZQNTlC6GeOOQA==",
-      "type": "package",
-      "files": [
-        "ZXing.Net.Mobile.2.1.47.nupkg.sha512",
-        "ZXing.Net.Mobile.nuspec",
-        "lib/MonoAndroid403/ZXing.Net.Mobile.Core.dll",
-        "lib/MonoAndroid403/ZXingNetMobile.dll",
-        "lib/MonoAndroid403/zxing.portable.dll",
-        "lib/UAP10/ZXing.Net.Mobile.Core.dll",
-        "lib/UAP10/ZXingNetMobile.dll",
-        "lib/UAP10/ZXingNetMobile.pri",
-        "lib/UAP10/ZXingNetMobile/ZXingNetMobile.xr.xml",
-        "lib/UAP10/zxing.portable.dll",
-        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
-        "lib/Xamarin.iOS10/ZXingNetMobile.dll",
-        "lib/Xamarin.iOS10/zxing.portable.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8/ZXing.Net.Mobile.Core.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8/ZXingNetMobile.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8/zxing.portable.dll",
-        "lib/wp8/ZXing.Net.Mobile.Core.dll",
-        "lib/wp8/ZXingNetMobile.dll",
-        "lib/wp8/zxing.portable.dll"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "ColorPicker >= 1.0.2",
       "CrossPieCharts.UWP >= 1.0.2",
-      "Microsoft.ApplicationInsights >= 2.1.0",
+      "Microsoft.ApplicationInsights >= 2.2.0",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.1",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
       "Microsoft.Xaml.Behaviors.Uwp.Managed >= 2.0.0",
       "Newtonsoft.Json >= 9.0.1",
-      "Template10 >= 1.1.12",
-      "ZXing.Net.Mobile >= 2.1.47"
+      "Template10 >= 1.1.12"
     ],
     "UAP,Version=v10.0": []
   }

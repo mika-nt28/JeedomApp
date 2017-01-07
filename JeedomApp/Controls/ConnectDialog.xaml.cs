@@ -17,7 +17,6 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using ZXing.Mobile;
 
 //TODO: Gérer l'adresse sur le dns jeedom
 
@@ -28,7 +27,6 @@ namespace JeedomApp.Controls
     /// </summary>
     public sealed partial class ConnectDialog : UserControl
     {
-        private MobileBarcodeScanner _scanner;
 
         public ConnectDialog()
         {
@@ -113,25 +111,6 @@ namespace JeedomApp.Controls
 
         private async void QrCodeInfo_Click(object sender, RoutedEventArgs e)
         {
-            _scanner = new MobileBarcodeScanner(this.Dispatcher);
-            _scanner.UseCustomOverlay = false;
-            _scanner.TopText = "Lecture du QR code";
-            _scanner.BottomText = "Le scan du QR code est automatique\r\n\rAppuiller sur retour pour quitter";
-
-            var result = await _scanner.Scan();
-            ProcessScanResult(result);
-        }
-
-        private void ProcessScanResult(ZXing.Result result)
-        {
-            string message = string.Empty;
-
-            message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "QR code trouvé: " + result.Text : "Scanning cancelled";
-
-            /*  this.Dispatcher.InvokeAsync(() =>
-              {
-                  MessageBox.Show(message);
-              });*/
         }
     }
 }
