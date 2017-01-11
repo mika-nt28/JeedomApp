@@ -98,5 +98,36 @@ namespace JeedomApp.Controls
         }
 
         #endregion Public Properties
+
+        public T FindParent<T>(DependencyObject child) where T : DependencyObject
+        {
+            var parent = VisualTreeHelper.GetParent(child);
+
+            if (parent == null)
+                return null;
+
+            if (parent is T)
+                return parent as T;
+            else
+                return FindParent<T>(parent);
+        }
+
+        private void BtnColAdd_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewItem parentPanel = FindParent<GridViewItem>(this);
+
+            VariableSizedWrapGrid.SetRowSpan(parentPanel, 2);
+            VariableSizedWrapGrid.SetColumnSpan(parentPanel, 2);
+            VariableSizedWrapGrid vswGrid = VisualTreeHelper.GetParent(parentPanel) as VariableSizedWrapGrid;
+            vswGrid.InvalidateMeasure();
+
+            //var parent = VisualTreeHelper.GetParent(this);
+
+            //((Jeedom.Model.EqLogic)this.DataContext).Name = "Test";
+        }
+
+        private void BtnColRemove_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }
