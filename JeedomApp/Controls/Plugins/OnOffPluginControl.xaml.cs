@@ -139,6 +139,11 @@ namespace JeedomApp.Controls
                         Off = cmd;
                         break;
 
+                    case "LIGHT_TOGGLE": // Si c'est un toggle on affecte la commande aux 2 boutons
+                        Off = cmd;
+                        On = cmd;
+                        break;
+
                     default:
                         break;
                 }
