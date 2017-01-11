@@ -103,6 +103,7 @@
     </Content>
     <Content Include="Assets\Fonts\WeatherIcons.ttf" />
     <Content Include="Assets\Fonts\FontAwesome.ttf" />
+    <Content Include="Assets\Fonts\Jeedom.ttf" />
     <None Include="JeedomApp_StoreKey.pfx" />
     <None Include="JeedomApp_TemporaryKey.pfx" />
     <None Include="project.json" />
@@ -144,6 +145,7 @@
     <Compile Include="Converters\EqLogicCmdInfoByTypeConverter.cs" />
     <Compile Include="Converters\MailMessageVisibilityConverter.cs" />
     <Compile Include="Converters\MailVisibilityConverter.cs" />
+    <Compile Include="Converters\JeedomIconConverter.cs" />
     <Compile Include="Converters\WeatherIconConverter.cs" />
     <Compile Include="Converters\UpdatingConverter.cs" />
     <Compile Include="Converters\ValueConverterGroup.cs" />

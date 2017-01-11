@@ -27,6 +27,7 @@
 
     <FontFamily x:Key="FontAwesome">/Assets/Fonts/FontAwesome.ttf#FontAwesome</FontFamily>
     <FontFamily x:Key="WeatherIcons">/Assets/Fonts/WeatherIcons.ttf#Weather Icons</FontFamily>
+    <FontFamily x:Key="JeedomIcons">/Assets/Fonts/Jeedom.ttf#jeedom</FontFamily>
 
     <DataTemplate x:Key="SceneTemplate">
         <Grid Width="120" Margin="10">

@@ -19,16 +19,16 @@ namespace JeedomApp.Controls
             DependencyProperty.Register("OffBrush", typeof(Brush), typeof(OnOffPluginControl), new PropertyMetadata(XamlBindingHelper.ConvertValue(typeof(Brush), "#FF434A54")));
 
         public static readonly DependencyProperty OffIconProperty =
-            DependencyProperty.Register("OffIcon", typeof(string), typeof(OnOffPluginControl), new PropertyMetadata("\uf00d"));
+            DependencyProperty.Register("OffIcon", typeof(string), typeof(OnOffPluginControl), new PropertyMetadata("jeedom_lumiere_off"));
 
         public static readonly DependencyProperty OffProperty =
             DependencyProperty.Register("Off", typeof(Command), typeof(OnOffPluginControl), new PropertyMetadata(null));
 
         public static readonly DependencyProperty OnBrushProperty =
-            DependencyProperty.Register("OnBrush", typeof(Brush), typeof(OnOffPluginControl), new PropertyMetadata(XamlBindingHelper.ConvertValue(typeof(Brush), "#FF8CC152")));
+            DependencyProperty.Register("OnBrush", typeof(Brush), typeof(OnOffPluginControl), new PropertyMetadata(XamlBindingHelper.ConvertValue(typeof(Brush), "#FF96C927")));
 
         public static readonly DependencyProperty OnIconProperty =
-                    DependencyProperty.Register("OnIcon", typeof(string), typeof(OnOffPluginControl), new PropertyMetadata("\uf00c"));
+                    DependencyProperty.Register("OnIcon", typeof(string), typeof(OnOffPluginControl), new PropertyMetadata("jeedom_lumiere_on"));
 
         public static readonly DependencyProperty OnProperty =
             DependencyProperty.Register("On", typeof(Command), typeof(OnOffPluginControl), new PropertyMetadata(null));
@@ -40,7 +40,7 @@ namespace JeedomApp.Controls
                     DependencyProperty.Register("StateBrush", typeof(Brush), typeof(OnOffPluginControl), new PropertyMetadata(null));
 
         public static readonly DependencyProperty StateIconProperty =
-            DependencyProperty.Register("StateIcon", typeof(string), typeof(OnOffPluginControl), new PropertyMetadata("\uf00d"));
+            DependencyProperty.Register("StateIcon", typeof(string), typeof(OnOffPluginControl), new PropertyMetadata("jeedom_lumiere_off"));
 
         public static readonly DependencyProperty StateProperty =
             DependencyProperty.Register("State", typeof(Command), typeof(OnOffPluginControl), new PropertyMetadata(null));
