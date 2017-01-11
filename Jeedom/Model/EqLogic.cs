@@ -360,7 +360,7 @@ namespace Jeedom.Model
 
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            System.Diagnostics.Debug.WriteLine("eqLogic update : " + Name + " " + propertyName);
+            //System.Diagnostics.Debug.WriteLine("eqLogic update : " + Name + " " + propertyName);
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
