@@ -108,15 +108,13 @@ namespace JeedomApp.Controls
                     modal.IsModal = false;
             });
         }
-        MainPage rootPage = MainPage.Current;
-
+       
         BarcodeScanner scanner = null;
         ClaimedBarcodeScanner claimedScanner = null;
         private async Task<bool> CreateDefaultScannerObject()
         {
             if (scanner == null)
             {
-                rootPage.NotifyUser("Creating barcode scanner object.", NotifyType.StatusMessage);
                 DeviceInformationCollection deviceCollection = await DeviceInformation.FindAllAsync(BarcodeScanner.GetDeviceSelector());
                 if (deviceCollection != null && deviceCollection.Count > 0)
                 {
@@ -124,14 +122,12 @@ namespace JeedomApp.Controls
 
                     if (scanner == null)
                     {
-                        rootPage.NotifyUser("Failed to create barcode scanner object.", NotifyType.ErrorMessage);
                         return false;
                     }
                 }
                 else
                 {
-                    rootPage.NotifyUser("Barcode scanner not found. Please connect a barcode scanner.", NotifyType.ErrorMessage);
-                    return false;
+                     return false;
                 }
             }
 
@@ -147,26 +143,14 @@ namespace JeedomApp.Controls
                 // enable the claimed barcode scanner
                 if (claimedScanner == null)
                 {
-                    rootPage.NotifyUser("Claim barcode scanner failed.", NotifyType.ErrorMessage);
-                    return false;
+                     return false;
                 }
             }
             return true;
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            ResetTheScenarioState();
-            base.OnNavigatedTo(e);
-        }
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            ResetTheScenarioState();
-            base.OnNavigatedFrom(e);
-        }
         private async void QrCodeInfo_Click(object sender, RoutedEventArgs e)
         {
-            rootPage.NotifyUser("Creating barcode scanner object.", NotifyType.StatusMessage);
-
+          
             // create the barcode scanner. 
             if (await CreateDefaultScannerObject())
             {
@@ -194,8 +178,7 @@ namespace JeedomApp.Controls
                     //ScenarioEndScanButton.IsEnabled = true;
                    // ScenarioStartScanButton.IsEnabled = false;
 
-                    rootPage.NotifyUser("Ready to scan. Device ID: " + claimedScanner.DeviceId, NotifyType.StatusMessage);
-                }
+                     }
             }
         }
         async void claimedScanner_ReleaseDeviceRequested(object sender, ClaimedBarcodeScanner e)
@@ -205,8 +188,7 @@ namespace JeedomApp.Controls
 
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                rootPage.NotifyUser("Event ReleaseDeviceRequested received. Retaining the barcode scanner.", NotifyType.StatusMessage);
-            });
+               });
         }
 
         string GetDataString(IBuffer data)
@@ -295,10 +277,7 @@ namespace JeedomApp.Controls
               //  ScenarioOutputScanDataType.Text = BarcodeSymbologies.GetName(args.Report.ScanDataType);
             });
         }
-
-        /// <summary>
-        /// Reset the Scenario state
-        /// </summary>
+        
         private void ResetTheScenarioState()
         {
             if (claimedScanner != null)
@@ -312,24 +291,8 @@ namespace JeedomApp.Controls
             }
 
             scanner = null;
-
-            // Reset the strings in the UI
-            rootPage.NotifyUser("Click the start scanning button to begin.", NotifyType.StatusMessage);
-            //this.ScenarioOutputScanData.Text = "No data";
-            //this.ScenarioOutputScanDataLabel.Text = "No data";
-           // this.ScenarioOutputScanDataType.Text = "No data";
-
-            // reset the button state
-           // ScenarioEndScanButton.IsEnabled = false;
-            //ScenarioStartScanButton.IsEnabled = true;
+            
         }
-
-        /// <summary>
-        /// Event handler for End Scan Button Click. 
-        /// Releases the Barcode Scanner and resets the text in the UI
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
        /* private void ScenarioEndScanButton_Click(object sender, RoutedEventArgs e)
         {
             // reset the scenario state
