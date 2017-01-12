@@ -41,8 +41,8 @@
             <ctl:VariableSizedGridView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VariableSizedWrapGrid
-                        ItemHeight="60"
-                        ItemWidth="60"
+                        ItemHeight="56"
+                        ItemWidth="56"
                         MaximumRowsOrColumns="20"
                         Orientation="Horizontal" />
                 </ItemsPanelTemplate>

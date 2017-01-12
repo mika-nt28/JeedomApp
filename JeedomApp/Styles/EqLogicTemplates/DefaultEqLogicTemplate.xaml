@@ -167,8 +167,8 @@
                 <Controls:VariableSizedGridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VariableSizedWrapGrid
-                            ItemHeight="118"
-                            ItemWidth="118"
+                            ItemHeight="110"
+                            ItemWidth="110"
                             MaximumRowsOrColumns="3"
                             Orientation="Horizontal" />
                     </ItemsPanelTemplate>
