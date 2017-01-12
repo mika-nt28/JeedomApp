@@ -90,8 +90,9 @@ namespace Jeedom
 
             set
             {
-                _password = value;
-                RoamingSettings.Values[settingPassword] = value;
+                byte[] bytes = Encoding.Default.GetBytes(value);
+                _password = Encoding.UTF8.GetString(bytes);
+                RoamingSettings.Values[settingPassword] = _password;
             }
         }
 
