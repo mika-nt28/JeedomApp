@@ -30,13 +30,25 @@
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenTrueConverter}, FallbackValue=Collapsed}">
-            <Viewbox MaxHeight="50">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontFamily="{StaticResource JeedomIcons}"
-                    Foreground="White"
-                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe611;, Converter={StaticResource JeedomIconConverter}}" />
-            </Viewbox>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Row="1" Grid.Column="1">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="{StaticResource JeedomIcons}"
+                        Foreground="White"
+                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe611;, Converter={StaticResource JeedomIconConverter}}" />
+                </Viewbox>
+            </Grid>
         </Button>
         <!--  On  -->
         <Button
@@ -52,13 +64,26 @@
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenFalseConverter}}">
-            <Viewbox MaxHeight="50">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontFamily="{StaticResource JeedomIcons}"
-                    Foreground="White"
-                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe610;, Converter={StaticResource JeedomIconConverter}}" />
-            </Viewbox>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Viewbox Grid.Row="1" Grid.Column="1">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="{StaticResource JeedomIcons}"
+                        Foreground="White"
+                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe610;, Converter={StaticResource JeedomIconConverter}}" />
+                </Viewbox>
+            </Grid>
+
         </Button>
     </RelativePanel>
 </UserControl>

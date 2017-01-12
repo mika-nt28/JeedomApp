@@ -1,4 +1,5 @@
 ﻿using Jeedom.Model;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Template10.Mvvm;
@@ -161,7 +162,7 @@ namespace JeedomApp.Controls
             if (State == null)
                 return;
 
-            if (State.Value == "1" || State.Value.ToLower() == "on")
+            if (State.Value == "1" || State.Value.ToLower() == "on" || Convert.ToInt32(State.Value) > 0 )
             {
                 StateBool = true;
                 StateBrush = OnBrush;
