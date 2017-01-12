@@ -314,7 +314,7 @@ namespace Jeedom
         {
             Parameters parameters = new Parameters();
             parameters.plugin = "mobile";
-            parameters.platform = "windows";
+            parameters.type_mobile = "windows";
             var jsonrpc = new JsonRpcClient(parameters);
             await jsonrpc.SendRequest("Iq");
             return jsonrpc.Error;
