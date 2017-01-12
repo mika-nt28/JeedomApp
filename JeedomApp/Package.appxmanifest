@@ -25,20 +25,12 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
-          <uap:AppService Name="JeedomAppVoiceCommandService" />
-        </uap:Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
           <BackgroundTasks>
-            <Task Type="timer" />
+            <Task Type="location" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationHistoryChangedTriggerTask">
-          <BackgroundTasks>
-            <Task Type="systemEvent" />
-          </BackgroundTasks>
-        </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationQuickReplyTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.BadgeNotificationHistoryChangedTriggerTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
           </BackgroundTasks>
@@ -48,16 +40,24 @@
             <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.BadgeNotificationHistoryChangedTriggerTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationQuickReplyTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.ToastNotificationHistoryChangedTriggerTask">
           <BackgroundTasks>
-            <Task Type="location" />
+            <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
+          <uap:AppService Name="JeedomAppVoiceCommandService" />
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
@@ -65,8 +65,6 @@
     <Capability Name="internetClient" />
     <Capability Name="internetClientServer" />
     <Capability Name="privateNetworkClientServer" />
-    <uap:Capability Name="objects3D" />
-    <uap:Capability Name="sharedUserCertificates" />
     <DeviceCapability Name="location" />
     <DeviceCapability Name="microphone" />
     <DeviceCapability Name="webcam" />
