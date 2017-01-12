@@ -12,26 +12,17 @@
 
     <!--  Template pour un equipement Météo DarkSky  -->
     <DataTemplate x:Key="DarkSkyEqLogicTemplate">
-        <RelativePanel d:DesignHeight="240" d:DesignWidth="240">
+        <Controls:TileControl
+            Title="{Binding Name, FallbackValue=Name}"
+            d:DesignHeight="240"
+            d:DesignWidth="240"
+            SubTitle="{Binding Datacontext.StateBool, ElementName=OnOff}">
             <Controls:WeatherPluginControl
                 RelativePanel.AlignBottomWithPanel="True"
                 RelativePanel.AlignLeftWithPanel="True"
                 RelativePanel.AlignRightWithPanel="True"
                 RelativePanel.AlignTopWithPanel="True"
                 TheEqLogic="{Binding}" />
-            <TextBlock
-                x:Name="PART_Name"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                RelativePanel.AlignHorizontalCenterWithPanel="True"
-                RelativePanel.AlignTopWithPanel="True"
-                Text="{Binding Name, FallbackValue=Name}" />
-            <ProgressRing
-                x:Name="PART_Updating"
-                IsActive="True"
-                RelativePanel.AlignRightWithPanel="True"
-                RelativePanel.AlignTopWithPanel="True"
-                Visibility="{Binding Updating, Converter={StaticResource UpdatingConverter}}" />
-        </RelativePanel>
+        </Controls:TileControl>
     </DataTemplate>
 </ResourceDictionary>

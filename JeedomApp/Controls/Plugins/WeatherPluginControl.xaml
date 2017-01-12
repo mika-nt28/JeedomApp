@@ -6,7 +6,7 @@
     xmlns:local="using:JeedomApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="224"
-    d:DesignWidth="211"
+    d:DesignWidth="224"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -24,9 +24,12 @@
         <!--  Icone Actuel  -->
         <Viewbox
             x:Name="InfosJour"
-            MaxHeight="90"
-            Margin="0,30,0,0"
-            RelativePanel.AlignHorizontalCenterWithPanel="True">
+            Margin="10,20,10,0"
+            RelativePanel.Above="TextBlockSummary"
+            RelativePanel.AlignHorizontalCenterWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True">
             <RelativePanel>
                 <TextBlock
                     x:Name="icon"
@@ -53,6 +56,7 @@
         </Viewbox>
 
         <TextBlock
+            x:Name="TextBlockSummary"
             Margin="0,0,0,8"
             VerticalAlignment="Center"
             FontSize="18"
@@ -230,7 +234,7 @@
             <!--  Jour 5  -->
             <RelativePanel
                 Grid.Column="4"
-                Margin="0,0,1,0"
+                Margin="0,0,0,0"
                 Background="#33000000">
                 <TextBlock
                     FontSize="10"
