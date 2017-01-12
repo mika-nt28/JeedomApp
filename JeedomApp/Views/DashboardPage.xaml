@@ -64,8 +64,16 @@
                                     Text="Vignettes larges" />
                                 <MenuFlyoutItem
                                     Click="MenuFlyoutItem_ChangeSizeClick"
+                                    Tag="extra-wide"
+                                    Text="Vignettes extra-larges" />
+                                <MenuFlyoutItem
+                                    Click="MenuFlyoutItem_ChangeSizeClick"
                                     Tag="large"
                                     Text="Grandes vignettes" />
+                                <MenuFlyoutItem
+                                    Click="MenuFlyoutItem_ChangeSizeClick"
+                                    Tag="extra-large"
+                                    Text="Extra-grandes vignettes" />
                             </MenuFlyoutSubItem>
                         </MenuFlyout>
                     </Pivot.Resources>

@@ -109,9 +109,19 @@ namespace JeedomApp.Views
                     VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 4);
                     break;
 
+                case "extra-wide":
+                    VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 4);
+                    VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 6);
+                    break;
+
                 case "large":
                     VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 4);
                     VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 4);
+                    break;
+
+                case "extra-large":
+                    VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 6);
+                    VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 6);
                     break;
 
                 default:
@@ -126,41 +136,8 @@ namespace JeedomApp.Views
 
         #region Private Methods
 
-        #region ChangeSizeCommand
-
-        private RelayCommand<object> _ChangeSizeCommand;
-        /// <summary>
-        /// Change la taille de la tuile https://msdn.microsoft.com/fr-fr/windows/uwp/controls-and-patterns/tiles-and-notifications-app-assets
-        /// </summary>
-        /// <param name="param"></param>
-
-        public RelayCommand<object> ChangeSizeCommand
-        {
-            get
-            {
-                this._ChangeSizeCommand = this._ChangeSizeCommand ?? new RelayCommand<object>(parameters =>
-               {
-                   try
-                   {
-                   }
-                   catch (Exception) { }
-               });
-                return this._ChangeSizeCommand;
-            }
-        }
-
-        #endregion ChangeSizeCommand
-
         public void MenuFlyoutItem_PinToStartClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 2);
-                VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 2);
-                VariableSizedWrapGrid vswGrid = VisualTreeHelper.GetParent(_eqLogicItemSelected) as VariableSizedWrapGrid;
-                vswGrid.InvalidateMeasure();
-            }
-            catch (Exception) { }
         }
 
         #endregion Private Methods
