@@ -16,6 +16,7 @@ namespace Jeedom
         private bool _useExtHost = false;
         private string _twoFactorCode;
         private string _apikey;
+        private string _idMobile;
 
        /* public static bool HasInternetConnection()
         {
@@ -89,7 +90,9 @@ namespace Jeedom
 
             set
             {
-                _password = value;
+                byte[] bytes = Encoding.Default.GetBytes(value);
+                _password = Encoding.UTF8.GetString(bytes);
+                RoamingSettings.Values[settingPassword] = _password;
             }
         }
 
@@ -103,7 +106,7 @@ namespace Jeedom
             set
             {
                 _connexionAuto = value;
-                RoamingSettings.Values[settingConnexionAuto] = value;
+                LocalSettings.Values[settingConnexionAuto] = value;
             }
         }
 
@@ -117,7 +120,6 @@ namespace Jeedom
             set
             {
                 _twoFactor = value;
-                RoamingSettings.Values[settingTwoFactor] = value;
             }
         }
 
@@ -179,6 +181,21 @@ namespace Jeedom
             get
             {
                 return _apikey;
+            }
+        }
+        public string IdMobile
+        {
+            set
+            {
+                if (value != null)
+                {
+                    _idMobile = value;
+                    LocalSettings.Values[settingIdMobile] = value;
+                }
+            }
+            get
+            {
+                return _idMobile;
             }
         }
 
@@ -285,12 +302,14 @@ namespace Jeedom
         private const string settingHost = "addressSetting";
         private const string settingHostExt = "addressExtSetting";
         private const string settingLogin = "LoginSetting";
+        private const string settingPassword = "PasswordSetting";
         private const string settingTwoFactor = "TwoFactorSetting";
         private const string settingConnexionAuto = "ConnexionAutoSetting";
         private const string settingAPIKey = "apikeySetting";
+        private const string settingIdMobile = "IdMobileSetting";
 
         /// <summary>
-        /// Supprime tous les paramètres
+        /// Supprime tous les paramÃ¨tres
         /// </summary>
         public void Reset()
         {
@@ -321,16 +340,22 @@ namespace Jeedom
             _hostExt = RoamingSettings.Values[settingHostExt] as string;
             if (_hostExt == null)
                 Populated = false;
+            
             _login = RoamingSettings.Values[settingLogin] as string;
             if (_login == null)
                 Populated = false;
-            if (RoamingSettings.Values[settingTwoFactor] != null)
-                _twoFactor = Convert.ToBoolean(RoamingSettings.Values[settingTwoFactor]);
+            _password = RoamingSettings.Values[settingPassword] as string;
+            if (_password == null)
+                Populated = false;
+            
             if (RoamingSettings.Values[settingConnexionAuto] != null)
-                _twoFactor = Convert.ToBoolean(RoamingSettings.Values[settingConnexionAuto]);
-
+                _connexionAuto = Convert.ToBoolean(RoamingSettings.Values[settingConnexionAuto]);
             _apikey = RoamingSettings.Values[settingAPIKey] as string;
             if (_apikey == null)
+                Populated = false;
+            
+            _idMobile = LocalSettings.Values[settingIdMobile] as string;
+            if (_idMobile == null)
                 Populated = false;
 
             _GeolocActivation = (LocalSettings.Values["GeolocActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeolocActivation"]);
