@@ -27,7 +27,6 @@ namespace JeedomApp.Controls
     /// </summary>
     public sealed partial class ConnectDialog : UserControl
     {
-
         public ConnectDialog()
         {
             this.InitializeComponent();
@@ -58,18 +57,18 @@ namespace JeedomApp.Controls
                 // Connection à Jeedom
                 var error = await RequestViewModel.Instance.ConnectJeedomByLogin();
                 if (error != null)
-                { ShowError(error.message); }
+                { ShowError(error.message); return; }
 
                 // Création du mobile dans le plugin
                 error = await RequestViewModel.Instance.CreateEqLogicMobile();
                 if (error != null)
-                { ShowError(error.message); }
+                { ShowError(error.message); return; }
 
                 error = await RequestViewModel.Instance.SearchConfigByKey("jeedom::url", "core");
                 if (error != null)
-                { ShowError(error.message); }
-
+                { ShowError(error.message); return; }
                 RequestViewModel.config.HostExt = RequestViewModel.Instance.configByKey;
+
                 await taskFactory.StartNew(async () =>
                 {
                     await RequestViewModel.Instance.FirstLaunch();
@@ -108,9 +107,10 @@ namespace JeedomApp.Controls
                     modal.IsModal = false;
             });
         }
-       
-        BarcodeScanner scanner = null;
-        ClaimedBarcodeScanner claimedScanner = null;
+
+        private BarcodeScanner scanner = null;
+        private ClaimedBarcodeScanner claimedScanner = null;
+
         private async Task<bool> CreateDefaultScannerObject()
         {
             if (scanner == null)
@@ -127,12 +127,13 @@ namespace JeedomApp.Controls
                 }
                 else
                 {
-                     return false;
+                    return false;
                 }
             }
 
             return true;
         }
+
         private async Task<bool> ClaimScanner()
         {
             if (claimedScanner == null)
@@ -143,55 +144,58 @@ namespace JeedomApp.Controls
                 // enable the claimed barcode scanner
                 if (claimedScanner == null)
                 {
-                     return false;
+                    return false;
                 }
             }
             return true;
         }
+
         private async void QrCodeInfo_Click(object sender, RoutedEventArgs e)
         {
-          
-            // create the barcode scanner. 
+            // create the barcode scanner.
             if (await CreateDefaultScannerObject())
             {
-                // after successful creation, claim the scanner for exclusive use and enable it so that data reveived events are received.
+                // after successful creation, claim the scanner for exclusive use and enable it so
+                // that data reveived events are received.
                 if (await ClaimScanner())
                 {
-
-                    // It is always a good idea to have a release device requested event handler. If this event is not handled, there are chances of another app can 
-                    // claim ownsership of the barcode scanner.
+                    // It is always a good idea to have a release device requested event handler. If
+                    // this event is not handled, there are chances of another app can claim
+                    // ownsership of the barcode scanner.
                     claimedScanner.ReleaseDeviceRequested += claimedScanner_ReleaseDeviceRequested;
 
                     // after successfully claiming, attach the datareceived event handler.
                     claimedScanner.DataReceived += claimedScanner_DataReceived;
 
-                    // Ask the API to decode the data by default. By setting this, API will decode the raw data from the barcode scanner and 
-                    // send the ScanDataLabel and ScanDataType in the DataReceived event
+                    // Ask the API to decode the data by default. By setting this, API will decode
+                    // the raw data from the barcode scanner and send the ScanDataLabel and
+                    // ScanDataType in the DataReceived event
                     claimedScanner.IsDecodeDataEnabled = true;
 
                     // enable the scanner.
-                    // Note: If the scanner is not enabled (i.e. EnableAsync not called), attaching the event handler will not be any useful because the API will not fire the event 
-                    // if the claimedScanner has not beed Enabled
+                    // Note: If the scanner is not enabled (i.e. EnableAsync not called), attaching
+                    //       the event handler will not be any useful because the API will not fire
+                    //       the event if the claimedScanner has not beed Enabled
                     await claimedScanner.EnableAsync();
 
                     // reset the button state
                     //ScenarioEndScanButton.IsEnabled = true;
-                   // ScenarioStartScanButton.IsEnabled = false;
-
-                     }
+                    // ScenarioStartScanButton.IsEnabled = false;
+                }
             }
         }
-        async void claimedScanner_ReleaseDeviceRequested(object sender, ClaimedBarcodeScanner e)
+
+        private async void claimedScanner_ReleaseDeviceRequested(object sender, ClaimedBarcodeScanner e)
         {
             // always retain the device
             e.RetainDevice();
 
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-               });
+            });
         }
 
-        string GetDataString(IBuffer data)
+        private string GetDataString(IBuffer data)
         {
             StringBuilder result = new StringBuilder();
 
@@ -224,11 +228,11 @@ namespace JeedomApp.Controls
             return result.ToString();
         }
 
-        string GetDataLabelString(IBuffer data, uint scanDataType)
+        private string GetDataLabelString(IBuffer data, uint scanDataType)
         {
             string result = null;
-            // Only certain data types contain encoded text.
-            //   To keep this simple, we'll just decode a few of them.
+            // Only certain data types contain encoded text. To keep this simple, we'll just decode a
+            // few of them.
             if (data == null)
             {
                 result = "No data";
@@ -245,17 +249,18 @@ namespace JeedomApp.Controls
                     case "UpceAdd5":
                     case "Ean8":
                     case "TfStd":
-                        // The UPC, EAN8, and 2 of 5 families encode the digits 0..9
-                        // which are then sent to the app in a UTF8 string (like "01234")
+                        // The UPC, EAN8, and 2 of 5 families encode the digits 0..9 which are then
+                        // sent to the app in a UTF8 string (like "01234")
 
                         // This is not an exhaustive list of symbologies that can be converted to a string
 
                         DataReader reader = DataReader.FromBuffer(data);
                         result = reader.ReadString(data.Length);
                         break;
+
                     default:
-                        // Some other symbologies (typically 2-D symbologies) contain binary data that
-                        //  should not be converted to text.
+                        // Some other symbologies (typically 2-D symbologies) contain binary data
+                        // that should not be converted to text.
                         result = string.Format("Decoded data unavailable. Raw label data: {0}", GetDataString(data));
                         break;
                 }
@@ -263,21 +268,22 @@ namespace JeedomApp.Controls
 
             return result;
         }
-        async void claimedScanner_DataReceived(ClaimedBarcodeScanner sender, BarcodeScannerDataReceivedEventArgs args)
+
+        private async void claimedScanner_DataReceived(ClaimedBarcodeScanner sender, BarcodeScannerDataReceivedEventArgs args)
         {
-            // need to update the UI data on the dispatcher thread.
-            // update the UI with the data received from the scan.
+            // need to update the UI data on the dispatcher thread. update the UI with the data
+            // received from the scan.
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 // read the data from the buffer and convert to string.
-               // ScenarioOutputScanDataLabel.Text = GetDataLabelString(args.Report.ScanDataLabel, args.Report.ScanDataType);
+                // ScenarioOutputScanDataLabel.Text = GetDataLabelString(args.Report.ScanDataLabel, args.Report.ScanDataType);
 
-             //   ScenarioOutputScanData.Text = GetDataString(args.Report.ScanData);
+                // ScenarioOutputScanData.Text = GetDataString(args.Report.ScanData);
 
-              //  ScenarioOutputScanDataType.Text = BarcodeSymbologies.GetName(args.Report.ScanDataType);
+                // ScenarioOutputScanDataType.Text = BarcodeSymbologies.GetName(args.Report.ScanDataType);
             });
         }
-        
+
         private void ResetTheScenarioState()
         {
             if (claimedScanner != null)
@@ -291,12 +297,12 @@ namespace JeedomApp.Controls
             }
 
             scanner = null;
-            
         }
-       /* private void ScenarioEndScanButton_Click(object sender, RoutedEventArgs e)
-        {
-            // reset the scenario state
-            this.ResetTheScenarioState();
-        }*/
+
+        /* private void ScenarioEndScanButton_Click(object sender, RoutedEventArgs e)
+         {
+             // reset the scenario state
+             this.ResetTheScenarioState();
+         }*/
     }
 }
