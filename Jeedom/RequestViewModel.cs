@@ -314,9 +314,16 @@ namespace Jeedom
         {
             Parameters parameters = new Parameters();
             parameters.plugin = "mobile";
-            parameters.type_mobile = "windows";
+            parameters.platform = "windows";
             var jsonrpc = new JsonRpcClient(parameters);
-            await jsonrpc.SendRequest("Iq");
+            if (await jsonrpc.SendRequest("Iq"))
+            {
+                // Récupère la liste de tous les eqLogics
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (reponse != null)
+                {
+                    config.IdMobile = reponse.result;
+                }
             return jsonrpc.Error;
         }
 
