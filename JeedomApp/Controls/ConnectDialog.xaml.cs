@@ -115,11 +115,15 @@ namespace JeedomApp.Controls
         {
             if (scanner == null)
             {
-                DeviceInformationCollection deviceCollection = await DeviceInformation.FindAllAsync(BarcodeScanner.GetDeviceSelector());
+                var DeviceSelector = BarcodeScanner.GetDeviceSelector();
+                DeviceInformationCollection deviceCollection = await DeviceInformation.FindAllAsync();
                 if (deviceCollection != null && deviceCollection.Count > 0)
                 {
-                    scanner = await BarcodeScanner.FromIdAsync(deviceCollection[0].Id);
-
+                    foreach (var device in deviceCollection) { 
+                        scanner = await BarcodeScanner.FromIdAsync(device.Id);
+                        if (scanner != null)
+                            break;
+                    }
                     if (scanner == null)
                     {
                         return false;
