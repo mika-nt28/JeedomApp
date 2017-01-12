@@ -324,6 +324,8 @@ namespace Jeedom
                 {
                     config.IdMobile = reponse.result;
                 }
+            }
+
             return jsonrpc.Error;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Windows.Networking.Connectivity;
 using Windows.Storage;
 
@@ -18,38 +19,37 @@ namespace Jeedom
         private string _apikey;
         private string _idMobile;
 
-       /* public static bool HasInternetConnection()
-        {
-            bool hasInternet = false;
-            ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
-            if (profile != null) hasInternet = profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
-            return hasInternet;
-        }*/
+        /* public static bool HasInternetConnection()
+         {
+             bool hasInternet = false;
+             ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
+             if (profile != null) hasInternet = profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+             return hasInternet;
+         }*/
 
         public Uri Uri
         {
             get
             {
-               // if (HasInternetConnection())
-               // {
-                    if (_useExtHost == false)
-                    {
-                        if (_host == "")
-                            return null;
-                        _uri = new UriBuilder(_host);
-                    }
-                    else
-                    {
-                        if (_hostExt == "")
-                            return null;
-                        _uri = new UriBuilder(_hostExt);
-                    }
-                    if (_uri.Scheme == "https")
-                        _uri.Port = 443;
-                    else
-                        _uri.Port = 80;
-                    return _uri.Uri;
-              //  }
+                // if (HasInternetConnection()) {
+                if (_useExtHost == false)
+                {
+                    if (_host == "")
+                        return null;
+                    _uri = new UriBuilder(_host);
+                }
+                else
+                {
+                    if (_hostExt == "")
+                        return null;
+                    _uri = new UriBuilder(_hostExt);
+                }
+                if (_uri.Scheme == "https")
+                    _uri.Port = 443;
+                else
+                    _uri.Port = 80;
+                return _uri.Uri;
+                // }
                 return null;
             }
         }
@@ -90,7 +90,7 @@ namespace Jeedom
 
             set
             {
-                byte[] bytes = Encoding.Default.GetBytes(value);
+                byte[] bytes = Encoding.GetEncoding(0).GetBytes(value);
                 _password = Encoding.UTF8.GetString(bytes);
                 RoamingSettings.Values[settingPassword] = _password;
             }
@@ -183,6 +183,7 @@ namespace Jeedom
                 return _apikey;
             }
         }
+
         public string IdMobile
         {
             set
@@ -340,20 +341,20 @@ namespace Jeedom
             _hostExt = RoamingSettings.Values[settingHostExt] as string;
             if (_hostExt == null)
                 Populated = false;
-            
+
             _login = RoamingSettings.Values[settingLogin] as string;
             if (_login == null)
                 Populated = false;
             _password = RoamingSettings.Values[settingPassword] as string;
             if (_password == null)
                 Populated = false;
-            
+
             if (RoamingSettings.Values[settingConnexionAuto] != null)
                 _connexionAuto = Convert.ToBoolean(RoamingSettings.Values[settingConnexionAuto]);
             _apikey = RoamingSettings.Values[settingAPIKey] as string;
             if (_apikey == null)
                 Populated = false;
-            
+
             _idMobile = LocalSettings.Values[settingIdMobile] as string;
             if (_idMobile == null)
                 Populated = false;
