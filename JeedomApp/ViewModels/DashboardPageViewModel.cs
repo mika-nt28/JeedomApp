@@ -2,6 +2,7 @@
 using Jeedom.Api.Json;
 using Jeedom.Api.Json.Response;
 using Jeedom.Model;
+using Jeedom.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,7 +20,7 @@ namespace JeedomApp.ViewModels
 {
     public class DashboardPageViewModel : ViewModelBase
     {
-        //public static DashboardPageViewModel Instance { get; private set; }
+        public static DashboardPageViewModel Instance { get; private set; }
 
         public ObservableCollection<JdObject> ObjectList { get; } = RequestViewModel.Instance.ObjectList;
         public ObservableCollection<Command> CommandList { get; } = RequestViewModel.Instance.CommandList;
@@ -29,11 +30,12 @@ namespace JeedomApp.ViewModels
 
         //public ObservableCollection<EqLogic> EqLogicList => RequestViewModel.Instance.EqLogicList;
         //public ObservableCollection<Command> CommandList => RequestViewModel.Instance.CommandList;
+
         public Boolean Updating => RequestViewModel.Instance.Updating;
 
         public DashboardPageViewModel()
         {
-            //Instance = this;
+            Instance = this;
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> state)

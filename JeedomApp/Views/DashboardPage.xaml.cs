@@ -1,11 +1,14 @@
 ﻿using Jeedom;
 using Jeedom.Model;
+using Jeedom.Mvvm;
+using JeedomApp.Controls;
 using JeedomApp.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Template10.Mvvm;
 using Template10.Services.NavigationService;
 using Windows.Foundation.Metadata;
 using Windows.Storage;
@@ -16,6 +19,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,53 +31,141 @@ namespace JeedomApp.Views
     /// </summary>
     public sealed partial class DashboardPage : Page
     {
+        #region Private Fields
+
+        private GridViewItem _eqLogicItemSelected;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
         public DashboardPage()
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
-        private void Grid_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        #endregion Public Constructors
+
+        #region Public Methods
+
+        /// <summary>
+        /// Permet de retouver le premier parent correspondant
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="child"></param>
+        /// <returns></returns>
+        public T FindParent<T>(DependencyObject child) where T : DependencyObject
         {
-            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+            var parent = VisualTreeHelper.GetParent(child);
+
+            if (parent == null)
+                return null;
+
+            if (parent is T)
+                return parent as T;
+            else
+                return FindParent<T>(parent);
         }
 
-        private async void MenuFlyoutItem_Click(object sender, RoutedEventArgs e)
+        public void Grid_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            FileOpenPicker openPicker = new FileOpenPicker();
-            openPicker.ViewMode = PickerViewMode.Thumbnail;
-            openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
-            openPicker.FileTypeFilter.Add(".jpg");
-            openPicker.FileTypeFilter.Add(".jpeg");
-            openPicker.FileTypeFilter.Add(".png");
+            // http://stackoverflow.com/questions/36741757/uwp-listview-item-context-menu
 
-            StorageFile file = await openPicker.PickSingleFileAsync();
+            // Cherche si on est bien sur une tuile, sinon on sort
+            var item = FindParent<GridViewItem>(((FrameworkElement)e.OriginalSource));
+            if (item == null)
+                return;
 
-            if (file != null)
+            // Enregistre l'item sélectionné
+            _eqLogicItemSelected = item;
+
+            //Cherche la VariableSizedGridView
+            var gridView = FindParent<VariableSizedGridView>(((FrameworkElement)e.OriginalSource));
+
+            // Affiche le menu
+            eqLogicsMenuFlyout.ShowAt(gridView, e.GetPosition(gridView));
+        }
+
+        public void MenuFlyoutItem_ChangeSizeClick(object sender, RoutedEventArgs e)
+        {
+            var item = sender as MenuFlyoutItem;
+            var size = item.Tag as string;
+
+            switch (size)
             {
-                var item = sender as MenuFlyoutItem;
-                var id = item.Tag as string;
+                case "small":
+                    VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 1);
+                    VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 1);
+                    break;
 
-                //RequestViewModel.Instance.UpdateObjectImage(id, null);
-                //var onedrivefile = await RequestViewModel.ImageFolder.CreateFileAsync("dmj" + id, CreationCollisionOption.ReplaceExisting);
-                //await file.CopyAndReplaceAsync(onedrivefile);
-                //RequestViewModel.UpdateObjectImage(id, onedrivefile.DisplayName);
+                case "med":
+                    VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 2);
+                    VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 2);
+                    break;
+
+                case "wide":
+                    VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 2);
+                    VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 4);
+                    break;
+
+                case "large":
+                    VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 4);
+                    VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 4);
+                    break;
+
+                default:
+                    break;
+            }
+            // Recharge la disposition de la WrapGrid
+            VariableSizedWrapGrid vswGrid = VisualTreeHelper.GetParent(_eqLogicItemSelected) as VariableSizedWrapGrid;
+            vswGrid.InvalidateMeasure();
+        }
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        #region ChangeSizeCommand
+
+        private RelayCommand<object> _ChangeSizeCommand;
+        /// <summary>
+        /// Change la taille de la tuile https://msdn.microsoft.com/fr-fr/windows/uwp/controls-and-patterns/tiles-and-notifications-app-assets
+        /// </summary>
+        /// <param name="param"></param>
+
+        public RelayCommand<object> ChangeSizeCommand
+        {
+            get
+            {
+                this._ChangeSizeCommand = this._ChangeSizeCommand ?? new RelayCommand<object>(parameters =>
+               {
+                   try
+                   {
+                   }
+                   catch (Exception) { }
+               });
+                return this._ChangeSizeCommand;
             }
         }
 
-        /*private /*async void MenuFlyoutItem_Click_1(object sender, RoutedEventArgs e)
+        #endregion ChangeSizeCommand
+
+        public void MenuFlyoutItem_PinToStartClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                var item = sender as MenuFlyoutItem;
-                var id = item.Tag as string;
-                //RequestViewModel.UpdateObjectImage(id, null);
-                //var file = await RequestViewModel.ImageFolder.GetFileAsync("dmj" + id);
-                //await file.DeleteAsync();
+                VariableSizedWrapGrid.SetRowSpan(_eqLogicItemSelected, 2);
+                VariableSizedWrapGrid.SetColumnSpan(_eqLogicItemSelected, 2);
+                VariableSizedWrapGrid vswGrid = VisualTreeHelper.GetParent(_eqLogicItemSelected) as VariableSizedWrapGrid;
+                vswGrid.InvalidateMeasure();
             }
             catch (Exception) { }
         }
 
+        #endregion Private Methods
+
+        /*
         private async void MenuFlyoutItem_Click_Epingler(object sender, RoutedEventArgs e)
         {
             try

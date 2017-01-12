@@ -13,6 +13,7 @@
     xmlns:localctl="using:JeedomApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:JeedomApp.ViewModels"
+    x:Name="ThisPage"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -31,31 +32,44 @@
         <!--  header  -->
         <controls:PageHeader x:Name="pageHeader" Text="Tableau de bord">
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton Icon="Refresh" Label="Actualiser" Command="{Binding Request.RefreshCommand}" />
+                <AppBarButton
+                    Command="{Binding Request.RefreshCommand}"
+                    Icon="Refresh"
+                    Label="Actualiser" />
             </controls:PageHeader.PrimaryCommands>
         </controls:PageHeader>
 
         <!--  content  -->
         <Grid Grid.Row="1">
             <ScrollViewer>
-                <!--
-                <ListView ItemsSource="{Binding CommandList}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Margin="10" Text="{Binding Id}" />
-                                    <TextBlock Margin="10" Text="{Binding Name}" />
-                                    <TextBlock Margin="10" Text="{Binding Value}" />
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
                 <Pivot
                     HeaderTemplate="{StaticResource ObjectHeaderTemplate}"
                     ItemTemplate="{StaticResource ObjectPageTemplate}"
-                    ItemsSource="{Binding ObjectList}" />
+                    ItemsSource="{Binding ObjectList}">
+                    <Pivot.Resources>
+                        <MenuFlyout x:Name="eqLogicsMenuFlyout">
+                            <MenuFlyoutItem Click="MenuFlyoutItem_PinToStartClick" Text="Epingler à l'écran de démarrage" />
+                            <MenuFlyoutSubItem Text="Redimensionner">
+                                <MenuFlyoutItem
+                                    Click="MenuFlyoutItem_ChangeSizeClick"
+                                    Tag="small"
+                                    Text="Petites vignettes" />
+                                <MenuFlyoutItem
+                                    Click="MenuFlyoutItem_ChangeSizeClick"
+                                    Tag="med"
+                                    Text="Vignettes moyennes" />
+                                <MenuFlyoutItem
+                                    Click="MenuFlyoutItem_ChangeSizeClick"
+                                    Tag="wide"
+                                    Text="Vignettes larges" />
+                                <MenuFlyoutItem
+                                    Click="MenuFlyoutItem_ChangeSizeClick"
+                                    Tag="large"
+                                    Text="Grandes vignettes" />
+                            </MenuFlyoutSubItem>
+                        </MenuFlyout>
+                    </Pivot.Resources>
+                </Pivot>
             </ScrollViewer>
         </Grid>
 

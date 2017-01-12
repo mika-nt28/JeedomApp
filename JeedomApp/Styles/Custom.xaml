@@ -17,6 +17,9 @@
     <Color x:Key="SystemAccentColor">#96c927</Color>
     <SolidColorBrush x:Key="SystemAccentColorBrush" Color="{StaticResource CustomColor}" />
 
+    <Color x:Key="TileDefaultBackgroundColor">#434a54</Color>
+    <SolidColorBrush x:Key="TileDefaultBackgroundBrush" Color="{StaticResource TileDefaultBackgroundColor}" />
+
     <SolidColorBrush x:Key="BlueBase" Color="#FF0088AA" />
     <SolidColorBrush x:Key="Blue10" Color="#FF19BBB2" />
     <SolidColorBrush x:Key="Blue20" Color="#FF33A0BB" />

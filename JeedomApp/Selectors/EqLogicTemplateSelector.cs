@@ -37,37 +37,37 @@ namespace JeedomApp.Selectors
 
                 case "darksky":
                 case "forecastio":
-                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
-                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
                     return DarkSkyEqLogicTemplate;
 
                 case "camera":
-                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
-                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
                     return CameraEqLogicTemplate;
             }
 
             // Lumière On Off Slider
             if (ContainCmd(eq, new[] { "LIGHT_STATE", "LIGHT_ON", "LIGHT_OFF", "LIGHT_SLIDER" }))
             {
-                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
-                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                 return OnOffSliderEqLogicTemplate;
             }
 
             // Lumière OnOff
             if (ContainCmd(eq, new[] { "LIGHT_STATE", "LIGHT_ON", "LIGHT_OFF" }))
             {
-                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
-                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                 return OnOffEqLogicTemplate;
             }
 
             // Lumière Toggle
             if (ContainCmd(eq, new[] { "LIGHT_STATE", "LIGHT_TOGGLE" }))
             {
-                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 1);
-                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 1);
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                 return OnOffEqLogicTemplate;
             }
 

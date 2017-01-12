@@ -16,7 +16,8 @@
             Title="{Binding Name, FallbackValue=Name}"
             d:DesignHeight="240"
             d:DesignWidth="240"
-            SubTitle="{Binding StateBool, ElementName=OnOff}">
+            SubTitle="{Binding Datacontext.StateBool, ElementName=OnOff}">
+
             <Controls:OnOffPluginControl
                 x:Name="OnOff"
                 DataContext="{Binding}"

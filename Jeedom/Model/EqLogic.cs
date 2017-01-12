@@ -97,9 +97,9 @@ namespace Jeedom.Model
             {
                 var _visibleCmds = GetVisibleCmds().Count();
                 if (_visibleCmds > 3)
-                    return 3;
+                    return 6;
                 else
-                    return _visibleCmds;
+                    return _visibleCmds * 2;
             }
         }
 
@@ -248,9 +248,9 @@ namespace Jeedom.Model
             {
                 var _visibleCmds = GetVisibleCmds().Count();
                 if (_visibleCmds > 3)
-                    return (int)Math.Ceiling((double)_visibleCmds / 3);
+                    return (int)Math.Ceiling((double)_visibleCmds / 3) * 2;
                 else
-                    return 1;
+                    return 2;
             }
         }
 
