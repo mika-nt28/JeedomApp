@@ -26,7 +26,7 @@ namespace Jeedom.Model
         [DataMember]
         public string plugin;
         [DataMember]
-        public string platform;
+        public string type_mobile;
         [DataMember]
         public ParametersOption options;
         [DataMember(IsRequired = false)]
