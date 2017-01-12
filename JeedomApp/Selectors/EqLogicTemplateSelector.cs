@@ -31,8 +31,8 @@ namespace JeedomApp.Selectors
             switch (eq.EqTypeName)
             {
                 case "sonos3":
-                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 3);
-                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 3);
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
                     return SonosEqLogicTemplate;
 
                 case "darksky":
@@ -51,7 +51,7 @@ namespace JeedomApp.Selectors
             if (ContainCmd(eq, new[] { "LIGHT_STATE", "LIGHT_ON", "LIGHT_OFF", "LIGHT_SLIDER" }))
             {
                 container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
-                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
                 return OnOffSliderEqLogicTemplate;
             }
 
