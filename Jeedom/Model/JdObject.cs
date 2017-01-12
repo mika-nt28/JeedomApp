@@ -174,7 +174,7 @@ namespace Jeedom.Model
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            System.Diagnostics.Debug.WriteLine("object update : " + Name + " " + propertyName);
+            //System.Diagnostics.Debug.WriteLine("object update : " + Name + " " + propertyName);
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));

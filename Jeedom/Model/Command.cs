@@ -174,7 +174,7 @@ namespace Jeedom.Model
             if (!Equals(storage, value))
             {
                 storage = value;
-                System.Diagnostics.Debug.WriteLine("cmd update : " + Name + " " + propertyName);
+                //System.Diagnostics.Debug.WriteLine("cmd update : " + Name + " " + propertyName);
                 RaisePropertyChanged(propertyName);
             }
         }

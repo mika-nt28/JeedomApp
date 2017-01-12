@@ -318,8 +318,14 @@ namespace Jeedom
             var jsonrpc = new JsonRpcClient(parameters);
             if (await jsonrpc.SendRequest("Iq"))
             {
+                // Récupère la liste de tous les eqLogics
                 var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (reponse != null)
+                {
+                    config.IdMobile = reponse.result;
+                }
             }
+
             return jsonrpc.Error;
         }
 

@@ -14,7 +14,7 @@
         <ResourceDictionary Source="/Styles/ConvertersRessources.xaml" />
     </UserControl.Resources>
 
-    <RelativePanel Padding="0" Background="{x:Bind StateBrush, Mode=OneWay}">
+    <RelativePanel Padding="0" Background="{x:Bind StateBrush, FallbackValue=#FF434A54, Mode=OneWay}">
 
         <!--  Off  -->
         <Button
@@ -23,19 +23,19 @@
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
-            Background="{x:Null}"
+            Background="{x:Bind OnBrush, FallbackValue=#FF434A54, Mode=OneWay}"
             Command="{x:Bind Off.ExecCommand}"
             RelativePanel.AlignBottomWithPanel="True"
             RelativePanel.AlignLeftWithPanel="True"
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenTrueConverter}, FallbackValue=Collapsed}">
-            <Viewbox MaxHeight="60">
+            <Viewbox MaxHeight="50">
                 <TextBlock
                     HorizontalAlignment="Center"
-                    FontFamily="{StaticResource FontAwesome}"
+                    FontFamily="{StaticResource JeedomIcons}"
                     Foreground="White"
-                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xf00d;}" />
+                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe611;, Converter={StaticResource JeedomIconConverter}}" />
             </Viewbox>
         </Button>
         <!--  On  -->
@@ -45,19 +45,19 @@
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
-            Background="{x:Null}"
+            Background="{x:Bind OffBrush, FallbackValue=#FF8CC152, Mode=OneWay}"
             Command="{x:Bind On.ExecCommand}"
             RelativePanel.AlignBottomWithPanel="True"
             RelativePanel.AlignLeftWithPanel="True"
             RelativePanel.AlignRightWithPanel="True"
             RelativePanel.AlignTopWithPanel="True"
             Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenFalseConverter}}">
-            <Viewbox MaxHeight="60">
+            <Viewbox MaxHeight="50">
                 <TextBlock
                     HorizontalAlignment="Center"
-                    FontFamily="{StaticResource FontAwesome}"
+                    FontFamily="{StaticResource JeedomIcons}"
                     Foreground="White"
-                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xf00c;}" />
+                    Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe610;, Converter={StaticResource JeedomIconConverter}}" />
             </Viewbox>
         </Button>
     </RelativePanel>

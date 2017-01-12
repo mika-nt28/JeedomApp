@@ -11,7 +11,6 @@
         <ResourceDictionary Source="OnOffSliderEqLogicTemplate.xaml" />
         <ResourceDictionary Source="SonosEqLogicTemplate.xaml" />
         <ResourceDictionary Source="DarkSkyEqLogicTemplate.xaml" />
-        <ResourceDictionary Source="ForecastIoEqLogicTemplate.xaml" />
         <ResourceDictionary Source="CameraEqLogicTemplate.xaml" />
         <ResourceDictionary Source="DefaultEqLogicTemplate.xaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -22,7 +21,6 @@
         CameraEqLogicTemplate="{StaticResource CameraEqLogicTemplate}"
         DarkSkyEqLogicTemplate="{StaticResource DarkSkyEqLogicTemplate}"
         DefaultEqLogicTemplate="{StaticResource DefaultEqLogicTemplate}"
-        ForecastIoEqLogicTemplate="{StaticResource ForecastIoEqLogicTemplate}"
         OnOffEqLogicTemplate="{StaticResource OnOffEqLogicTemplate}"
         OnOffSliderEqLogicTemplate="{StaticResource OnOffSliderEqLogicTemplate}"
         SonosEqLogicTemplate="{StaticResource SonosEqLogicTemplate}" />

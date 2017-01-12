@@ -97,9 +97,9 @@ namespace Jeedom.Model
             {
                 var _visibleCmds = GetVisibleCmds().Count();
                 if (_visibleCmds > 3)
-                    return 3;
+                    return 6;
                 else
-                    return _visibleCmds;
+                    return _visibleCmds * 2;
             }
         }
 
@@ -248,9 +248,9 @@ namespace Jeedom.Model
             {
                 var _visibleCmds = GetVisibleCmds().Count();
                 if (_visibleCmds > 3)
-                    return (int)Math.Ceiling((double)_visibleCmds / 3);
+                    return (int)Math.Ceiling((double)_visibleCmds / 3) * 2;
                 else
-                    return 1;
+                    return 2;
             }
         }
 
@@ -360,7 +360,7 @@ namespace Jeedom.Model
 
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            System.Diagnostics.Debug.WriteLine("eqLogic update : " + Name + " " + propertyName);
+            //System.Diagnostics.Debug.WriteLine("eqLogic update : " + Name + " " + propertyName);
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
