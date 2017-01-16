@@ -366,6 +366,13 @@ namespace Jeedom
                     }
                 }
 
+                // Suppression des eqLogics sans cmds
+                for (int i = EqLogicList.Count - 1; i >= 0; i--)
+                {
+                    if (EqLogicList[i].Cmds == null)
+                        EqLogicList.RemoveAt(i);
+                }
+
                 // Affecte les eqLogics à leurs objects correspondants
                 foreach (EqLogic eq in EqLogicList)
                 {
