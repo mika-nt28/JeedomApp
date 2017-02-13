@@ -30,6 +30,7 @@
                 VerticalAlignment="Center"
                 FontFamily="Segoe UI Light"
                 FontSize="13"
+                TextTrimming="CharacterEllipsis"
                 FontWeight="ExtraLight"
                 RelativePanel.AlignHorizontalCenterWithPanel="True"
                 RelativePanel.AlignTopWithPanel="True"
