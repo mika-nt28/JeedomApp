@@ -105,11 +105,13 @@ namespace JeedomApp.Controls
 
         private void Cmds_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("Update UI ");
             UpdateUI();
         }
 
         private void OnOffPluginControl_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
+            System.Diagnostics.Debug.WriteLine("DataContexChange");
             // Pas besoin de recharger
             if (_DataContextLoaded)
                 return;
@@ -121,7 +123,7 @@ namespace JeedomApp.Controls
 
             var eq = (EqLogic)this.DataContext;
 
-            // On s'abonne aux changement des commandes
+            // On s'abonne aux changements des commandes
             eq.Cmds.CollectionChanged += Cmds_CollectionChanged; ;
 
             foreach (var cmd in eq.Cmds)
@@ -146,6 +148,7 @@ namespace JeedomApp.Controls
                         break;
 
                     default:
+
                         break;
                 }
             }
@@ -162,7 +165,10 @@ namespace JeedomApp.Controls
             if (State == null)
                 return;
 
-            if (State.Value == "1" || State.Value.ToLower() == "on" || Convert.ToInt32(State.Value) > 0 )
+            int _ValueInt;
+            int.TryParse(State.Value, out _ValueInt);
+
+            if (State.Value == "1" || State.Value.ToLower() == "on" || _ValueInt > 0)
             {
                 StateBool = true;
                 StateBrush = OnBrush;
