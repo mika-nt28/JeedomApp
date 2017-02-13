@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
+using System.Threading.Tasks;
 
 namespace Jeedom.Model
 {
@@ -78,6 +79,7 @@ namespace Jeedom.Model
                         CmdParameters.name = this.Name;
                         CmdParameters.options = this.WidgetValue;
                         await RequestViewModel.Instance.ExecuteCommand(this, CmdParameters);
+                        await Task.Delay(TimeSpan.FromSeconds(1));
                         await RequestViewModel.Instance.UpdateTask();
 
                         this.Updating = false;
