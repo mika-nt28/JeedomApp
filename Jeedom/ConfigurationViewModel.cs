@@ -31,7 +31,6 @@ namespace Jeedom
         {
             get
             {
-                // if (HasInternetConnection()) {
                 if (_useExtHost == false)
                 {
                     if (_host == "")
@@ -44,13 +43,11 @@ namespace Jeedom
                         return null;
                     _uri = new UriBuilder(_hostExt);
                 }
-                if (_uri.Scheme == "https")
-                    _uri.Port = 443;
-                else
-                    _uri.Port = 80;
+                // Termine l'URL par un "/" pour Docker par exemple dont le chemin est de la forme "http://xxx.xxx.xxx.xxx:xxxx/jeedom"
+                if (!_uri.Path.EndsWith("/"))
+                    _uri.Path += "/";
+
                 return _uri.Uri;
-                // }
-                return null;
             }
         }
 
