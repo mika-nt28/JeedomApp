@@ -17,6 +17,9 @@ namespace JeedomApp.Selectors
         public DataTemplate DarkSkyEqLogicTemplate { get; set; }
         public DataTemplate ZWaveEqLogicTemplate { get; set; }
         public DataTemplate CameraEqLogicTemplate { get; set; }
+        public DataTemplate TemperatureEqLogicTemplate { get; set; }
+        public DataTemplate HumidityEqLogicTemplate { get; set; }
+        public DataTemplate TempHumEqLogicTemplate { get; set; }
 
         #endregion Public Properties
 
@@ -71,6 +74,30 @@ namespace JeedomApp.Selectors
                 return OnOffEqLogicTemplate;
             }
 
+            // Temperature & Humidité
+            if (ContainCmd(eq, new[] { "TEMPERATURE", "HUMIDITY" }))
+            {
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                return TempHumEqLogicTemplate;
+            }
+
+            // Temperature
+            if (ContainCmd(eq, new[] { "TEMPERATURE" }))
+            {
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                return TemperatureEqLogicTemplate;
+            }
+
+            // Humidity
+            if (ContainCmd(eq, new[] { "HUMIDITY" }))
+            {
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                return HumidityEqLogicTemplate;
+            }
+
             return DefaultEqLogicTemplate;
         }
 
@@ -96,7 +123,7 @@ namespace JeedomApp.Selectors
                         _find += 1;
                 }
             }
-            return _find == eq.Cmds.Count();
+            return _find == types.Count();
         }
 
         #endregion Protected Methods

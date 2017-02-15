@@ -146,6 +146,8 @@
     <Compile Include="Converters\MailMessageVisibilityConverter.cs" />
     <Compile Include="Converters\MailVisibilityConverter.cs" />
     <Compile Include="Converters\JeedomIconConverter.cs" />
+    <Compile Include="Converters\ChangeTypeConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Converters\WeatherIconConverter.cs" />
     <Compile Include="Converters\UpdatingConverter.cs" />
     <Compile Include="Converters\ValueConverterGroup.cs" />
@@ -717,6 +719,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Styles\EqLogicTemplates\HumidityEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\TemperatureEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\EqLogicTemplates\EqLogicSelectorRessources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -758,6 +768,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\TempHumEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Busy.xaml">
       <SubType>Designer</SubType>
