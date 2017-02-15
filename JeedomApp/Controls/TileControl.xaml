@@ -25,7 +25,7 @@
                 RelativePanel.AlignTopWithPanel="True" />
             <TextBlock
                 x:Name="PART_Title"
-                Margin="0,2,0,0"
+                Margin="2,2,2,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 FontFamily="Segoe UI Light"
