@@ -55,9 +55,38 @@
         <localconverters:EqLogicCameraFluxConverter />
     </localconverters:ValueConverterGroup>
 
+
     <localconverters:ValueConverterGroup x:Key="GroupState2BrushConverter">
         <localconverters:EqLogicCmdInfoByTypeConverter />
         <localconverters:EqLogicState2BrushConverter />
+    </localconverters:ValueConverterGroup>
+
+    <!--
+        *************************
+        **    Température
+        *************************
+        1 - Cherche la CMD par son generic_type = TEMPERATURE
+        2 - Change la valeur en Double
+        3 - Formate à 0 décimale
+    -->
+    <localconverters:ValueConverterGroup x:Key="GroupTemperatureConverter">
+        <localconverters:EqLogicCmdInfoByTypeConverter />
+        <localconverters:ChangeTypeConverter OutType="Double" />
+        <localconverters:StringFormatConverter Format="{}{0:N0}" />
+    </localconverters:ValueConverterGroup>
+
+    <!--
+        *************************
+        **    Humidité
+        *************************
+        1 - Cherche la CMD par son generic_type = HUMIDITY
+        2 - Change la valeur en Double
+        3 - Formate à 0 décimale
+    -->
+    <localconverters:ValueConverterGroup x:Key="GroupHumidityConverter">
+        <localconverters:EqLogicCmdInfoByTypeConverter />
+        <localconverters:ChangeTypeConverter OutType="Double" />
+        <localconverters:StringFormatConverter Format="{}{0:N0}" />
     </localconverters:ValueConverterGroup>
 
     <!--  Rend visible quand le state est = 'Pause'  -->
