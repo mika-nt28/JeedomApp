@@ -18,6 +18,7 @@ namespace Jeedom
         private string _twoFactorCode;
         private string _apikey;
         private string _idMobile;
+        private string _idPush;
 
         /* public static bool HasInternetConnection()
          {
@@ -196,6 +197,21 @@ namespace Jeedom
                 return _idMobile;
             }
         }
+        public string IdPush
+        {
+            set
+            {
+                if (value != null)
+                {
+                    _idPush = value;
+                    LocalSettings.Values[settingIdPush] = value;
+                }
+            }
+            get
+            {
+                return _idPush;
+            }
+        }
 
         public bool Populated = false;
         private bool _GeolocActivation;
@@ -304,7 +320,8 @@ namespace Jeedom
         private const string settingTwoFactor = "TwoFactorSetting";
         private const string settingConnexionAuto = "ConnexionAutoSetting";
         private const string settingAPIKey = "apikeySetting";
-        private const string settingIdMobile = "IdMobileSetting";
+        private const string settingIdMobile = "IdMobileSetting"; 
+        private const string settingIdPush = "IdPushSetting";
 
         /// <summary>
         /// Supprime tous les paramètres
@@ -354,6 +371,10 @@ namespace Jeedom
 
             _idMobile = LocalSettings.Values[settingIdMobile] as string;
             if (_idMobile == null)
+                Populated = false;
+
+            _idPush = LocalSettings.Values[settingIdPush] as string;
+            if (_idPush == null)
                 Populated = false;
 
             _GeolocActivation = (LocalSettings.Values["GeolocActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeolocActivation"]);

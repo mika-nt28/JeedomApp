@@ -503,13 +503,32 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
+        public async Task<Error> SendNotificationUri(string uri)
+        {
+            Parameters parameters = new Parameters();
+            parameters.plugin = "pushNotification";
+            parameters.platform = "windows";
+            parameters.query = uri;
+            var jsonrpc = new JsonRpcClient(parameters);
+            if (await jsonrpc.SendRequest("Iq"))
+            {
+                // Récupère la liste de tous les eqLogics
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (reponse != null)
+                {
+                    config.IdPush = reponse.result;
+                }
+            }
 
-        public async Task<bool> SendNotificationUri(string uri)
+            return jsonrpc.Error;
+        }
+
+        /*public async Task<bool> SendNotificationUri(string uri)
         {
             var httpRpcClient = new HttpRpcClient("/plugins/pushNotification/php/updatUri.php?api=" + config.ApiKey + "&id=" + config.NotificationObjectId + "&uri=" + uri);
 
             return await httpRpcClient.SendRequest();
-        }
+        }*/
 
         public async Task<bool> SendPosition(string position)
         {

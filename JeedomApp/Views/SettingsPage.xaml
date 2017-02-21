@@ -205,25 +205,8 @@
                         Header="Activation"
                         IsOn="{Binding NotificationActivation, Mode=TwoWay}"
                         Toggled="activePush_Toggled" />
-                    <ComboBox
-                        x:Name="MobileNotification"
-                        Height="60"
-                        SelectionChanged="MobileNotification_Cmd_SelectionChanged"
-                        d:LayoutOverrides="LeftPosition, RightPosition">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding name}" />
-                                    </StackPanel>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
                 </StackPanel>
             </PivotItem>
-
-            <!--  Thème  -->
             <PivotItem Header="Thème">
                 <PivotItem.DataContext>
                     <vm:ThemePartViewModel />

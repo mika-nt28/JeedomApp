@@ -56,21 +56,6 @@ namespace JeedomApp.Views
                     HomePosition_Cmd.SelectedItem = ObjectsSelect;
                 }
             }
-            var ObjetctPush = RequestViewModel.Instance.EqLogicList.Where(w => w.EqTypeName.Equals("pushNotification"));
-            MobileNotification.ItemsSource = ObjetctPush;
-            if (ObjetctPush.Count() == 0)
-                notify.IsEnabled = false;
-            else
-                notify.IsEnabled = true;
-            var NotificationId = settings.Values["NotificationObjectId"];
-            if (NotificationId != null)
-            {
-                foreach (var ObjectsSelect in RequestViewModel.Instance.EqLogicList.Where(w => w.Id.Equals(NotificationId)))
-                {
-                    MobileNotification.SelectedItem = ObjectsSelect;
-                }
-            }
-
             if (settings.Values["Status"] != null)
             {
                 Status.Text = settings.Values["Status"].ToString();
@@ -266,16 +251,6 @@ namespace JeedomApp.Views
                 var settings = ApplicationData.Current.LocalSettings;
                 Jeedom.Model.Command ObjectsSelect = HomePosition_Cmd.SelectedItem as Jeedom.Model.Command;
                 settings.Values["HomeObjectId"] = ObjectsSelect.Id;
-            }
-        }
-
-        private void MobileNotification_Cmd_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (MobileNotification.SelectedItem != null)
-            {
-                var settings = ApplicationData.Current.LocalSettings;
-                Jeedom.Model.EqLogic EqLogicSelect = MobileNotification.SelectedItem as Jeedom.Model.EqLogic;
-                settings.Values["NotificationObjectId"] = EqLogicSelect.Id;
             }
         }
 
