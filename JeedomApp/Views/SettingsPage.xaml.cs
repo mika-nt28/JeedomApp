@@ -178,6 +178,8 @@ namespace JeedomApp.Views
             if (activePush.IsOn == true && settings.Values["channelUri"] == null)
             {
                 var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+                await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+ 
                 await Jeedom.RequestViewModel.Instance.SendNotificationUri(channel.Uri.ToString());
                 settings.Values["channelUri"] = channel.Uri.ToString();
             }
