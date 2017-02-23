@@ -509,6 +509,8 @@ namespace Jeedom
             parameters.plugin = "pushNotification";
             parameters.platform = "windows";
             parameters.query = uri;
+            if(config.IdPush != '')
+                parameters.id = config.IdPush;
             var jsonrpc = new JsonRpcClient(parameters);
             if (await jsonrpc.SendRequest("Iq"))
             {
