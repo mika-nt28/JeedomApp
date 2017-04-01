@@ -12,7 +12,7 @@
     xmlns:vm="using:Jeedom"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource BlueBase}">
+    <Grid Background="#93ca02">
         <Image
             x:Name="image"
             Width="150"

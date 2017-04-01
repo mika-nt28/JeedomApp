@@ -14,6 +14,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.VoiceCommands;
+using Windows.Networking.PushNotifications;
 
 namespace Jeedom
 {
@@ -227,6 +228,10 @@ namespace Jeedom
 
             int pg = 100 / 6;
 
+            LoadingMessage = "Inscription au notification";
+            if (config.NotificationActivation == true)
+                UpdateNotificationChannel();
+
             LoadingMessage = "Chargement de la Version";
             var error = await DownloadVersion();
             Progress += pg;
@@ -391,7 +396,10 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
-
+        public async void UpdateNotificationChannel() {
+                var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+                await SendNotificationUri(channel.Uri.ToString());
+        }
         public async Task<Error> DownloadObjects()
         {
             var jsonrpc = new JsonRpcClient();
@@ -509,7 +517,7 @@ namespace Jeedom
             parameters.plugin = "pushNotification";
             parameters.platform = "windows";
             parameters.query = uri;
-            if(config.IdPush != '')
+            if(config.IdPush != null)
                 parameters.id = config.IdPush;
             var jsonrpc = new JsonRpcClient(parameters);
             if (await jsonrpc.SendRequest("Iq"))

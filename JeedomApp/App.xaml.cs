@@ -3,11 +3,11 @@ using JeedomApp.Controls;
 using JeedomApp.Services.SettingsServices;
 using JeedomApp.Views;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Template10.Controls;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
+
 
 namespace JeedomApp
 {
@@ -19,8 +19,8 @@ namespace JeedomApp
         public App()
         {
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
-                Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
-                Microsoft.ApplicationInsights.WindowsCollectors.Session);
+            Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
+            Microsoft.ApplicationInsights.WindowsCollectors.Session);
             InitializeComponent();
             SplashFactory = (e) => new Views.Splash(e);
 
@@ -54,6 +54,7 @@ namespace JeedomApp
         // runs only when not restored from state
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
+           
             SettingsService.Instance.UseShellBackButton = true;
 
             // Ne rien mettre au dessus de ce code sinon Template10 fonctionne mal.

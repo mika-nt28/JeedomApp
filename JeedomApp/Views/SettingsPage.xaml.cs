@@ -6,8 +6,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Windows.ApplicationModel.Background;
 using Windows.Devices.Geolocation;
-using Windows.Networking.PushNotifications;
-using Microsoft.WindowsAzure.MobileServices;
 using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Popups;
@@ -175,13 +173,7 @@ namespace JeedomApp.Views
 
         async private void activePush_Toggled(object sender, RoutedEventArgs e)
         {
-            var settings = ApplicationData.Current.LocalSettings;
-            if (activePush.IsOn == true)
-            {
-                var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-                await App.MobileService.GetPush().RegisterAsync(channel.Uri);
-                await Jeedom.RequestViewModel.Instance.SendNotificationUri(channel.Uri.ToString());
-            }
+            Jeedom.RequestViewModel.Instance.UpdateNotificationChannel();
         }
 
         async private void activeLocation_Toggled(object sender, RoutedEventArgs e)
