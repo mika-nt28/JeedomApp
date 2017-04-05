@@ -105,13 +105,13 @@ namespace JeedomApp.Controls
 
         private void Cmds_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Update UI ");
+            //System.Diagnostics.Debug.WriteLine("Update UI ");
             UpdateUI();
         }
 
         private void OnOffPluginControl_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
-            System.Diagnostics.Debug.WriteLine("DataContexChange");
+            //System.Diagnostics.Debug.WriteLine("DataContexChange");
             // Pas besoin de recharger
             if (_DataContextLoaded)
                 return;
