@@ -291,7 +291,7 @@ namespace Jeedom
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Updating Phrase list for VCDs: " + ex.ToString());
+               // System.Diagnostics.Debug.WriteLine("Updating Phrase list for VCDs: " + ex.ToString());
             }
 
             return jsonrpc.Error;
