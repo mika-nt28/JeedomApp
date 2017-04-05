@@ -1,54 +1,226 @@
+using Jeedom.Network;
 using System;
 using System.Text;
-using Windows.Networking.Connectivity;
 using Windows.Storage;
 
 namespace Jeedom
 {
     public class ConfigurationViewModel
     {
-        private UriBuilder _uri;
-        private string _host = "http://";
+        public bool Populated = false;
         private string _hostExt;
-        private string _login;
-        private string _password;
-        private bool? _twoFactor;
-        private bool? _connexionAuto;
         private bool _useExtHost = false;
-        private string _twoFactorCode;
+        private const string settingAPIKey = "apikeySetting";
+        private const string settingConnexionAuto = "ConnexionAutoSetting";
+        private const string settingHost = "addressSetting";
+        private const string settingHostExt = "addressExtSetting";
+        private const string settingIdMobile = "IdMobileSetting";
+        private const string settingIdPush = "IdPushSetting";
+        private const string settingLogin = "LoginSetting";
+        private const string settingPassword = "PasswordSetting";
+        private const string settingTwoFactor = "TwoFactorSetting";
+        private Address _address = new Address();
         private string _apikey;
+        private bool? _connexionAuto;
+        private bool _GeoFenceActivation;
+        private string _GeoFenceActivationDistance;
+        private bool _GeolocActivation;
+        private string _GeolocObjectId;
         private string _idMobile;
         private string _idPush;
+        private string _login;
+        private bool _NotificationActivation;
+        private string _NotificationObjectId;
+        private string _password;
+        private bool? _twoFactor;
+        private string _twoFactorCode;
+        private ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
+        private ApplicationDataContainer RoamingSettings = ApplicationData.Current.RoamingSettings;
 
-        /* public static bool HasInternetConnection()
-         {
-             bool hasInternet = false;
-             ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
-             if (profile != null) hasInternet = profile.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
-             return hasInternet;
-         }*/
+        public ConfigurationViewModel()
+        {
+            Address.Link = RoamingSettings.Values[settingHost] as string;
+            _login = RoamingSettings.Values[settingLogin] as string;
+            _password = RoamingSettings.Values[settingPassword] as string;
 
-        public Uri Uri
+            if (RoamingSettings.Values[settingConnexionAuto] != null)
+                _connexionAuto = Convert.ToBoolean(RoamingSettings.Values[settingConnexionAuto]);
+            _apikey = RoamingSettings.Values[settingAPIKey] as string;
+
+            //Populated si API Key et host disponible
+            TestPopulated();
+
+            _idMobile = LocalSettings.Values[settingIdMobile] as string;
+            _idPush = LocalSettings.Values[settingIdPush] as string;
+
+            _GeolocActivation = (LocalSettings.Values["GeolocActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeolocActivation"]);
+            _GeoFenceActivation = (LocalSettings.Values["GeoFenceActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeoFenceActivation"]);
+            _NotificationActivation = (LocalSettings.Values["NotificationActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["NotificationActivation"]);
+
+            _GeolocObjectId = (LocalSettings.Values["GeolocObjectId"] == null) ? "" : LocalSettings.Values["GeolocObjectId"].ToString();
+            _NotificationObjectId = (LocalSettings.Values["NotificationObjectId"] == null) ? "" : LocalSettings.Values["NotificationObjectId"].ToString();
+            _GeoFenceActivationDistance = (LocalSettings.Values["GeoFenceActivationDistance"] == null) ? "" : LocalSettings.Values["GeoFenceActivationDistance"].ToString();
+        }
+
+        public string ApiKey
+        {
+            set
+            {
+                if (value != null)
+                {
+                    _apikey = value;
+                    TestPopulated();
+                    RoamingSettings.Values[settingAPIKey] = value;
+                }
+            }
+            get
+            {
+                return _apikey;
+            }
+        }
+        public bool UseExtHost
         {
             get
             {
-                if (_useExtHost == false)
-                {
-                    if (_host == "")
-                        return null;
-                    _uri = new UriBuilder(_host);
-                }
-                else
-                {
-                    if (_hostExt == "")
-                        return null;
-                    _uri = new UriBuilder(_hostExt);
-                }
-                // Termine l'URL par un "/" pour Docker par exemple dont le chemin est de la forme "http://xxx.xxx.xxx.xxx:xxxx/jeedom"
-                if (!_uri.Path.EndsWith("/"))
-                    _uri.Path += "/";
+                return _useExtHost;
+            }
 
-                return _uri.Uri;
+            set
+            {
+                _useExtHost = value;
+            }
+        }
+
+        public bool? ConnexionAuto
+        {
+            get
+            {
+                return _connexionAuto;
+            }
+
+            set
+            {
+                _connexionAuto = value;
+                LocalSettings.Values[settingConnexionAuto] = value;
+            }
+        }
+
+        public string HostExt
+        {
+            set
+            {
+                _hostExt = value;
+                //_hostExt = _hostExt.Replace("http://", "");
+                //_hostExt = _hostExt.Replace("https://", "");
+                RoamingSettings.Values[settingHostExt] = _hostExt;
+            }
+
+            get
+            {
+                return _hostExt;
+            }
+        }
+
+        public bool GeoFenceActivation
+        {
+            set
+            {
+                _GeoFenceActivation = value;
+                LocalSettings.Values["GeoFenceActivation"] = value;
+            }
+
+            get
+            {
+                return _GeoFenceActivation;
+            }
+        }
+
+        public string GeoFenceActivationDistance
+        {
+            set
+            {
+                _GeoFenceActivationDistance = value;
+                LocalSettings.Values["GeoFenceActivationDistance"] = value;
+            }
+
+            get
+            {
+                return _GeoFenceActivationDistance;
+            }
+        }
+
+        public bool GeolocActivation
+        {
+            set
+            {
+                _GeolocActivation = value;
+                LocalSettings.Values["GeolocActivation"] = value;
+            }
+
+            get
+            {
+                return _GeolocActivation;
+            }
+        }
+
+        public string GeolocObjectId
+        {
+            set
+            {
+                _GeolocObjectId = value;
+                LocalSettings.Values["GeolocObjectId"] = value;
+            }
+
+            get
+            {
+                return _GeolocObjectId;
+            }
+        }
+
+        public string Host
+        {
+            set
+            {
+                Address.Link = value;
+                TestPopulated();
+                RoamingSettings.Values[settingHost] = Address.Link;
+            }
+
+            get
+            {
+                return Address.Link;
+            }
+        }
+
+        public string IdMobile
+        {
+            set
+            {
+                if (value != null)
+                {
+                    _idMobile = value;
+                    LocalSettings.Values[settingIdMobile] = value;
+                }
+            }
+            get
+            {
+                return _idMobile;
+            }
+        }
+
+        public string IdPush
+        {
+            set
+            {
+                if (value != null)
+                {
+                    _idPush = value;
+                    LocalSettings.Values[settingIdPush] = value;
+                }
+            }
+            get
+            {
+                return _idPush;
             }
         }
 
@@ -66,16 +238,31 @@ namespace Jeedom
             }
         }
 
-        public bool UseExtHost
+        public bool NotificationActivation
         {
-            get
-            {
-                return _useExtHost;
-            }
-
             set
             {
-                _useExtHost = value;
+                _NotificationActivation = value;
+                LocalSettings.Values["NotificationActivation"] = value;
+            }
+
+            get
+            {
+                return _NotificationActivation;
+            }
+        }
+
+        public string NotificationObjectId
+        {
+            set
+            {
+                _NotificationObjectId = value;
+                LocalSettings.Values["NotificationObjectId"] = value;
+            }
+
+            get
+            {
+                return _NotificationObjectId;
             }
         }
 
@@ -91,20 +278,6 @@ namespace Jeedom
                 byte[] bytes = Encoding.GetEncoding(0).GetBytes(value);
                 _password = Encoding.UTF8.GetString(bytes);
                 RoamingSettings.Values[settingPassword] = _password;
-            }
-        }
-
-        public bool? ConnexionAuto
-        {
-            get
-            {
-                return _connexionAuto;
-            }
-
-            set
-            {
-                _connexionAuto = value;
-                LocalSettings.Values[settingConnexionAuto] = value;
             }
         }
 
@@ -134,194 +307,18 @@ namespace Jeedom
             }
         }
 
-        public string Host
+        /// <summary>
+        /// URI d'accès au serveur JEEDOM
+        /// </summary>
+        public Uri Uri
         {
-            set
-            {
-                _host = value;
-                //_host = _host.Replace("http://","");
-                // _host = _host.Replace("https://", "");
-                RoamingSettings.Values[settingHost] = _host;
-            }
-
             get
             {
-                return _host;
+                return Address.Uri;
             }
         }
 
-        public string HostExt
-        {
-            set
-            {
-                _hostExt = value;
-                //_hostExt = _hostExt.Replace("http://", "");
-                //_hostExt = _hostExt.Replace("https://", "");
-                RoamingSettings.Values[settingHostExt] = _hostExt;
-            }
-
-            get
-            {
-                return _hostExt;
-            }
-        }
-
-        public string ApiKey
-        {
-            set
-            {
-                if (value != null)
-                {
-                    _apikey = value;
-                    RoamingSettings.Values[settingAPIKey] = value;
-                }
-            }
-            get
-            {
-                return _apikey;
-            }
-        }
-
-        public string IdMobile
-        {
-            set
-            {
-                if (value != null)
-                {
-                    _idMobile = value;
-                    LocalSettings.Values[settingIdMobile] = value;
-                }
-            }
-            get
-            {
-                return _idMobile;
-            }
-        }
-        public string IdPush
-        {
-            set
-            {
-                if (value != null)
-                {
-                    _idPush = value;
-                    LocalSettings.Values[settingIdPush] = value;
-                }
-            }
-            get
-            {
-                return _idPush;
-            }
-        }
-
-        public bool Populated = false;
-        private bool _GeolocActivation;
-
-        public bool GeolocActivation
-        {
-            set
-            {
-                _GeolocActivation = value;
-                LocalSettings.Values["GeolocActivation"] = value;
-            }
-
-            get
-            {
-                return _GeolocActivation;
-            }
-        }
-
-        private bool _GeoFenceActivation;
-
-        public bool GeoFenceActivation
-        {
-            set
-            {
-                _GeoFenceActivation = value;
-                LocalSettings.Values["GeoFenceActivation"] = value;
-            }
-
-            get
-            {
-                return _GeoFenceActivation;
-            }
-        }
-
-        private string _GeoFenceActivationDistance;
-
-        public string GeoFenceActivationDistance
-        {
-            set
-            {
-                _GeoFenceActivationDistance = value;
-                LocalSettings.Values["GeoFenceActivationDistance"] = value;
-            }
-
-            get
-            {
-                return _GeoFenceActivationDistance;
-            }
-        }
-
-        private bool _NotificationActivation;
-
-        public bool NotificationActivation
-        {
-            set
-            {
-                _NotificationActivation = value;
-                LocalSettings.Values["NotificationActivation"] = value;
-            }
-
-            get
-            {
-                return _NotificationActivation;
-            }
-        }
-
-        private string _GeolocObjectId;
-
-        public string GeolocObjectId
-        {
-            set
-            {
-                _GeolocObjectId = value;
-                LocalSettings.Values["GeolocObjectId"] = value;
-            }
-
-            get
-            {
-                return _GeolocObjectId;
-            }
-        }
-
-        private string _NotificationObjectId;
-
-        public string NotificationObjectId
-        {
-            set
-            {
-                _NotificationObjectId = value;
-                LocalSettings.Values["NotificationObjectId"] = value;
-            }
-
-            get
-            {
-                return _NotificationObjectId;
-            }
-        }
-
-        private ApplicationDataContainer RoamingSettings = ApplicationData.Current.RoamingSettings;
-        private ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
-
-        private const string settingHost = "addressSetting";
-        private const string settingHostExt = "addressExtSetting";
-        private const string settingLogin = "LoginSetting";
-        private const string settingPassword = "PasswordSetting";
-        private const string settingTwoFactor = "TwoFactorSetting";
-        private const string settingConnexionAuto = "ConnexionAutoSetting";
-        private const string settingAPIKey = "apikeySetting";
-        private const string settingIdMobile = "IdMobileSetting"; 
-        private const string settingIdPush = "IdPushSetting";
+        internal Address Address { get => _address; set => _address = value; }
 
         /// <summary>
         /// Supprime tous les paramètres
@@ -335,55 +332,23 @@ namespace Jeedom
             this.GeolocActivation = false;
             this.GeolocObjectId = "";
             this.Host = "";
-            this.HostExt = "";
             this.Login = "";
             this.NotificationActivation = false;
             this.NotificationObjectId = "";
             this.Password = "";
             this.TwoFactor = false;
             this.TwoFactorCode = "";
-            this.UseExtHost = false;
         }
 
-        public ConfigurationViewModel()
+        /// <summary>
+        /// Vérifie que la configuration est entièrement peuplée (api key et host disponible)
+        /// </summary>
+        private void TestPopulated()
         {
-            Populated = true;
-
-            _host = RoamingSettings.Values[settingHost] as string;
-            if (_host == null)
+            if (String.IsNullOrWhiteSpace(Address.Link) || String.IsNullOrWhiteSpace(_apikey))
                 Populated = false;
-            _hostExt = RoamingSettings.Values[settingHostExt] as string;
-            if (_hostExt == null)
-                Populated = false;
-
-            _login = RoamingSettings.Values[settingLogin] as string;
-            if (_login == null)
-                Populated = false;
-            _password = RoamingSettings.Values[settingPassword] as string;
-            if (_password == null)
-                Populated = false;
-
-            if (RoamingSettings.Values[settingConnexionAuto] != null)
-                _connexionAuto = Convert.ToBoolean(RoamingSettings.Values[settingConnexionAuto]);
-            _apikey = RoamingSettings.Values[settingAPIKey] as string;
-            if (_apikey == null)
-                Populated = false;
-
-            _idMobile = LocalSettings.Values[settingIdMobile] as string;
-            if (_idMobile == null)
-                Populated = false;
-
-            _idPush = LocalSettings.Values[settingIdPush] as string;
-            if (_idPush == null)
-                Populated = false;
-
-            _GeolocActivation = (LocalSettings.Values["GeolocActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeolocActivation"]);
-            _GeoFenceActivation = (LocalSettings.Values["GeoFenceActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["GeoFenceActivation"]);
-            _NotificationActivation = (LocalSettings.Values["NotificationActivation"] == null) ? false : Convert.ToBoolean(LocalSettings.Values["NotificationActivation"]);
-
-            _GeolocObjectId = (LocalSettings.Values["GeolocObjectId"] == null) ? "" : LocalSettings.Values["GeolocObjectId"].ToString();
-            _NotificationObjectId = (LocalSettings.Values["NotificationObjectId"] == null) ? "" : LocalSettings.Values["NotificationObjectId"].ToString();
-            _GeoFenceActivationDistance = (LocalSettings.Values["GeoFenceActivationDistance"] == null) ? "" : LocalSettings.Values["GeoFenceActivationDistance"].ToString();
+            else
+                Populated = true;
         }
     }
 }

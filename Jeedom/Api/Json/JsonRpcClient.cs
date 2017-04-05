@@ -16,23 +16,11 @@ namespace Jeedom.Api.Json
     public class JsonRpcClient
     {
         static private int Id;
+        private Error error;
         private Parameters parameters;
         private string rawResponse;
 
-        private Error error;
-
-        public Error Error
-        {
-            get
-            { return error; }
-        }
-
         public JsonRpcClient(Parameters parameters)
-        {
-            this.parameters = parameters;
-        }
-
-        public void SetParameters(Parameters parameters)
         {
             this.parameters = parameters;
         }
@@ -40,6 +28,95 @@ namespace Jeedom.Api.Json
         public JsonRpcClient()
         {
             this.parameters = new Parameters();
+        }
+
+        public Error Error
+        {
+            get
+            { return error; }
+        }
+
+        public EventResult GetEvents()
+        {
+            try
+            {
+                JObject json = JObject.Parse(rawResponse);
+                var event_result = new EventResult();
+                var result = json["result"].Children();
+                event_result.DateTime = json["result"]["datetime"].Value<double>();
+                foreach (var e in json["result"]["result"].Children())
+                {
+                    switch (e["name"].Value<string>())
+                    {
+                        case "cmd::update":
+                            var evcmd = JsonConvert.DeserializeObject<Event<EventOptionCmd>>(e.ToString());
+                            event_result.Result.Add(evcmd);
+                            break;
+
+                        case "eqLogic::update":
+                            var eveq = JsonConvert.DeserializeObject<Event<EventOptionEqLogic>>(e.ToString());
+                            event_result.Result.Add(eveq);
+                            break;
+
+                        default:
+                            var evdef = JsonConvert.DeserializeObject<JdEvent>(e.ToString());
+                            event_result.Result.Add(evdef);
+                            break;
+                    }
+                }
+
+                return event_result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public T GetRequestResponseDeserialized<T>()
+        {
+            try
+            {
+                var resp = JsonConvert.DeserializeObject<T>(rawResponse);
+                return resp;
+            }
+            catch (JsonException)
+            {
+                return default(T);
+            }
+            catch (Exception)
+            {
+                return default(T);
+            }
+        }
+
+        public async Task<bool> SendRequest(string command)
+        {
+            parameters.apikey = RequestViewModel.config.ApiKey;
+
+            try
+            {
+                rawResponse = await Request(command, parameters);
+
+                var resp = JsonConvert.DeserializeObject<ResponseError>(rawResponse);
+                error = resp.error;
+                if (error == null)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception e)
+            {
+                error = new Error();
+                error.code = "-1";
+                error.message = "Une erreur s'est produite lors de l'exécution de votre requête !" + Environment.NewLine + e.Message;
+                return false;
+            }
+        }
+
+        public void SetParameters(Parameters parameters)
+        {
+            this.parameters = parameters;
         }
 
         /*private T DeserializeFromJson<T>(string dataToDeserialize)
@@ -92,7 +169,7 @@ namespace Jeedom.Api.Json
                 var response = await httpClient.PostAsync(uri, content);
                 serialized = await response.Content.ReadAsStringAsync();
             }
-            catch (TaskCanceledException ex)
+            catch (TaskCanceledException)
             {
                 System.Diagnostics.Debug.WriteLine("JsonRPC Timeout");
             }
@@ -105,84 +182,6 @@ namespace Jeedom.Api.Json
             httpClient.Dispose();
 
             return serialized;
-        }
-
-        public async Task<bool> SendRequest(string command)
-        {
-            parameters.apikey = RequestViewModel.config.ApiKey;
-
-            try
-            {
-                rawResponse = await Request(command, parameters);
-
-                var resp = JsonConvert.DeserializeObject<ResponseError>(rawResponse);
-                error = resp.error;
-                if (error == null)
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception e)
-            {
-                error = new Error();
-                error.code = "-1";
-                error.message = "Une erreur s'est produite lors de l'exécution de votre requête !" + Environment.NewLine + e.Message;
-                return false;
-            }
-        }
-
-        public EventResult GetEvents()
-        {
-            try
-            {
-                JObject json = JObject.Parse(rawResponse);
-                var event_result = new EventResult();
-                var result = json["result"].Children();
-                event_result.DateTime = json["result"]["datetime"].Value<double>();
-                foreach (var e in json["result"]["result"].Children())
-                {
-                    switch (e["name"].Value<string>())
-                    {
-                        case "cmd::update":
-                            var evcmd = JsonConvert.DeserializeObject<Event<EventOptionCmd>>(e.ToString());
-                            event_result.Result.Add(evcmd);
-                            break;
-
-                        case "eqLogic::update":
-                            var eveq = JsonConvert.DeserializeObject<Event<EventOptionEqLogic>>(e.ToString());
-                            event_result.Result.Add(eveq);
-                            break;
-
-                        default:
-                            var evdef = JsonConvert.DeserializeObject<JdEvent>(e.ToString());
-                            event_result.Result.Add(evdef);
-                            break;
-                    }
-                }
-
-                return event_result;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public T GetRequestResponseDeserialized<T>()
-        {
-            try
-            {
-                var resp = JsonConvert.DeserializeObject<T>(rawResponse);
-                return resp;
-            }
-            catch (JsonException e)
-            {
-                return default(T);
-            }
-            catch (Exception e)
-            {
-                return default(T);
-            }
         }
     }
 }

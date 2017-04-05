@@ -4,6 +4,7 @@ using Jeedom.Api.Json.Event;
 using Jeedom.Api.Json.Response;
 using Jeedom.Model;
 using Jeedom.Mvvm;
+using Jeedom.Network;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,15 +21,31 @@ namespace Jeedom
 {
     public class RequestViewModel : INotifyPropertyChanged
     {
-        static private RequestViewModel _instance;
-
         static public ConfigurationViewModel config = new ConfigurationViewModel();
         public string configByKey = "";
+        public string InteractReply;
+        public bool Populated = false;
+        public CancellationTokenSource tokenSource;
+        static private RequestViewModel _instance;
+        private ObservableCollection<Command> _commandList = new ObservableCollection<Command>();
+        private double _dateTime;
+        private ObservableCollection<EqLogic> _eqLogicList = new ObservableCollection<EqLogic>();
+        private ObservableCollection<Interact> _interactList = new ObservableCollection<Interact>();
+        private string _loadingMessage;
+        private ObservableCollection<Message> _messageList = new ObservableCollection<Message>();
+        private ObservableCollection<JdObject> _objectList = new ObservableCollection<JdObject>();
+        private int _progress = 0;
+        private RelayCommand<object> _RefreshCommand;
+        private ObservableCollection<Scene> _sceneList = new ObservableCollection<Scene>();
+        private Boolean _updating;
+        private string _version;
         private int pass = 0;
 
         private RequestViewModel()
         {
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         static public RequestViewModel Instance
         {
@@ -42,31 +59,12 @@ namespace Jeedom
             }
         }
 
-        private ObservableCollection<Message> _messageList = new ObservableCollection<Message>();
-        private ObservableCollection<EqLogic> _eqLogicList = new ObservableCollection<EqLogic>();
-        private ObservableCollection<Command> _commandList = new ObservableCollection<Command>();
-        private ObservableCollection<JdObject> _objectList = new ObservableCollection<JdObject>();
-        private ObservableCollection<Scene> _sceneList = new ObservableCollection<Scene>();
-        private ObservableCollection<Interact> _interactList = new ObservableCollection<Interact>();
-        private double _dateTime;
-        public string InteractReply;
-
-        public ObservableCollection<Message> MessageList
+        public ObservableCollection<Command> CommandList
         {
-            get { return _messageList; }
+            get { return _commandList; }
             set
             {
-                _messageList = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public ObservableCollection<Interact> InteractList
-        {
-            get { return _interactList; }
-            set
-            {
-                _interactList = value;
+                _commandList = value;
                 NotifyPropertyChanged();
             }
         }
@@ -81,65 +79,15 @@ namespace Jeedom
             }
         }
 
-        public ObservableCollection<Command> CommandList
+        public ObservableCollection<Interact> InteractList
         {
-            get { return _commandList; }
+            get { return _interactList; }
             set
             {
-                _commandList = value;
+                _interactList = value;
                 NotifyPropertyChanged();
             }
         }
-
-        public ObservableCollection<JdObject> ObjectList
-        {
-            get { return _objectList; }
-            set
-            {
-                _objectList = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public ObservableCollection<Scene> SceneList
-        {
-            get { return _sceneList; }
-            set
-            {
-                _sceneList = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public CancellationTokenSource tokenSource;
-        private Boolean _updating;
-
-        public Boolean Updating
-        {
-            get
-            {
-                return _updating;
-            }
-            set
-            {
-                _updating = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private string _version;
-
-        public string Version
-        {
-            get { return _version; }
-            set
-            {
-                _version = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private string _loadingMessage;
 
         public string LoadingMessage
         {
@@ -155,7 +103,25 @@ namespace Jeedom
             }
         }
 
-        private int _progress = 0;
+        public ObservableCollection<Message> MessageList
+        {
+            get { return _messageList; }
+            set
+            {
+                _messageList = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<JdObject> ObjectList
+        {
+            get { return _objectList; }
+            set
+            {
+                _objectList = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public int Progress
         {
@@ -167,33 +133,219 @@ namespace Jeedom
             }
         }
 
-        public bool Populated = false;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        public RelayCommand<object> RefreshCommand
         {
-            if (PropertyChanged != null)
+            get
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                this._RefreshCommand = this._RefreshCommand ?? new RelayCommand<object>(async parameters =>
+                {
+                    await UpdateTask();
+                });
+                return this._RefreshCommand;
             }
         }
 
-        public async Task<Error> PingJeedom()
+        public ObservableCollection<Scene> SceneList
         {
-            Updating = true;
-            LoadingMessage = "Contacte Jeedom";
-            var jsonrpc = new JsonRpcClient();
-            if (await jsonrpc.SendRequest("ping"))
+            get { return _sceneList; }
+            set
             {
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
-                if (response.result == "pong")
+                _sceneList = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public Boolean Updating
+        {
+            get
+            {
+                return _updating;
+            }
+            set
+            {
+                _updating = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public string Version
+        {
+            get { return _version; }
+            set
+            {
+                _version = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public async Task<Error> CheckTwoFactorConnexion()
+        {
+            Parameters parameters = new Parameters();
+            parameters.login = config.Login;
+            var jsonrpc = new JsonRpcClient(parameters);
+
+            if (await jsonrpc.SendRequest("user::useTwoFactorAuthentification"))
+            {
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (reponse.result == "1")
+                    config.TwoFactor = true;
+                else
+                    config.TwoFactor = false;
+            }
+
+            return jsonrpc.Error;
+        }
+
+        public async Task<Error> ConnectJeedomByLogin()
+        {
+            Parameters parameters = new Parameters();
+            parameters.login = config.Login;
+            parameters.password = config.Password;
+            //if (config.TwoFactor == true)
+            //    parameters.twoFactorCode = config.TwoFactorCode;
+            var jsonrpc = new JsonRpcClient(parameters);
+
+            //LoadingMessage = "Tentative de connexion en https";
+            config.Address.ProtocolType = Address.Protocol.Https;
+            if (await jsonrpc.SendRequest("user::getHash"))
+            {
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                config.ApiKey = reponse.result;
+                return jsonrpc.Error;
+            }
+
+            //LoadingMessage = "Tentative de connexion en https en ignorant les erreurs de certificat";
+            config.Address.ProtocolType = Address.Protocol.SelfSigned;
+            if (await jsonrpc.SendRequest("user::getHash"))
+            {
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                config.ApiKey = reponse.result;
+                return jsonrpc.Error;
+            }
+
+            //LoadingMessage = "Tentative de connexion en http";
+            config.Address.ProtocolType = Address.Protocol.Http;
+            if (await jsonrpc.SendRequest("user::getHash"))
+            {
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                config.ApiKey = reponse.result;
+            }
+            // Par sécurité on retourne sur https
+            config.Address.ProtocolType = Address.Protocol.Https;
+            return jsonrpc.Error;
+        }
+
+        public async Task<Error> CreateEqLogicMobile()
+        {
+            Parameters parameters = new Parameters();
+            parameters.plugin = "mobile";
+            parameters.platform = "windows";
+            var jsonrpc = new JsonRpcClient(parameters);
+            if (await jsonrpc.SendRequest("Iq"))
+            {
+                // Récupère la liste de tous les eqLogics
+                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (reponse != null)
                 {
-                    Updating = false;
-                    return null;
+                    config.IdMobile = reponse.result;
                 }
             }
-            Updating = false;
+
+            return jsonrpc.Error;
+        }
+
+        public async Task<Error> DownloadInteraction()
+        {
+            var jsonrpc = new JsonRpcClient();
+            //Ajouter le téléchargemnent et la mise a jours des interaction Jeedom
+            try
+            {
+                var storageFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///JeedomAppVoiceCommandes.xml"));
+                await VoiceCommandDefinitionManager.InstallCommandDefinitionsFromStorageFileAsync(storageFile);
+
+                VoiceCommandDefinition commandDefinitions;
+
+                string countryCode = CultureInfo.CurrentCulture.Name.ToLower();
+                if (countryCode.Length == 0)
+                {
+                    countryCode = "fr-fr";
+                }
+
+                if (VoiceCommandDefinitionManager.InstalledCommandDefinitions.TryGetValue("JeedomAppCommandSet_" + countryCode, out commandDefinitions))
+                {
+                    List<string> InteractsList = new List<string>();
+                    if (await jsonrpc.SendRequest("interactQuery::all"))
+                    {
+                        InteractList.Clear();
+                        var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<Interact>>>();
+                        if (response != null)
+                            InteractList = response.result;
+                    }
+
+                    foreach (var Iteract in InteractList)
+                    {
+                        InteractsList.Add(Iteract.query);
+                    }
+                    await commandDefinitions.SetPhraseListAsync("InteractList", InteractsList);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Updating Phrase list for VCDs: " + ex.ToString());
+            }
+
+            return jsonrpc.Error;
+        }
+
+        public async Task<Error> DownloadMessages()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            if (await jsonrpc.SendRequest("message::all"))
+            {
+                MessageList.Clear();
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<Message>>>();
+                if (response != null)
+                    MessageList = response.result;
+            }
+
+            return jsonrpc.Error;
+        }
+
+        public async Task<Error> DownloadObjects()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            if (await jsonrpc.SendRequest("object::all"))
+            {
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
+                foreach (JdObject obj in response.result)
+                {
+                    var lst = from o in ObjectList where o.Id == obj.Id select o;
+                    if (lst.Count() != 0)
+                    {
+                        var ob = lst.FirstOrDefault();
+                        ob = obj;
+                    }
+                    else
+                        ObjectList.Add(obj);
+                }
+            }
+            return jsonrpc.Error;
+        }
+
+        public async Task<Error> DownloadScenes()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            if (await jsonrpc.SendRequest("scenario::all"))
+            {
+                SceneList.Clear();
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<Scene>>>();
+                if (response != null)
+                    SceneList = response.result;
+            }
+
             return jsonrpc.Error;
         }
 
@@ -209,17 +361,27 @@ namespace Jeedom
             return jsonrpc.Error;
         }
 
-        private async Task<Error> DownloadDateTime()
+        public async Task ExecuteCommand(Command cmd, Parameters parameters = null)
         {
-            var jsonrpc = new JsonRpcClient();
-
-            if (await jsonrpc.SendRequest("datetime"))
+            cmd.Updating = true;
+            if (parameters == null)
             {
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<double>>();
-                _dateTime = response.result;
+                parameters = new Parameters();
+                parameters.id = cmd.Id;
+                parameters.name = cmd.Name;
             }
+            var jsonrpc = new JsonRpcClient(parameters);
 
-            return jsonrpc.Error;
+            if (await jsonrpc.SendRequest("cmd::execCmd"))
+            {
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<CommandResult>>();
+                cmd.Value = response.result.value;
+            }
+            else
+            {
+                cmd.Value = "N/A";
+            }
+            cmd.Updating = false;
         }
 
         public async Task FirstLaunch()
@@ -264,22 +426,114 @@ namespace Jeedom
             Updating = false;
         }
 
-        public async Task<Error> ConnectJeedomByLogin()
+        public async Task<Error> GetEventChanges()
         {
-            Parameters parameters = new Parameters();
-            parameters.login = config.Login;
-            parameters.password = config.Password;
-            //if (config.TwoFactor == true)
-            //    parameters.twoFactorCode = config.TwoFactorCode;
+            var parameters = new Parameters();
+            parameters.datetime = _dateTime;
             var jsonrpc = new JsonRpcClient(parameters);
 
-            if (await jsonrpc.SendRequest("user::getHash"))
+            if (await jsonrpc.SendRequest("event::changes"))
             {
-                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
-                config.ApiKey = reponse.result;
+                var response = jsonrpc.GetEvents();
+                foreach (JdEvent e in response.Result)
+                {
+                    switch (e.Name)
+                    {
+                        case "cmd::update":
+                            var ev = e as Event<EventOptionCmd>;
+                            var cmd = (from c in CommandList where c.Id == ev.Option.CmdId select c).FirstOrDefault();
+                            if (cmd != null)
+                            {
+                                if (cmd.DateTime < ev.DateTime)
+                                {
+                                    cmd.Value = ev.Option.Value;
+                                    cmd.DateTime = ev.DateTime;
+                                }
+                            }
+                            break;
+
+                        case "eqLogic::update":
+                            var eveq = e as Event<EventOptionEqLogic>;
+                            var eq = (from c in EqLogicList where c.Id == eveq.Option.EqLogicId select c).FirstOrDefault();
+
+                            if (eq != null)
+                            {
+                                if (eq.DateTime < eveq.DateTime)
+                                {
+                                    await UpdateEqLogic(eq);
+                                    eq.DateTime = eveq.DateTime;
+                                }
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                _dateTime = response.DateTime;
             }
 
             return jsonrpc.Error;
+        }
+
+        public async Task<Error> interactTryToReply(string query)
+        {
+            InteractReply = "";
+            var jsonrpc = new JsonRpcClient();
+            Parameters parameters = new Parameters();
+            parameters.query = query;
+            jsonrpc.SetParameters(parameters);
+            if (await jsonrpc.SendRequest("interact::tryToReply"))
+            {
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (response != null)
+                    InteractReply = response.result;
+            }
+
+            return jsonrpc.Error;
+        }
+
+        public async Task<Error> PingJeedom()
+        {
+            Updating = true;
+            LoadingMessage = "Contacte Jeedom";
+            var jsonrpc = new JsonRpcClient();
+            if (await jsonrpc.SendRequest("ping"))
+            {
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (response.result == "pong")
+                {
+                    Updating = false;
+                    return null;
+                }
+            }
+            Updating = false;
+            return jsonrpc.Error;
+        }
+
+        public async Task<bool> Reboot()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            await jsonrpc.SendRequest("jeeNetwork::reboot");
+
+            if (jsonrpc.Error == null)
+                return true;
+            else
+                return false;
+        }
+
+        public async Task RunScene(Scene scene)
+        {
+            var parameters = new Parameters();
+            parameters.id = scene.id;
+            parameters.state = "run";
+            var jsonrpc = new JsonRpcClient(parameters);
+
+            if (await jsonrpc.SendRequest("scenario::changeState"))
+            {
+                await UpdateScene(scene);
+            }
         }
 
         public async Task<Error> SearchConfigByKey(string key, string plugin)
@@ -297,29 +551,14 @@ namespace Jeedom
             return jsonrpc.Error;
         }
 
-        public async Task<Error> CheckTwoFactorConnexion()
+        public async Task<Error> SendNotificationUri(string uri)
         {
             Parameters parameters = new Parameters();
-            parameters.login = config.Login;
-            var jsonrpc = new JsonRpcClient(parameters);
-
-            if (await jsonrpc.SendRequest("user::useTwoFactorAuthentification"))
-            {
-                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
-                if (reponse.result == "1")
-                    config.TwoFactor = true;
-                else
-                    config.TwoFactor = false;
-            }
-
-            return jsonrpc.Error;
-        }
-
-        public async Task<Error> CreateEqLogicMobile()
-        {
-            Parameters parameters = new Parameters();
-            parameters.plugin = "mobile";
+            parameters.plugin = "pushNotification";
             parameters.platform = "windows";
+            parameters.query = uri;
+            if (config.IdPush != null)
+                parameters.id = config.IdPush;
             var jsonrpc = new JsonRpcClient(parameters);
             if (await jsonrpc.SendRequest("Iq"))
             {
@@ -327,11 +566,30 @@ namespace Jeedom
                 var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
                 if (reponse != null)
                 {
-                    config.IdMobile = reponse.result;
+                    config.IdPush = reponse.result;
                 }
             }
 
             return jsonrpc.Error;
+        }
+
+        public async Task<bool> SendPosition(string position)
+        {
+            var httpRpcClient = new HttpRpcClient("/core/api/jeeApi.php?api=" + config.ApiKey + "&type=geoloc&id=" + config.GeolocObjectId + "&value=" + position);
+
+            return await httpRpcClient.SendRequest();
+        }
+
+        public async Task<bool> Shutdown()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            await jsonrpc.SendRequest("jeeNetwork::halt");
+
+            if (jsonrpc.Error == null)
+                return true;
+            else
+                return false;
         }
 
         public async Task<Error> SynchMobilePlugin()
@@ -396,273 +654,6 @@ namespace Jeedom
 
             return jsonrpc.Error;
         }
-        public async void UpdateNotificationChannel() {
-                var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-                await SendNotificationUri(channel.Uri.ToString());
-        }
-        public async Task<Error> DownloadObjects()
-        {
-            var jsonrpc = new JsonRpcClient();
-
-            if (await jsonrpc.SendRequest("object::all"))
-            {
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<JdObject>>>();
-                foreach (JdObject obj in response.result)
-                {
-                    var lst = from o in ObjectList where o.Id == obj.Id select o;
-                    if (lst.Count() != 0)
-                    {
-                        var ob = lst.FirstOrDefault();
-                        ob = obj;
-                    }
-                    else
-                        ObjectList.Add(obj);
-                }
-            }
-            return jsonrpc.Error;
-        }
-
-        public async Task<Error> DownloadScenes()
-        {
-            var jsonrpc = new JsonRpcClient();
-
-            if (await jsonrpc.SendRequest("scenario::all"))
-            {
-                SceneList.Clear();
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<Scene>>>();
-                if (response != null)
-                    SceneList = response.result;
-            }
-
-            return jsonrpc.Error;
-        }
-
-        public async Task<Error> DownloadMessages()
-        {
-            var jsonrpc = new JsonRpcClient();
-
-            if (await jsonrpc.SendRequest("message::all"))
-            {
-                MessageList.Clear();
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<Message>>>();
-                if (response != null)
-                    MessageList = response.result;
-            }
-
-            return jsonrpc.Error;
-        }
-
-        public async Task<Error> interactTryToReply(string query)
-        {
-            InteractReply = "";
-            var jsonrpc = new JsonRpcClient();
-            Parameters parameters = new Parameters();
-            parameters.query = query;
-            jsonrpc.SetParameters(parameters);
-            if (await jsonrpc.SendRequest("interact::tryToReply"))
-            {
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
-                if (response != null)
-                    InteractReply = response.result;
-            }
-
-            return jsonrpc.Error;
-        }
-
-        public async Task<Error> DownloadInteraction()
-        {
-            var jsonrpc = new JsonRpcClient();
-            //Ajouter le téléchargemnent et la mise a jours des interaction Jeedom
-            try
-            {
-                var storageFile = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///JeedomAppVoiceCommandes.xml"));
-                await VoiceCommandDefinitionManager.InstallCommandDefinitionsFromStorageFileAsync(storageFile);
-
-                VoiceCommandDefinition commandDefinitions;
-
-                string countryCode = CultureInfo.CurrentCulture.Name.ToLower();
-                if (countryCode.Length == 0)
-                {
-                    countryCode = "fr-fr";
-                }
-
-                if (VoiceCommandDefinitionManager.InstalledCommandDefinitions.TryGetValue("JeedomAppCommandSet_" + countryCode, out commandDefinitions))
-                {
-                    List<string> InteractsList = new List<string>();
-                    if (await jsonrpc.SendRequest("interactQuery::all"))
-                    {
-                        InteractList.Clear();
-                        var response = jsonrpc.GetRequestResponseDeserialized<Response<ObservableCollection<Interact>>>();
-                        if (response != null)
-                            InteractList = response.result;
-                    }
-
-                    foreach (var Iteract in InteractList)
-                    {
-                        InteractsList.Add(Iteract.query);
-                    }
-                    await commandDefinitions.SetPhraseListAsync("InteractList", InteractsList);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Updating Phrase list for VCDs: " + ex.ToString());
-            }
-
-            return jsonrpc.Error;
-        }
-        public async Task<Error> SendNotificationUri(string uri)
-        {
-            Parameters parameters = new Parameters();
-            parameters.plugin = "pushNotification";
-            parameters.platform = "windows";
-            parameters.query = uri;
-            if(config.IdPush != null)
-                parameters.id = config.IdPush;
-            var jsonrpc = new JsonRpcClient(parameters);
-            if (await jsonrpc.SendRequest("Iq"))
-            {
-                // Récupère la liste de tous les eqLogics
-                var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
-                if (reponse != null)
-                {
-                    config.IdPush = reponse.result;
-                }
-            }
-
-            return jsonrpc.Error;
-        }
-
-        /*public async Task<bool> SendNotificationUri(string uri)
-        {
-            var httpRpcClient = new HttpRpcClient("/plugins/pushNotification/php/updatUri.php?api=" + config.ApiKey + "&id=" + config.NotificationObjectId + "&uri=" + uri);
-
-            return await httpRpcClient.SendRequest();
-        }*/
-
-        public async Task<bool> SendPosition(string position)
-        {
-            var httpRpcClient = new HttpRpcClient("/core/api/jeeApi.php?api=" + config.ApiKey + "&type=geoloc&id=" + config.GeolocObjectId + "&value=" + position);
-
-            return await httpRpcClient.SendRequest();
-        }
-
-        public async Task<bool> Shutdown()
-        {
-            var jsonrpc = new JsonRpcClient();
-
-            await jsonrpc.SendRequest("jeeNetwork::halt");
-
-            if (jsonrpc.Error == null)
-                return true;
-            else
-                return false;
-        }
-
-        public async Task<bool> Upgrade()
-        {
-            var jsonrpc = new JsonRpcClient();
-
-            await jsonrpc.SendRequest("update::update");
-
-            if (jsonrpc.Error == null)
-                return true;
-            else
-                return false;
-        }
-
-        public async Task<bool> Reboot()
-        {
-            var jsonrpc = new JsonRpcClient();
-
-            await jsonrpc.SendRequest("jeeNetwork::reboot");
-
-            if (jsonrpc.Error == null)
-                return true;
-            else
-                return false;
-        }
-
-        public async Task<Error> GetEventChanges()
-        {
-            var parameters = new Parameters();
-            parameters.datetime = _dateTime;
-            var jsonrpc = new JsonRpcClient(parameters);
-
-            if (await jsonrpc.SendRequest("event::changes"))
-            {
-                var response = jsonrpc.GetEvents();
-                foreach (JdEvent e in response.Result)
-                {
-                    switch (e.Name)
-                    {
-                        case "cmd::update":
-                            var ev = e as Event<EventOptionCmd>;
-                            var cmd = (from c in CommandList where c.Id == ev.Option.CmdId select c).FirstOrDefault();
-                            if (cmd != null)
-                            {
-                                if (cmd.DateTime < ev.DateTime)
-                                {
-                                    cmd.Value = ev.Option.Value;
-                                    cmd.DateTime = ev.DateTime;
-                                }
-                            }
-                            break;
-
-                        case "eqLogic::update":
-                            var eveq = e as Event<EventOptionEqLogic>;
-                            var eq = (from c in EqLogicList where c.Id == eveq.Option.EqLogicId select c).FirstOrDefault();
-
-                            if (eq != null)
-                            {
-                                if (eq.DateTime < eveq.DateTime)
-                                {
-                                    await UpdateEqLogic(eq);
-                                    eq.DateTime = eveq.DateTime;
-                                }
-                            }
-                            break;
-
-                        default:
-                            break;
-                    }
-                }
-                _dateTime = response.DateTime;
-            }
-
-            return jsonrpc.Error;
-        }
-
-        public async Task UpdateTask()
-        {
-            // SI on est déjà en mise à jour on sort
-            if (Updating)
-                return;
-
-            Updating = true;
-
-            if (ObjectList.Count == 0)
-            {
-                LoadingMessage = "Contacte Jeedom";
-                await DownloadDateTime();
-                LoadingMessage = "Chargement des Objets";
-                await DownloadObjects();
-            }
-            else
-            {
-                LoadingMessage = "Chargements des evènements";
-                await GetEventChanges();
-            }
-
-            if (pass % 15 == 14)
-            {
-                LoadingMessage = "Chargement des Messages";
-                await DownloadMessages();
-            }
-
-            LoadingMessage = "Prêt";
-            Updating = false;
-        }
 
         public async Task UpdateEqLogic(EqLogic eq)
         {
@@ -686,6 +677,12 @@ namespace Jeedom
             }
 
             eq.DateTime = _dateTime;
+        }
+
+        public async void UpdateNotificationChannel()
+        {
+            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+            await SendNotificationUri(channel.Uri.ToString());
         }
 
         public async Task UpdateObject(JdObject obj)
@@ -740,6 +737,81 @@ namespace Jeedom
             }
         }
 
+        public async Task UpdateTask()
+        {
+            //Vérifier que l'API Key est dispo avant de lancer l'update
+            if (!config.Populated)
+                return;
+
+            // SI on est déjà en mise à jour on sort
+            if (Updating)
+                return;
+
+            Updating = true;
+
+            if (ObjectList.Count == 0)
+            {
+                LoadingMessage = "Contacte Jeedom";
+                await DownloadDateTime();
+                LoadingMessage = "Chargement des Objets";
+                await DownloadObjects();
+            }
+            else
+            {
+                LoadingMessage = "Chargements des evènements";
+                await GetEventChanges();
+            }
+
+            if (pass % 15 == 14)
+            {
+                LoadingMessage = "Chargement des Messages";
+                await DownloadMessages();
+            }
+
+            LoadingMessage = "Prêt";
+            Updating = false;
+        }
+
+        public async Task<bool> Upgrade()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            await jsonrpc.SendRequest("update::update");
+
+            if (jsonrpc.Error == null)
+                return true;
+            else
+                return false;
+        }
+
+        private async Task<Error> DownloadDateTime()
+        {
+            var jsonrpc = new JsonRpcClient();
+
+            if (await jsonrpc.SendRequest("datetime"))
+            {
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<double>>();
+                _dateTime = response.result;
+            }
+
+            return jsonrpc.Error;
+        }
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        /*public async Task<bool> SendNotificationUri(string uri)
+        {
+            var httpRpcClient = new HttpRpcClient("/plugins/pushNotification/php/updatUri.php?api=" + config.ApiKey + "&id=" + config.NotificationObjectId + "&uri=" + uri);
+
+            return await httpRpcClient.SendRequest();
+        }*/
+
         private async Task UpdateScene(Scene scene)
         {
             var parameters = new Parameters();
@@ -751,56 +823,6 @@ namespace Jeedom
                 var response = jsonrpc.GetRequestResponseDeserialized<Response<Scene>>();
                 scene.lastLaunch = response.result.lastLaunch;
             }
-        }
-
-        public async Task RunScene(Scene scene)
-        {
-            var parameters = new Parameters();
-            parameters.id = scene.id;
-            parameters.state = "run";
-            var jsonrpc = new JsonRpcClient(parameters);
-
-            if (await jsonrpc.SendRequest("scenario::changeState"))
-            {
-                await UpdateScene(scene);
-            }
-        }
-
-        private RelayCommand<object> _RefreshCommand;
-
-        public RelayCommand<object> RefreshCommand
-        {
-            get
-            {
-                this._RefreshCommand = this._RefreshCommand ?? new RelayCommand<object>(async parameters =>
-                {
-                    await UpdateTask();
-                });
-                return this._RefreshCommand;
-            }
-        }
-
-        public async Task ExecuteCommand(Command cmd, Parameters parameters = null)
-        {
-            cmd.Updating = true;
-            if (parameters == null)
-            {
-                parameters = new Parameters();
-                parameters.id = cmd.Id;
-                parameters.name = cmd.Name;
-            }
-            var jsonrpc = new JsonRpcClient(parameters);
-
-            if (await jsonrpc.SendRequest("cmd::execCmd"))
-            {
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<CommandResult>>();
-                cmd.Value = response.result.value;
-            }
-            else
-            {
-                cmd.Value = "N/A";
-            }
-            cmd.Updating = false;
         }
     }
 }
