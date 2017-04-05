@@ -73,7 +73,7 @@ namespace VoiceCommandService
             }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine("Handling Voice Command failed " + ex.ToString());
+                    //System.Diagnostics.Debug.WriteLine("Handling Voice Command failed " + ex.ToString());
                 }
             }
         }
@@ -109,7 +109,7 @@ namespace VoiceCommandService
 
         private void OnTaskCanceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
         {
-            System.Diagnostics.Debug.WriteLine("Task cancelled, clean up");
+           // System.Diagnostics.Debug.WriteLine("Task cancelled, clean up");
             if (this.serviceDeferral != null)
             {
                 //Complete the service deferral
