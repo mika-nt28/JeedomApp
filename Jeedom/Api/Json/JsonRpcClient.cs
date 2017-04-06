@@ -171,7 +171,7 @@ namespace Jeedom.Api.Json
             }
             catch (TaskCanceledException)
             {
-                System.Diagnostics.Debug.WriteLine("JsonRPC Timeout");
+                //System.Diagnostics.Debug.WriteLine("JsonRPC Timeout");
             }
             catch (System.Runtime.InteropServices.COMException e)
             {

@@ -30,7 +30,7 @@ namespace JeedomApp.Selectors
             var eq = item as EqLogic;
 
             // Cherche par rapport au plugin
-            System.Diagnostics.Debug.WriteLine(eq.EqTypeName);
+           // System.Diagnostics.Debug.WriteLine(eq.EqTypeName);
             switch (eq.EqTypeName)
             {
                 case "sonos3":

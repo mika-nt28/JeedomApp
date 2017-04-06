@@ -1,6 +1,6 @@
 ﻿using Jeedom;
 using System;
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
