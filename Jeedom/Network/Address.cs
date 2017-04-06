@@ -14,10 +14,10 @@ namespace Jeedom.Network
 
         public enum Protocol { Http, Https, SelfSigned };
 
-        public string Access { get => _access; }
-        public string Header { get => _header; }
+        public string Access { get { return _access; } }
+        public string Header { get { return _header; } }
 
-        public bool IgnoreCertificateError { get => _ignoreCertificateError; }
+        public bool IgnoreCertificateError { get { return _ignoreCertificateError; } }
 
         public string Link
         {
@@ -49,7 +49,7 @@ namespace Jeedom.Network
 
         public Protocol ProtocolType
         {
-            get => _type;
+            get { return _type; }
             set
             {
                 _type = value;

@@ -1,5 +1,6 @@
 using Jeedom.Network;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Windows.Storage;
 
@@ -8,10 +9,9 @@ namespace Jeedom
     public class ConfigurationViewModel
     {
         public bool Populated = false;
-        private string _hostExt;
-        private bool _useExtHost = false;
         private const string settingAPIKey = "apikeySetting";
         private const string settingConnexionAuto = "ConnexionAutoSetting";
+        private const string settingFavoriteList = "FavoriteListSetting";
         private const string settingHost = "addressSetting";
         private const string settingHostExt = "addressExtSetting";
         private const string settingIdMobile = "IdMobileSetting";
@@ -22,10 +22,12 @@ namespace Jeedom
         private Address _address = new Address();
         private string _apikey;
         private bool? _connexionAuto;
+        private List<string> _favoriteList;
         private bool _GeoFenceActivation;
         private string _GeoFenceActivationDistance;
         private bool _GeolocActivation;
         private string _GeolocObjectId;
+        private string _hostExt;
         private string _idMobile;
         private string _idPush;
         private string _login;
@@ -34,6 +36,7 @@ namespace Jeedom
         private string _password;
         private bool? _twoFactor;
         private string _twoFactorCode;
+        private bool _useExtHost = false;
         private ApplicationDataContainer LocalSettings = ApplicationData.Current.LocalSettings;
         private ApplicationDataContainer RoamingSettings = ApplicationData.Current.RoamingSettings;
 
@@ -60,6 +63,11 @@ namespace Jeedom
             _GeolocObjectId = (LocalSettings.Values["GeolocObjectId"] == null) ? "" : LocalSettings.Values["GeolocObjectId"].ToString();
             _NotificationObjectId = (LocalSettings.Values["NotificationObjectId"] == null) ? "" : LocalSettings.Values["NotificationObjectId"].ToString();
             _GeoFenceActivationDistance = (LocalSettings.Values["GeoFenceActivationDistance"] == null) ? "" : LocalSettings.Values["GeoFenceActivationDistance"].ToString();
+
+            //TODO: convertir list<string> to json avant de stocker en roaming
+            _favoriteList = RoamingSettings.Values[settingFavoriteList] as List<string>;
+            if (_favoriteList == null)
+                FavoriteList = new List<string>();
         }
 
         public string ApiKey
@@ -78,18 +86,6 @@ namespace Jeedom
                 return _apikey;
             }
         }
-        public bool UseExtHost
-        {
-            get
-            {
-                return _useExtHost;
-            }
-
-            set
-            {
-                _useExtHost = value;
-            }
-        }
 
         public bool? ConnexionAuto
         {
@@ -105,19 +101,14 @@ namespace Jeedom
             }
         }
 
-        public string HostExt
+        public List<string> FavoriteList
         {
+            get { return _favoriteList; }
             set
             {
-                _hostExt = value;
-                //_hostExt = _hostExt.Replace("http://", "");
-                //_hostExt = _hostExt.Replace("https://", "");
-                RoamingSettings.Values[settingHostExt] = _hostExt;
-            }
-
-            get
-            {
-                return _hostExt;
+                _favoriteList = value;
+                //TODO: décommenter si conversion en json
+                //RoamingSettings.Values[settingFavoriteList] = value;
             }
         }
 
@@ -189,6 +180,22 @@ namespace Jeedom
             get
             {
                 return Address.Link;
+            }
+        }
+
+        public string HostExt
+        {
+            set
+            {
+                _hostExt = value;
+                //_hostExt = _hostExt.Replace("http://", "");
+                //_hostExt = _hostExt.Replace("https://", "");
+                RoamingSettings.Values[settingHostExt] = _hostExt;
+            }
+
+            get
+            {
+                return _hostExt;
             }
         }
 
@@ -318,7 +325,20 @@ namespace Jeedom
             }
         }
 
-        internal Address Address { get => _address; set => _address = value; }
+        public bool UseExtHost
+        {
+            get
+            {
+                return _useExtHost;
+            }
+
+            set
+            {
+                _useExtHost = value;
+            }
+        }
+
+        internal Address Address { get { return _address; } set { _address = value; } }
 
         /// <summary>
         /// Supprime tous les paramètres
@@ -338,6 +358,7 @@ namespace Jeedom
             this.Password = "";
             this.TwoFactor = false;
             this.TwoFactorCode = "";
+            this.FavoriteList = new List<string>();
         }
 
         /// <summary>

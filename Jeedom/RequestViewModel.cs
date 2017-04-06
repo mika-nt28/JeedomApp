@@ -5,6 +5,7 @@ using Jeedom.Api.Json.Response;
 using Jeedom.Model;
 using Jeedom.Mvvm;
 using Jeedom.Network;
+using Jeedom.Tools;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,7 @@ namespace Jeedom
         private ObservableCollection<Command> _commandList = new ObservableCollection<Command>();
         private double _dateTime;
         private ObservableCollection<EqLogic> _eqLogicList = new ObservableCollection<EqLogic>();
+        private IdEqLogicList _favoriteList = new IdEqLogicList();
         private ObservableCollection<Interact> _interactList = new ObservableCollection<Interact>();
         private string _loadingMessage;
         private ObservableCollection<Message> _messageList = new ObservableCollection<Message>();
@@ -75,6 +77,16 @@ namespace Jeedom
             set
             {
                 _eqLogicList = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public IdEqLogicList FavoriteList
+        {
+            get { return _favoriteList; }
+            set
+            {
+                _favoriteList = value;
                 NotifyPropertyChanged();
             }
         }
@@ -650,6 +662,10 @@ namespace Jeedom
                     if (ObjectList[i].EqLogics == null)
                         ObjectList.RemoveAt(i);
                 }
+
+                // Mise à jour des favoris
+                FavoriteList.IdList = config.FavoriteList;
+                FavoriteList.PopulateFromEqLogicList(EqLogicList);
             }
 
             return jsonrpc.Error;
@@ -685,7 +701,7 @@ namespace Jeedom
             await SendNotificationUri(channel.Uri.ToString());
         }
 
-        public async Task UpdateObject(JdObject obj)
+        /*public async Task UpdateObject(JdObject obj)
         {
             var parameters = new Parameters();
             parameters.object_id = obj.Id;
@@ -714,7 +730,7 @@ namespace Jeedom
                     }
                 }
             }
-        }
+        }*/
 
         public async Task UpdateObjectList()
         {
@@ -767,6 +783,10 @@ namespace Jeedom
                 LoadingMessage = "Chargement des Messages";
                 await DownloadMessages();
             }
+
+            // Met à jour les favoris
+            FavoriteList.IdList = config.FavoriteList;
+            FavoriteList.PopulateFromEqLogicList(EqLogicList);
 
             LoadingMessage = "Prêt";
             Updating = false;

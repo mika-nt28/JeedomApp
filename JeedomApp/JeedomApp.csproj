@@ -159,6 +159,7 @@
     <Compile Include="Services\SettingsServices\SettingsServices.cs" />
     <Compile Include="ViewModels\ConnectViewModel.cs" />
     <Compile Include="ViewModels\DashboardPageViewModel.cs" />
+    <Compile Include="ViewModels\FavoritePageViewModel.cs" />
     <Compile Include="ViewModels\MessagePageViewModel.cs" />
     <Compile Include="ViewModels\ScenePageViewModel.cs" />
     <Compile Include="ViewModels\ServerPageViewModel.cs" />
@@ -177,6 +178,9 @@
     </Compile>
     <Compile Include="Views\EqLogicPage.xaml.cs">
       <DependentUpon>EqLogicPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FavoritePage.xaml.cs">
+      <DependentUpon>FavoritePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoadingPage.xaml.cs">
       <DependentUpon>LoadingPage.xaml</DependentUpon>
@@ -790,6 +794,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EqLogicPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FavoritePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
