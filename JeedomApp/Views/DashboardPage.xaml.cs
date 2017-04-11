@@ -84,7 +84,7 @@ namespace JeedomApp.Views
             var gridView = FindParent<VariableSizedGridView>(((FrameworkElement)e.OriginalSource));
 
             // Affiche le menu
-            eqLogicsMenuFlyout.ShowAt(gridView, e.GetPosition(gridView));
+            //eqLogicsMenuFlyout.ShowAt(gridView, e.GetPosition(gridView));
         }
 
         public void MenuFlyoutItem_ChangeSizeClick(object sender, RoutedEventArgs e)

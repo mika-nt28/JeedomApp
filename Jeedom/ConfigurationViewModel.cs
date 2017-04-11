@@ -47,7 +47,7 @@ namespace Jeedom
             _password = RoamingSettings.Values[settingPassword] as string;
 
             if (RoamingSettings.Values[settingConnexionAuto] != null)
-                _connexionAuto = Convert.ToBoolean(RoamingSettings.Values[settingConnexionAuto]);
+                _connexionAuto = Convert.ToBoolean(LocalSettings.Values[settingConnexionAuto]);
             _apikey = RoamingSettings.Values[settingAPIKey] as string;
 
             //Populated si API Key et host disponible
