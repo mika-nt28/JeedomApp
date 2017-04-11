@@ -143,11 +143,11 @@ namespace Jeedom.Api.Json
             var uri = new Uri(RequestViewModel.config.Uri + "core/api/jeeApi.php");
 
             var filter = new HttpBaseProtocolFilter();
-            // if (config.IsSelfSigned == true)
-            //{
-            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
-            filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
-            //}
+            if (RequestViewModel.config.Address.ProtocolType == Network.Address.Protocol.SelfSigned)
+            {
+                filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.Untrusted);
+                filter.IgnorableServerCertificateErrors.Add(ChainValidationResult.InvalidName);
+            }
 
             HttpClient httpClient = new HttpClient(filter);
 
