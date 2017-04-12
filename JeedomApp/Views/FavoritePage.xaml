@@ -29,7 +29,7 @@
         <!--  content  -->
         <Grid Grid.Row="1">
             <ScrollViewer>
-                <TextBlock Text="C'est un peu vide ici. Ajoutez des équipements à votre liste de favoris."/>
+                <TextBlock Text="C'est un peu vide ici. Ajoutez des équipements à votre liste de favoris." HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </ScrollViewer>
         </Grid>
 
