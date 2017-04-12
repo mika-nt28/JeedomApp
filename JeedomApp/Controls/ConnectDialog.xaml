@@ -10,19 +10,13 @@
              xmlns:vm="using:JeedomApp.ViewModels"
              mc:Ignorable="d">
     <Grid>
-        <ScrollViewer>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="120" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock x:Name="tbTitle"
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="49,0" d:LayoutOverrides="VerticalAlignment">
+            <TextBlock x:Name="tbTitle"
                                HorizontalAlignment="Center"
                                Foreground="White"
                                Text="JeedomApp"
                                TextWrapping="Wrap" />
-                    <TextBlock x:Uid="connection"
+            <TextBlock x:Uid="connection"
                                x:Name="tbSubtitle"
                                Margin="0,5,0,0"
                                HorizontalAlignment="Center"
@@ -30,39 +24,48 @@
                                RenderTransformOrigin="0.5,0.5"
                                Text="Connectez-vous à votre box domotique"
                                TextWrapping="Wrap" />
-                    <Image x:Name="image"
+            <Image x:Name="image"
                            Width="44"
                            Height="44"
                            Margin="0,5,0,0"
                            HorizontalAlignment="Center"
                            RenderTransformOrigin="0.5,0.5"
                            Source="ms-appx:///Assets/Square44x44Logo.png">
-                        <Image.RenderTransform>
-                            <CompositeTransform />
-                        </Image.RenderTransform>
-                    </Image>
-                </StackPanel>
-                <TextBlock x:Name="ErrorMsg"
-                           Margin="5"
-                           Foreground="Red"
-                           Text="" />
-                <localcontrols:ConnectControl x:Name="pnConnectControl" Grid.Row="1" />
-            </Grid>
-        </ScrollViewer>
-        <CommandBar VerticalAlignment="Bottom">
-            <CommandBar.Content>
-                <Grid/>
-            </CommandBar.Content>
-            <AppBarButton x:Name="bConnect" Icon="Sync"
-                        Click="bConnect_Click"
-                        Label="Connexion"/>
-            <AppBarButton Icon="Camera" 
-                    Click="QrCodeInfo_Click"
-                    Label="Scan QR"/>
-            <AppBarButton Icon="View" 
+                <Image.RenderTransform>
+                    <CompositeTransform />
+                </Image.RenderTransform>
+            </Image>
+        </StackPanel>
+        <Pivot Title="Pivot" Margin="0,66,0,0">
+            <PivotItem x:Name="Manuel" Header="Manuel" Margin="10,10,14,50">
+                <Grid Margin="0,10,0,-48">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <localcontrols:ConnectControl x:Name="pnConnectControl" Grid.Row="1" Margin="-1,-110,1,110" />
+                    <Button x:Name="bConnect" 
+                        Content="Connexion"
+                        Click="bConnect_Click" Margin="37,224,131,83" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" />
+                    <Button 
                     Click="Demo_Click"
-                    Label="Demo"/>
-        </CommandBar>
-
+                    Content="Demo" Margin="210,224,0,83" Grid.Row="1" VerticalAlignment="Stretch" Width="87" d:LayoutOverrides="TopPosition, BottomPosition"/>
+                    <TextBlock x:Name="ErrorMsg"
+                           Margin="0,0,0,17"
+                           Foreground="Red"
+                           Text="" Height="61" Grid.Row="1" VerticalAlignment="Bottom" d:LayoutOverrides="VerticalAlignment" />
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="Auto" Header="Automatique">
+                <TextBlock x:Name="textBlock" Margin="55,169,75,145" TextWrapping="Wrap">
+                    <Run Text="Désolé cett"/>
+                    <Run Text="e"/>
+                    <Run Text=" "/>
+                    <Run Text="f"/>
+                    <Run Text="onction "/>
+                    <Run Text=" n'est pas encore disponnible"/>
+                </TextBlock>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </UserControl>

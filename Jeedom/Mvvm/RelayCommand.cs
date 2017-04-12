@@ -30,7 +30,8 @@ namespace Jeedom.Mvvm
             if (!CanExecute(p))
                 return;
             try { _execute(); }
-            catch { Debugger.Break(); }
+            catch { //Debugger.Break();
+            }
         }
 
         public void RaiseCanExecuteChanged()
