@@ -108,13 +108,11 @@
         <ResourceDictionary Source="../CmdTemplates/GenericType/GARAGE_STATE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/POWER_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/CONSUMPTION'_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/TEMPERATURE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/BRIGHTNESS_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/PRESENCE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/BATTERY_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/SMOKE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/FLOOD_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/HUMIDITY_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/UV_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/OPENING_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/OPENING_WINDOW_Template.xaml" />
@@ -128,6 +126,9 @@
         <ResourceDictionary Source="../CmdTemplates/GenericType/WIND_SPEED_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/WIND_DIRECTION_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/SHOCK_Template.xaml" />-->
+        
+        <ResourceDictionary Source="../CmdTemplates/GenericType/TEMPERATURE_Template.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/GenericType/HUMIDITY_Template.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Selectors  -->
@@ -139,7 +140,9 @@
         NumericCmdTemplate="{StaticResource NumericCmdTemplate}"
         OtherCmdTemplate="{StaticResource OtherCmdTemplate}"
         SliderCmdTemplate="{StaticResource SliderCmdTemplate}"
-        StringCmdTemplate="{StaticResource StringCmdTemplate}" />
+        StringCmdTemplate="{StaticResource StringCmdTemplate}"
+        TemperatureCmdTemplate="{StaticResource TemperatureCmdTemplate}"
+        HumidityCmdTemplate="{StaticResource HumidityCmdTemplate}" />
 
     <!--  Template pour un equipement par défaut  -->
     <DataTemplate x:Key="DefaultEqLogicTemplate">
