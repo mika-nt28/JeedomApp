@@ -4,13 +4,12 @@
     xmlns:Controls="using:JeedomApp.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:pie="using:CrossPieCharts.UWP.PieCharts"
     xmlns:selectors="using:JeedomApp.Selectors"
     mc:Ignorable="d">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../ConvertersRessources.xaml" />
-        <ResourceDictionary Source="../Custom.xaml" />
+        <ResourceDictionary Source="../../ConvertersRessources.xaml" />
+        <ResourceDictionary Source="../../Custom.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Template pour un equipement avec Température & Humidity  -->

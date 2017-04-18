@@ -20,6 +20,7 @@ namespace JeedomApp.Selectors
         public DataTemplate TemperatureEqLogicTemplate { get; set; }
         public DataTemplate HumidityEqLogicTemplate { get; set; }
         public DataTemplate TempHumEqLogicTemplate { get; set; }
+        public DataTemplate ThermostatEqLogicTemplate { get; set; }
 
         #endregion Public Properties
 
@@ -33,6 +34,11 @@ namespace JeedomApp.Selectors
            // System.Diagnostics.Debug.WriteLine(eq.EqTypeName);
             switch (eq.EqTypeName)
             {
+                case "thermostat":
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
+                    return ThermostatEqLogicTemplate;
+
                 case "sonos3":
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
                     container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
@@ -97,7 +103,12 @@ namespace JeedomApp.Selectors
                 container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                 return HumidityEqLogicTemplate;
             }
-
+            if (ContainCmd(eq, new[] { "THERMOSTAT_LOCK", "THERMOSTAT_MODE", "THERMOSTAT_SETPOINT", "THERMOSTAT_SET_LOCK", "THERMOSTAT_SET_MODE", "THERMOSTAT_SET_SETPOINT", "THERMOSTAT_SET_UNLOCK", "THERMOSTAT_STATE_NAME", "THERMOSTAT_STATE", "THERMOSTAT_TEMPERATURE_OUTDOOR", "THERMOSTAT_TEMPERATURE" }))
+            {
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
+                return ThermostatEqLogicTemplate;
+            }
             return DefaultEqLogicTemplate;
         }
 

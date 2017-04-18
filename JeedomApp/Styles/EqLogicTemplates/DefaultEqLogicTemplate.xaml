@@ -16,6 +16,8 @@
         <ResourceDictionary Source="../CmdTemplates/OtherCmdTemplate.xaml" />
         <ResourceDictionary Source="../CmdTemplates/SliderCmdTemplate.xaml" />
         <ResourceDictionary Source="../CmdTemplates/StringCmdTemplate.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/GenericType/TEMPERATURE_Template.xaml" />
+        <ResourceDictionary Source="../CmdTemplates/GenericType/HUMIDITY_Template.xaml" />
         <!--
         <ResourceDictionary Source="../CmdTemplates/GenericType/Light/LIGHT_STATE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Light/LIGHT_ON_Template.xaml" />
@@ -47,25 +49,7 @@
         <ResourceDictionary Source="../CmdTemplates/GenericType/Siren/SIREN_STATE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Siren/SIREN_OFF_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Siren/SIREN_ON_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_STATE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_TEMPERATURE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_SET_SETPOINT_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_SETPOINT_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_SET_MODE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_MODE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_SET_LOCK_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_SET_UNLOCK_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_LOCK_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_TEMPERATURE_OUTDOOR_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Thermostat/THERMOSTAT_STATE_NAME_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_UP_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_DOWN_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_LEFT_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_RIGHT_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_ZOOM_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_DEZOOM_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_STOP_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Camera/CAMERA_PRESET_Template.xaml" />
+       
         <ResourceDictionary Source="../CmdTemplates/GenericType/Mode/MODE_STATE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Mode/MODE_SET_STATE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Alarm/ALARM_STATE_Template.xaml" />
@@ -74,33 +58,7 @@
         <ResourceDictionary Source="../CmdTemplates/GenericType/Alarm/ALARM_ARMED_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Alarm/ALARM_RELEASED_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/Alarm/ALARM_SET_MODE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_HUMIDITY_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_PRESSURE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_WIND_SPEED_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_WIND_DIRECTION_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_SUNSET_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_SUNRISE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MIN_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MAX_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_ID_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MIN_1_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MAX_1_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_1_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_ID_1_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MIN_2_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MAX_2_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_2_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_ID_2_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MIN_3_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MAX_3_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_3_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_ID_3_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MIN_4_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_TEMPERATURE_MAX_4_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_4_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/Weather/WEATHER_CONDITION_ID_4_Template.xaml" />
+       
         <ResourceDictionary Source="../CmdTemplates/GenericType/GB_OPEN_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/GB_CLOSE_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/GB_TOGGLE_Template.xaml" />
@@ -125,10 +83,9 @@
         <ResourceDictionary Source="../CmdTemplates/GenericType/RAIN_TOTAL_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/WIND_SPEED_Template.xaml" />
         <ResourceDictionary Source="../CmdTemplates/GenericType/WIND_DIRECTION_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/SHOCK_Template.xaml" />-->
+        <ResourceDictionary Source="../CmdTemplates/GenericType/SHOCK_Template.xaml" />
         
-        <ResourceDictionary Source="../CmdTemplates/GenericType/TEMPERATURE_Template.xaml" />
-        <ResourceDictionary Source="../CmdTemplates/GenericType/HUMIDITY_Template.xaml" />
+        -->
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Selectors  -->
@@ -140,8 +97,8 @@
         NumericCmdTemplate="{StaticResource NumericCmdTemplate}"
         OtherCmdTemplate="{StaticResource OtherCmdTemplate}"
         SliderCmdTemplate="{StaticResource SliderCmdTemplate}"
-        StringCmdTemplate="{StaticResource StringCmdTemplate}"
-        TemperatureCmdTemplate="{StaticResource TemperatureCmdTemplate}"
+        StringCmdTemplate="{StaticResource StringCmdTemplate}" 
+        TemperatureCmdTemplate="{StaticResource TemperatureCmdTemplate}" 
         HumidityCmdTemplate="{StaticResource HumidityCmdTemplate}" />
 
     <!--  Template pour un equipement par défaut  -->

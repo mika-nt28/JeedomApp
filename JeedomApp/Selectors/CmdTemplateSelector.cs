@@ -32,7 +32,7 @@ namespace JeedomApp.Selectors
             //TODO : Voir "generic_type" : https://www.jeedom.com/forum/viewtopic.php?f=112&t=15155#p278226
             if (cmd.Display != null)
             {
-                 switch(cmd.display.generic_type)
+                 switch(cmd.Display.generic_type)
                 {
                     /*case "LIGHT_STATE":
                         return LIGHT_STATE_Template;
@@ -42,7 +42,7 @@ namespace JeedomApp.Selectors
 
                     case "LIGHT_OFF":
                         return LIGHT_OFF_Template;*/
-                    case "TEMPERATURE":
+                   case "TEMPERATURE":
                         return TemperatureCmdTemplate;
                     case "HUMIDITY":
                         return HumidityCmdTemplate;

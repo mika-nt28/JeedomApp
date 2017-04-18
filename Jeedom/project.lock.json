@@ -1,5 +1,4 @@
 {
-  "locked": false,
   "version": 2,
   "targets": {
     "UAP,Version=v10.0": {
@@ -17452,7 +17451,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform/5.2.3": {
       "sha512": "xsOO1wxNtqhPdYoNfI96fTG9xrECOqBmqwVbarRuQinQ+sZKSI604Bi2S2cPHHAogHwbs3Lzgooi5KYffvOlpQ==",
       "type": "package",
-      "path": "Microsoft.NETCore.UniversalWindowsPlatform/5.2.3",
+      "path": "microsoft.netcore.universalwindowsplatform/5.2.3",
       "files": [
         "Microsoft.NETCore.UniversalWindowsPlatform.5.2.3.nupkg.sha512",
         "Microsoft.NETCore.UniversalWindowsPlatform.nuspec",
@@ -23880,6 +23879,43 @@
     ],
     "UAP,Version=v10.0": []
   },
-  "tools": {},
-  "projectFileToolGroups": {}
+  "packageFolders": {
+    "C:\\Users\\micha\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "restore": {
+      "projectUniqueName": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj",
+      "projectName": "Jeedom",
+      "projectPath": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj",
+      "projectJsonPath": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\project.json",
+      "projectStyle": "ProjectJson"
+    },
+    "dependencies": {
+      "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+      "Newtonsoft.Json": "10.0.2"
+    },
+    "frameworks": {
+      "uap10.0": {}
+    },
+    "runtimes": {
+      "win10-arm": {
+        "#import": []
+      },
+      "win10-arm-aot": {
+        "#import": []
+      },
+      "win10-x64": {
+        "#import": []
+      },
+      "win10-x64-aot": {
+        "#import": []
+      },
+      "win10-x86": {
+        "#import": []
+      },
+      "win10-x86-aot": {
+        "#import": []
+      }
+    }
+  }
 }

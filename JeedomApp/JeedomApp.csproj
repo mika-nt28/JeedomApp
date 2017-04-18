@@ -331,10 +331,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_LOCK_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\CmdTemplates\GenericType\Flap\FLAP_SLIDER_Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -379,23 +375,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_STATE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_TEMPERATURE_OUTDOOR_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\CmdTemplates\GenericType\Lock\LOCK_CLOSE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_TEMPERATURE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_SET_SETPOINT_Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -407,31 +387,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_SETPOINT_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\CmdTemplates\GenericType\Camera\CAMERA_STOP_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_SET_UNLOCK_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_SET_MODE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_MODE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_SET_LOCK_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Thermostat\THERMOSTAT_STATE_NAME_Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -503,55 +459,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\CmdTemplates\GenericType\TEMPERATURE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_HUMIDITY_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_PRESSURE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_WIND_SPEED_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_WIND_DIRECTION_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_SUNSET_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_SUNRISE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MIN_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MAX_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_ID_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MIN_1_Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -560,62 +468,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\CmdTemplates\GenericType\GB_CLOSE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MAX_1_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_ID_1_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MIN_2_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MAX_2_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_2_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_ID_2_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MIN_3_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MAX_3_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_3_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_ID_3_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MIN_4_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_TEMPERATURE_MAX_4_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_4_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Weather\WEATHER_CONDITION_ID_4_Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -772,6 +624,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\ThermostatEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\EqLogicTemplates\TempHumEqLogicTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
