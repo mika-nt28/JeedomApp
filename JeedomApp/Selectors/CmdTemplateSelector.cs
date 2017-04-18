@@ -16,6 +16,8 @@ namespace JeedomApp.Selectors
         public DataTemplate SliderCmdTemplate { get; set; }
         public DataTemplate MessageCmdTemplate { get; set; }
         public DataTemplate ColorCmdTemplate { get; set; }
+        public DataTemplate TemperatureCmdTemplate { get; set; }
+        public DataTemplate HumidityCmdTemplate { get; set; }
 
         #endregion Public Properties
 
@@ -30,17 +32,21 @@ namespace JeedomApp.Selectors
             //TODO : Voir "generic_type" : https://www.jeedom.com/forum/viewtopic.php?f=112&t=15155#p278226
             if (cmd.Display != null)
             {
-                /* switch(cmd.display.generic_type)
+                 switch(cmd.display.generic_type)
                 {
-                    case "LIGHT_STATE":
+                    /*case "LIGHT_STATE":
                         return LIGHT_STATE_Template;
 
                     case "LIGHT_ON":
                         return LIGHT_ON_Template;
 
                     case "LIGHT_OFF":
-                        return LIGHT_OFF_Template;
-                } */
+                        return LIGHT_OFF_Template;*/
+                    case "TEMPERATURE":
+                        return TemperatureCmdTemplate;
+                    case "HUMIDITY":
+                        return HumidityCmdTemplate;
+                } 
             }
             switch (cmd.SubType)
             {
