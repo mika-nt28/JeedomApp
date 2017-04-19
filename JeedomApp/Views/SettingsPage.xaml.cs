@@ -174,6 +174,28 @@ namespace JeedomApp.Views
         async private void activePush_Toggled(object sender, RoutedEventArgs e)
         {
             Jeedom.RequestViewModel.Instance.UpdateNotificationChannel();
+            BackgroundTaskBuilder taskBuilder = new BackgroundTaskBuilder();
+            PushNotificationTrigger trigger = new PushNotificationTrigger();
+            taskBuilder.SetTrigger(trigger);
+
+            // Background tasks must live in separate DLL, and be included in the package manifest
+            // Also, make sure that your main application project includes a reference to this DLL
+            taskBuilder.TaskEntryPoint = "Notification.ToastNotification";
+            taskBuilder.Name = "NotificationBackgroundTask";
+            BackgroundTaskRegistration task=null;
+            try
+            {
+                task = taskBuilder.Register();
+                task.Completed += BackgroundTaskCompleted;
+            }
+            catch (Exception ex)
+            {
+                if (null != task)
+                {
+                    task.Unregister(true);
+                    task = null;
+                }
+            }
         }
 
         async private void activeLocation_Toggled(object sender, RoutedEventArgs e)
