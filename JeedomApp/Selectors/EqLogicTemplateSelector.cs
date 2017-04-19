@@ -21,6 +21,7 @@ namespace JeedomApp.Selectors
         public DataTemplate HumidityEqLogicTemplate { get; set; }
         public DataTemplate TempHumEqLogicTemplate { get; set; }
         public DataTemplate ThermostatEqLogicTemplate { get; set; }
+        public DataTemplate VoletEqLogicTemplate { get; set; }
 
         #endregion Public Properties
 
@@ -109,6 +110,13 @@ namespace JeedomApp.Selectors
                 container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
                 return ThermostatEqLogicTemplate;
             }
+            if (ContainCmd(eq, new[] {"FLAP_DOWN", "FLAP_SLIDER", "FLAP_STATE", "FLAP_STOP", "FLAP_UP"}))
+            {
+                container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
+                container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
+                return VoletEqLogicTemplate;
+            }
+            
             return DefaultEqLogicTemplate;
         }
 
