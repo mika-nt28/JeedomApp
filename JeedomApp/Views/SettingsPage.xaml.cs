@@ -148,19 +148,20 @@ namespace JeedomApp.Views
                         // If the background task threw an exception, display the exception in the
                         // error text box.
                         e.CheckResult();
+                        if(sender.Name == "LocationBackgroundTask"){ 
+                            // Update the UI with the completion status of the background task The Run
+                            // method of the background task sets this status.
+                            var settings = ApplicationData.Current.LocalSettings;
+                            if (settings.Values["Status"] != null)
+                            {
+                                Status.Text = settings.Values["Status"].ToString();
+                            }
 
-                        // Update the UI with the completion status of the background task The Run
-                        // method of the background task sets this status.
-                        var settings = ApplicationData.Current.LocalSettings;
-                        if (settings.Values["Status"] != null)
-                        {
-                            Status.Text = settings.Values["Status"].ToString();
-                        }
-
-                        // Extract and display location data set by the background task if not null
-                        MobilePosition_Latitude.Text = (settings.Values["Latitude"] == null) ? "No data" : settings.Values["Latitude"].ToString();
-                        MobilePosition_Longitude.Text = (settings.Values["Longitude"] == null) ? "No data" : settings.Values["Longitude"].ToString();
-                        MobilePosition_Accuracy.Text = (settings.Values["Accuracy"] == null) ? "No data" : settings.Values["Accuracy"].ToString();
+                            // Extract and display location data set by the background task if not null
+                            MobilePosition_Latitude.Text = (settings.Values["Latitude"] == null) ? "No data" : settings.Values["Latitude"].ToString();
+                            MobilePosition_Longitude.Text = (settings.Values["Longitude"] == null) ? "No data" : settings.Values["Longitude"].ToString();
+                            MobilePosition_Accuracy.Text = (settings.Values["Accuracy"] == null) ? "No data" : settings.Values["Accuracy"].ToString();
+                        } 
                     }
                     catch (Exception ex)
                     {
@@ -186,7 +187,7 @@ namespace JeedomApp.Views
             try
             {
                 task = taskBuilder.Register();
-                task.Completed += BackgroundTaskCompleted;
+                task.Completed += OnCompleted;
             }
             catch (Exception ex)
             {

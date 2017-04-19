@@ -114,6 +114,7 @@
     <Compile Include="Helpers\BadgeHelper.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\ToastHelper.cs" />
+    <Compile Include="NotificationActionBackgroundTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToastActivationTypeBackgroundClosedTask.cs" />
     <Compile Include="ToastNotificationHistoryChangedTriggerTask.cs" />

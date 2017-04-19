@@ -95,41 +95,41 @@
 									Grid.Column="0"
 									Margin="0,0,1,0"
 									Background="#33000000">
-									<Button
+                                    <Button
 										Padding="0"
 										HorizontalAlignment="Stretch"
 										VerticalAlignment="Stretch"
 										HorizontalContentAlignment="Stretch"
 										VerticalContentAlignment="Stretch"
-										Command="{x:Bind FLAP_UP.ExecCommand}"
-										RelativePanel.AlignHorizontalCenterWithPanel="True">
-								</RelativePanel>
+										RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+										<!--Command="{x:Bind FLAP_UP.ExecCommand}"-->
+                                </RelativePanel>
 								<RelativePanel
 									Grid.Column="1"
 									Margin="0,0,1,0"
 									Background="#33000000">
-									<Button
+                                    <Button
 										Padding="0"
 										HorizontalAlignment="Stretch"
 										VerticalAlignment="Stretch"
 										HorizontalContentAlignment="Stretch"
 										VerticalContentAlignment="Stretch"
-										Command="{x:Bind FLAP_STOP.ExecCommand}"
-										RelativePanel.AlignHorizontalCenterWithPanel="True">
-								</RelativePanel>
+										RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+										<!--"{x:Bind FLAP_STOP.ExecCommand}"-->
+                                </RelativePanel>
 								<RelativePanel
 									Grid.Column="2"
 									Margin="0,0,1,0"
 									Background="#33000000">
-									<Button
+                                    <Button
 										Padding="0"
 										HorizontalAlignment="Stretch"
 										VerticalAlignment="Stretch"
 										HorizontalContentAlignment="Stretch"
 										VerticalContentAlignment="Stretch"
-										Command="{x:Bind FLAP_DOWN.ExecCommand}"
-										RelativePanel.AlignHorizontalCenterWithPanel="True">
-								</RelativePanel>
+										RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+										<!--"{x:Bind FLAP_DOWN.ExecCommand}"-->
+                                </RelativePanel>
 							</Grid>
 						</RelativePanel>
                     </Viewbox>

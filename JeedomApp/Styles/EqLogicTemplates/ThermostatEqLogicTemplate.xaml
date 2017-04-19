@@ -40,7 +40,7 @@
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
 					<!--  Template pour l'etat d'activation-->
-					<Viewbox Grid.Row="0">
+                    <Viewbox Grid.Row="0" Grid.Column="0">
                         <RelativePanel>
                             <TextBlock
                                 x:Name="icon"
@@ -50,52 +50,52 @@
                         </RelativePanel>
                     </Viewbox>   
 					<!--  Template pour la température ambiante-->
-					<Viewbox Grid.Row="0">
+                    <Viewbox Grid.Row="0" Grid.Column="1">
                         <RelativePanel>
                             <TextBlock
-                                x:Name="icon"
+                                x:Name="iconTamb"
                                 FontFamily="{StaticResource FontAwesome}"
                                 FontSize="30"
                                 Text="&#xf2c9;" />
                             <TextBlock
-                                x:Name="temperature"
+                                x:Name="temperatureAmbiante"
                                 Margin="10,0,0,0"
                                 VerticalAlignment="Center"
                                 FontSize="20"
                                 FontWeight="Thin"
-                                RelativePanel.AlignVerticalCenterWith="icon"
-                                RelativePanel.RightOf="icon"
+                                RelativePanel.AlignVerticalCenterWith="iconTamb"
+                                RelativePanel.RightOf="iconTamb"
                                 Text="{Binding Cmds, ConverterParameter=THERMOSTAT_TEMPERATURE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
                             <TextBlock
                                 FontSize="8"
                                 FontWeight="Thin"
-                                RelativePanel.AlignVerticalCenterWith="temperature"
-                                RelativePanel.RightOf="temperature"
+                                RelativePanel.AlignVerticalCenterWith="temperatureAmbiante"
+                                RelativePanel.RightOf="temperatureAmbiante"
                                 Text="°C" />
                         </RelativePanel>
                     </Viewbox>   
 					<!--  Template pour la température Consigne-->
-					<Viewbox Grid.Row="0">
+                    <Viewbox Grid.Row="1" Grid.Column="0">
                         <RelativePanel>
                             <TextBlock
-                                x:Name="icon"
+                                x:Name="iconTcons"
                                 FontFamily="{StaticResource FontAwesome}"
                                 FontSize="30"
                                 Text="&#xf2c9;" />
                             <TextBlock
-                                x:Name="temperature"
+                                x:Name="temperatureConsigne"
                                 Margin="10,0,0,0"
                                 VerticalAlignment="Center"
                                 FontSize="20"
                                 FontWeight="Thin"
-                                RelativePanel.AlignVerticalCenterWith="icon"
-                                RelativePanel.RightOf="icon"
+                                RelativePanel.AlignVerticalCenterWith="iconTcons"
+                                RelativePanel.RightOf="iconTcons"
                                 Text="{Binding Cmds, ConverterParameter=THERMOSTAT_SETPOINT, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
                             <TextBlock
                                 FontSize="8"
                                 FontWeight="Thin"
-                                RelativePanel.AlignVerticalCenterWith="temperature"
-                                RelativePanel.RightOf="temperature"
+                                RelativePanel.AlignVerticalCenterWith="temperatureConsigne"
+                                RelativePanel.RightOf="temperatureConsigne"
                                 Text="°C" />
 							<Slider
 								Margin="10,0,10,0"
@@ -107,18 +107,18 @@
                         </RelativePanel>
                     </Viewbox>
 					<!--  Template pour le mode de fonctionnement-->
-					<Viewbox Grid.Row="0">
+                    <Viewbox Grid.Row="1" Grid.Column="1">
                         <RelativePanel>
 							<!--  Creer un convertisseur Mode / FontAwesome-->
                             <TextBlock
-                                x:Name="icon"
+                                x:Name="iconMode"
                                 FontFamily="{StaticResource FontAwesome}"
                                 FontSize="30"
                                 Text="{Binding Cmds, ConverterParameter=THERMOSTAT_MODE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
 							<ComboBox
 								Header="Objet Jeedom de votre Maison"
-                                RelativePanel.AlignVerticalCenterWith="icon"
-                                RelativePanel.RightOf="icon">
+                                RelativePanel.AlignVerticalCenterWith="iconMode"
+                                RelativePanel.RightOf="iconMode">
 								<ComboBox.ItemTemplate>
 									<DataTemplate>
 										<StackPanel Orientation="Horizontal">
