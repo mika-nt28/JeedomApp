@@ -14,7 +14,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Template pour un equipement avec Thermostat  -->
-    <DataTemplate x:Key="ThermostatEqLogicTemplate">
+     <DataTemplate x:Key="ThermostatEqLogicTemplate">
         <Controls:TileControl
             x:Name="TheTile"
             Title="{Binding Name, FallbackValue=Name}"
@@ -39,8 +39,18 @@
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
-
-                    <Viewbox Grid.Row="0">
+					<!--  Template pour l'etat d'activation-->
+					<Viewbox Grid.Row="0">
+                        <RelativePanel>
+                            <TextBlock
+                                x:Name="icon"
+                                FontFamily="{StaticResource FontAwesome}"
+                                FontSize="30"
+                                Text="{Binding Cmds, ConverterParameter=THERMOSTAT_STATE, Converter={StaticResource StateToFontAwesomeConverter}, FallbackValue=12}" />
+                        </RelativePanel>
+                    </Viewbox>   
+					<!--  Template pour la température ambiante-->
+					<Viewbox Grid.Row="0">
                         <RelativePanel>
                             <TextBlock
                                 x:Name="icon"
@@ -62,10 +72,76 @@
                                 RelativePanel.AlignVerticalCenterWith="temperature"
                                 RelativePanel.RightOf="temperature"
                                 Text="°C" />
-
+                        </RelativePanel>
+                    </Viewbox>   
+					<!--  Template pour la température Consigne-->
+					<Viewbox Grid.Row="0">
+                        <RelativePanel>
+                            <TextBlock
+                                x:Name="icon"
+                                FontFamily="{StaticResource FontAwesome}"
+                                FontSize="30"
+                                Text="&#xf2c9;" />
+                            <TextBlock
+                                x:Name="temperature"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="20"
+                                FontWeight="Thin"
+                                RelativePanel.AlignVerticalCenterWith="icon"
+                                RelativePanel.RightOf="icon"
+                                Text="{Binding Cmds, ConverterParameter=THERMOSTAT_SETPOINT, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
+                            <TextBlock
+                                FontSize="8"
+                                FontWeight="Thin"
+                                RelativePanel.AlignVerticalCenterWith="temperature"
+                                RelativePanel.RightOf="temperature"
+                                Text="°C" />
+							<Slider
+								Margin="10,0,10,0"
+								Foreground="White"
+								RelativePanel.AlignLeftWithPanel="True"
+								RelativePanel.AlignRightWithPanel="True"
+								RelativePanel.AlignVerticalCenterWithPanel="True" 
+								Value="{Binding Cmds, ConverterParameter=THERMOSTAT_SET_SETPOINT, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}"/>
                         </RelativePanel>
                     </Viewbox>
-                </Grid>
+					<!--  Template pour le mode de fonctionnement-->
+					<Viewbox Grid.Row="0">
+                        <RelativePanel>
+							<!--  Creer un convertisseur Mode / FontAwesome-->
+                            <TextBlock
+                                x:Name="icon"
+                                FontFamily="{StaticResource FontAwesome}"
+                                FontSize="30"
+                                Text="{Binding Cmds, ConverterParameter=THERMOSTAT_MODE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
+							<ComboBox
+								Header="Objet Jeedom de votre Maison"
+                                RelativePanel.AlignVerticalCenterWith="icon"
+                                RelativePanel.RightOf="icon">
+								<ComboBox.ItemTemplate>
+									<DataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<StackPanel>
+												<TextBlock Text="{Binding Cmds, ConverterParameter=THERMOSTAT_SET_MODE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
+											</StackPanel>
+										</StackPanel>
+									</DataTemplate>
+								</ComboBox.ItemTemplate>
+							</ComboBox>
+                        </RelativePanel>
+                    </Viewbox>
+                  <!--  Template pour le verouillage-->
+					<!-- 
+					"THERMOSTAT_LOCK", 
+					"THERMOSTAT_SET_LOCK", 
+					 -->
+					<Viewbox Grid.Row="0">
+                        <RelativePanel>
+                            
+                        </RelativePanel>
+                    </Viewbox>
+               </Grid>
             </Grid>
         </Controls:TileControl>
     </DataTemplate>
