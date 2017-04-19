@@ -17,6 +17,7 @@
         <ResourceDictionary Source="HumidityEqLogicTemplate.xaml" />
         <ResourceDictionary Source="TempHumEqLogicTemplate.xaml" />
         <ResourceDictionary Source="ThermostatEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="VoletEqLogicTemplate.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Selector pour les Equipements  -->
@@ -31,5 +32,6 @@
         SonosEqLogicTemplate="{StaticResource SonosEqLogicTemplate}"
         TempHumEqLogicTemplate="{StaticResource TempHumEqLogicTemplate}"
         TemperatureEqLogicTemplate="{StaticResource TemperatureEqLogicTemplate}"
-        ThermostatEqLogicTemplate="{StaticResource ThermostatEqLogicTemplate}" />
+        ThermostatEqLogicTemplate="{StaticResource ThermostatEqLogicTemplate}"
+        VoletEqLogicTemplate="{StaticResource VoletEqLogicTemplate}" />
 </ResourceDictionary>
