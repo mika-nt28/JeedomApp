@@ -180,7 +180,7 @@ namespace JeedomApp.Views
 
             // Background tasks must live in separate DLL, and be included in the package manifest
             // Also, make sure that your main application project includes a reference to this DLL
-            taskBuilder.TaskEntryPoint = "Notification.ToastNotification";
+            taskBuilder.TaskEntryPoint = "Notification.NotificationActionBackgroundTask";
             taskBuilder.Name = "NotificationBackgroundTask";
             BackgroundTaskRegistration task=null;
             try
