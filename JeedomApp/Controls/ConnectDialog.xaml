@@ -36,7 +36,7 @@
                 </Image.RenderTransform>
             </Image>
         </StackPanel>
-        <Pivot Title="Pivot" Margin="0,66,0,0">
+        <Pivot Title="Pivot" Margin="0,66,0,0" SelectionChanged="Pivot_SelectionChanged">
             <PivotItem x:Name="Manuel" Header="Manuel" Margin="10,10,14,50">
                 <Grid Margin="0,10,0,-48">
                     <Grid.RowDefinitions>
