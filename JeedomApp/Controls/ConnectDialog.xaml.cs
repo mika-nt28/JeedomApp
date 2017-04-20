@@ -31,6 +31,19 @@ namespace JeedomApp.Controls
         {
             this.InitializeComponent();
         }
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int no = Pivot.SelectedIndex; 
+            if(no == 1)  
+            {
+                ZXingQrCodeScanner.ScanFirstCameraForQrCode(
+                  result =>
+                  {
+                    // TODO: do something with the QR code result.
+                  },
+                  TimeSpan.FromSeconds(30));
+            }
+        }
 
         private void Demo_Click(object sender, RoutedEventArgs e)
         {
