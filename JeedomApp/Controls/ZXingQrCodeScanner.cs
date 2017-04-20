@@ -1,3 +1,10 @@
+using System;
+using System.Collections.ObjectModel;
+using Windows.Devices.Enumeration;
+using Windows.UI.Core;
+
+namespace JeedomApp.Controls
+{
 public static class ZXingQrCodeScanner
 {
   public static async void ScanFirstCameraForQrCode(
@@ -43,4 +50,5 @@ public static class ZXingQrCodeScanner
     // Call back with whatever result we got.
     resultCallback(result);
   }
+}
 }
