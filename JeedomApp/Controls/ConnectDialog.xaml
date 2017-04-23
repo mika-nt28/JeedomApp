@@ -36,35 +36,39 @@
                 </Image.RenderTransform>
             </Image>
         </StackPanel>
-        <Pivot Title="Pivot" Margin="0,66,0,0" SelectionChanged="Pivot_SelectionChanged">
+        <Pivot Name="PivotConnection" Margin="0,66,0,0" SelectionChanged="PivotConnection_SelectionChanged">
             <PivotItem x:Name="Manuel" Header="Manuel" Margin="10,10,14,50">
                 <Grid Margin="0,10,0,-48">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="120" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <localcontrols:ConnectControl x:Name="pnConnectControl" Grid.Row="1" Margin="-1,-110,1,110" />
+                    <localcontrols:ConnectControl x:Name="pnConnectControl" Margin="-1,10,1,-178" />
                     <Button x:Name="bConnect" 
                         Content="Connexion"
-                        Click="bConnect_Click" Margin="37,224,131,83" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" />
-                    <Button 
-                    Click="Demo_Click"
-                    Content="Demo" Margin="210,224,0,83" Grid.Row="1" VerticalAlignment="Stretch" Width="87" d:LayoutOverrides="TopPosition, BottomPosition"/>
+                        Click="bConnect_Click" Margin="37,224,131,133" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" />
+                    <Button x:Name="bdemo"
+                            Click="Demo_Click"
+                            Content="Demo" Margin="210,224,0,133" 
+                            Grid.Row="1" 
+                            VerticalAlignment="Stretch" 
+                            Width="87" 
+                            d:LayoutOverrides="TopPosition, 
+                            BottomPosition"/>
                     <TextBlock x:Name="ErrorMsg"
-                           Margin="0,0,0,17"
-                           Foreground="Red"
-                           Text="" Height="61" Grid.Row="1" VerticalAlignment="Bottom" d:LayoutOverrides="VerticalAlignment" />
+                               Margin="0,0,0,17"
+                               Foreground="Red"
+                               Text="" Height="61" 
+                               Grid.Row="1" 
+                               VerticalAlignment="Bottom" 
+                               d:LayoutOverrides="VerticalAlignment" />
                 </Grid>
             </PivotItem>
             <PivotItem x:Name="Auto" Header="Automatique">
-                <TextBlock x:Name="textBlock" Margin="55,169,75,145" TextWrapping="Wrap">
-                    <Run Text="Désolé cett"/>
-                    <Run Text="e"/>
-                    <Run Text=" "/>
-                    <Run Text="f"/>
-                    <Run Text="onction "/>
-                    <Run Text=" n'est pas encore disponnible"/>
-                </TextBlock>
+                <TextBlock x:Name="textBlock" 
+                           Margin="55,169,75,145" 
+                           TextWrapping="Wrap" 
+                           Text="Désolé cette fonction n'est pas encore disponnible"/>
             </PivotItem>
         </Pivot>
     </Grid>

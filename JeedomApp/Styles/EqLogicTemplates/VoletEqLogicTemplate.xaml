@@ -12,129 +12,15 @@
 
     <!--  Template pour un equipement Volet  -->
     <DataTemplate x:Key="VoletEqLogicTemplate">
-    <Controls:TileControl
-            x:Name="TheTile"
+        <Controls:TileControl
             Title="{Binding Name, FallbackValue=Name}"
             d:DesignHeight="240"
             d:DesignWidth="240"
-            TileBrush="#FFB300">
+            SubTitle="{Binding Datacontext.StateBool, ElementName=OnOff}">
 
-            <Grid x:Name="grid">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="3*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-
-                    <Viewbox Grid.Row="0">
-						<RelativePanel>
-							<RelativePanel.Background>
-								<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-									<GradientStop Offset="0" Color="#FF58B6EE" />
-									<GradientStop Offset="1" Color="#FF479AD5" />
-								</LinearGradientBrush>
-							</RelativePanel.Background>
-
-							<!--  Icone Actuel  -->
-							<Viewbox
-								x:Name="ActionPosition"
-								Margin="10,20,10,0"
-								RelativePanel.Above="TextBlockSummary"
-								RelativePanel.AlignHorizontalCenterWithPanel="True"
-								RelativePanel.AlignLeftWithPanel="True"
-								RelativePanel.AlignRightWithPanel="True"
-								RelativePanel.AlignTopWithPanel="True">
-								<RelativePanel>
-									<Slider
-										x:Name="icon"
-										Margin="10,0,10,0"
-										Foreground="White"
-										RelativePanel.AlignLeftWithPanel="True"
-										RelativePanel.AlignRightWithPanel="True"
-										RelativePanel.AlignVerticalCenterWithPanel="True" 
-										Value="{Binding Cmds, ConverterParameter=FLAP_SLIDER, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
-								</RelativePanel>
-							</Viewbox>
-
-							<TextBlock
-								x:Name="TextBlockSummary"
-								Margin="0,0,0,8"
-								VerticalAlignment="Center"
-								FontSize="18"
-								FontWeight="Thin"
-								RelativePanel.Above="GridActionManual"
-								RelativePanel.AlignHorizontalCenterWithPanel="True"
-								Text="{Binding Cmds, ConverterParameter=FLAP_STATE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
-
-							<!--  Action Manuel  -->
-							<Grid
-								x:Name="GridActionManual"
-								Height="80"
-								RelativePanel.AlignBottomWithPanel="True"
-								RelativePanel.AlignLeftWithPanel="True"
-								RelativePanel.AlignRightWithPanel="True">
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition />
-									<ColumnDefinition />
-									<ColumnDefinition />
-									<ColumnDefinition />
-									<ColumnDefinition />
-								</Grid.ColumnDefinitions>
-								<RelativePanel
-									Grid.Column="0"
-									Margin="0,0,1,0"
-									Background="#33000000">
-                                    <Button
-										Padding="0"
-										HorizontalAlignment="Stretch"
-										VerticalAlignment="Stretch"
-										HorizontalContentAlignment="Stretch"
-										VerticalContentAlignment="Stretch"
-										RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-										<!--Command="{x:Bind FLAP_UP.ExecCommand}"-->
-                                </RelativePanel>
-								<RelativePanel
-									Grid.Column="1"
-									Margin="0,0,1,0"
-									Background="#33000000">
-                                    <Button
-										Padding="0"
-										HorizontalAlignment="Stretch"
-										VerticalAlignment="Stretch"
-										HorizontalContentAlignment="Stretch"
-										VerticalContentAlignment="Stretch"
-										RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-										<!--"{x:Bind FLAP_STOP.ExecCommand}"-->
-                                </RelativePanel>
-								<RelativePanel
-									Grid.Column="2"
-									Margin="0,0,1,0"
-									Background="#33000000">
-                                    <Button
-										Padding="0"
-										HorizontalAlignment="Stretch"
-										VerticalAlignment="Stretch"
-										HorizontalContentAlignment="Stretch"
-										VerticalContentAlignment="Stretch"
-										RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-										<!--"{x:Bind FLAP_DOWN.ExecCommand}"-->
-                                </RelativePanel>
-							</Grid>
-						</RelativePanel>
-                    </Viewbox>
-                </Grid>
-            </Grid>
+            <Controls:VoletPluginControl
+                x:Name="Volet"
+                DataContext="{Binding}" />
         </Controls:TileControl>
     </DataTemplate>
 </ResourceDictionary>

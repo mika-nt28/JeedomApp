@@ -97,6 +97,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\volet.jpg" />
     <Content Include="JeedomAppVoiceCommandes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -121,7 +122,9 @@
     <Compile Include="Controls\Plugins\OnOffPluginControl.xaml.cs">
       <DependentUpon>OnOffPluginControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PosDeviceWatcher.cs" />
+    <Compile Include="Controls\Plugins\VoletPluginControl.xaml.cs">
+      <DependentUpon>VoletPluginControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ServerState.xaml.cs">
       <DependentUpon>ServerState.xaml</DependentUpon>
     </Compile>
@@ -235,6 +238,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Plugins\OnOffPluginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Plugins\VoletPluginControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
