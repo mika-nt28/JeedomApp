@@ -26273,20 +26273,20 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\micha\\.nuget\\packages\\": {}
+    "C:\\Users\\RFRA1025\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\VoiceCommandService\\VoiceCommandService.csproj",
+      "projectUniqueName": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\VoiceCommandService\\VoiceCommandService.csproj",
       "projectName": "VoiceCommandService",
-      "projectPath": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\VoiceCommandService\\VoiceCommandService.csproj",
-      "projectJsonPath": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\VoiceCommandService\\project.json",
+      "projectPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\VoiceCommandService\\VoiceCommandService.csproj",
+      "projectJsonPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\VoiceCommandService\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj": {
-              "projectPath": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj"
+            "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Jeedom\\Jeedom.csproj": {
+              "projectPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Jeedom\\Jeedom.csproj"
             }
           }
         }

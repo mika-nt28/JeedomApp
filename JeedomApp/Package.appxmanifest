@@ -16,7 +16,8 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="JeedomApp.App">
       <uap:VisualElements DisplayName="JeedomApp" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="JeedomApp" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+        <uap:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#93ca02" />
         <uap:InitialRotationPreference>
@@ -25,12 +26,9 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
-          <uap:AppService Name="JeedomAppVoiceCommandService" />
-        </uap:Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.NotificationActionBackgroundTask">
           <BackgroundTasks>
-            <Task Type="timer" />
+            <Task Type="systemEvent" />
           </BackgroundTasks>
         </Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
@@ -38,11 +36,14 @@
             <Task Type="location" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.NotificationActionBackgroundTask">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
           <BackgroundTasks>
-            <Task Type="systemEvent" />
+            <Task Type="timer" />
           </BackgroundTasks>
         </Extension>
+        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
+          <uap:AppService Name="JeedomAppVoiceCommandService" />
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
