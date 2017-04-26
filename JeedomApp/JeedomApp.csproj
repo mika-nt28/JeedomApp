@@ -116,11 +116,20 @@
     <Compile Include="Controls\ConnectControl.xaml.cs">
       <DependentUpon>ConnectControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Plugins\ModePluginControl.xaml.cs">
+      <DependentUpon>ModePluginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Plugins\AlarmPluginControl.xaml.cs">
+      <DependentUpon>AlarmPluginControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Plugins\OnOffSliderPluginControl.xaml.cs">
       <DependentUpon>OnOffSliderPluginControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Plugins\OnOffPluginControl.xaml.cs">
       <DependentUpon>OnOffPluginControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Plugins\ThermostatPluginControl.xaml.cs">
+      <DependentUpon>ThermostatPluginControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Plugins\VoletPluginControl.xaml.cs">
       <DependentUpon>VoletPluginControl.xaml</DependentUpon>
@@ -233,11 +242,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Plugins\ModePluginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Plugins\AlarmPluginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\Plugins\OnOffSliderPluginControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Plugins\OnOffPluginControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Plugins\ThermostatPluginControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -422,10 +443,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Mode\MODE_STATE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Styles\CmdTemplates\GenericType\SABOTAGE_Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -435,34 +452,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\CmdTemplates\GenericType\GB_TOGGLE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Alarm\ALARM_SET_MODE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Alarm\ALARM_ARMED_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Alarm\ALARM_RELEASED_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Alarm\ALARM_ENABLE_STATE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Alarm\ALARM_MODE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Alarm\ALARM_STATE_Template.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\CmdTemplates\GenericType\Mode\MODE_SET_STATE_Template.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -582,7 +571,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Styles\EqLogicTemplates\ModeEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\EqLogicTemplates\HumidityEqLogicTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\EqLogicTemplates\AlarmEqLogicTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -22,6 +22,8 @@ namespace JeedomApp.Selectors
         public DataTemplate TempHumEqLogicTemplate { get; set; }
         public DataTemplate ThermostatEqLogicTemplate { get; set; }
         public DataTemplate VoletEqLogicTemplate { get; set; }
+        public DataTemplate AlarmEqLogicTemplate { get; set; }
+        public DataTemplate ModeEqLogicTemplate { get; set; }
 
         #endregion Public Properties
 
@@ -35,6 +37,14 @@ namespace JeedomApp.Selectors
            // System.Diagnostics.Debug.WriteLine(eq.EqTypeName);
             switch (eq.EqTypeName)
             {
+                case "alarm":
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
+                    return AlarmEqLogicTemplate;
+                case "mode":
+                    container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 2);
+                    container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
+                    return ModeEqLogicTemplate;
                 case "thermostat":
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
                     container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
@@ -106,7 +116,7 @@ namespace JeedomApp.Selectors
             }
            // if (ContainCmd(eq, new[] { "THERMOSTAT_LOCK", "THERMOSTAT_MODE", "THERMOSTAT_SETPOINT", "THERMOSTAT_SET_LOCK", "THERMOSTAT_SET_MODE", "THERMOSTAT_SET_SETPOINT", /*"THERMOSTAT_SET_UNLOCK",*//* "THERMOSTAT_STATE_NAME",*/ "THERMOSTAT_STATE", /*"THERMOSTAT_TEMPERATURE_OUTDOOR",*/ "THERMOSTAT_TEMPERATURE" }))
             if (ContainCmd(eq, new[] { "THERMOSTAT_LOCK", "THERMOSTAT_MODE", "THERMOSTAT_SETPOINT", "THERMOSTAT_SET_LOCK", "THERMOSTAT_SET_MODE", "THERMOSTAT_SET_SETPOINT",  "THERMOSTAT_STATE", "THERMOSTAT_TEMPERATURE" }))
-                {
+            {
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
                 container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
                 return ThermostatEqLogicTemplate;

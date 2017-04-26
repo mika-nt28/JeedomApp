@@ -18,6 +18,8 @@
         <ResourceDictionary Source="TempHumEqLogicTemplate.xaml" />
         <ResourceDictionary Source="ThermostatEqLogicTemplate.xaml" />
         <ResourceDictionary Source="VoletEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="AlarmEqLogicTemplate.xaml" />
+        <ResourceDictionary Source="ModeEqLogicTemplate.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Selector pour les Equipements  -->
@@ -33,5 +35,7 @@
         TempHumEqLogicTemplate="{StaticResource TempHumEqLogicTemplate}"
         TemperatureEqLogicTemplate="{StaticResource TemperatureEqLogicTemplate}"
         ThermostatEqLogicTemplate="{StaticResource ThermostatEqLogicTemplate}"
-        VoletEqLogicTemplate="{StaticResource VoletEqLogicTemplate}" />
+        VoletEqLogicTemplate="{StaticResource VoletEqLogicTemplate}" 
+        AlarmEqLogicTemplate="{StaticResource AlarmEqLogicTemplate}" 
+        ModeEqLogicTemplate="{StaticResource ModeEqLogicTemplate}" />
 </ResourceDictionary>

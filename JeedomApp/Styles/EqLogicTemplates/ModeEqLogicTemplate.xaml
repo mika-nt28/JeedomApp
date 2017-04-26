@@ -11,15 +11,15 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--  Template pour un equipement On Off  -->
-    <DataTemplate x:Key="ThermostatEqLogicTemplate">
+    <DataTemplate x:Key="ModeEqLogicTemplate">
         <Controls:TileControl
             Title="{Binding Name, FallbackValue=Name}"
             d:DesignHeight="240"
             d:DesignWidth="240"
             SubTitle="{Binding Datacontext.StateBool, ElementName=OnOff}">
 
-            <Controls:ThermostatPluginControl
-                x:Name="Thermostat"
+            <Controls:ModePluginControl
+                x:Name="Mode"
                 DataContext="{Binding}"/>
         </Controls:TileControl>
     </DataTemplate>

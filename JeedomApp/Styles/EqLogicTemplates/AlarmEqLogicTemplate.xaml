@@ -10,17 +10,16 @@
         <ResourceDictionary Source="../ConvertersRessources.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <!--  Template pour un equipement On Off  -->
-    <DataTemplate x:Key="ThermostatEqLogicTemplate">
+    <DataTemplate x:Key="AlarmEqLogicTemplate">
         <Controls:TileControl
             Title="{Binding Name, FallbackValue=Name}"
             d:DesignHeight="240"
             d:DesignWidth="240"
             SubTitle="{Binding Datacontext.StateBool, ElementName=OnOff}">
 
-            <Controls:ThermostatPluginControl
-                x:Name="Thermostat"
-                DataContext="{Binding}"/>
+            <Controls:AlarmPluginControl
+                x:Name="Alarme"
+                DataContext="{Binding}" />
         </Controls:TileControl>
     </DataTemplate>
 </ResourceDictionary>
