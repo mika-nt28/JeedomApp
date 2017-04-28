@@ -1,7 +1,7 @@
 using Jeedom.Model;
 using Jeedom.Mvvm;
-using Jeedom.Tools;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
@@ -19,7 +19,8 @@ namespace Jeedom
         private ObservableCollection<Command> _commandList = new ObservableCollection<Command>();
         private double _dateTime;
         private ObservableCollection<EqLogic> _eqLogicList = new ObservableCollection<EqLogic>();
-        private IdFavoriteItemList _favoriteList = new IdFavoriteItemList();
+        private ObservableCollection<JdItem> _favoriteList = new ObservableCollection<JdItem>();
+        private List<string> _favoriteIdList = new List<string>();
         private ObservableCollection<Interact> _interactList = new ObservableCollection<Interact>();
         private string _loadingMessage;
         private ObservableCollection<Message> _messageList = new ObservableCollection<Message>();

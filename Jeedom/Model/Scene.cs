@@ -1,36 +1,16 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
-
-namespace Jeedom.Model
+﻿namespace Jeedom.Model
 {
-    [DataContract]
-    public class Scene : INotifyPropertyChanged
+    public class Scene : JdItem
     {
-        [DataMember]
-        public string object_id;
-
-        [DataMember]
-        public string isActive;
-
-        [DataMember]
-        public string state;
-
-        [DataMember]
-        public string timeout;
-
-        [DataMember]
-        public string id;
-
-        [DataMember]
-        public string isVisible;
-
-        [DataMember]
         public string description;
-
-        [DataMember]
+        public string isActive;
+        public string isVisible;
         public string lastLaunch;
+        public string name;
+        public string object_id;
+        public string state;
+        public string timeout;
+        private bool _updating = false;
 
         public string LastLaunch
         {
@@ -46,20 +26,15 @@ namespace Jeedom.Model
             }
         }
 
-        [DataMember]
-        public string name;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        public string Name
         {
-            if (PropertyChanged != null)
+            get { return name; }
+            set
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                name = value;
+                NotifyPropertyChanged();
             }
         }
-
-        private bool _updating = false;
 
         public bool Updating
         {
@@ -71,16 +46,6 @@ namespace Jeedom.Model
             set
             {
                 _updating = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                name = value;
                 NotifyPropertyChanged();
             }
         }

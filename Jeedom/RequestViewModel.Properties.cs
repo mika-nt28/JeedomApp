@@ -1,6 +1,5 @@
 ﻿using Jeedom.Model;
 using Jeedom.Mvvm;
-using Jeedom.Tools;
 using System;
 using System.Collections.ObjectModel;
 
@@ -28,7 +27,7 @@ namespace Jeedom
             }
         }
 
-        public IdFavoriteItemList FavoriteList
+        public ObservableCollection<JdItem> FavoriteList
         {
             get { return _favoriteList; }
             set

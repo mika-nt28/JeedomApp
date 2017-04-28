@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
 
 namespace Jeedom.Model
 {
     public class JdItem : INotifyPropertyChanged
     {
-        [DataMember]
+        [JsonProperty(PropertyName = "id")]
         protected string id;
 
         public event PropertyChangedEventHandler PropertyChanged;

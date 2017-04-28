@@ -1,74 +1,98 @@
-﻿<UserControl x:Class="JeedomApp.Controls.ConnectDialog"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Controls="using:Template10.Controls"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:jeedom="using:Jeedom"
-             xmlns:localcontrols="using:JeedomApp.Controls"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:views="using:JeedomApp.Views"
-             xmlns:vm="using:JeedomApp.ViewModels"
-             mc:Ignorable="d">
+﻿<UserControl
+    x:Class="JeedomApp.Controls.ConnectDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="using:Template10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:jeedom="using:Jeedom"
+    xmlns:localcontrols="using:JeedomApp.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:JeedomApp.Views"
+    xmlns:vm="using:JeedomApp.ViewModels"
+    mc:Ignorable="d">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="49,0" d:LayoutOverrides="VerticalAlignment">
-            <TextBlock x:Name="tbTitle"
-                               HorizontalAlignment="Center"
-                               Foreground="White"
-                               Text="JeedomApp"
-                               TextWrapping="Wrap" />
-            <TextBlock x:Uid="connection"
-                               x:Name="tbSubtitle"
-                               Margin="0,5,0,0"
-                               HorizontalAlignment="Center"
-                               Foreground="White"
-                               RenderTransformOrigin="0.5,0.5"
-                               Text="Connectez-vous à votre box domotique"
-                               TextWrapping="Wrap" />
-            <Image x:Name="image"
-                           Width="44"
-                           Height="44"
-                           Margin="0,5,0,0"
-                           HorizontalAlignment="Center"
-                           RenderTransformOrigin="0.5,0.5"
-                           Source="ms-appx:///Assets/Square44x44Logo.png">
+        <StackPanel
+            Margin="49,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            d:LayoutOverrides="VerticalAlignment">
+            <TextBlock
+                x:Name="tbTitle"
+                HorizontalAlignment="Center"
+                Foreground="White"
+                Text="JeedomApp"
+                TextWrapping="Wrap" />
+            <TextBlock
+                x:Name="tbSubtitle"
+                x:Uid="connection"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center"
+                Foreground="White"
+                RenderTransformOrigin="0.5,0.5"
+                Text="Connectez-vous à votre box domotique"
+                TextWrapping="Wrap" />
+            <Image
+                x:Name="image"
+                Width="44"
+                Height="44"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center"
+                RenderTransformOrigin="0.5,0.5"
+                Source="ms-appx:///Assets/Square44x44Logo.png">
                 <Image.RenderTransform>
                     <CompositeTransform />
                 </Image.RenderTransform>
             </Image>
         </StackPanel>
-        <Pivot Name="PivotConnection" Margin="0,66,0,0" SelectionChanged="PivotConnection_SelectionChanged">
-            <PivotItem x:Name="Manuel" Header="Manuel" Margin="10,10,14,50">
+        <Pivot
+            Name="PivotConnection"
+            Margin="0,66,0,0"
+            SelectionChanged="PivotConnection_SelectionChanged">
+            <PivotItem
+                x:Name="Manuel"
+                Margin="10,10,14,50"
+                Header="Manuel">
                 <Grid Margin="0,10,0,-48">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="120" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <localcontrols:ConnectControl x:Name="pnConnectControl" Margin="-1,10,1,-178" />
-                    <Button x:Name="bConnect" 
+                    <Button
+                        x:Name="bConnect"
+                        Grid.Row="1"
+                        Margin="37,224,131,133"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Click="bConnect_Click"
                         Content="Connexion"
-                        Click="bConnect_Click" Margin="37,224,131,133" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" />
-                    <Button x:Name="bdemo"
-                            Click="Demo_Click"
-                            Content="Demo" Margin="210,224,0,133" 
-                            Grid.Row="1" 
-                            VerticalAlignment="Stretch" 
-                            Width="87" 
-                            d:LayoutOverrides="TopPosition, 
-                            BottomPosition"/>
-                    <TextBlock x:Name="ErrorMsg"
-                               Margin="0,0,0,17"
-                               Foreground="Red"
-                               Text="" Height="61" 
-                               Grid.Row="1" 
-                               VerticalAlignment="Bottom" 
-                               d:LayoutOverrides="VerticalAlignment" />
+                        d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" />
+                    <Button
+                        x:Name="bdemo"
+                        Grid.Row="1"
+                        Width="87"
+                        Margin="210,224,0,133"
+                        VerticalAlignment="Stretch"
+                        Click="Demo_Click"
+                        Content="Demo"
+                        d:LayoutOverrides="TopPosition,                              BottomPosition" />
+                    <TextBlock
+                        x:Name="ErrorMsg"
+                        Grid.Row="1"
+                        Height="61"
+                        Margin="0,0,0,17"
+                        VerticalAlignment="Bottom"
+                        Foreground="Red"
+                        Text=""
+                        d:LayoutOverrides="VerticalAlignment" />
                 </Grid>
             </PivotItem>
             <PivotItem x:Name="Auto" Header="Automatique">
-                <TextBlock x:Name="textBlock" 
-                           Margin="55,169,75,145" 
-                           TextWrapping="Wrap" 
-                           Text="Désolé cette fonction n'est pas encore disponnible"/>
+                <TextBlock
+                    x:Name="textBlock"
+                    Margin="55,169,75,145"
+                    Text="Désolé cette fonction n'est pas encore disponnible"
+                    TextWrapping="Wrap" />
             </PivotItem>
         </Pivot>
     </Grid>

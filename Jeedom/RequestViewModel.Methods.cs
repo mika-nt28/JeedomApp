@@ -21,6 +21,26 @@ namespace Jeedom
 {
     public partial class RequestViewModel
     {
+        public void AddToFavorite(EqLogic eq)
+        {
+            if (!FavoriteList.Contains(eq))
+            {
+                FavoriteList.Add(eq);
+                _favoriteIdList.Add("eq_" + eq.Id);
+                config.FavoriteList = _favoriteIdList;
+            }
+        }
+
+        public void AddToFavorite(Scene sc)
+        {
+            if (!FavoriteList.Contains(sc))
+            {
+                FavoriteList.Add(sc);
+                _favoriteIdList.Add("sc_" + sc.Id);
+                config.FavoriteList = _favoriteIdList;
+            }
+        }
+
         public async Task<Error> CheckTwoFactorConnexion()
         {
             Parameters parameters = new Parameters();
@@ -319,6 +339,23 @@ namespace Jeedom
             return jsonrpc.Error;
         }
 
+        public async Task<Error> interactTryToReply(string query)
+        {
+            InteractReply = "";
+            var jsonrpc = new JsonRpcClient();
+            Parameters parameters = new Parameters();
+            parameters.query = query;
+            jsonrpc.SetParameters(parameters);
+            if (await jsonrpc.SendRequest("interact::tryToReply"))
+            {
+                var response = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
+                if (response != null)
+                    InteractReply = response.result;
+            }
+
+            return jsonrpc.Error;
+        }
+
         public void LaunchDemo()
         {
             Updating = true;
@@ -359,28 +396,10 @@ namespace Jeedom
             MessageList = JsonConvert.DeserializeObject<ObservableCollection<Message>>(sr.ReadToEnd());
 
             // Mise à jour des favoris
-            FavoriteList.IdList = config.FavoriteList;
-            FavoriteList.PopulateFromEqLogicAndSceneList(EqLogicList, SceneList);
+            PopulateFavoriteList();
 
             LoadingMessage = "Prêt";
             Updating = false;
-        }
-
-        public async Task<Error> interactTryToReply(string query)
-        {
-            InteractReply = "";
-            var jsonrpc = new JsonRpcClient();
-            Parameters parameters = new Parameters();
-            parameters.query = query;
-            jsonrpc.SetParameters(parameters);
-            if (await jsonrpc.SendRequest("interact::tryToReply"))
-            {
-                var response = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
-                if (response != null)
-                    InteractReply = response.result;
-            }
-
-            return jsonrpc.Error;
         }
 
         public async Task<Error> PingJeedom()
@@ -429,6 +448,43 @@ namespace Jeedom
             return jsonrpc.Error;
         }
 
+        public void PopulateFavoriteList()
+        {
+            FavoriteList.Clear();
+            _favoriteIdList = config.FavoriteList;
+            foreach (string id in _favoriteIdList)
+            {
+                var idx = id.Substring(3);
+                if (id.StartsWith("eq_"))
+                {
+                    var lst = from e in EqLogicList where e.Id == idx select e;
+                    if (lst.Count() != 0)
+                    {
+                        var eq = lst.First();
+                        FavoriteList.Add(eq);
+                    }
+                    else
+                        _favoriteIdList.Remove(id);
+                }
+                else if (id.StartsWith("sc_"))
+                {
+                    var lst = from s in SceneList where s.Id == idx select s;
+                    if (lst.Count() != 0)
+                    {
+                        var sc = lst.First();
+                        FavoriteList.Add(sc);
+                    }
+                    else
+                        _favoriteIdList.Remove(id);
+                }
+                else
+                {
+                    _favoriteIdList.Remove(id);
+                }
+            }
+            config.FavoriteList = _favoriteIdList;
+        }
+
         public async Task<bool> Reboot()
         {
             var jsonrpc = new JsonRpcClient();
@@ -441,10 +497,24 @@ namespace Jeedom
                 return false;
         }
 
+        public void RemoveFromFavorite(EqLogic eq)
+        {
+            FavoriteList.Remove(eq);
+            _favoriteIdList.Remove("eq_" + eq.Id);
+            config.FavoriteList = _favoriteIdList;
+        }
+
+        public void RemoveFromFavorite(Scene sc)
+        {
+            FavoriteList.Remove(sc);
+            _favoriteIdList.Remove("sc_" + sc.Id);
+            config.FavoriteList = _favoriteIdList;
+        }
+
         public async Task RunScene(Scene scene)
         {
             var parameters = new Parameters();
-            parameters.id = scene.id;
+            parameters.id = scene.Id;
             parameters.state = "run";
             var jsonrpc = new JsonRpcClient(parameters);
 
@@ -570,8 +640,7 @@ namespace Jeedom
                 }
 
                 // Mise à jour des favoris
-                FavoriteList.IdList = config.FavoriteList;
-                FavoriteList.PopulateFromEqLogicAndSceneList(EqLogicList, SceneList);
+                PopulateFavoriteList();
             }
 
             return jsonrpc.Error;
@@ -691,8 +760,7 @@ namespace Jeedom
             }
 
             // Met à jour les favoris
-            FavoriteList.IdList = config.FavoriteList;
-            FavoriteList.PopulateFromEqLogicAndSceneList(EqLogicList, SceneList);
+            PopulateFavoriteList();
 
             LoadingMessage = "Prêt";
             Updating = false;
@@ -733,7 +801,7 @@ namespace Jeedom
         private async Task UpdateScene(Scene scene)
         {
             var parameters = new Parameters();
-            parameters.id = scene.id;
+            parameters.id = scene.Id;
             var jsonrpc = new JsonRpcClient(parameters);
 
             if (await jsonrpc.SendRequest("scenario::byId"))
