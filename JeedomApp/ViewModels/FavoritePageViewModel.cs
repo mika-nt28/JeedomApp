@@ -11,7 +11,18 @@ namespace JeedomApp.ViewModels
             Instance = this;
         }
 
-        public static FavoritePageViewModel Instance { get; private set; }
-        public IdEqLogicList FavoriteList { get { return RequestViewModel.Instance.FavoriteList; } }
+        public static FavoritePageViewModel Instance
+        {
+            get;
+            private set;
+        }
+
+        public IdFavoriteItemList FavoriteList
+        {
+            get
+            {
+                return RequestViewModel.Instance.FavoriteList;
+            }
+        }
     }
 }

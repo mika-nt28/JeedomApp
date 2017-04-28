@@ -8,7 +8,6 @@ using Template10.Controls;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 
-
 namespace JeedomApp
 {
     /// <summary>
@@ -54,39 +53,28 @@ namespace JeedomApp
         // runs only when not restored from state
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
-           
             SettingsService.Instance.UseShellBackButton = true;
 
             // Ne rien mettre au dessus de ce code sinon Template10 fonctionne mal.
-            NavigationService.Navigate(typeof(DashboardPage));
-
-            if (RequestViewModel.config.Populated)
+            NavigationService.Navigate(typeof(FavoritePage));
+            if (RequestViewModel.config.Populated && RequestViewModel.config.ConnexionAuto == true)
             {
-                var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
-
-                // Si pas d'APIKEY on lance le dialogue de connexion
-                if (RequestViewModel.config.ApiKey == "")
-                {
-                    ConnectDialog.ShowConnectDialog();
-                    return;
-                }
-
                 // Tentative de connexion à Jeedom
                 if (await RequestViewModel.Instance.PingJeedom() == null)
                 {
-                    if (RequestViewModel.config.HostExt != "")
-                        RequestViewModel.config.UseExtHost = true;
+                    //if (RequestViewModel.config.HostExt != "")
+                    //    RequestViewModel.config.UseExtHost = true; // Todo: ????
+                    var taskFactory = new TaskFactory(TaskScheduler.FromCurrentSynchronizationContext());
+                    await taskFactory.StartNew(async () =>
+                        {
+                            await RequestViewModel.Instance.FirstLaunch();
+                        });
                 }
                 else
                 {
                     ConnectDialog.ShowConnectDialog();
                     return;
                 }
-
-                await taskFactory.StartNew(async () =>
-                {
-                    await RequestViewModel.Instance.FirstLaunch();
-                });
 
                 //Lancer le dispatchertimer
                 var _dispatcher = new DispatcherTimer();
@@ -104,10 +92,7 @@ namespace JeedomApp
 
         private async void _dispatcher_Tick(object sender, object e)
         {
-            //Shell.SetBusy(true, "Mise à jour");
             await RequestViewModel.Instance.UpdateTask();
-            //await RequestViewModel.Instance.SynchMobilePlugin();
-            //Shell.SetBusy(false);
         }
     }
 }

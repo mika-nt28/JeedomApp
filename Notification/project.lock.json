@@ -24344,14 +24344,14 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\RFRA1025\\.nuget\\packages\\": {}
+    "C:\\Users\\fabri\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Notification\\Notification.csproj",
+      "projectUniqueName": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Notification\\Notification.csproj",
       "projectName": "Notification",
-      "projectPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Notification\\Notification.csproj",
-      "projectJsonPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Notification\\project.json",
+      "projectPath": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Notification\\Notification.csproj",
+      "projectJsonPath": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Notification\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {
