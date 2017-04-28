@@ -26273,20 +26273,20 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\RFRA1025\\.nuget\\packages\\": {}
+    "C:\\Users\\fabri\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Localisation\\Localisation.csproj",
+      "projectUniqueName": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Localisation\\Localisation.csproj",
       "projectName": "Localisation",
-      "projectPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Localisation\\Localisation.csproj",
-      "projectJsonPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Localisation\\project.json",
+      "projectPath": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Localisation\\Localisation.csproj",
+      "projectJsonPath": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Localisation\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Jeedom\\Jeedom.csproj": {
-              "projectPath": "E:\\Documents\\Dev\\Perso\\JeedomApp\\JeedomApp\\Jeedom\\Jeedom.csproj"
+            "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj": {
+              "projectPath": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj"
             }
           }
         }

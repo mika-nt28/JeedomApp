@@ -5,20 +5,33 @@ using System.Linq;
 
 namespace Jeedom.Tools
 {
-    public class IdEqLogicList : ObservableCollection<EqLogic>
+    public class IdFavoriteItemList : ObservableCollection<EqLogic>
     {
         private List<string> _idList = new List<string>();
 
-        public IdEqLogicList()
+        public IdFavoriteItemList()
         {
         }
 
-        public List<string> IdList { get { return _idList; } set { _idList = value; } }
+        public List<string> IdList
+        {
+            get
+            {
+                return _idList;
+            }
+            set
+            {
+                _idList = value;
+            }
+        }
 
         public new void Add(EqLogic eq)
         {
-            IdList.Add(eq.Id);
-            base.Add(eq);
+            if (!Contains(eq))
+            {
+                IdList.Add(eq.Id);
+                base.Add(eq);
+            }
         }
 
         public new void Clear()
@@ -27,8 +40,9 @@ namespace Jeedom.Tools
             base.Clear();
         }
 
-        public void PopulateFromEqLogicList(ObservableCollection<EqLogic> eqLogicList)
+        public void PopulateFromEqLogicAndSceneList(ObservableCollection<EqLogic> eqLogicList, ObservableCollection<Scene> sceneList)
         {
+            //Todo: stocker le type des item dans la liste
             base.Clear();
             foreach (string id in _idList)
             {
@@ -47,11 +61,6 @@ namespace Jeedom.Tools
         {
             IdList.Remove(eq.Id);
             return base.Remove(eq);
-        }
-
-        public new string ToString()
-        {
-            return IdList.ToString();
         }
     }
 }
