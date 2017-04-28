@@ -1,5 +1,6 @@
 ﻿using Jeedom;
-using Jeedom.Tools;
+using Jeedom.Model;
+using System.Collections.ObjectModel;
 using Template10.Mvvm;
 
 namespace JeedomApp.ViewModels
@@ -11,7 +12,18 @@ namespace JeedomApp.ViewModels
             Instance = this;
         }
 
-        public static FavoritePageViewModel Instance { get; private set; }
-        public IdEqLogicList FavoriteList { get { return RequestViewModel.Instance.FavoriteList; } }
+        public static FavoritePageViewModel Instance
+        {
+            get;
+            private set;
+        }
+
+        public ObservableCollection<JdItem> FavoriteList
+        {
+            get
+            {
+                return RequestViewModel.Instance.FavoriteList;
+            }
+        }
     }
 }

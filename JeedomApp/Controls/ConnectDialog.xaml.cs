@@ -65,7 +65,7 @@ namespace JeedomApp.Controls
                 error = await RequestViewModel.Instance.SearchConfigByKey("jeedom::url", "core");
                 if (error != null)
                 { ShowError(error.message); return; }
-                RequestViewModel.config.HostExt = RequestViewModel.Instance.configByKey;
+                //RequestViewModel.config.HostExt = RequestViewModel.Instance.configByKey;
 
                 await taskFactory.StartNew(async () =>
                 {
