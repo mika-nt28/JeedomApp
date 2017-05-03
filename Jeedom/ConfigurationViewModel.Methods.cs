@@ -31,19 +31,8 @@ namespace Jeedom
         /// </summary>
         public void SetDemoMode()
         {
-            this.ApiKey = "demo";
-            this.ConnexionAuto = true;
-            this.GeoFenceActivation = false;
-            this.GeoFenceActivationDistance = "";
-            this.GeolocActivation = false;
-            this.GeolocObjectId = "";
-            this.Host = "demo";
-            this.Login = "demo";
-            this.NotificationActivation = false;
-            this.NotificationObjectId = "";
-            this.Password = "demo";
-            this.TwoFactor = false;
-            this.TwoFactorCode = "";
+            isDemoEnabled = true;
+            Reset();
         }
 
         /// <summary>

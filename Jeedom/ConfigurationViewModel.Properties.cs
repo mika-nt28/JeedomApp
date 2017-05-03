@@ -157,10 +157,7 @@ namespace Jeedom
         {
             get
             {
-                if (Login == "demo" && Password == "demo" && ApiKey == "demo")
-                    return true;
-                else
-                    return false;
+                return isDemoEnabled;
             }
         }
 

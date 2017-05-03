@@ -22,6 +22,7 @@ namespace Jeedom
         private Address _address = new Address();
         private string _apikey;
         private bool? _connexionAuto;
+        private bool isDemoEnabled = false;
         private List<string> _favoriteList;
         private bool _GeoFenceActivation;
         private string _GeoFenceActivationDistance;

@@ -30,11 +30,11 @@
                 VerticalAlignment="Center"
                 FontFamily="Segoe UI Light"
                 FontSize="13"
-                TextTrimming="CharacterEllipsis"
                 FontWeight="ExtraLight"
                 RelativePanel.AlignHorizontalCenterWithPanel="True"
                 RelativePanel.AlignTopWithPanel="True"
-                Text="{x:Bind Title, Mode=OneWay}" />
+                Text="{x:Bind Title, Mode=OneWay}"
+                TextTrimming="CharacterEllipsis" />
 
             <TextBlock
                 x:Name="PART_SubTitle"
