@@ -730,6 +730,10 @@ namespace Jeedom
 
         public async Task UpdateTask()
         {
+            // Vérifie qu'on ne se trouve pas en mode demo
+            if (config.IsDemoEnabled)
+                return;
+
             //Vérifier que l'API Key est dispo avant de lancer l'update
             if (!config.Populated)
                 return;
