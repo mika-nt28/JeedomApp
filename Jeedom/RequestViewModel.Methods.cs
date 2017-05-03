@@ -226,6 +226,9 @@ namespace Jeedom
 
         public async Task ExecuteCommand(Command cmd, Parameters parameters = null)
         {
+            if (config.IsDemoEnabled)
+                return;
+
             cmd.Updating = true;
             if (parameters == null)
             {
@@ -487,6 +490,9 @@ namespace Jeedom
 
         public async Task<bool> Reboot()
         {
+            if (config.IsDemoEnabled)
+                return true;
+
             var jsonrpc = new JsonRpcClient();
 
             await jsonrpc.SendRequest("jeeNetwork::reboot");
@@ -513,6 +519,9 @@ namespace Jeedom
 
         public async Task RunScene(Scene scene)
         {
+            if (config.IsDemoEnabled)
+                return;
+
             var parameters = new Parameters();
             parameters.id = scene.Id;
             parameters.state = "run";
@@ -570,6 +579,9 @@ namespace Jeedom
 
         public async Task<bool> Shutdown()
         {
+            if (config.IsDemoEnabled)
+                return true;
+
             var jsonrpc = new JsonRpcClient();
 
             await jsonrpc.SendRequest("jeeNetwork::halt");
@@ -772,6 +784,9 @@ namespace Jeedom
 
         public async Task<bool> Upgrade()
         {
+            if (config.IsDemoEnabled)
+                return true;
+
             var jsonrpc = new JsonRpcClient();
 
             await jsonrpc.SendRequest("update::update");
