@@ -108,6 +108,7 @@
             d:DesignHeight="240"
             d:DesignWidth="240"
             SubTitle="{Binding Name, FallbackValue=Name}"
+            EqLogicId="{Binding Id}"
             TileBrush="{StaticResource TileDefaultBackgroundBrush}">
             <Controls:VariableSizedGridView
                 x:Name="cmdview"

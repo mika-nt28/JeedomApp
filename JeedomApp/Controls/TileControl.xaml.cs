@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using Jeedom;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -25,6 +17,9 @@ namespace JeedomApp.Controls
 
         public static readonly DependencyProperty InnerContentProperty =
             DependencyProperty.Register("InnerContent", typeof(object), typeof(TileControl), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty EqLogicIdProperty =
+            DependencyProperty.Register("EqLogicId", typeof(object), typeof(TileControl), new PropertyMetadata(null));
 
         public static readonly DependencyProperty SubTitleProperty =
             DependencyProperty.Register("SubTitle", typeof(string), typeof(TileControl), new PropertyMetadata(""));
@@ -70,6 +65,12 @@ namespace JeedomApp.Controls
             set { SetValue(SubTitleProperty, value); }
         }
 
+        public string EqLogicId
+        {
+            get { return (string)GetValue(EqLogicIdProperty); }
+            set { SetValue(EqLogicIdProperty, value); }
+        }
+
         /// <summary>
         /// La couleur de fond de la tuile
         /// </summary>
@@ -98,5 +99,23 @@ namespace JeedomApp.Controls
         }
 
         #endregion Public Properties
+
+        private void RelativePanel_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            var panel = sender as RelativePanel;
+            TileFlyout.ShowAt(panel, e.GetPosition(panel));
+        }
+
+        private void AddToFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            var item = sender as MenuFlyoutItem;
+            string id = item.Tag as string;
+            var lst = from eq in RequestViewModel.Instance.EqLogicList where eq.Id == id select eq;
+            if (lst.Count() != 0)
+            {
+                var eq = lst.First();
+                RequestViewModel.Instance.AddToFavorite(eq);
+            }
+        }
     }
 }

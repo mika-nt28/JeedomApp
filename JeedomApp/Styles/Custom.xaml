@@ -32,59 +32,26 @@
     <FontFamily x:Key="WeatherIcons">/Assets/Fonts/WeatherIcons.ttf#Weather Icons</FontFamily>
     <FontFamily x:Key="JeedomIcons">/Assets/Fonts/Jeedom.ttf#jeedom</FontFamily>
 
-    <DataTemplate x:Key="SceneTemplate">
-        <Grid Width="120" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Rectangle
-                Grid.RowSpan="2"
-                Grid.ColumnSpan="2"
-                Width="120"
-                Height="70"
-                Fill="{StaticResource SystemControlForegroundAccentBrush}"
-                Opacity="0.5"
-                RadiusX="2"
-                RadiusY="2" />
-            <TextBlock
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Text="{Binding Name, FallbackValue=Name}" />
-            <ProgressRing
-                Grid.Row="1"
-                Margin="5,0,0,0"
-                IsActive="{Binding Updating, FallbackValue=False}" />
-            <TextBlock
-                Grid.Row="1"
-                Grid.Column="1"
-                Margin="0,0,5,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                FontSize="10"
-                Text="{Binding LastLaunch, FallbackValue=none}" />
-        </Grid>
-    </DataTemplate>
-
     <ResourceDictionary.ThemeDictionaries>
 
         <!--  RequestedTheme=Light  -->
 
         <ResourceDictionary x:Key="Light">
 
-            <SolidColorBrush x:Key="HeaderBackground" Opacity=".5" Color="{ThemeResource CustomColor}" />
+            <SolidColorBrush
+                x:Key="HeaderBackground"
+                Opacity=".5"
+                Color="{ThemeResource CustomColor}" />
 
             <SolidColorBrush x:Key="MainBackground" Color="#FFE6E6E6" />
 
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="{ThemeResource ContrastColor}" />
             <SolidColorBrush x:Key="ExtendedSplashForeground" Color="{ThemeResource CustomColor}" />
 
-            <SolidColorBrush x:Key="ModalBackground" Opacity=".5" Color="{ThemeResource CustomColor}" />
+            <SolidColorBrush
+                x:Key="ModalBackground"
+                Opacity=".5"
+                Color="{ThemeResource CustomColor}" />
 
             <Style TargetType="controls:HamburgerMenu">
                 <Setter Property="AccentColor" Value="{ThemeResource CustomColor}" />
@@ -114,14 +81,20 @@
         <!--  Please note the Template 10 default is Light (the current, Microsoft standard)  -->
         <ResourceDictionary x:Key="Default">
 
-            <SolidColorBrush x:Key="HeaderBackground" Opacity=".5" Color="{ThemeResource CustomColor}" />
+            <SolidColorBrush
+                x:Key="HeaderBackground"
+                Opacity=".5"
+                Color="{ThemeResource CustomColor}" />
 
             <SolidColorBrush x:Key="MainBackground" Color="#FF434343" />
 
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="{ThemeResource ContrastColor}" />
             <SolidColorBrush x:Key="ExtendedSplashForeground" Color="{ThemeResource CustomColor}" />
 
-            <SolidColorBrush x:Key="ModalBackground" Opacity=".5" Color="{ThemeResource CustomColor}" />
+            <SolidColorBrush
+                x:Key="ModalBackground"
+                Opacity=".5"
+                Color="{ThemeResource CustomColor}" />
 
             <Style TargetType="controls:HamburgerMenu">
                 <Setter Property="AccentColor" Value="{ThemeResource CustomColor}" />

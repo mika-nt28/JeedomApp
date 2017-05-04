@@ -14,7 +14,15 @@
     </UserControl.Resources>
 
     <Grid x:Name="MainGrid">
-        <RelativePanel Background="{x:Bind TileBrush, Mode=OneWay}">
+        <RelativePanel Background="{x:Bind TileBrush, Mode=OneWay}" RightTapped="RelativePanel_RightTapped">
+            <RelativePanel.Resources>
+                <MenuFlyout x:Name="TileFlyout">
+                    <MenuFlyoutItem
+                        Click="AddToFavorite_Click"
+                        Tag="{x:Bind EqLogicId}"
+                        Text="Ajouter aux favoris" />
+                </MenuFlyout>
+            </RelativePanel.Resources>
             <ContentPresenter
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"

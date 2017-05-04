@@ -15,6 +15,55 @@
         <vm:ScenePageViewModel x:Name="ViewModel" />
     </Page.DataContext>
 
+    <Page.Resources>
+        <DataTemplate x:Key="SceneTemplate">
+            <Grid Width="120" Margin="10" RightTapped="Scene_RightTapped">
+                <Grid.Resources>
+                    <MenuFlyout x:Name="SceneFlyout">
+                        <MenuFlyoutItem
+                        Click="AddToFavorite_Click"
+                        Tag="{Binding Id}"
+                        Text="Ajouter aux favoris" />
+                    </MenuFlyout>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Rectangle
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Width="120"
+                Height="70"
+                Fill="{StaticResource SystemControlForegroundAccentBrush}"
+                Opacity="0.5"
+                RadiusX="2"
+                RadiusY="2" />
+                <TextBlock
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="{Binding Name, FallbackValue=Name}" />
+                <ProgressRing
+                Grid.Row="1"
+                Margin="5,0,0,0"
+                IsActive="{Binding Updating, FallbackValue=False}" />
+                <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,0,5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                FontSize="10"
+                Text="{Binding LastLaunch, FallbackValue=none}" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
     <Grid Background="{ThemeResource MainBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
