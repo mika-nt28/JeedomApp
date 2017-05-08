@@ -42,7 +42,7 @@
                                 FontWeight="Thin"
                                 RelativePanel.AlignVerticalCenterWith="iconTamb"
                                 RelativePanel.RightOf="iconTamb"
-                                Text="{Binding Cmds, ConverterParameter=THERMOSTAT_TEMPERATURE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
+                                Text="{x:Bind Temperature, Mode=OneWay, FallbackValue=12}" />
                 <TextBlock
                                 FontSize="8"
                                 FontWeight="Thin"
@@ -67,11 +67,6 @@
                 Margin="0,0,1,0"
                 Background="#33000000">
                 <TextBlock
-                                x:Name="iconTcons"
-                                FontFamily="{StaticResource FontAwesome}"
-                                FontSize="30"
-                                Text="&#xf2c9;" />
-                <TextBlock
                                 x:Name="temperatureConsigne"
                                 Margin="10,0,0,0"
                                 VerticalAlignment="Center"
@@ -79,20 +74,35 @@
                                 FontWeight="Thin"
                                 RelativePanel.AlignVerticalCenterWith="iconTcons"
                                 RelativePanel.RightOf="iconTcons"
-                                Text="{Binding Cmds, ConverterParameter=THERMOSTAT_SETPOINT, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
+                                Text="{x:Bind SetPoint, Mode=OneWay, FallbackValue=20}" />
                 <TextBlock
                                 FontSize="8"
                                 FontWeight="Thin"
                                 RelativePanel.AlignVerticalCenterWith="temperatureConsigne"
                                 RelativePanel.RightOf="temperatureConsigne"
-                                Text="°C" />
-                <Slider
-								Margin="10,0,10,0"
-								Foreground="White"
-								RelativePanel.AlignLeftWithPanel="True"
-								RelativePanel.AlignRightWithPanel="True"
-								RelativePanel.AlignVerticalCenterWithPanel="True" 
-								Value="{Binding Cmds, ConverterParameter=THERMOSTAT_SET_SETPOINT, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}"/>
+                                Text="°C" d:LayoutOverrides="TopMargin, BottomMargin" />
+                <TextBlock
+                                x:Name="iconTcons"
+                                FontFamily="{StaticResource FontAwesome}"
+                                FontSize="30"
+                                Text="&#xF2C9;" />
+                <StackPanel
+                    Margin="2.167,2,2.166,2"
+                    Orientation="Horizontal"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <Slider
+                        Margin="10,0,9.667,0"
+                        Foreground="White"
+                        Value="{x:Bind SetSetPoint.Value,Mode=TwoWay, Converter={StaticResource ValueToExecCmd}, FallbackValue=20}"
+                        Minimum="7"
+                        Maximum="30"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWithPanel="True" 
+                        Width="54"
+                        d:LayoutOverrides="TopPosition, BottomPosition"/>
+                </StackPanel>
             </RelativePanel>
             <RelativePanel
                 Grid.Column="1"
@@ -102,31 +112,93 @@
                                 x:Name="iconMode"
                                 FontFamily="{StaticResource FontAwesome}"
                                 FontSize="30"
-                                Text="{Binding Cmds, ConverterParameter=THERMOSTAT_MODE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
-                <ComboBox
-								Header="Objet Jeedom de votre Maison"
-                                RelativePanel.AlignVerticalCenterWith="iconMode"
-                                RelativePanel.RightOf="iconMode">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Cmds, ConverterParameter=THERMOSTAT_SET_MODE, Converter={StaticResource GroupHumidityConverter}, FallbackValue=12}" />
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+                                Text="{x:Bind Mode,  FallbackValue=Eco}" />
+                <StackPanel
+                    Margin="2.334,2,2.333,2"
+                    Orientation="Horizontal"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <ComboBox SelectedItem="{x:Bind SetMode.ExecCommand}">
+                        <ComboBoxItem Content="Confort"/>
+                        <ComboBoxItem Content="Economie"/>
+                        <ComboBoxItem Content="Nuit"/>
+                        <ComboBoxItem Content="Hors gel"/>
+                    </ComboBox>
+                </StackPanel>
             </RelativePanel>
             <RelativePanel
                 Grid.Column="2"
                 Margin="0,0,1,0"
                 Background="#33000000">
-                <!--  Template pour le verouillage-->
-                <!-- 
-					"THERMOSTAT_LOCK", 
-					"THERMOSTAT_SET_LOCK", 
-					 -->
+            <!--  Unlock  -->
+            <Button
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Background="{x:Bind LockBrush, FallbackValue=#FF434A54, Mode=OneWay}"
+            Command="{x:Bind Unlock.ExecCommand}"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenTrueConverter}, FallbackValue=Collapsed}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Row="1" Grid.Column="1">
+                        <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="{StaticResource JeedomIcons}"
+                        Foreground="White"
+                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe611;, Converter={StaticResource JeedomIconConverter}}" />
+                    </Viewbox>
+                </Grid>
+            </Button>
+                <!--  Lock  -->
+            <Button
+            Padding="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+            Background="{x:Bind UnlockBrush, FallbackValue=#FF8CC152, Mode=OneWay}"
+            Command="{x:Bind Lock.ExecCommand}"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True"
+            Visibility="{x:Bind StateBool, Mode=OneWay, Converter={StaticResource VisibleWhenFalseConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Viewbox Grid.Row="1" Grid.Column="1">
+                        <TextBlock
+                        HorizontalAlignment="Center"
+                        FontFamily="{StaticResource JeedomIcons}"
+                        Foreground="White"
+                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe610;, Converter={StaticResource JeedomIconConverter}}" />
+                    </Viewbox>
+                </Grid>
+
+                </Button>
             </RelativePanel>
         </Grid>
     </RelativePanel>

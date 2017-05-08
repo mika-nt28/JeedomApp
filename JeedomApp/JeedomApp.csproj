@@ -204,6 +204,7 @@
     <Compile Include="Converters\MailVisibilityConverter.cs" />
     <Compile Include="Converters\JeedomIconConverter.cs" />
     <Compile Include="Converters\ChangeTypeConverter.cs" />
+    <Compile Include="Converters\ValueToExecCmd.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Converters\WeatherIconConverter.cs" />
     <Compile Include="Converters\UpdatingConverter.cs" />

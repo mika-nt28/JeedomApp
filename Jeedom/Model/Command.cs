@@ -53,7 +53,7 @@ namespace Jeedom.Model
         [DataMember(Name = "currentValue")]
         private string _Value = "";
 
-        private ParametersOption _WidgetValue = new ParametersOption();
+        private ParametersOption _OptionValue = new ParametersOption();
 
         #endregion Private Fields
 
@@ -69,15 +69,22 @@ namespace Jeedom.Model
         {
             get
             {
-                this._ExecCommand = this._ExecCommand ?? new RelayCommand<object>(async parameters =>
+                this._ExecCommand = this._ExecCommand ?? new RelayCommand<object>(parameters =>
                 {
+                    this.SendValue();
+                });
+                return this._ExecCommand;
+            }
+        }
+        private async void SendValue()
+        {
                     try
                     {
                         this.Updating = true;
                         Parameters CmdParameters = new Parameters();
                         CmdParameters.id = this.Id;
                         CmdParameters.name = this.Name;
-                        CmdParameters.options = this.WidgetValue;
+                        CmdParameters.options = this.OptionValue;
                         await RequestViewModel.Instance.ExecuteCommand(this, CmdParameters);
                         await Task.Delay(TimeSpan.FromSeconds(1));
                         await RequestViewModel.Instance.UpdateTask();
@@ -85,11 +92,8 @@ namespace Jeedom.Model
                         this.Updating = false;
                     }
                     catch (Exception) { }
-                });
-                return this._ExecCommand;
-            }
-        }
 
+        }
         public string Id { get { return _Id; } set { Set(ref _Id, value); } }
 
         public string LogicalId { get { return _LogicalId; } set { Set(ref _LogicalId, value); } }
@@ -127,41 +131,31 @@ namespace Jeedom.Model
 
                 if (_Value != "" && _Value != null)
                 {
-                    //TODO : @mika-nt28 j'ai pas tout compris sur cette notion de WidgetValue ???
                     switch (_SubType)
                     {
                         case "slider":
-                            //this.WidgetValue.slider = Convert.ToDouble(RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).FirstOrDefault().Value);
+                            this.OptionValue.slider = Convert.ToDouble(_Value);
+                            this.SendValue();
                             break;
-
                         case "message":
-                            //this.WidgetValue.message = RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).FirstOrDefault().Value;
                             break;
-
                         case "color":
-                            //var search = RequestViewModel.Instance.CommandList.Where(cmd => cmd.id.Equals(_value.Replace('#', ' ').Trim())).FirstOrDefault();
-                            //if (search != null)
-                            //    this.WidgetValue.color = new SolidColorBrush(Color.FromArgb(
-                            //        255,
-                            //        System.Convert.ToByte(search.Value.Substring(1, 2), 16),
-                            //        System.Convert.ToByte(search.Value.Substring(3, 2), 16),
-                            //        System.Convert.ToByte(search.Value.Substring(5, 2), 16)));
                             break;
                     }
                 }
             }
         }
 
-        public ParametersOption WidgetValue
+        public ParametersOption OptionValue
         {
             get
             {
-                return _WidgetValue;
+                return _OptionValue;
             }
 
             set
             {
-                Set(ref _WidgetValue, value);
+                Set(ref _OptionValue, value);
             }
         }
 

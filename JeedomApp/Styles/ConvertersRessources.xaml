@@ -18,6 +18,7 @@
     <localconverters:EqLogicCmdInfoByLogicalIdConverter x:Key="EqLogicCmdInfoByLogicalIdConverter" />
     <localconverters:WeatherIconConverter x:Key="WeatherIconConverter" />
     <localconverters:JeedomIconConverter x:Key="JeedomIconConverter" />
+    <localconverters:ValueToExecCmd x:Key="ValueToExecCmd" />
 
     <t10converters:ChangeTypeConverter x:Key="ChangeTypeConverter" />
     <t10converters:StringFormatConverter x:Key="StringFormatConverter" />

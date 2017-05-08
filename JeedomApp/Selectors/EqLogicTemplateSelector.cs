@@ -114,8 +114,8 @@ namespace JeedomApp.Selectors
                 container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 2);
                 return HumidityEqLogicTemplate;
             }
-           // if (ContainCmd(eq, new[] { "THERMOSTAT_LOCK", "THERMOSTAT_MODE", "THERMOSTAT_SETPOINT", "THERMOSTAT_SET_LOCK", "THERMOSTAT_SET_MODE", "THERMOSTAT_SET_SETPOINT", /*"THERMOSTAT_SET_UNLOCK",*//* "THERMOSTAT_STATE_NAME",*/ "THERMOSTAT_STATE", /*"THERMOSTAT_TEMPERATURE_OUTDOOR",*/ "THERMOSTAT_TEMPERATURE" }))
-            if (ContainCmd(eq, new[] { "THERMOSTAT_LOCK", "THERMOSTAT_MODE", "THERMOSTAT_SETPOINT", "THERMOSTAT_SET_LOCK", "THERMOSTAT_SET_MODE", "THERMOSTAT_SET_SETPOINT",  "THERMOSTAT_STATE", "THERMOSTAT_TEMPERATURE" }))
+           //   "THERMOSTAT_STATE_NAME","THERMOSTAT_TEMPERATURE_OUTDOOR",
+            if (ContainCmd(eq, new[] { "THERMOSTAT_LOCK", "THERMOSTAT_MODE", "THERMOSTAT_SETPOINT", "THERMOSTAT_SET_LOCK", "THERMOSTAT_SET_UNLOCK", "THERMOSTAT_SET_MODE", "THERMOSTAT_SET_SETPOINT",  "THERMOSTAT_STATE", "THERMOSTAT_TEMPERATURE" }))
             {
                     container.SetValue(VariableSizedWrapGrid.RowSpanProperty, 4);
                 container.SetValue(VariableSizedWrapGrid.ColumnSpanProperty, 4);
