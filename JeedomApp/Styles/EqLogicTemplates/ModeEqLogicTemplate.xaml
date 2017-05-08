@@ -14,6 +14,7 @@
     <DataTemplate x:Key="ModeEqLogicTemplate">
         <Controls:TileControl
             Title="{Binding Name, FallbackValue=Name}"
+            EqLogicId="{Binding Id}"
             d:DesignHeight="240"
             d:DesignWidth="240"
             SubTitle="{Binding Datacontext.StateBool, ElementName=OnOff}">

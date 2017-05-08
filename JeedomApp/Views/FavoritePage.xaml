@@ -5,9 +5,21 @@
     xmlns:local="using:JeedomApp.Views"
     xmlns:controls="using:Template10.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:vm="using:JeedomApp.ViewModels"
     xmlns:localctl="using:JeedomApp.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <vm:FavoritePageViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <DataTemplate x:Key="FavoriteTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Name}"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource MainBackground}">
         <Grid.RowDefinitions>
@@ -29,7 +41,10 @@
         <!--  content  -->
         <Grid Grid.Row="1">
             <ScrollViewer>
-                <TextBlock Text="C'est un peu vide ici. Ajoutez des équipements à votre liste de favoris." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Grid>
+                    <GridView ItemsSource="{Binding FavoriteList}" ItemTemplate="{StaticResource FavoriteTemplate}"/>
+                    <TextBlock Text="C'est un peu vide ici. Ajoutez des équipements à votre liste de favoris." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
             </ScrollViewer>
         </Grid>
 

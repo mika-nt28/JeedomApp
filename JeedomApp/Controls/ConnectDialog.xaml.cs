@@ -34,6 +34,7 @@ namespace JeedomApp.Controls
         private void Demo_Click(object sender, RoutedEventArgs e)
         {
             // Charger des données de demo pour l'application
+            RequestViewModel.Instance.LaunchDemo();
 
             // Masque le dialogue de connection
             ConnectDialog.HideConnectDialog();

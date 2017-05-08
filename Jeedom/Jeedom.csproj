@@ -104,9 +104,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="Demo\message.json" />
-    <None Include="Demo\object.json" />
-    <None Include="Demo\scenario.json" />
+    <EmbeddedResource Include="Demo\message.json" />
+    <EmbeddedResource Include="Demo\object.json" />
+    <EmbeddedResource Include="Demo\scenario.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>

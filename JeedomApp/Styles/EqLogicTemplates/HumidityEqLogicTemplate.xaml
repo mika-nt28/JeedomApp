@@ -18,6 +18,7 @@
         <Controls:TileControl
             x:Name="TheTile"
             Title="{Binding Name, FallbackValue=Name}"
+            EqLogicId="{Binding Id}"
             d:DesignHeight="240"
             d:DesignWidth="240"
             TileBrush="#00838F">
