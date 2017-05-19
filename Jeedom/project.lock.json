@@ -26213,14 +26213,14 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\fabri\\.nuget\\packages\\": {}
+    "C:\\Users\\micha\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj",
+      "projectUniqueName": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj",
       "projectName": "Jeedom",
-      "projectPath": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj",
-      "projectJsonPath": "C:\\Users\\fabri\\Documents\\Projects\\Repos\\JeedomApp\\Jeedom\\project.json",
+      "projectPath": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\Jeedom.csproj",
+      "projectJsonPath": "C:\\Users\\micha\\Source\\Repos\\JeedomApp\\Jeedom\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {

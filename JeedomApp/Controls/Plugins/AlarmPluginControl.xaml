@@ -14,7 +14,50 @@
         <ResourceDictionary Source="/Styles/ConvertersRessources.xaml" />
     </UserControl.Resources>
 
-    <RelativePanel Padding="0" Background="{x:Bind StateBrush, FallbackValue=#FF434A54, Mode=OneWay}">
-
+    <RelativePanel>
+        <RelativePanel.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Offset="0" Color="#FF58B6EE" />
+                <GradientStop Offset="1" Color="#FF479AD5" />
+            </LinearGradientBrush>
+        </RelativePanel.Background>
+        <Viewbox
+            x:Name="InfosJour"
+            Margin="10,20,10,0"
+            RelativePanel.Above="GridControl"
+            RelativePanel.AlignHorizontalCenterWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True"
+            RelativePanel.AlignTopWithPanel="True">
+            <RelativePanel>
+            </RelativePanel>
+        </Viewbox>
+        <Grid
+            x:Name="GridControl"
+            Height="80"
+            RelativePanel.AlignBottomWithPanel="True"
+            RelativePanel.AlignLeftWithPanel="True"
+            RelativePanel.AlignRightWithPanel="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <RelativePanel
+                Grid.Column="0"
+                Margin="0,0,1,0"
+                Background="#33000000">
+            </RelativePanel>
+            <RelativePanel
+                Grid.Column="1"
+                Margin="0,0,1,0"
+                Background="#33000000">
+            </RelativePanel>
+            <RelativePanel
+                Grid.Column="2"
+                Margin="0,0,1,0"
+                Background="#33000000">
+            </RelativePanel>
+        </Grid>
     </RelativePanel>
 </UserControl>

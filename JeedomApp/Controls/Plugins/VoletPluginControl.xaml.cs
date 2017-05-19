@@ -86,6 +86,7 @@ namespace JeedomApp.Controls
 
         private void Cmds_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
+            UpdateUI();
 
         }
 
@@ -135,6 +136,11 @@ namespace JeedomApp.Controls
             }
 
             _DataContextLoaded = true;
+            UpdateUI();
+        }
+        private void UpdateUI()
+        {
+            Position.Value = State;
         }
         #endregion Private Methods
     }

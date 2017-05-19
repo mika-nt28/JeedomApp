@@ -29,7 +29,9 @@ namespace JeedomApp.Converters
         public enum JeedomIcons
         {
             jeedom_lumiere_off = '\ue610',
-            jeedom_lumiere_on = '\ue611'
+            jeedom_lumiere_on = '\ue611',
+            jeedom_lock = '\ue60e',
+            jeedom_unlock = '\ue60f'
         }
     }
 }

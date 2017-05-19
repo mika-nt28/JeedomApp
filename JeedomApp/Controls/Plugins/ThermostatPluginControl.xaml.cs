@@ -32,20 +32,14 @@ namespace JeedomApp.Controls
         public static readonly DependencyProperty SetModeProperty =
            DependencyProperty.Register("SetMode", typeof(Command), typeof(ThermostatPluginControl), new PropertyMetadata(null));
 
-        public static readonly DependencyProperty UnlockBrushProperty =
-            DependencyProperty.Register("UnlockBrush", typeof(Brush), typeof(ThermostatPluginControl), new PropertyMetadata(XamlBindingHelper.ConvertValue(typeof(Brush), "#FF434A54")));
-
         public static readonly DependencyProperty UnlockIconProperty =
-            DependencyProperty.Register("UnlockIcon", typeof(string), typeof(ThermostatPluginControl), new PropertyMetadata("jeedom_lumiere_Unlock"));
+            DependencyProperty.Register("UnlockIcon", typeof(string), typeof(ThermostatPluginControl), new PropertyMetadata("jeedom_Unlock"));
 
         public static readonly DependencyProperty UnlockProperty =
             DependencyProperty.Register("Unlock", typeof(Command), typeof(ThermostatPluginControl), new PropertyMetadata(null));
 
-        public static readonly DependencyProperty LockBrushProperty =
-            DependencyProperty.Register("LockBrush", typeof(Brush), typeof(ThermostatPluginControl), new PropertyMetadata(XamlBindingHelper.ConvertValue(typeof(Brush), "#FF96C927")));
-
-        public static readonly DependencyProperty LockIconProperty =
-                    DependencyProperty.Register("LockIcon", typeof(string), typeof(ThermostatPluginControl), new PropertyMetadata("jeedom_lumiere_on"));
+              public static readonly DependencyProperty LockIconProperty =
+                    DependencyProperty.Register("LockIcon", typeof(string), typeof(ThermostatPluginControl), new PropertyMetadata("jeedom_lock"));
 
         public static readonly DependencyProperty LockProperty =
             DependencyProperty.Register("Lock", typeof(Command), typeof(ThermostatPluginControl), new PropertyMetadata(null));
@@ -53,11 +47,8 @@ namespace JeedomApp.Controls
         public static readonly DependencyProperty StateBoolProperty =
             DependencyProperty.Register("StateBool", typeof(bool), typeof(ThermostatPluginControl), new PropertyMetadata(false));
 
-        public static readonly DependencyProperty StateBrushProperty =
-                    DependencyProperty.Register("StateBrush", typeof(Brush), typeof(ThermostatPluginControl), new PropertyMetadata(null));
-
         public static readonly DependencyProperty StateIconProperty =
-            DependencyProperty.Register("StateIcon", typeof(string), typeof(ThermostatPluginControl), new PropertyMetadata("jeedom_lumiere_Unlock"));
+            DependencyProperty.Register("StateIcon", typeof(string), typeof(ThermostatPluginControl), new PropertyMetadata("jeedom_unlock"));
 
         public static readonly DependencyProperty StateProperty =
             DependencyProperty.Register("State", typeof(Command), typeof(ThermostatPluginControl), new PropertyMetadata(null));
@@ -94,14 +85,11 @@ namespace JeedomApp.Controls
         public Command Mode { get { return (Command)GetValue(ModeProperty); } set { SetValue(ModeProperty, value); } }
         public Command SetMode { get { return (Command)GetValue(SetModeProperty); } set { SetValue(SetModeProperty, value); } }
         public Command Unlock { get { return (Command)GetValue(UnlockProperty); } set { SetValue(UnlockProperty, value); } }
-        public Brush UnlockBrush { get { return (Brush)GetValue(UnlockBrushProperty); } set { SetValue(UnlockBrushProperty, value); } }
         public string UnlockIcon { get { return (string)GetValue(UnlockIconProperty); } set { SetValue(UnlockIconProperty, value); } }
         public Command Lock { get { return (Command)GetValue(LockProperty); } set { SetValue(LockProperty, value); } }
-        public Brush LockBrush { get { return (Brush)GetValue(LockBrushProperty); } set { SetValue(LockBrushProperty, value); } }
         public string LockIcon { get { return (string)GetValue(LockIconProperty); } set { SetValue(LockIconProperty, value); } }
         public Command State { get { return (Command)GetValue(StateProperty); } set { SetValue(StateProperty, value); } }
         public bool StateBool { get { return (bool)GetValue(StateBoolProperty); } set { SetValue(StateBoolProperty, value); } }
-        public Brush StateBrush { get { return (Brush)GetValue(StateBrushProperty); } set { SetValue(StateBrushProperty, value); } }
         public string StateIcon { get { return (string)GetValue(StateIconProperty); } set { SetValue(StateIconProperty, value); } }
 
         #endregion Public Properties
@@ -199,13 +187,11 @@ namespace JeedomApp.Controls
             if (State.Value == "1" || State.Value.ToLower() == "on" || _ValueInt > 0)
             {
                 StateBool = true;
-                StateBrush = LockBrush;
                 StateIcon = LockIcon;
             }
             else
             {
                 StateBool = false;
-                StateBrush = UnlockBrush;
                 StateIcon = UnlockIcon;
             }
         }

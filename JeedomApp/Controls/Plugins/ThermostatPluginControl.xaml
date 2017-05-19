@@ -137,7 +137,6 @@
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
-            Background="{x:Bind LockBrush, FallbackValue=#FF434A54, Mode=OneWay}"
             Command="{x:Bind Unlock.ExecCommand}"
             RelativePanel.AlignBottomWithPanel="True"
             RelativePanel.AlignLeftWithPanel="True"
@@ -160,7 +159,7 @@
                         HorizontalAlignment="Center"
                         FontFamily="{StaticResource JeedomIcons}"
                         Foreground="White"
-                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe611;, Converter={StaticResource JeedomIconConverter}}" />
+                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe60e;, Converter={StaticResource JeedomIconConverter}}" />
                     </Viewbox>
                 </Grid>
             </Button>
@@ -171,7 +170,6 @@
             VerticalAlignment="Stretch"
             HorizontalContentAlignment="Stretch"
             VerticalContentAlignment="Stretch"
-            Background="{x:Bind UnlockBrush, FallbackValue=#FF8CC152, Mode=OneWay}"
             Command="{x:Bind Lock.ExecCommand}"
             RelativePanel.AlignBottomWithPanel="True"
             RelativePanel.AlignLeftWithPanel="True"
@@ -194,7 +192,7 @@
                         HorizontalAlignment="Center"
                         FontFamily="{StaticResource JeedomIcons}"
                         Foreground="White"
-                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe610;, Converter={StaticResource JeedomIconConverter}}" />
+                        Text="{x:Bind StateIcon, Mode=OneWay, FallbackValue=&#xe60f;, Converter={StaticResource JeedomIconConverter}}" />
                     </Viewbox>
                 </Grid>
 
