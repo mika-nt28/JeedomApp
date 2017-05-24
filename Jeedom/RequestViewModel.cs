@@ -15,7 +15,8 @@ namespace Jeedom
         public string InteractReply;
         public bool Populated = false;
         public CancellationTokenSource tokenSource;
-        private static readonly RequestViewModel _instance = new RequestViewModel();
+        //private static readonly RequestViewModel _instance = new RequestViewModel();
+        private static readonly Lazy<RequestViewModel> _lazyInstance = new Lazy<RequestViewModel>();
         private ObservableCollection<Command> _commandList = new ObservableCollection<Command>();
         private double _dateTime;
         private ObservableCollection<EqLogic> _eqLogicList = new ObservableCollection<EqLogic>();
@@ -32,7 +33,7 @@ namespace Jeedom
         private string _version;
         private int pass = 0;
 
-        private RequestViewModel()
+        public RequestViewModel()
         {
         }
 
@@ -40,7 +41,7 @@ namespace Jeedom
         {
             get
             {
-                return _instance;
+                return _lazyInstance.Value;
             }
         }
     }
