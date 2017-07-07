@@ -254,7 +254,7 @@ namespace Jeedom
         {
             Updating = true;
 
-            int pg = 100 / 6;
+            int pg = 100 / 8;
 
             LoadingMessage = "Inscription au notification";
             if (config.NotificationActivation == true)
@@ -285,7 +285,7 @@ namespace Jeedom
             //Progress += pg;
 
             LoadingMessage = "Chargement des Interactions";
-            //await DownloadInteraction();
+            await DownloadInteraction();
             Progress += pg;
 
             LoadingMessage = "Prêt";

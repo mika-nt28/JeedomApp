@@ -112,7 +112,7 @@
                                 x:Name="iconMode"
                                 FontFamily="{StaticResource FontAwesome}"
                                 FontSize="30"
-                                Text="{x:Bind Mode,  FallbackValue=Eco}" />
+                                Text="{x:Bind Mode.Value,  FallbackValue=Eco}" />
                 <StackPanel
                     Margin="2.334,2,2.333,2"
                     Orientation="Horizontal"
