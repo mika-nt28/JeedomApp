@@ -8,6 +8,7 @@ using System.Threading;
 
 namespace Jeedom
 {
+    // TODO: convertir le singleton en class threadsafe avec accès sur des objets statiques
     public sealed partial class RequestViewModel : INotifyPropertyChanged
     {
         static public ConfigurationViewModel config = new ConfigurationViewModel();
@@ -15,8 +16,8 @@ namespace Jeedom
         public string InteractReply;
         public bool Populated = false;
         public CancellationTokenSource tokenSource;
-        //private static readonly RequestViewModel _instance = new RequestViewModel();
-        private static readonly Lazy<RequestViewModel> _lazyInstance = new Lazy<RequestViewModel>();
+        private static volatile RequestViewModel _instance;
+        private static object threadLock = new object();
         private ObservableCollection<Command> _commandList = new ObservableCollection<Command>();
         private double _dateTime;
         private ObservableCollection<EqLogic> _eqLogicList = new ObservableCollection<EqLogic>();
@@ -37,11 +38,20 @@ namespace Jeedom
         {
         }
 
-        static public RequestViewModel Instance
+        public static RequestViewModel Instance
         {
             get
             {
-                return _lazyInstance.Value;
+                if (_instance == null)
+                {
+                    lock(threadLock)
+                    {
+                        if (_instance == null)
+                            _instance = new RequestViewModel();
+                    }
+                }
+
+                return _instance;
             }
         }
     }

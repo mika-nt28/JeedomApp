@@ -572,7 +572,7 @@ namespace Jeedom
 
         public async Task<bool> SendPosition(string position)
         {
-            var httpRpcClient = new HttpRpcClient("/core/api/jeeApi.php?api=" + config.ApiKey + "&type=geoloc&id=" + config.GeolocObjectId + "&value=" + position);
+            var httpRpcClient = new HttpRpcClient("/plugins/geoloc/core/api/jeeApi.php?api=" + config.ApiKey + "&id=" + config.GeolocObjectId + "&value=" + position);
 
             return await httpRpcClient.SendRequest();
         }
@@ -620,9 +620,14 @@ namespace Jeedom
                     foreach (Command cmd in Cmds.result.Cmds)
                     {
                         // AJoute la cmd à son eqLogic
-                        if (EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds == null)
+                        var eq = (from e in EqLogicList where e.Id == cmd.EqLogic_id select e).FirstOrDefault();
+                        if (eq.Cmds == null)
+                            eq.Cmds = new ObservableCollectionEx<Command>();
+                        eq.Cmds.Add(cmd);
+                        
+                        /*if (EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds == null)
                             EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds = new ObservableCollectionEx<Command>();
-                        EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds.Add(cmd);
+                        EqLogicList.Where(o => o.Id.Equals(cmd.EqLogic_id)).FirstOrDefault().Cmds.Add(cmd);*/
 
                         // Ajoute la commande à la liste globale des cmds
                         CommandList.Add(cmd);
@@ -639,9 +644,13 @@ namespace Jeedom
                 // Affecte les eqLogics à leurs objects correspondants
                 foreach (EqLogic eq in EqLogicList)
                 {
-                    if (ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics == null)
+                    var ob = (from o in ObjectList where o.Id == eq.ObjectId select o).FirstOrDefault();
+                    if (ob.EqLogics == null)
+                        ob.EqLogics = new ObservableCollectionEx<EqLogic>();
+                    ob.EqLogics.Add(eq);
+                    /*if (ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics == null)
                         ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics = new ObservableCollectionEx<EqLogic>();
-                    ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics.Add(eq);
+                    ObjectList.Where(o => o.Id.Equals(eq.ObjectId)).FirstOrDefault().EqLogics.Add(eq);*/
                 }
 
                 // Suppression des objects sans eqLogics

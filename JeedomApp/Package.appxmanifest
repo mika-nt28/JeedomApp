@@ -26,7 +26,10 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Notification.NotificationActionBackgroundTask">
+        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
+          <uap:AppService Name="JeedomAppVoiceCommandService" />
+        </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
           </BackgroundTasks>
