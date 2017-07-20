@@ -572,8 +572,8 @@ namespace Jeedom
 
         public async Task<bool> SendPosition(string position)
         {
-            var httpRpcClient = new HttpRpcClient("/plugins/geoloc/core/api/jeeApi.php?api=" + config.ApiKey + "&id=" + config.GeolocObjectId + "&value=" + position);
-
+            //var httpRpcClient = new HttpRpcClient("/plugins/geoloc/core/api/jeeGeoloc.php?apikey=" + config.ApiKey + "&id=" + config.GeolocObjectId + "&value=" + position);
+            var httpRpcClient = new HttpRpcClient("core/api/jeeApi.php?api=" + config.ApiKey + "&type=geoloc&id=" + config.GeolocObjectId + "&value=" + position);
             return await httpRpcClient.SendRequest();
         }
 
