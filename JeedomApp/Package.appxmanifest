@@ -26,22 +26,15 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
-          <uap:AppService Name="JeedomAppVoiceCommandService" />
-        </uap:Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
           <BackgroundTasks>
-            <Task Type="systemEvent" />
+            <Task Type="timer" />
+            <Task Type="location" />
           </BackgroundTasks>
         </Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.GeofenceBackgroundTask">
           <BackgroundTasks>
             <Task Type="location" />
-          </BackgroundTasks>
-        </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="Localisation.LocationBackgroundTask">
-          <BackgroundTasks>
-            <Task Type="timer" />
           </BackgroundTasks>
         </Extension>
         <uap:Extension Category="windows.appService" EntryPoint="VoiceCommandService.JeedomAppVoiceCommandService">
