@@ -9,7 +9,6 @@ namespace Jeedom
     public partial class ConfigurationViewModel
     {
         public bool Populated = false;
-        private const string settingAPIKey = "apikeySetting";
         private const string settingConnexionAuto = "ConnexionAutoSetting";
         private const string settingFavoriteList = "FavoriteListSetting";
         private const string settingHost = "addressSetting";
@@ -52,8 +51,6 @@ namespace Jeedom
             {
                 ConnexionAuto = false;
             }
-
-            _apikey = RoamingSettings.Values[settingAPIKey] as string;
 
             //Populated si API Key et host disponible
             TestPopulated();
