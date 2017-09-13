@@ -46,45 +46,28 @@
         </StackPanel>
         <Pivot
             Name="PivotConnection"
-            Margin="0,66,0,0"
+            Margin="0,114,0,0"
             SelectionChanged="PivotConnection_SelectionChanged">
             <PivotItem
                 x:Name="Manuel"
-                Margin="10,10,14,50"
+                Margin="10,10,14,10"
                 Header="Manuel">
-                <Grid Margin="0,10,0,-48">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="120" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <localcontrols:ConnectControl x:Name="pnConnectControl" Margin="-1,10,1,-178" />
+                <Grid>
+                    <localcontrols:ConnectControl 
+                        x:Name="pnConnectControl" />
                     <Button
                         x:Name="bConnect"
-                        Grid.Row="1"
-                        Margin="37,224,131,133"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
                         Click="bConnect_Click"
-                        Content="Connexion"
-                        d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" />
+                        Content="Connexion" Margin="165,346,0,80"/>
                     <Button
                         x:Name="bdemo"
-                        Grid.Row="1"
-                        Width="87"
-                        Margin="210,224,0,133"
-                        VerticalAlignment="Stretch"
+                        VerticalAlignment="Bottom"
                         Click="Demo_Click"
-                        Content="Demo"
-                        d:LayoutOverrides="TopPosition,                              BottomPosition" />
+                        Content="Demo" Margin="38,0,0,80"/>
                     <TextBlock
                         x:Name="ErrorMsg"
-                        Grid.Row="1"
-                        Height="61"
-                        Margin="0,0,0,17"
-                        VerticalAlignment="Bottom"
                         Foreground="Red"
-                        Text=""
-                        d:LayoutOverrides="VerticalAlignment" />
+                        Text="" Margin="16,383,-16,10" />
                 </Grid>
             </PivotItem>
             <PivotItem x:Name="Auto" Header="Automatique">
