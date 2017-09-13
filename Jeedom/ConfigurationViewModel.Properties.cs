@@ -16,7 +16,6 @@ namespace Jeedom
                 {
                     _apikey = value;
                     TestPopulated();
-                    RoamingSettings.Values[settingAPIKey] = value;
                 }
             }
             get
