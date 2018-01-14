@@ -52,23 +52,42 @@
                 x:Name="Manuel"
                 Margin="10,10,14,10"
                 Header="Manuel">
-                <Grid>
-                    <localcontrols:ConnectControl 
-                        x:Name="pnConnectControl" />
-                    <Button
-                        x:Name="bConnect"
-                        Click="bConnect_Click"
-                        Content="Connexion" Margin="165,346,0,80"/>
-                    <Button
-                        x:Name="bdemo"
-                        VerticalAlignment="Bottom"
-                        Click="Demo_Click"
-                        Content="Demo" Margin="38,0,0,80"/>
+                <RelativePanel>
+                    <localcontrols:ConnectControl x:Name="pnConnectControl" RelativePanel.AlignHorizontalCenterWithPanel="True" />
+                    <Grid
+                        Width="100"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="pnConnectControl">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Button
+                            x:Name="bConnect"
+                            Grid.Row="0"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Stretch"
+                            Click="bConnect_Click"
+                            Content="Connexion" />
+                        <Button
+                            x:Name="bdemo"
+                            Grid.Row="1"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Bottom"
+                            Click="Demo_Click"
+                            Content="Demo" />
+                    </Grid>
+
                     <TextBlock
                         x:Name="ErrorMsg"
                         Foreground="Red"
-                        Text="" Margin="16,383,-16,10" />
-                </Grid>
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.AlignLeftWithPanel="True"
+                        RelativePanel.AlignRightWithPanel="True"
+                        Text="" />
+                </RelativePanel>
             </PivotItem>
             <PivotItem x:Name="Auto" Header="Automatique">
                 <TextBlock

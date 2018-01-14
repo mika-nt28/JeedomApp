@@ -92,6 +92,7 @@ namespace Jeedom
             {
                 var reponse = jsonrpc.GetRequestResponseDeserialized<Response<string>>();
                 config.ApiKey = reponse.result;
+                return jsonrpc.Error;
             }
             // Par sécurité on retourne sur https
             config.Address.ProtocolType = Address.Protocol.Https;
