@@ -1,0 +1,18 @@
+= Politique de confidentialité.
+
+== Renseignement personnel
+
+Nous nous engageons à ne collecter aucun renseignement personnel, d'aucune sorte que ce soit.
+
+== Connexion
+
+Les informations de connexion sont ajouté au clouds windows Storage pour facliter la connexion de tous vos appareils sur votre compte.
+
+== Donnée telecharger de votres serveur
+
+Toutes les informations télécharger de votre server Jeedom dans l'application reste en local.
+
+== Localisation
+
+Cette application offre la possibilité d'etre localisé.
+Vos informations de localisations sont transmise uniquement a votre serveur Jeedom avec la plugin Geoloc (officiel)

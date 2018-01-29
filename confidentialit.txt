@@ -1,4 +1,0 @@
-Politique modèle de confidentialité.
-Nous nous engageons à ne collecter aucun renseignement personnel, d'aucune sorte que ce soit.
-Seul les informations de connexion sont ajouté au clouds windows Storage pour faclité la connexion de tous vos appareils
-Toutes les autres informations saisi ou télécharger de votre server Jeedom dans l'application reste en local.
